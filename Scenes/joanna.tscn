@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://b60tkyi4tdohk"]
+
+[ext_resource type="Texture2D" uid="uid://cc5rf71fy1ovm" path="res://Art/EleonoreAndJoanna/Sprites/Joanna/Idle/Idle1.png" id="1_pt810"]
+[ext_resource type="Texture2D" uid="uid://duud8f4rouipc" path="res://Art/EleonoreAndJoanna/Sprites/Joanna/Idle/Idle2.png" id="2_hf6uf"]
+[ext_resource type="Texture2D" uid="uid://c7otwdupmmp5w" path="res://Art/EleonoreAndJoanna/Sprites/Joanna/Idle/Idle3.png" id="3_7vqd3"]
+[ext_resource type="Texture2D" uid="uid://cw7vbucdtfshp" path="res://Art/EleonoreAndJoanna/Sprites/Joanna/Idle/Idle4.png" id="4_hjx53"]
+[ext_resource type="Texture2D" uid="uid://brnkxi2ay03g5" path="res://Art/EleonoreAndJoanna/Sprites/Joanna/Idle/Idle5.png" id="5_8e05j"]
+[ext_resource type="Texture2D" uid="uid://dxo10lgl1nn5f" path="res://Art/EleonoreAndJoanna/Sprites/Joanna/Idle/Idle6.png" id="6_svlbo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7of6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pt810")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hf6uf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7vqd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hjx53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8e05j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_svlbo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Joanna" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7of6f")
+frame_progress = 0.454809
+speed_scale = 2.0
