@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bp71fuwvt3gcr"]
+[gd_scene load_steps=51 format=3 uid="uid://bp71fuwvt3gcr"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ctwy0"]
 [ext_resource type="Texture2D" uid="uid://6e88fxglnddy" path="res://Art/Blue_witch/B_witch_attack.png" id="2_aspur"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bv47obxhu44pb" path="res://Art/Blue_witch/B_witch_idle.png" id="6_xq4x6"]
 [ext_resource type="Texture2D" uid="uid://d082regcl6y1n" path="res://Art/Blue_witch/B_witch_run.png" id="7_638tb"]
 [ext_resource type="Script" path="res://addons1/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_nf2pw"]
-[ext_resource type="Script" path="res://addons1/phantom_camera/scripts/resources/tween_resource.gd" id="9_l3klc"]
+[ext_resource type="Script" path="res://PhantomCamera/addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_bj4i3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x27kw"]
 atlas = ExtResource("2_aspur")
@@ -302,53 +302,74 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_vyse7"]
-script = ExtResource("9_l3klc")
+[sub_resource type="CircleShape2D" id="CircleShape2D_mf7ds"]
+radius = 5.0
+
+[sub_resource type="Resource" id="Resource_x04y7"]
+script = ExtResource("9_bj4i3")
 duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8qij"]
+radius = 27.074
+
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_ctwy0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1, 14)
 sprite_frames = SubResource("SpriteFrames_qbhcp")
 animation = &"Death"
 frame_progress = 0.508073
 speed_scale = 2.0
+offset = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_mf7ds")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 limit_smoothed = true
 
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+[node name="PhantomCamera2D" type="Node2D" parent="."]
 script = ExtResource("8_nf2pw")
-priority_override = false
-priority = 0
-follow_mode = 0
-follow_targets = []
 zoom = Vector2(4, 4)
-snap_to_pixel = false
-frame_preview = true
-tween_resource = SubResource("Resource_vyse7")
-tween_on_load = true
-inactive_update_mode = 0
-follow_offset = Vector2(0, 0)
-follow_damping = false
-follow_damping_value = Vector2(0.1, 0.1)
-auto_zoom = false
-auto_zoom_min = 1.0
-auto_zoom_max = 5.0
-auto_zoom_margin = Vector4(0, 0, 0, 0)
-dead_zone_width = 0.0
-dead_zone_height = 0.0
-show_viewfinder_in_play = false
-draw_limits = false
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_target = NodePath("")
-limit_margin = Vector4i(0, 0, 0, 0)
+tween_resource = SubResource("Resource_x04y7")
+
+[node name="Interaction Component" type="Node2D" parent="."]
+
+[node name="Interaction Area" type="Area2D" parent="Interaction Component"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component/Interaction Area"]
+shape = SubResource("CircleShape2D_o8qij")
+
+[node name="InteractLabel" type="Label" parent="Interaction Component"]
+z_index = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -45.0
+offset_right = 206.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.440104, 0.46185)
+size_flags_horizontal = 4
+text = "Test
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Interaction Component/Interaction Area" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="Interaction Component/Interaction Area" to="." method="_on_interaction_area_area_exited"]

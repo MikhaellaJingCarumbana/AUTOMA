@@ -12,7 +12,7 @@ extends Node2D
 
 #region Constants
 
-const _constants := preload("res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_constants.gd")
+const _constants := preload("res://addons1/phantom_camera/scripts/phantom_camera/phantom_camera_constants.gd")
 
 #endregion
 

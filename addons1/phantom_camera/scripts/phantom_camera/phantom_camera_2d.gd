@@ -1,6 +1,6 @@
 @tool
 @icon("res://addons/phantom_camera/icons/phantom_camera_2d.svg")
-class_name PhantomCamera2D
+##class_name PhantomCamera2D
 extends Node2D
 
 ## Controls a scene's [Camera2D] and applies logic to it.
