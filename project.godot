@@ -27,10 +27,11 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "Eleanor_Intro": "res://Timeline/Eleanor_Intro.dtl",
-"test": "res://Timeline/test.dtl"
+"test": "res://Timeline/test.dtl",
+"timeline": "res://timeline.dtl"
 }
-layout/style_list=["res://Styles/Style.tres"]
-layout/default_style="res://Style.tres"
+layout/style_list=["res://Styles/NovelStylewithImage.tres", "res://Styles/Visual Novel.tres"]
+layout/default_style="res://Styles/NovelStylewithImage.tres"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1

@@ -366,6 +366,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.440104, 0.46185)
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 0
 text = "Test
 "
 horizontal_alignment = 1

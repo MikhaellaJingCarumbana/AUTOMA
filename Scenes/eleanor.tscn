@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv0jcs1d3y764"]
+[gd_scene load_steps=13 format=3 uid="uid://dv0jcs1d3y764"]
 
+[ext_resource type="Script" path="res://Scenes/eleanor.gd" id="1_17wcl"]
 [ext_resource type="Texture2D" uid="uid://x5cits3oied1" path="res://Art/EleonoreAndJoanna/Sprites/Eleonore/Idle/Idle1.png" id="1_u1rut"]
 [ext_resource type="Texture2D" uid="uid://bjja2ri7cy6ou" path="res://Art/EleonoreAndJoanna/Sprites/Eleonore/Idle/Idle2.png" id="2_gw4rf"]
 [ext_resource type="Texture2D" uid="uid://bby6pd7y3cv0a" path="res://Art/EleonoreAndJoanna/Sprites/Eleonore/Idle/Idle3.png" id="3_3u513"]
@@ -10,7 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://dh6h67a1rs8ky" path="res://Art/EleonoreAndJoanna/Sprites/Eleonore/Idle/Idle8.png" id="8_t2d3u"]
 [ext_resource type="Texture2D" uid="uid://cd46tno3sll83" path="res://Art/EleonoreAndJoanna/Sprites/Eleonore/Idle/Idle9.png" id="9_8gppw"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_h4exi"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_muys0"]
+radius = 11.1803
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_byk46"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -41,13 +45,20 @@ animations = [{
 "texture": ExtResource("9_8gppw")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
-scale = Vector2(0.995967, 1.00472)
-sprite_frames = SubResource("SpriteFrames_h4exi")
-frame_progress = 0.663471
+[node name="Eleanor" type="CharacterBody2D"]
+script = ExtResource("1_17wcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 14)
+shape = SubResource("CircleShape2D_muys0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_byk46")
+animation = &"idle"
+frame_progress = 0.942394
 speed_scale = 3.0
 flip_h = true

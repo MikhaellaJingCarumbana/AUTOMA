@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://wnv4yo871if8"]
+[gd_scene load_steps=26 format=3 uid="uid://wnv4yo871if8"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_mgmxu"]
 [ext_resource type="Texture2D" uid="uid://cxfdio3647qx3" path="res://Art/EPIC RPG World Pack - [FREE Demo]Ancient Ruins/EPIC RPG World Pack - [FREE Demo]Ancient Ruins - Copia/Tilesets/Tileset-Animated Terrains-8 frames-.png" id="4_ronca"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://156uivyhtwag" path="res://Art/EPIC RPG World Pack - [FREE Demo]Ancient Ruins/EPIC RPG World Pack - [FREE Demo]Ancient Ruins - Copia/Props/altar 224x288 - standing on grass.png" id="9_gx5ml"]
 [ext_resource type="Texture2D" uid="uid://b4so1f780e60f" path="res://Art/Forest BETA V3/Forest Structures.png" id="10_676jc"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Game Component/interact_area.tscn" id="13_2lwml"]
+[ext_resource type="PackedScene" uid="uid://dv0jcs1d3y764" path="res://Scenes/eleanor.tscn" id="14_fl44u"]
 [ext_resource type="Texture2D" uid="uid://tbyetemngdwo" path="res://Art/PixiVan Forest (Beta)/Stairs Bridge.png" id="18_wutyo"]
 [ext_resource type="Texture2D" uid="uid://c4tu5p2gjvsav" path="res://Art/PixiVan Forest (Beta)/Trees.png" id="19_yocry"]
 
@@ -6428,9 +6429,13 @@ layer_9/tile_data = PackedInt32Array(327666, 47, 0, 458757, 524335, 7, 983038, 3
 [node name="Player" parent="." instance=ExtResource("4_tmw1b")]
 position = Vector2(-160, -440)
 
+[node name="Eleanor" parent="." instance=ExtResource("14_fl44u")]
+position = Vector2(42, -475)
+
 [node name="InteractArea" parent="." instance=ExtResource("13_2lwml")]
-position = Vector2(46, -483)
-scale = Vector2(1.66624, 1.68581)
-interact_label = "Interaction_test"
-interact_type = "print_text"
-interact_value = "It worked?"
+position = Vector2(43, -469)
+scale = Vector2(3.9022, 3.66407)
+interact_label = "Talk to Eleanor"
+interact_type = "open_dialogic_timeline"
+interact_value = "It's working???"
+timeline_name = "Eleanor_Intro"

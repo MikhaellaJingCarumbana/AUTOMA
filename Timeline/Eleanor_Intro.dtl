@@ -1,1 +1,7 @@
 Eleanor_Tutorial (Group/New portrait): Greetings Little Witch!
+Eleanor_Tutorial (Group/New portrait): My name is Eleanor, I will be your guide today...
+Eleanor_Tutorial (Group/New portrait): Are you ready?
+- Yes
+	Eleanor_Tutorial (Group/New portrait): Great! let's start
+- No
+	Eleanor_Tutorial (Group/New portrait): Come back when you are ready, little witch!
