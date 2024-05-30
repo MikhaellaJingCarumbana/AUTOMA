@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dv0jcs1d3y764"]
 
-[ext_resource type="Script" path="res://Scenes/eleanor.gd" id="1_17wcl"]
+[ext_resource type="Script" path="res://Scripts/eleanor.gd" id="1_17wcl"]
 [ext_resource type="Texture2D" uid="uid://x5cits3oied1" path="res://Art/EleonoreAndJoanna/Sprites/Eleonore/Idle/Idle1.png" id="1_u1rut"]
 [ext_resource type="Texture2D" uid="uid://bjja2ri7cy6ou" path="res://Art/EleonoreAndJoanna/Sprites/Eleonore/Idle/Idle2.png" id="2_gw4rf"]
 [ext_resource type="Texture2D" uid="uid://bby6pd7y3cv0a" path="res://Art/EleonoreAndJoanna/Sprites/Eleonore/Idle/Idle3.png" id="3_3u513"]

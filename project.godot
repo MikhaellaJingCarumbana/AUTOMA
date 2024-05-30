@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+Global="*res://Scripts/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -53,7 +55,7 @@ glossary/default_case_sensitive=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [input]
 

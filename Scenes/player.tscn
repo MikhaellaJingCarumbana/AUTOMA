@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bp71fuwvt3gcr"]
+[gd_scene load_steps=52 format=3 uid="uid://bp71fuwvt3gcr"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ctwy0"]
 [ext_resource type="Texture2D" uid="uid://6e88fxglnddy" path="res://Art/Blue_witch/B_witch_attack.png" id="2_aspur"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d082regcl6y1n" path="res://Art/Blue_witch/B_witch_run.png" id="7_638tb"]
 [ext_resource type="Script" path="res://addons1/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_nf2pw"]
 [ext_resource type="Script" path="res://PhantomCamera/addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_bj4i3"]
+[ext_resource type="FontFile" uid="uid://k128qfbnuk" path="res://Fonts/upheaval (2)/upheavtt.ttf" id="10_xio3b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x27kw"]
 atlas = ExtResource("2_aspur")
@@ -366,6 +367,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.440104, 0.46185)
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("10_xio3b")
 theme_override_font_sizes/font_size = 0
 text = "Test
 "

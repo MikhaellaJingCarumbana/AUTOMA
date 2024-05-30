@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://wnv4yo871if8"]
 
-[ext_resource type="Script" path="res://Scenes/world.gd" id="1_mgmxu"]
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_mgmxu"]
 [ext_resource type="Texture2D" uid="uid://cxfdio3647qx3" path="res://Art/EPIC RPG World Pack - [FREE Demo]Ancient Ruins/EPIC RPG World Pack - [FREE Demo]Ancient Ruins - Copia/Tilesets/Tileset-Animated Terrains-8 frames-.png" id="4_ronca"]
 [ext_resource type="PackedScene" uid="uid://bp71fuwvt3gcr" path="res://Scenes/player.tscn" id="4_tmw1b"]
 [ext_resource type="Texture2D" uid="uid://pbs6fl07pcff" path="res://Art/EPIC RPG World Pack - [FREE Demo]Ancient Ruins/EPIC RPG World Pack - [FREE Demo]Ancient Ruins - Copia/Tilesets/Tileset-Terrain3.png" id="5_e8s6k"]
