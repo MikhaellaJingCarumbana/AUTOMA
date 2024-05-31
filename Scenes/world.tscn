@@ -6434,7 +6434,7 @@ position = Vector2(42, -475)
 
 [node name="InteractArea" parent="." instance=ExtResource("13_2lwml")]
 position = Vector2(43, -469)
-scale = Vector2(3.9022, 3.66407)
+scale = Vector2(7.38365, 7.71999)
 interact_label = "Talk to Eleanor"
 interact_type = "open_dialogic_timeline"
 interact_value = "It's working???"

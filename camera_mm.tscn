@@ -10,7 +10,8 @@ func _physics_process(delta):
 "
 
 [node name="CameraMM" type="CharacterBody2D"]
-position = Vector2(0, -4)
+position = Vector2(-365, -301)
 script = SubResource("GDScript_pe5ce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-182, -46)

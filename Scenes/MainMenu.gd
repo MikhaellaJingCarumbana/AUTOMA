@@ -13,6 +13,7 @@ func _ready():
 
 func _on_exit_pressed():
 		SilentWolf.Auth.logout_player()
+		get_tree().quit()
 
 
 func _on_start_pressed():

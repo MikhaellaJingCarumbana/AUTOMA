@@ -42,19 +42,20 @@ func _on_registration_user_pwd_complete(sw_result: Dictionary) -> void:
 
 func registration_success() -> void:
 	# redirect to configured scene (user is logged in after registration)
-	var scene_name = SilentWolf.auth_config.redirect_to_scene
+	var scene_name = SilentWolf.auth_config.redirect_to_login
 	# if doing email verification, open scene to confirm email address
 	if ("email_confirmation_scene" in SilentWolf.auth_config) and (SilentWolf.auth_config.email_confirmation_scene) != "":
 		SWLogger.info("registration succeeded, waiting for email verification...")
 		scene_name = SilentWolf.auth_config.email_confirmation_scene
 	else:
 		SWLogger.info("registration succeeded, logged in player: " + str(SilentWolf.Auth.logged_in_player))
-	get_tree().change_scene_to_file(scene_name)
+	# Automatically switch to redirect_to_login scene
+	get_tree().change_scene_to_file(SilentWolf.auth_config.redirect_to_login)
 
 
 func registration_user_pwd_success() -> void:
-	var scene_name = SilentWolf.auth_config.redirect_to_scene
-	get_tree().change_scene_to_file(scene_name)
+	# Automatically switch to redirect_to_login scene
+	get_tree().change_scene_to_file(SilentWolf.auth_config.redirect_to_login)
 
 
 func registration_failure(error: String) -> void:
@@ -64,7 +65,7 @@ func registration_failure(error: String) -> void:
 
 
 func _on_BackButton_pressed() -> void:
-	get_tree().change_scene_to_file(SilentWolf.auth_config.redirect_to_scene)
+	get_tree().change_scene_to_file(SilentWolf.auth_config.redirect_to_login)
 
 
 func show_processing_label() -> void:

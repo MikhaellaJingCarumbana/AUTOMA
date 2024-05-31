@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://bhfjskqlhy33j"]
+
+[ext_resource type="Shader" path="res://shaders/Skybackground.gdshader" id="1_q6doj"]
+[ext_resource type="Texture2D" uid="uid://c2ylfnr7y48p6" path="res://Art/Parallaxx/summer8/1.png" id="2_etl5c"]
+[ext_resource type="Shader" path="res://shaders/Skybackground2.gdshader" id="3_ysowp"]
+[ext_resource type="Texture2D" uid="uid://3lk0puod1d80" path="res://Art/Parallaxx/summer8/2.png" id="4_itgnn"]
+[ext_resource type="Shader" path="res://shaders/skybackground3.gdshader" id="5_mrli8"]
+[ext_resource type="Texture2D" uid="uid://fkjb2m2upmsc" path="res://Art/Parallaxx/summer8/3.png" id="6_bn57h"]
+[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="7_4k4ki"]
+[ext_resource type="Texture2D" uid="uid://cicp7rotn0hwc" path="res://Art/Parallaxx/summer8/4.png" id="8_8ivx6"]
+[ext_resource type="PackedScene" uid="uid://smtpyjhmn308" path="res://addons/silent_wolf/Auth/RegisterUsernamePassword.tscn" id="9_dnjib"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfjhg"]
+shader = ExtResource("1_q6doj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70gpr"]
+shader = ExtResource("3_ysowp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44ses"]
+shader = ExtResource("5_mrli8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fa3w2"]
+shader = ExtResource("7_4k4ki")
+
+[node name="RegisterNew" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Sky Background" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_tfjhg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_etl5c")
+
+[node name="Sky Background2" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_70gpr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_itgnn")
+
+[node name="Sky Background3" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_44ses")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_bn57h")
+
+[node name="grass" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fa3w2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8ivx6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.137255, 0.137255, 0.137255, 0.537255)
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -312.0
+offset_right = -550.0
+offset_bottom = -312.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Register" parent="Container" instance=ExtResource("9_dnjib")]
+layout_mode = 2
