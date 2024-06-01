@@ -57,7 +57,5 @@ func _on_back_button_pressed():
 	get_tree().change_scene_to_file(SilentWolf.auth_config.redirect_to_scene)
 
 
-
-
 func _on_link_button_2_pressed()-> void:
 	get_tree().change_scene_to_file(SilentWolf.auth_config.redirect_to_register)

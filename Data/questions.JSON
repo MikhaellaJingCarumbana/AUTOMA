@@ -1,17 +1,44 @@
-[
-	{
-		"question": "What is the capital of France?",
-		"options": ["Paris", "London", "Berlin", "Madrid"],
-		"correct_answer": "Paris"
-	},
-	{
-		"question": "What is 2 + 2?",
-		"options": ["3", "4", "5", "6"],
-		"correct_answer": "4"
-	},
-	{
-		"question": "Which planet is known as the Red Planet?",
-		"options": ["Earth", "Mars", "Jupiter", "Saturn"],
-		"correct_answer": "Mars"
-	}
-]
+{
+	"easy": [
+		{
+			"question": "What is the capital of France?",
+			"correct_answer": "Paris"
+		},
+		{
+			"question": "What is 2 + 2?",
+			"correct_answer": "4"
+		},
+		{
+			"question": "What color is the sky?",
+			"correct_answer": "Blue"
+		}
+	],
+	"moderate": [
+		{
+			"question": "Who painted the Mona Lisa?",
+			"correct_answer": "Leonardo da Vinci"
+		},
+		{
+			"question": "What is the square root of 64?",
+			"correct_answer": "8"
+		},
+		{
+			"question": "What is the capital of Japan?",
+			"correct_answer": "Tokyo"
+		}
+	],
+	"difficult": [
+		{
+			"question": "What is the chemical symbol for gold?",
+			"correct_answer": "Au"
+		},
+		{
+			"question": "What is the largest planet in our solar system?",
+			"correct_answer": "Jupiter"
+		},
+		{
+			"question": "Who wrote the play 'Hamlet'?",
+			"correct_answer": "William Shakespeare"
+		}
+	]
+}
