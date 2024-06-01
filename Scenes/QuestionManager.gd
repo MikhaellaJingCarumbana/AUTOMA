@@ -10,8 +10,20 @@ var score = 0
 @onready var answer_input = $AnswerInput
 @onready var submit_button = $SubmitButton
 @onready var score_label = $ScoreLabel
+@onready var player_name_label = $PlayerNameLabel
 
 func _ready():
+	# Debug: Print current logged in player
+	print("SilentWolf.Auth.logged_in_player: " + str(SilentWolf.Auth.logged_in_player))
+	
+	# Set the player name if logged in
+	if SilentWolf.Auth.logged_in_player:
+		player_name_label.text = SilentWolf.Auth.logged_in_player
+		print("Player name set to: " + player_name_label.text)
+	else:
+		player_name_label.text = "Not logged in"
+		print("No player logged in")
+		
 	# Load the questions from the JSON file
 	load_questions("res://Data/questions.JSON")  # Adjust the path as necessary
 
@@ -47,10 +59,11 @@ func next_question():
 		question_label.text = question["question"]
 		answer_input.text = ""
 	else:
-		# No more questions, show final score
+		# No more questions, show final score and save it
 		question_label.text = "Quiz complete! Your final score is: " + str(score)
 		answer_input.hide()
 		submit_button.hide()
+		save_score(player_name_label.text, score)
 
 func _on_submit_button_pressed():
 	# Get the current question
@@ -65,3 +78,13 @@ func _on_submit_button_pressed():
 
 	# Show the next question
 	next_question()
+
+func save_score(player_name: String, score: int) -> void:
+	# Save the score to SilentWolf backend
+	SilentWolf.Scores.save_score(player_name, score).sw_save_score_complete.connect(self._on_score_saved)
+
+func _on_score_saved(sw_result: Dictionary):
+	if sw_result.success:
+		print("Score persisted successfully: " + str(sw_result.score_id))
+	else:
+		print("Failed to save score: " + str(sw_result.error))

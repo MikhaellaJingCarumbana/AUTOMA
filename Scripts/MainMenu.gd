@@ -3,6 +3,7 @@ extends Control
 @onready var start_button = $VBoxContainer/Start
 @onready var exit_button = $VBoxContainer/Exit
 @onready var world_scene = preload("res://Scenes/world.tscn")
+@onready var practice_questions = preload("res://Scenes/PracticeQuestion.tscn")
 
 
 
@@ -27,3 +28,7 @@ func _on_pratice_pressed():
 
 func _on_leaderboard_pressed():
 	get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
+
+
+func _on_practice_pressed():
+	get_tree().change_scene_to_packed(practice_questions)

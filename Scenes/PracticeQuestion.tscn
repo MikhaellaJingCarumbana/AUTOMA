@@ -5,6 +5,14 @@
 [node name="PracticeQuestion" type="Node2D"]
 script = ExtResource("1_qlsdx")
 
+[node name="PlayerNameLabel" type="Label" parent="."]
+offset_left = 126.0
+offset_top = 151.0
+offset_right = 377.0
+offset_bottom = 174.0
+text = "Player Name
+"
+
 [node name="QuestionLabel" type="Label" parent="."]
 offset_left = 381.0
 offset_top = 198.0
