@@ -1,5 +1,7 @@
 extends TextureRect
 
+var logged_in_username = ""
+
 const SWLogger = preload("res://addons/silent_wolf/utils/SWLogger.gd")
 
 
@@ -18,6 +20,7 @@ func _on_LoginButton_pressed() -> void:
 
 func _on_login_complete(sw_result: Dictionary) -> void:
 	if sw_result.success:
+		logged_in_username = SilentWolf.Auth.logged_in_player
 		login_success()
 	else:
 		login_failure(sw_result.error)

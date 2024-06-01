@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbsae5emgj1xm"]
+
+[ext_resource type="Script" path="res://Scenes/test.gd" id="1_tfcsp"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfcsp")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 213.0
+offset_right = 780.0
+offset_bottom = 281.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 310.0
+offset_right = 638.0
+offset_bottom = 370.0
+text = "Submit Score"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 166.0
+offset_right = 676.0
+offset_bottom = 189.0
+text = "Player Name"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

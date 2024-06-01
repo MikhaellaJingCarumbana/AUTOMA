@@ -19,3 +19,11 @@ func _on_exit_pressed():
 func _on_start_pressed():
 	get_tree().change_scene_to_packed(world_scene)
 
+
+
+func _on_pratice_pressed():
+	get_tree().change_scene_to_file("")
+
+
+func _on_leaderboard_pressed():
+	get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")

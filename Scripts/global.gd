@@ -19,6 +19,7 @@ func _ready():
 		"login_scene": "res://Scenes/LoginNew.tscn",
 		"redirect_to_register": "res://Scenes/Register.tscn",
 		"redirect_to_menu": "res://Scenes/MainMenu.tscn",
+		"redirect_to_practice" : "res://Scenes/Pratice.tscn",
 #		"email_confirmation_scene": "res://addons/silent_wolf/Auth/ConfirmEmail.tscn", # comment if email confirmation not enabled
 		"reset_password_scene": "res://addons/silent_wolf/Auth/ResetPassword.tscn",
 		"session_duration_seconds": 0,

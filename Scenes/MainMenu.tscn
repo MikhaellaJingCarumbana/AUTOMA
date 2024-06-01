@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cfkgjewglxqf6"]
 
 [ext_resource type="Shader" path="res://shaders/Skybackground.gdshader" id="1_0q0pf"]
-[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_h7umd"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_h7umd"]
 [ext_resource type="Texture2D" uid="uid://c2ylfnr7y48p6" path="res://Art/Parallaxx/summer8/1.png" id="1_plth8"]
 [ext_resource type="Texture2D" uid="uid://3lk0puod1d80" path="res://Art/Parallaxx/summer8/2.png" id="2_8oxiq"]
 [ext_resource type="Shader" path="res://shaders/Skybackground2.gdshader" id="2_qa42g"]
@@ -107,10 +107,10 @@ anchor_left = 0.345
 anchor_top = 1.0
 anchor_right = 0.635
 anchor_bottom = 1.0
-offset_left = 5.56
-offset_top = -323.0
-offset_right = 4.47998
-offset_bottom = -111.0
+offset_left = 3.56
+offset_top = -311.0
+offset_right = 2.47998
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1, 1.04)
@@ -130,7 +130,15 @@ theme_override_font_sizes/font_size = 40
 text = "LEADERBOARD
 "
 
-[node name="Pratice" type="Button" parent="VBoxContainer"]
+[node name="Test" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_voawx")
+theme_override_font_sizes/font_size = 40
+text = "Test
+"
+
+[node name="Practice" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("11_voawx")
@@ -146,4 +154,6 @@ theme_override_font_sizes/font_size = 40
 text = "EXIT"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="VBoxContainer/Test" to="." method="_on_pratice_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
