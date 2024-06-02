@@ -1,13 +1,13 @@
 extends Node2D
 
-
 # Variables to store questions, current question, and score
-var questions = []
+var questions = {}
 var current_question_index = -1
 var score = 0
 var wrong_answers = 0
 var correct_answers = 0
 var current_difficulty = "easy"
+var shuffled_questions = []
 
 # Nodes for UI elements
 @onready var question_label = $QuestionLabel
@@ -37,7 +37,8 @@ func _ready():
 	submit_button.pressed.connect(self._on_submit_button_pressed)
 	try_again_button.pressed.connect(self._on_try_again_button_pressed)
 
-	# Show the first question
+	# Shuffle and show the first question
+	shuffle_questions()
 	next_question()
 
 func load_questions(file_path: String):
@@ -56,13 +57,20 @@ func load_questions(file_path: String):
 	else:
 		print("Questions file not found")
 
+func shuffle_questions():
+	# Shuffle questions for the current difficulty
+	shuffled_questions = questions[current_difficulty].duplicate()
+	shuffled_questions.shuffle()
+	current_question_index = -1
+
 func next_question():
 	# Increment the question index
 	current_question_index += 1
 
 	# Check if there are more questions
-	if current_question_index < questions[current_difficulty].size():
-		var question = questions[current_difficulty][current_question_index]
+	if current_question_index < shuffled_questions.size():
+		var question = shuffled_questions[current_question_index]
+		print("Current question: ", question)  # Debug print
 		question_label.text = question["question"]
 		answer_input.text = ""
 		try_again_button.hide()  # Hide "Try Again" button
@@ -82,10 +90,18 @@ func next_question():
 
 func _on_submit_button_pressed():
 	# Get the current question
-	var question = questions[current_difficulty][current_question_index]
+	var question = shuffled_questions[current_question_index]
+	print("Answering question: ", question)  # Debug print
 
-	# Check the answer
-	if answer_input.text == question["correct_answer"]:
+	# Check the answer (case-insensitive)
+	var answer = answer_input.text.to_lower()
+	var correct = false
+	for correct_answer in question["correct_answers"]:
+		if answer == correct_answer.to_lower():
+			correct = true
+			break
+
+	if correct:
 		score += 1
 		correct_answers += 1
 	else:
@@ -99,7 +115,8 @@ func _on_submit_button_pressed():
 
 func _on_try_again_button_pressed():
 	# Calculate the score percentage
-	var score_percentage = float(score) / questions[current_difficulty].size()
+	var total_questions = shuffled_questions.size()
+	var score_percentage = float(score) / total_questions
 
 	# Determine the new difficulty based on the score percentage
 	if score_percentage >= 0.5:
@@ -120,9 +137,9 @@ func _on_try_again_button_pressed():
 	wrong_answers = 0
 	correct_answers = 0
 	
-	# Reset the question index
-	current_question_index = -1
-	
+	# Shuffle questions and reset the question index
+	shuffle_questions()
+
 	# Show the first question again
 	next_question()
 
@@ -139,7 +156,6 @@ func _on_score_saved(sw_result: Dictionary):
 func _process(delta: float):
 	# This function can be used for other periodic checks if needed
 	pass
-
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")

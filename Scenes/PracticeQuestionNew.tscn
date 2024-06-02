@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceqv71t0diqm4"]
+
+[ext_resource type="Shader" path="res://shaders/Skybackground.gdshader" id="1_uoctw"]
+[ext_resource type="Texture2D" uid="uid://byrbbdso5id02" path="res://Art/Parallaxx/Dynamic Space Background FREE/Nebula Blue.png" id="2_6ak0q"]
+[ext_resource type="Shader" path="res://shaders/Skybackground2.gdshader" id="3_odc42"]
+[ext_resource type="Texture2D" uid="uid://duykndnotof6o" path="res://Art/Parallaxx/Dynamic Space Background FREE/Stars Small_2.png" id="4_q8sag"]
+[ext_resource type="PackedScene" uid="uid://bo37wn5msx4ck" path="res://Scenes/PracticeQuestion.tscn" id="5_xm6j2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ev14r"]
+shader = ExtResource("1_uoctw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qq47x"]
+shader = ExtResource("3_odc42")
+
+[node name="PracticeQuestionNew" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sky Background" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ev14r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6ak0q")
+expand_mode = 1
+
+[node name="Sky Background2" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_qq47x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_q8sag")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -592.0
+offset_top = -309.0
+offset_right = -592.0
+offset_bottom = -309.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PracticeQuestion" parent="HBoxContainer" instance=ExtResource("5_xm6j2")]
+position = Vector2(15, 64)

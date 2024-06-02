@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2h8ok8yfc7wb"]
+[gd_scene load_steps=6 format=3 uid="uid://b2h8ok8yfc7wb"]
 
 [ext_resource type="Script" path="res://addons/silent_wolf/Scores/Leaderboard.gd" id="1"]
 [ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://addons/silent_wolf/assets/themes/sw_theme.tres" id="2_ixaq4"]
+[ext_resource type="FontFile" uid="uid://k128qfbnuk" path="res://Fonts/upheaval (2)/upheavtt.ttf" id="3_so5j4"]
 [ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="4"]
 
 [sub_resource type="Theme" id="Theme_j1gah"]
@@ -36,6 +37,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Board/TitleContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_so5j4")
 theme_override_font_sizes/font_size = 72
 text = "Leaderboard"
 horizontal_alignment = 1
@@ -62,7 +64,8 @@ layout_mode = 2
 [node name="CloseButton" parent="Board/CloseButtonContainer" instance=ExtResource("4")]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Close Leaderboard"
+theme_override_fonts/font = ExtResource("3_so5j4")
+theme_override_font_sizes/font_size = 50
+text = "CLOSE"
 
 [connection signal="pressed" from="Board/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

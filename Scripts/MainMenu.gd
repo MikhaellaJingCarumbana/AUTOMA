@@ -27,7 +27,7 @@ func _on_pratice_pressed():
 
 
 func _on_leaderboard_pressed():
-	get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Leaderboard.tscn")
 
 
 func _on_practice_pressed():

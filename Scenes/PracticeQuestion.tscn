@@ -1,77 +1,89 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo37wn5msx4ck"]
+[gd_scene load_steps=6 format=3 uid="uid://bo37wn5msx4ck"]
 
 [ext_resource type="Script" path="res://Scenes/QuestionManager.gd" id="1_qlsdx"]
+[ext_resource type="FontFile" uid="uid://k128qfbnuk" path="res://Fonts/upheaval (2)/upheavtt.ttf" id="2_6taem"]
 [ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="2_vx2bf"]
 [ext_resource type="Texture2D" uid="uid://c35jbmcdqa0aq" path="res://Art/Lucid V1.2/PNG/Flat/64/Chevron-Arrow-Left.png" id="3_jxawc"]
+[ext_resource type="Texture2D" uid="uid://brp1pdt2gotv5" path="res://Art/Lucid V1.2/PNG/Flat/64/Redo.png" id="3_lnmxp"]
 
 [node name="PracticeQuestion" type="Node2D"]
 script = ExtResource("1_qlsdx")
 
 [node name="PlayerNameLabel" type="Label" parent="."]
-offset_left = 126.0
-offset_top = 151.0
-offset_right = 377.0
-offset_bottom = 174.0
+offset_left = 256.0
+offset_top = 104.0
+offset_right = 640.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("2_6taem")
+theme_override_font_sizes/font_size = 30
 text = "Player Name
 "
 
 [node name="QuestionLabel" type="Label" parent="."]
-offset_left = 381.0
-offset_top = 198.0
-offset_right = 703.0
-offset_bottom = 221.0
+offset_left = 200.0
+offset_top = 216.0
+offset_right = 1024.0
+offset_bottom = 248.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_6taem")
+theme_override_font_sizes/font_size = 25
 text = "Question
 "
+horizontal_alignment = 1
 
 [node name="AnswerInput" type="LineEdit" parent="."]
-offset_left = 368.0
-offset_top = 263.0
-offset_right = 730.0
-offset_bottom = 294.0
+offset_left = 320.0
+offset_top = 320.0
+offset_right = 896.0
+offset_bottom = 381.0
+theme_override_fonts/font = ExtResource("2_6taem")
+theme_override_font_sizes/font_size = 20
 
 [node name="SubmitButton" type="Button" parent="."]
-offset_left = 393.0
-offset_top = 326.0
-offset_right = 511.0
-offset_bottom = 375.0
-text = "Submit
+offset_left = 544.0
+offset_top = 416.0
+offset_right = 662.0
+offset_bottom = 479.0
+theme_override_fonts/font = ExtResource("2_6taem")
+theme_override_font_sizes/font_size = 20
+text = "SUBMIT
 "
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 379.0
-offset_top = 492.0
-offset_right = 720.0
-offset_bottom = 515.0
+offset_left = 872.0
+offset_top = 96.0
+offset_right = 1072.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("2_6taem")
+theme_override_font_sizes/font_size = 30
 text = "Score"
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="AIIndicator" type="Label" parent="."]
-offset_left = 778.0
-offset_top = 141.0
-offset_right = 986.0
-offset_bottom = 164.0
-text = "AI indicator"
-
 [node name="TryAgainButton" type="Button" parent="."]
-offset_left = 572.0
-offset_top = 336.0
-offset_right = 706.0
-offset_bottom = 376.0
-text = "Try Again"
+offset_left = 576.0
+offset_top = 416.0
+offset_right = 636.0
+offset_bottom = 480.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_6taem")
+text = "
+"
+icon = ExtResource("3_lnmxp")
+flat = true
 
 [node name="DifficultyLabel" type="Label" parent="."]
-offset_left = 144.0
-offset_top = 418.0
-offset_right = 422.0
-offset_bottom = 441.0
+offset_left = 256.0
+offset_top = 40.0
+offset_right = 534.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("2_6taem")
 text = "Difficulty"
 
 [node name="BackButton" parent="." instance=ExtResource("2_vx2bf")]
-offset_left = 79.0
-offset_top = 64.0
-offset_right = 115.0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 108.0
 offset_bottom = 120.0
 text = ""
 icon = ExtResource("3_jxawc")
