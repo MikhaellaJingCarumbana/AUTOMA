@@ -1,17 +1,12 @@
 extends Node2D
 
+
 # Variables to store questions, current question, and score
 var questions = []
 var current_question_index = -1
 var score = 0
 var wrong_answers = 0
-var total_time = 0
 var correct_answers = 0
-var difficulty_thresholds = {
-	"easy": {"wrong_answers": 2, "total_time": 30},
-	"moderate": {"wrong_answers": 4, "total_time": 60},
-	"difficult": {"wrong_answers": 6, "total_time": 90}
-}
 var current_difficulty = "easy"
 
 # Nodes for UI elements
@@ -78,7 +73,12 @@ func next_question():
 		question_label.text = "Quiz complete! Your final score is: " + str(score)
 		submit_button.hide()  # Hide the "Submit" button
 		try_again_button.show()  # Show "Try Again" button
-		save_score(player_name_label.text, score)
+		
+		# Save score only if a player is logged in
+		if player_name_label.text != "Not logged in":
+			save_score(player_name_label.text, score)
+		else:
+			print("Player not logged in, score not saved")
 
 func _on_submit_button_pressed():
 	# Get the current question
@@ -98,20 +98,8 @@ func _on_submit_button_pressed():
 	next_question()
 
 func _on_try_again_button_pressed():
-	# Reset the score, wrong answers, correct answers, and total time
-	score = 0
-	wrong_answers = 0
-	correct_answers = 0
-	total_time = 0
-	
-	# Reset the question index
-	current_question_index = -1
-	
-	# Get the questions of the current difficulty
-	var questions_of_current_difficulty = questions[current_difficulty]
-	
 	# Calculate the score percentage
-	var score_percentage = float(score) / questions_of_current_difficulty.size()
+	var score_percentage = float(score) / questions[current_difficulty].size()
 
 	# Determine the new difficulty based on the score percentage
 	if score_percentage >= 0.5:
@@ -126,11 +114,17 @@ func _on_try_again_button_pressed():
 			current_difficulty = "moderate"
 		elif current_difficulty == "moderate":
 			current_difficulty = "easy"
+
+	# Reset the score, wrong answers, correct answers
+	score = 0
+	wrong_answers = 0
+	correct_answers = 0
+	
+	# Reset the question index
+	current_question_index = -1
 	
 	# Show the first question again
 	next_question()
-
-
 
 func save_score(player_name: String, score: int) -> void:
 	# Save the score to SilentWolf backend
@@ -143,13 +137,9 @@ func _on_score_saved(sw_result: Dictionary):
 		print("Failed to save score: " + str(sw_result.error))
 
 func _process(delta: float):
-	# Check if difficulty needs to be adjusted based on player performance
-	if current_difficulty != "difficult" and (wrong_answers >= difficulty_thresholds[current_difficulty]["wrong_answers"] or total_time >= difficulty_thresholds[current_difficulty]["total_time"]):
-		if current_difficulty == "easy":
-			current_difficulty = "moderate"
-		elif current_difficulty == "moderate":
-			current_difficulty = "difficult"
-		else:
-			current_difficulty = "difficult"
-		
-		print("Difficulty adjusted to: " + current_difficulty)
+	# This function can be used for other periodic checks if needed
+	pass
+
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
