@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbsae5emgj1xm"]
 
-[ext_resource type="Script" path="res://Scenes/test.gd" id="1_tfcsp"]
+[ext_resource type="Script" path="res://Scripts/test.gd" id="1_tfcsp"]
 
 [node name="Test" type="Control"]
 layout_mode = 3

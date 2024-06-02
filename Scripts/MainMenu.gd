@@ -3,7 +3,8 @@ extends Control
 @onready var start_button = $VBoxContainer/Start
 @onready var exit_button = $VBoxContainer/Exit
 @onready var world_scene = preload("res://Scenes/world.tscn")
-@onready var practice_questions = preload("res://Scenes/PracticeQuestion.tscn")
+@onready var practice_questions = preload("res://Scenes/PracticeQuestionNew.tscn")
+
 
 
 
