@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://0pnyspsoorum"]
+
+[ext_resource type="Script" path="res://Test Scenes/Test Scripts/Card.gd" id="1_cdm3d"]
+[ext_resource type="Texture2D" uid="uid://deumvmbkqgepj" path="res://Art/Card UI/CardBack/CardBack.png" id="2_dtrwt"]
+[ext_resource type="Shader" path="res://shaders/2-Dperspective.gdshader" id="2_o8rh7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ei3p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_24s12"]
+shader = ExtResource("2_o8rh7")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[node name="Card" type="Button"]
+material = SubResource("ShaderMaterial_5ei3p")
+custom_minimum_size = Vector2(300, 400)
+anchors_preset = -1
+anchor_right = 0.26
+anchor_bottom = 0.617
+offset_right = -154.52
+offset_bottom = -201.816
+flat = true
+script = ExtResource("1_cdm3d")
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0.0588235, 0.0588235, 0.0588235, 0.803922)
+self_modulate = Color(0.0352941, 0.0352941, 0.0352941, 0.6)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 51.0
+offset_top = 66.0
+offset_right = -51.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dtrwt")
+expand_mode = 1
+
+[node name="CardTexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_24s12")
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.005
+offset_right = -64.0
+offset_bottom = -75.0
+texture = ExtResource("2_dtrwt")
+expand_mode = 5
+stretch_mode = 5
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="CardTexture" to="." method="_on_card_texture_gui_input"]
