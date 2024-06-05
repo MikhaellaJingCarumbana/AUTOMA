@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0pnyspsoorum"]
+[gd_scene load_steps=6 format=3 uid="uid://cjhwg2nmxv7cc"]
 
 [ext_resource type="Script" path="res://Test Scenes/Test Scripts/Card.gd" id="1_cdm3d"]
 [ext_resource type="Texture2D" uid="uid://deumvmbkqgepj" path="res://Art/Card UI/CardBack/CardBack.png" id="2_dtrwt"]
@@ -18,10 +18,8 @@ shader_parameter/inset = 0.0
 material = SubResource("ShaderMaterial_5ei3p")
 custom_minimum_size = Vector2(300, 400)
 anchors_preset = -1
-anchor_right = 0.26
-anchor_bottom = 0.617
-offset_right = -154.52
-offset_bottom = -201.816
+offset_right = 300.0
+offset_bottom = 400.0
 flat = true
 script = ExtResource("1_cdm3d")
 
@@ -46,14 +44,16 @@ material = SubResource("ShaderMaterial_24s12")
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.005
-offset_right = -64.0
-offset_bottom = -75.0
+offset_right = 300.0
+offset_bottom = 402.0
 texture = ExtResource("2_dtrwt")
 expand_mode = 5
 stretch_mode = 5
 
+[node name="DestroyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyArea"]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="gui_input" from="CardTexture" to="." method="_on_card_texture_gui_input"]
