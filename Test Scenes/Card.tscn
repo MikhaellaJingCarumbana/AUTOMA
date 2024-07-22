@@ -1,58 +1,70 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjhwg2nmxv7cc"]
+[gd_scene load_steps=7 format=3 uid="uid://o8yfe6ca2r8s"]
 
-[ext_resource type="Script" path="res://Test Scenes/Test Scripts/Card.gd" id="1_cdm3d"]
-[ext_resource type="Texture2D" uid="uid://deumvmbkqgepj" path="res://Art/Card UI/CardBack/CardBack.png" id="2_dtrwt"]
-[ext_resource type="Shader" path="res://shaders/2-Dperspective.gdshader" id="2_o8rh7"]
+[ext_resource type="Script" path="res://Test Scenes/card.gd" id="1_mpkhh"]
+[ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="2_jn8hh"]
+[ext_resource type="Texture2D" uid="uid://15ppwngtxetg" path="res://Art/Custom UI/Q1.png" id="3_s1tad"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ei3p"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s8ucw"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_24s12"]
-shader = ExtResource("2_o8rh7")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky0bt"]
+resource_local_to_scene = true
+shader = ExtResource("2_jn8hh")
+shader_parameter/rect_size = Vector2(185, 249)
 shader_parameter/fov = 90.0
 shader_parameter/cull_back = true
 shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbmc3"]
+size = Vector2(137.5, 179.75)
+
 [node name="Card" type="Button"]
-material = SubResource("ShaderMaterial_5ei3p")
-custom_minimum_size = Vector2(300, 400)
-anchors_preset = -1
-offset_right = 300.0
-offset_bottom = 400.0
-flat = true
-script = ExtResource("1_cdm3d")
+custom_minimum_size = Vector2(152, 207)
+offset_right = 152.0
+offset_bottom = 207.0
+pivot_offset = Vector2(76, 103.5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s8ucw")
+script = ExtResource("1_mpkhh")
+velocity_multiplier = 1.0
 
 [node name="Shadow" type="TextureRect" parent="."]
-modulate = Color(0.0588235, 0.0588235, 0.0588235, 0.803922)
-self_modulate = Color(0.0352941, 0.0352941, 0.0352941, 0.6)
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.305882)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 51.0
-offset_top = 66.0
-offset_right = -51.0
-offset_bottom = -42.0
+offset_left = -1.0
+offset_top = 33.0
+offset_right = 8.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_dtrwt")
+texture = ExtResource("3_s1tad")
 expand_mode = 1
 
 [node name="CardTexture" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_24s12")
-custom_minimum_size = Vector2(300, 400)
+material = SubResource("ShaderMaterial_ky0bt")
 layout_mode = 1
-anchors_preset = -1
-offset_right = 300.0
-offset_bottom = 402.0
-texture = ExtResource("2_dtrwt")
-expand_mode = 5
-stretch_mode = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s1tad")
+expand_mode = 1
 
 [node name="DestroyArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyArea"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(90, 128)
+shape = SubResource("RectangleShape2D_nbmc3")
+disabled = true
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
