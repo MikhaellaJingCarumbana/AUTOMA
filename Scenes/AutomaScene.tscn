@@ -1,0 +1,230 @@
+[gd_scene load_steps=11 format=3 uid="uid://8x4hm3xpsv2x"]
+
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_rve0b"]
+[ext_resource type="PackedScene" uid="uid://o8yfe6ca2r8s" path="res://Test Scenes/Card.tscn" id="1_u4ayy"]
+[ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="3_i6jkk"]
+[ext_resource type="Texture2D" uid="uid://d0bqr37ip74w6" path="res://Art/Custom UI/Q3.png" id="3_k5r82"]
+[ext_resource type="Texture2D" uid="uid://cybokbuedjr5q" path="res://Art/Custom UI/Q2.png" id="4_hdfbf"]
+[ext_resource type="Texture2D" uid="uid://15ppwngtxetg" path="res://Art/Custom UI/Q1.png" id="5_stflv"]
+[ext_resource type="Script" path="res://Scenes/drawn_cards.gd" id="7_s2qud"]
+
+[sub_resource type="GDScript" id="GDScript_vtyic"]
+script/source = "extends Control
+
+@export var max_offset: Vector2
+@export var smoothing: float = 2.0
+
+@onready var parallax = $Parallax
+
+func _process(delta):
+	var center: Vector2 = get_viewport_rect().size / 2.0
+	var dist: Vector2 = get_global_mouse_position() - center
+	var offset: Vector2 = dist / center
+	
+	var new_pos: Vector2
+	
+	new_pos.x = lerp(max_offset.x, -max_offset.x, offset.x)
+	new_pos.y = lerp(max_offset.y, -max_offset.y, offset.y)
+	
+	parallax.position.x = lerp(parallax.position.x, new_pos.x, smoothing * delta)
+	parallax.position.y = lerp(parallax.position.y, new_pos.y, smoothing * delta)
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1fae"]
+resource_local_to_scene = true
+shader = ExtResource("1_rve0b")
+shader_parameter/polar_coordinates = true
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.13963, 0.239247, 0.459978, 1)
+shader_parameter/colour_2 = Color(0.854902, 0.690196, 0.25098, 1)
+shader_parameter/colour_3 = Color(0.0666667, 0.411765, 0.403922, 1)
+shader_parameter/contrast = 3.0
+shader_parameter/spin_amount = 0.1
+shader_parameter/pixel_filter = 1000.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2x0vd"]
+shader = ExtResource("3_i6jkk")
+shader_parameter/rect_size = null
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[node name="AutomaScene" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.003
+offset_right = 2.0
+offset_bottom = 0.0559692
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = SubResource("GDScript_vtyic")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r1fae")
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parallax" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hand" type="Control" parent="Parallax"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Parallax/Hand"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.392
+anchor_top = 0.781
+anchor_right = 0.392
+anchor_bottom = 0.781
+offset_left = -420.368
+offset_top = -103.65
+offset_right = 419.632
+offset_bottom = 103.35
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Card" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
+layout_mode = 2
+
+[node name="Card2" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
+layout_mode = 2
+
+[node name="Card3" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
+layout_mode = 2
+
+[node name="Card4" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
+layout_mode = 2
+
+[node name="Card5" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
+layout_mode = 2
+
+[node name="DrawnCards" type="Control" parent="Parallax" node_paths=PackedStringArray("from")]
+layout_mode = 1
+anchor_left = 0.484
+anchor_top = 0.426
+anchor_right = 0.484
+anchor_bottom = 0.426
+offset_left = -0.536011
+offset_top = -83.9
+offset_right = -0.536011
+offset_bottom = -83.9
+script = ExtResource("7_s2qud")
+from = NodePath("../Pile")
+card_scene = ExtResource("1_u4ayy")
+card_offset_x = 100.0
+
+[node name="DrawBtn" type="Button" parent="Parallax"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.787
+anchor_top = 0.786
+anchor_right = 0.787
+anchor_bottom = 0.786
+offset_left = -46.1981
+offset_top = 121.1
+offset_right = 222.802
+offset_bottom = 171.1
+text = "Draw/Undraw
+"
+
+[node name="Pile" type="Control" parent="Parallax"]
+layout_mode = 1
+anchor_left = 0.78
+anchor_top = 0.781
+anchor_right = 0.78
+anchor_bottom = 0.781
+offset_left = -0.120056
+offset_top = -127.65
+offset_right = 180.88
+offset_bottom = 121.35
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Parallax/Pile"]
+material = SubResource("ShaderMaterial_2x0vd")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.064
+anchor_right = 0.949
+anchor_bottom = 0.957
+offset_left = 0.0749846
+offset_top = -0.0400009
+offset_right = -0.0750275
+offset_bottom = 0.104996
+texture = ExtResource("3_k5r82")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Parallax/Pile"]
+material = SubResource("ShaderMaterial_2x0vd")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.029
+anchor_top = 0.043
+anchor_right = 0.926
+anchor_bottom = 0.936
+offset_left = -0.0750155
+offset_top = -0.105
+offset_right = -0.0500183
+offset_bottom = 0.0399933
+texture = ExtResource("4_hdfbf")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Parallax/Pile"]
+material = SubResource("ShaderMaterial_2x0vd")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.026
+anchor_right = 0.971
+anchor_bottom = 0.919
+offset_left = 0.0499849
+offset_top = -0.11
+offset_right = 0.0749664
+offset_bottom = 0.0349884
+texture = ExtResource("5_stflv")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Parallax/Pile"]
+material = SubResource("ShaderMaterial_2x0vd")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.026
+anchor_right = 0.971
+anchor_bottom = 0.919
+offset_left = 0.0499849
+offset_top = -0.11
+offset_right = 0.0749664
+offset_bottom = 0.0349884
+texture = ExtResource("5_stflv")
+expand_mode = 1
+
+[connection signal="pressed" from="Parallax/DrawBtn" to="Parallax/DrawnCards" method="_on_draw_btn_pressed"]

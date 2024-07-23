@@ -1,30 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsp0hp2c17tg3"]
+[gd_scene load_steps=5 format=3 uid="uid://bsp0hp2c17tg3"]
 
 [ext_resource type="Texture2D" uid="uid://15ppwngtxetg" path="res://Art/Custom UI/Q1.png" id="1_uwwgj"]
 [ext_resource type="Texture2D" uid="uid://cybokbuedjr5q" path="res://Art/Custom UI/Q2.png" id="2_my0of"]
-[ext_resource type="PackedScene" uid="uid://o8yfe6ca2r8s" path="res://Test Scenes/Card.tscn" id="3_0lbj1"]
-[ext_resource type="Script" path="res://Scenes/drawn_cards.gd" id="3_d1ttf"]
 [ext_resource type="Texture2D" uid="uid://d0bqr37ip74w6" path="res://Art/Custom UI/Q3.png" id="3_h33na"]
+
+[sub_resource type="GDScript" id="GDScript_pm5po"]
 
 [node name="Draganddrop" type="Node2D"]
 
 [node name="Parallax" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 431.0
-offset_top = 131.0
-offset_right = 471.0
-offset_bottom = 171.0
+offset_right = 1413.0
+offset_bottom = 771.0
 
-[node name="Pile" type="Control" parent="Parallax"]
+[node name="Pile" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 748.0
-offset_top = 238.0
-offset_right = 868.0
-offset_bottom = 408.0
+offset_left = 1179.0
+offset_top = 369.0
+offset_right = 1299.0
+offset_bottom = 539.0
 
-[node name="CardTexture1" type="TextureRect" parent="Parallax/Pile"]
+[node name="CardTexture1" type="TextureRect" parent="Pile"]
 layout_mode = 0
 offset_left = -10.0
 offset_top = 27.0
@@ -33,7 +31,7 @@ offset_bottom = 161.0
 texture = ExtResource("1_uwwgj")
 expand_mode = 1
 
-[node name="CardTexture2" type="TextureRect" parent="Parallax/Pile"]
+[node name="CardTexture2" type="TextureRect" parent="Pile"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 27.0
@@ -42,7 +40,7 @@ offset_bottom = 161.0
 texture = ExtResource("2_my0of")
 expand_mode = 1
 
-[node name="CardTexture3" type="TextureRect" parent="Parallax/Pile"]
+[node name="CardTexture3" type="TextureRect" parent="Pile"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 16.0
@@ -51,26 +49,25 @@ offset_bottom = 150.0
 texture = ExtResource("3_h33na")
 expand_mode = 1
 
-[node name="DrawnCards" type="Control" parent="Parallax" node_paths=PackedStringArray("from")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+[node name="DrawnCards" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 6.125
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 6.125
 anchor_bottom = 0.5
+offset_left = 488.0
+offset_top = 244.0
+offset_right = 560.0
+offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_d1ttf")
-from = NodePath("../Pile")
-card_scene = ExtResource("3_0lbj1")
-card_offset_x = 100.0
+script = SubResource("GDScript_pm5po")
 
-[node name="DrawBtn" type="Button" parent="Parallax"]
-layout_mode = 0
-offset_left = 706.0
-offset_top = 428.0
-offset_right = 884.0
-offset_bottom = 459.0
+[node name="DrawBtn" type="Button" parent="."]
+offset_left = 1137.0
+offset_top = 559.0
+offset_right = 1315.0
+offset_bottom = 590.0
 text = "Draw/Undraw"
 
-[connection signal="pressed" from="Parallax/DrawBtn" to="Parallax/DrawnCards" method="_on_draw_btn_pressed"]
+[connection signal="pressed" from="DrawBtn" to="DrawnCards" method="_on_draw_btn_pressed"]
