@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://8x4hm3xpsv2x"]
+[gd_scene load_steps=12 format=3 uid="uid://8x4hm3xpsv2x"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_rve0b"]
 [ext_resource type="PackedScene" uid="uid://o8yfe6ca2r8s" path="res://Test Scenes/Card.tscn" id="1_u4ayy"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_ykd8d"]
 [ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="3_i6jkk"]
 [ext_resource type="Texture2D" uid="uid://d0bqr37ip74w6" path="res://Art/Custom UI/Q3.png" id="3_k5r82"]
 [ext_resource type="Texture2D" uid="uid://cybokbuedjr5q" path="res://Art/Custom UI/Q2.png" id="4_hdfbf"]
@@ -37,13 +38,13 @@ shader_parameter/polar_coordinates = true
 shader_parameter/polar_center = Vector2(0.5, 0.5)
 shader_parameter/polar_zoom = 1.0
 shader_parameter/polar_repeat = 1.0
-shader_parameter/spin_rotation = null
-shader_parameter/spin_speed = 1.0
+shader_parameter/spin_rotation = 0.0
+shader_parameter/spin_speed = 3.0
 shader_parameter/offset = Vector2(0, 0)
-shader_parameter/colour_1 = Color(0.13963, 0.239247, 0.459978, 1)
-shader_parameter/colour_2 = Color(0.854902, 0.690196, 0.25098, 1)
-shader_parameter/colour_3 = Color(0.0666667, 0.411765, 0.403922, 1)
-shader_parameter/contrast = 3.0
+shader_parameter/colour_1 = Color(0.0196078, 0.588235, 0.45098, 1)
+shader_parameter/colour_2 = Color(0.0117647, 0.941176, 0.631373, 1)
+shader_parameter/colour_3 = Color(0.0588235, 0.313726, 0.305882, 1)
+shader_parameter/contrast = 2.0
 shader_parameter/spin_amount = 0.1
 shader_parameter/pixel_filter = 1000.0
 
@@ -78,6 +79,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -258.0
+offset_top = 46.0
+offset_right = 236.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_ykd8d")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center][wave amp=25.0 freq=9.0 connected=1]automa demo[/wave][/center]
+"
+
 [node name="Parallax" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -93,7 +110,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Parallax/Hand"]
 layout_mode = 1
@@ -147,11 +163,13 @@ anchor_left = 0.787
 anchor_top = 0.786
 anchor_right = 0.787
 anchor_bottom = 0.786
-offset_left = -46.1981
-offset_top = 121.1
-offset_right = 222.802
-offset_bottom = 171.1
-text = "Draw/Undraw
+offset_left = -3.198
+offset_top = 119.1
+offset_right = 167.802
+offset_bottom = 150.1
+theme_override_fonts/font = ExtResource("2_ykd8d")
+theme_override_font_sizes/font_size = 30
+text = "draw/undraw
 "
 
 [node name="Pile" type="Control" parent="Parallax"]
