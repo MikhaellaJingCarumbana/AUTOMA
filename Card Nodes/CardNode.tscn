@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://s7nhdsm1617p"]
+
+[ext_resource type="PackedScene" uid="uid://o8yfe6ca2r8s" path="res://Test Scenes/Card.tscn" id="1_hlsfq"]
+
+[node name="Q1" type="Node2D"]
+
+[node name="Card" parent="." instance=ExtResource("1_hlsfq")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -103.5
+offset_right = 76.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true

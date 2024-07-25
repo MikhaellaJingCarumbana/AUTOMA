@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://8x4hm3xpsv2x"]
+[gd_scene load_steps=16 format=3 uid="uid://8x4hm3xpsv2x"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_rve0b"]
 [ext_resource type="PackedScene" uid="uid://o8yfe6ca2r8s" path="res://Test Scenes/Card.tscn" id="1_u4ayy"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_ykd8d"]
 [ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="3_i6jkk"]
 [ext_resource type="Texture2D" uid="uid://d0bqr37ip74w6" path="res://Art/Custom UI/Q3.png" id="3_k5r82"]
+[ext_resource type="Texture2D" uid="uid://wxxxj81on7v3" path="res://Art/Lucid V1.2/SVG/Flat/Chevron-Arrow-Left.svg" id="4_74tmi"]
 [ext_resource type="Texture2D" uid="uid://cybokbuedjr5q" path="res://Art/Custom UI/Q2.png" id="4_hdfbf"]
 [ext_resource type="Texture2D" uid="uid://15ppwngtxetg" path="res://Art/Custom UI/Q1.png" id="5_stflv"]
 [ext_resource type="Script" path="res://Scenes/drawn_cards.gd" id="7_s2qud"]
@@ -29,6 +30,10 @@ func _process(delta):
 	
 	parallax.position.x = lerp(parallax.position.x, new_pos.x, smoothing * delta)
 	parallax.position.y = lerp(parallax.position.y, new_pos.y, smoothing * delta)
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/MainMenu.tscn\")
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r1fae"]
@@ -47,6 +52,12 @@ shader_parameter/colour_3 = Color(0.0588235, 0.313726, 0.305882, 1)
 shader_parameter/contrast = 2.0
 shader_parameter/spin_amount = 0.1
 shader_parameter/pixel_filter = 1000.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xwrk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uky6s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3gly"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2x0vd"]
 shader = ExtResource("3_i6jkk")
@@ -84,13 +95,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -258.0
-offset_top = 46.0
-offset_right = 236.0
-offset_bottom = 128.0
+offset_left = -276.0
+offset_top = 32.0
+offset_right = 257.0
+offset_bottom = 138.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("2_ykd8d")
-theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/normal_font_size = 110
 bbcode_enabled = true
 text = "[center][wave amp=25.0 freq=9.0 connected=1]automa demo[/wave][/center]
 "
@@ -172,6 +183,21 @@ theme_override_font_sizes/font_size = 30
 text = "draw/undraw
 "
 
+[node name="Back" type="Button" parent="Parallax"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.095
+anchor_right = 0.095
+offset_left = -29.63
+offset_top = 40.0
+offset_right = 6.37
+offset_bottom = 102.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3xwrk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uky6s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n3gly")
+icon = ExtResource("4_74tmi")
+flat = true
+
 [node name="Pile" type="Control" parent="Parallax"]
 layout_mode = 1
 anchor_left = 0.78
@@ -246,3 +272,4 @@ texture = ExtResource("5_stflv")
 expand_mode = 1
 
 [connection signal="pressed" from="Parallax/DrawBtn" to="Parallax/DrawnCards" method="_on_draw_btn_pressed"]
+[connection signal="pressed" from="Parallax/Back" to="." method="_on_back_pressed"]

@@ -19,12 +19,12 @@ func _on_exit_pressed():
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_packed(world_scene)
+	get_tree().change_scene_to_file("res://Scenes/AutomaScene.tscn")
 
 
 
 func _on_pratice_pressed():
-	get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_packed(world_scene)
 
 
 func _on_leaderboard_pressed():
