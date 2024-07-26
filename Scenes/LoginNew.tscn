@@ -1,27 +1,24 @@
-[gd_scene load_steps=15 format=3 uid="uid://cena46h4pp01u"]
+[gd_scene load_steps=5 format=3 uid="uid://cena46h4pp01u"]
 
-[ext_resource type="Shader" path="res://shaders/Skybackground.gdshader" id="1_eee3x"]
-[ext_resource type="Texture2D" uid="uid://c2ylfnr7y48p6" path="res://Art/Parallaxx/summer8/1.png" id="2_71bnh"]
-[ext_resource type="Shader" path="res://shaders/Skybackground2.gdshader" id="3_tfyeb"]
-[ext_resource type="Texture2D" uid="uid://3lk0puod1d80" path="res://Art/Parallaxx/summer8/2.png" id="4_tp2w5"]
-[ext_resource type="Shader" path="res://shaders/skybackground3.gdshader" id="5_345b5"]
-[ext_resource type="Texture2D" uid="uid://fkjb2m2upmsc" path="res://Art/Parallaxx/summer8/3.png" id="6_f5dfe"]
-[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="7_sx3j3"]
-[ext_resource type="Texture2D" uid="uid://cicp7rotn0hwc" path="res://Art/Parallaxx/summer8/4.png" id="8_msy0s"]
-[ext_resource type="Texture2D" uid="uid://b32hb8bak1imr" path="res://Art/UI arts/AUTOMA.png" id="9_0t55q"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_scj0o"]
+[ext_resource type="Texture2D" uid="uid://baulymhjfl8as" path="res://Art/logo change/Automa Logo 5.svg" id="2_50vt4"]
 [ext_resource type="PackedScene" uid="uid://bi7lxcglf2tnc" path="res://addons/silent_wolf/Auth/Login.tscn" id="9_2epl6"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_feefa"]
-shader = ExtResource("1_eee3x")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gilt5"]
-shader = ExtResource("3_tfyeb")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0gc83"]
-shader = ExtResource("5_345b5")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s72f1"]
-shader = ExtResource("7_sx3j3")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ohx2m"]
+shader = ExtResource("1_scj0o")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 2.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.129412, 0.403922, 0.584314, 1)
+shader_parameter/colour_2 = Color(0.419608, 0.709804, 0.686275, 1)
+shader_parameter/colour_3 = Color(0.113725, 0.227451, 0.635294, 1)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.4
+shader_parameter/pixel_filter = 1000.0
 
 [node name="LoginNew" type="Control"]
 layout_mode = 3
@@ -31,60 +28,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sky Background" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_feefa")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_71bnh")
-
-[node name="Sky Background2" type="TextureRect" parent="."]
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_gilt5")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_tp2w5")
-
-[node name="Sky Background3" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_0gc83")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_f5dfe")
-
-[node name="grass" type="TextureRect" parent="."]
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_s72f1")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_msy0s")
-
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ohx2m")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.137255, 0.137255, 0.137255, 0.537255)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.498
+anchor_top = 0.34
+anchor_right = 0.498
+anchor_bottom = 0.34
+offset_left = -326.696
+offset_top = -467.32
+offset_right = 298.304
+offset_bottom = 157.68
+grow_horizontal = 2
+texture = ExtResource("2_50vt4")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Login" parent="." instance=ExtResource("9_2epl6")]
 layout_mode = 1
@@ -99,23 +66,3 @@ offset_right = -575.0
 offset_bottom = -224.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -279.0
-offset_top = -351.0
-offset_right = 1641.0
-offset_bottom = 729.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.267099, 0.229873)
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("9_0t55q")
-stretch_mode = 1
