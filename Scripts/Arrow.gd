@@ -7,8 +7,10 @@ extends Node2D
 
 @onready var line = $Line2D
 @onready var arrowhead = $Arrowhead
+@onready var start_button = $Button  # The button that marks the start point
 
 var points = []
+var line_active = false  # Flag to check if the line is active
 
 func _ready():
 	line.width = line_width
@@ -20,22 +22,39 @@ func _ready():
 	update_arrowhead_shape()
 	arrowhead.visible = false  # Initially hide the arrowhead
 
+	# Connect the button's pressed signal to the method
+
+
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
-			if points.size() < 2:
-				points.append(event.position)
-				if points.size() == 1:
-					line.set_point_position(0, event.position)
-				elif points.size() == 2:
-					line.set_point_position(1, event.position)
-					update_arrowhead_position()
+	if line_active:
+		if event is InputEventMouseMotion:
+			line.set_point_position(1, get_viewport().get_mouse_position())
+			update_arrowhead_position()
 
-	elif event is InputEventMouseMotion and points.size() == 1:
-		line.set_point_position(1, event.position)
-		update_arrowhead_position()
+		elif event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
+			if points.size() == 1:
+				# Set the end point and finalize the line
+				line.set_point_position(1, get_viewport().get_mouse_position())
+				points.append(get_viewport().get_mouse_position())
+				update_arrowhead_position()
+				line_active = false  # Deactivate the line
 
-	elif event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_RIGHT and event.pressed:
+		elif event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_RIGHT and event.pressed:
+			clear_line()
+
+func _on_button_pressed():
+	if not line_active:
+		# Calculate the center of the button
+		var button_center = start_button.global_position + start_button.size / 2
+		# Set the start point to the center of the button and activate the line
+		points.clear()
+		points.append(button_center)
+		line.set_point_position(0, button_center)
+		line.set_point_position(1, button_center)  # Initialize end point to the start point
+		line_active = true
+		arrowhead.visible = false  # Hide arrowhead until line is finalized
+	else:
+		# Deactivate the line and hide the arrowhead
 		clear_line()
 
 func clear_line():
@@ -65,3 +84,9 @@ func update_arrowhead_position():
 		arrowhead.position = arrowhead_position
 		arrowhead.rotation = direction.angle() + PI / 2
 		arrowhead.visible = true
+
+func _process(delta):
+	if line_active:
+		# Recalculate the center of the button based on the CardNode's position
+		var button_center = start_button.global_position + start_button.size / 2
+		line.set_point_position(0, button_center)
