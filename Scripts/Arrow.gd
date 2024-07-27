@@ -22,7 +22,7 @@ func _ready():
 
 	# Set up the arrowhead shape
 	update_arrowhead_shape()
-	arrowhead.visible = false  # Initially hide the arrowhead
+	arrowhead.visible = true  # Initially hide the arrowhead
 
 	# Connect the button's pressed signal to the method
 
@@ -65,7 +65,7 @@ func _on_button_pressed():
 		line.set_point_position(0, button_center)
 		line.set_point_position(1, button_center)  # Initialize end point to the start point
 		line_active = true
-		arrowhead.visible = false  # Hide arrowhead until line is finalized
+		arrowhead.visible = true  # Hide arrowhead until line is finalized
 	else:
 		# Deactivate the line and hide the arrowhead
 		clear_line()

@@ -64,9 +64,10 @@ func _process(delta: float) -> void:
 	if line_active:
 		# Update the end point of the line to follow the mouse
 		var mouse_pos = get_global_mouse_position()
-		line2d.set_point_position(1, mouse_pos)
+		line2d.set_point_position(1, line2d.to_local(mouse_pos))
 		update_arrowhead_position()
 		print("Line end at: ", mouse_pos)  # Debug line end
+		print("Arrowhead position: ", arrowhead.global_position)  # Debug arrowhead position
 
 func destroy() -> void:
 	card_texture.use_parent_material = true
@@ -142,26 +143,26 @@ func _on_mouse_exited() -> void:
 
 func _on_start_button_pressed() -> void:
 	if line_active:
-		# Clear the line if it is currently active
 		clear_line()
 	else:
-		# Start a new line
-		var button_center = start_button.global_position + (start_button.size / 2)
+		var button_center = get_start_button_position()
 		line2d.clear_points()
-		line2d.add_point(button_center)
-		line2d.add_point(button_center)  # Initialize end point to start point
+		line2d.add_point(line2d.to_local(button_center))
+		line2d.add_point(line2d.to_local(button_center))  # Initialize end point to start point
 		line_active = true
-		arrowhead.visible = true  # Hide arrowhead until line is finalized
+		arrowhead.visible = true  # Show arrowhead when line is active
 		print("Line started at: ", button_center)  # Debug line start
+		print("Start button position: ", button_center)  # Debug start button position
 
 func _on_end_button_pressed() -> void:
 	if line_active:
 		# Set end point to mouse position
 		var mouse_pos = get_global_mouse_position()
-		line2d.set_point_position(1, mouse_pos)
+		line2d.set_point_position(1, line2d.to_local(mouse_pos))
 		update_arrowhead_position()
 		line_active = false
 		print("Line finalized at: ", mouse_pos)  # Debug line end
+		print("Arrowhead position: ", arrowhead.global_position)  # Debug arrowhead position
 		arrowhead.visible = true  # Show arrowhead when line is finalized
 
 func clear_line() -> void:
@@ -176,18 +177,28 @@ func update_arrowhead_shape() -> void:
 	var half_height = arrowhead_height / 2
 	var arrowhead_points = PackedVector2Array([
 		Vector2(0, -half_height),       # Tip of the arrow
-		Vector2(-half_width, half_height),  # Left wing
-		Vector2(half_width, half_height)  # Right wing
+		Vector2(-half_width, half_height),  # Bottom left
+		Vector2(half_width, half_height)    # Bottom right
 	])
 	arrowhead.polygon = arrowhead_points
 
 func update_arrowhead_position() -> void:
-	if line2d.get_point_count() == 2:
-		var start = line2d.get_point_position(0)
-		var end = line2d.get_point_position(1)
-		var direction = (end - start).normalized()
-		var arrowhead_position = end - direction * (line2d.width / 2)
-		arrowhead.position = arrowhead_position
-		arrowhead.rotation = direction.angle() + PI / 2
-		arrowhead.modulate = arrowhead_color  # Set the arrowhead color
-		arrowhead.visible = true
+	var line_start = line2d.get_point_position(0)
+	var line_end = line2d.get_point_position(1)
+	var line_direction = (line_end - line_start).normalized()  # Renamed to line_direction
+	
+	# Set the position of the arrowhead at the end of the line
+	arrowhead.global_position = get_global_position() + line_end
+	
+	# Calculate direction of the line
+	var arrowhead_direction = line_direction  # Use the renamed line_direction
+	
+	# Calculate the angle to rotate the arrowhead
+	var angle = arrowhead_direction.angle()
+	
+	# Rotate the arrowhead to point in the direction of the line
+	arrowhead.rotation = angle
+
+func get_start_button_position() -> Vector2:
+	# Returns the global center position of the start button
+	return start_button.global_position + (start_button.size / 2)

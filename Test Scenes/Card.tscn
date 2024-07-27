@@ -43,10 +43,12 @@ offset_bottom = 103.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(76, 103.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s8ucw")
 script = ExtResource("1_mpkhh")
 line_color = Color(0.85098, 0.690196, 0.25098, 1)
-arrowhead_color = Color(0.85098, 0.690196, 0.25098, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Shadow" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -94,13 +96,15 @@ disabled = true
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -6.5
-offset_right = 5.0
-offset_bottom = 7.5
+anchors_preset = -1
+anchor_left = -0.211
+anchor_top = 0.409
+anchor_right = -0.211
+anchor_bottom = 0.409
+offset_left = 23.072
+offset_top = 12.337
+offset_right = 37.072
+offset_bottom = 26.337
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
