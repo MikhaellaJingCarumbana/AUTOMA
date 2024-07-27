@@ -18,7 +18,9 @@ offset_bottom = 103.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+velocity_multiplier = 2.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Arrow" parent="." instance=ExtResource("2_lwxpg")]
 position = Vector2(-378, -176)
+line_color = Color(1, 0, 0, 1)

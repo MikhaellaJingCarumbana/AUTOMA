@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://8x4hm3xpsv2x"]
+[gd_scene load_steps=16 format=3 uid="uid://8x4hm3xpsv2x"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_rve0b"]
 [ext_resource type="PackedScene" uid="uid://o8yfe6ca2r8s" path="res://Test Scenes/Card.tscn" id="1_u4ayy"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cybokbuedjr5q" path="res://Art/Custom UI/Q2.png" id="4_hdfbf"]
 [ext_resource type="Texture2D" uid="uid://15ppwngtxetg" path="res://Art/Custom UI/Q1.png" id="5_stflv"]
 [ext_resource type="Script" path="res://Scenes/drawn_cards.gd" id="7_s2qud"]
-[ext_resource type="PackedScene" uid="uid://s7nhdsm1617p" path="res://Card Nodes/CardNode.tscn" id="10_r0xp8"]
 
 [sub_resource type="GDScript" id="GDScript_vtyic"]
 script/source = "extends Control
@@ -271,9 +270,6 @@ offset_right = 0.0749664
 offset_bottom = 0.0349884
 texture = ExtResource("5_stflv")
 expand_mode = 1
-
-[node name="Q1" parent="." instance=ExtResource("10_r0xp8")]
-position = Vector2(265, 232)
 
 [connection signal="pressed" from="Parallax/DrawBtn" to="Parallax/DrawnCards" method="_on_draw_btn_pressed"]
 [connection signal="pressed" from="Parallax/Back" to="." method="_on_back_pressed"]

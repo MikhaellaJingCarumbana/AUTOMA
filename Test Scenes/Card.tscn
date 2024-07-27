@@ -31,12 +31,22 @@ size = Vector2(118, 153)
 [node name="Card" type="Button"]
 material = SubResource("ShaderMaterial_q47vs")
 custom_minimum_size = Vector2(152, 207)
-offset_right = 152.0
-offset_bottom = 207.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -103.5
+offset_right = 76.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(76, 103.5)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s8ucw")
 script = ExtResource("1_mpkhh")
-velocity_multiplier = 1.0
+line_color = Color(0.85098, 0.690196, 0.25098, 1)
+arrowhead_color = Color(0.85098, 0.690196, 0.25098, 1)
 
 [node name="Shadow" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -78,6 +88,37 @@ position = Vector2(73, 109.5)
 shape = SubResource("RectangleShape2D_nbmc3")
 disabled = true
 
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="Arrowhead" type="Polygon2D" parent="."]
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -6.5
+offset_right = 5.0
+offset_bottom = 7.5
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="EndButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.013
+anchor_top = 0.524
+anchor_right = 1.013
+anchor_bottom = 0.524
+offset_left = -4.976
+offset_top = -5.46801
+offset_right = 5.024
+offset_bottom = 5.53199
+metadata/_edit_use_anchors_ = true
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="EndButton" to="." method="_on_end_button_pressed"]
