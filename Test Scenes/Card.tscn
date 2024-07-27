@@ -48,6 +48,7 @@ size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s8ucw")
 script = ExtResource("1_mpkhh")
 line_color = Color(0.85098, 0.690196, 0.25098, 1)
+arrowhead_color = Color(0.85098, 0.690196, 0.25098, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Shadow" type="TextureRect" parent="."]

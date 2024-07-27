@@ -76,7 +76,7 @@ func clear_line():
 	line.set_point_position(1, Vector2.ZERO)
 	arrowhead.visible = false
 
-func update_arrowhead_shape():
+func update_arrowhead_shape() -> void:
 	var half_width = arrowhead_width / 2
 	var half_height = arrowhead_height / 2
 

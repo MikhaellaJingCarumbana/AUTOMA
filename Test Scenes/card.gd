@@ -175,29 +175,26 @@ func clear_line() -> void:
 func update_arrowhead_shape() -> void:
 	var half_width = arrowhead_width / 2
 	var half_height = arrowhead_height / 2
+	
 	var arrowhead_points = PackedVector2Array([
 		Vector2(0, -half_height),       # Tip of the arrow
-		Vector2(-half_width, half_height),  # Bottom left
+		Vector2(-half_width, half_height),
 		Vector2(half_width, half_height)    # Bottom right
 	])
 	arrowhead.polygon = arrowhead_points
 
 func update_arrowhead_position() -> void:
-	var line_start = line2d.get_point_position(0)
 	var line_end = line2d.get_point_position(1)
-	var line_direction = (line_end - line_start).normalized()  # Renamed to line_direction
+	var mouse_pos = get_global_mouse_position()
 	
 	# Set the position of the arrowhead at the end of the line
 	arrowhead.global_position = get_global_position() + line_end
 	
-	# Calculate direction of the line
-	var arrowhead_direction = line_direction  # Use the renamed line_direction
+	# Calculate direction towards the mouse
+	var direction_to_mouse = (mouse_pos - arrowhead.global_position).normalized()
 	
-	# Calculate the angle to rotate the arrowhead
-	var angle = arrowhead_direction.angle()
-	
-	# Rotate the arrowhead to point in the direction of the line
-	arrowhead.rotation = angle
+	# Adjust arrowhead orientation to face towards the mouse
+	arrowhead.rotation = direction_to_mouse.angle()
 
 func get_start_button_position() -> Vector2:
 	# Returns the global center position of the start button

@@ -140,23 +140,63 @@ theme_override_constants/separation = 20
 
 [node name="Card" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
 layout_mode = 2
-arrowhead_color = Color(1, 0, 0, 1)
+angle_x_max = null
+angle_y_max = null
+max_offset_shadow = null
+spring = null
+damp = null
+velocity_multiplier = null
+arrowhead_width = null
+arrowhead_height = null
+arrowhead_color = null
 
 [node name="Card2" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
 layout_mode = 2
-arrowhead_color = Color(1, 0, 0, 1)
+angle_x_max = null
+angle_y_max = null
+max_offset_shadow = null
+spring = null
+damp = null
+velocity_multiplier = null
+arrowhead_width = null
+arrowhead_height = null
+arrowhead_color = null
 
 [node name="Card3" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
 layout_mode = 2
-arrowhead_color = Color(1, 0, 0, 1)
+angle_x_max = null
+angle_y_max = null
+max_offset_shadow = null
+spring = null
+damp = null
+velocity_multiplier = null
+arrowhead_width = null
+arrowhead_height = null
+arrowhead_color = null
 
 [node name="Card4" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
 layout_mode = 2
-arrowhead_color = Color(1, 0, 0, 1)
+angle_x_max = null
+angle_y_max = null
+max_offset_shadow = null
+spring = null
+damp = null
+velocity_multiplier = null
+arrowhead_width = null
+arrowhead_height = null
+arrowhead_color = null
 
 [node name="Card5" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("1_u4ayy")]
 layout_mode = 2
-arrowhead_color = Color(1, 0, 0, 1)
+angle_x_max = null
+angle_y_max = null
+max_offset_shadow = null
+spring = null
+damp = null
+velocity_multiplier = null
+arrowhead_width = null
+arrowhead_height = null
+arrowhead_color = null
 
 [node name="DrawnCards" type="Control" parent="Parallax" node_paths=PackedStringArray("from")]
 layout_mode = 1
