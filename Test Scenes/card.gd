@@ -56,7 +56,7 @@ func _ready() -> void:
 	update_arrowhead_shape()
 	arrowhead.modulate = arrowhead_color  # Set the initial color for Arrowhead
 
-	# Connect signals for buttons
+
 
 func _process(delta: float) -> void:
 	rotate_velocity(delta)
@@ -161,7 +161,7 @@ func _on_end_button_pressed() -> void:
 		update_arrowhead_position()
 		Global.clear_active_line()
 		line_active = false  # Set line_active to false to stop updating the line position
-		arrowhead.visible = false  # Show arrowhead when line is finalized
+		arrowhead.visible = true  # Show arrowhead when line is finalized
 		print("Line finalized at: ", end_button_center)  # Debug line end
 		print("End button position: ", end_button_center)  # Debug end button position
 		print("Arrowhead position: ", arrowhead.global_position)  # Debug arrowhead position
@@ -175,15 +175,27 @@ func clear_line() -> void:
 
 func update_arrowhead_shape() -> void:
 	arrowhead.polygon = PackedVector2Array([
-		Vector2(0, -arrowhead_height / 2),
-		Vector2(arrowhead_width, 0),
-		Vector2(0, arrowhead_height / 2),
+		Vector2(0, 0),
+		Vector2(-arrowhead_width / 2, -arrowhead_height),
+		Vector2(arrowhead_width / 2, -arrowhead_height)
 	])
 
 func update_arrowhead_position() -> void:
-	var line_end_global_position = line2d.get_point_position(1)
-	arrowhead.global_position = line2d.to_global(line_end_global_position)
+	var line_end_global_position = line2d.to_global(line2d.get_point_position(1))
+	arrowhead.global_position = line_end_global_position
 	arrowhead.rotation = line2d.get_point_position(0).angle_to_point(line2d.get_point_position(1))
+
+func _update_line_start_point() -> void:
+	if Global.get_active_line() and Global.get_active_line() == line2d:
+		var button_center = get_start_button_position()
+		line2d.set_point_position(0, line2d.to_local(button_center))
+		update_arrowhead_position()
+
+func _update_line_end_point() -> void:
+	if not line_active:
+		var button_center = get_end_button_position()
+		line2d.set_point_position(1, line2d.to_local(button_center))
+		update_arrowhead_position()
 
 func get_start_button_position() -> Vector2:
 	var button_center = start_button.global_position + (start_button.size / 2.0)
