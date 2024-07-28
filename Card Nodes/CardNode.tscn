@@ -6,6 +6,14 @@
 [node name="Q1" type="Node2D"]
 
 [node name="Card" parent="." instance=ExtResource("1_hlsfq")]
+angle_x_max = null
+angle_y_max = null
+max_offset_shadow = null
+spring = null
+damp = null
+velocity_multiplier = null
+arrowhead_width = null
+arrowhead_height = null
 
 [node name="Arrow" parent="." instance=ExtResource("2_lwxpg")]
 position = Vector2(-378, -176)

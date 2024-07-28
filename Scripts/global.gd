@@ -25,3 +25,14 @@ func _ready():
 		"session_duration_seconds": 0,
 		"saved_session_expiration_days": 30
 	})
+	
+var active_line: Line2D = null
+
+func set_active_line(line: Line2D):
+	active_line = line
+
+func get_active_line() -> Line2D:
+	return active_line
+
+func clear_active_line():
+	active_line = null
