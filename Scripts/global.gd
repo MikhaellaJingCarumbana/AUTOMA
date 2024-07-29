@@ -27,12 +27,28 @@ func _ready():
 	})
 	
 var active_line: Line2D = null
+var start_button: Button = null
+var end_button: Button = null
 
 func set_active_line(line: Line2D):
 	active_line = line
 
+func clear_active_line():
+	active_line = null
+	start_button = null
+	end_button = null
+
 func get_active_line() -> Line2D:
 	return active_line
 
-func clear_active_line():
-	active_line = null
+func set_start_button(button: Button):
+	start_button = button
+
+func set_end_button(button: Button):
+	end_button = button
+
+func get_start_button() -> Button:
+	return start_button
+
+func get_end_button() -> Button:
+	return end_button
