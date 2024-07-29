@@ -55,6 +55,8 @@ func _ready() -> void:
 	update_arrowhead_shape()
 	arrowhead.modulate = arrowhead_color  # Set the initial color for Arrowhead
 
+	# Connect signals for buttons
+
 	# Start updating line points in _process
 	set_process(true)
 
@@ -155,22 +157,39 @@ func _on_end_button_pressed() -> void:
 	if Global.get_active_line():
 		Global.set_end_button(end_button)
 		line_active = false  # Set line_active to false to stop updating the line position
-		arrowhead.visible = true  # Ensure arrowhead is visible
+		arrowhead.visible = false  # Ensure arrowhead is visible
 		print("End button clicked")  # Debug end button click
 		print("End button position: ", get_end_button_position())  # Debug end button position
 		print("Line finalized at: ", get_end_button_position())  # Debug final line position
 
 func update_arrowhead_shape() -> void:
-	arrowhead.polygon = PackedVector2Array([
-		Vector2(0, 0),
-		Vector2(-arrowhead_width / 2, -arrowhead_height),
-		Vector2(arrowhead_width / 2, -arrowhead_height)
-	])
+	# Define the points for the arrowhead shape
+	var points = [
+		Vector2(0, -10),  # Top vertex
+		Vector2(-5, 10),  # Bottom-left vertex
+		Vector2(5, 10)    # Bottom-right vertex
+	]
+	arrowhead.polygon = PackedVector2Array(points)
+	arrowhead.visible = false  # Initially hide the arrowhead
 
 func update_arrowhead_position() -> void:
-	var line_end_global_position = line2d.to_global(line2d.get_point_position(1))
+	if not line2d.get_point_count() == 2:
+		return
+
+	var start_pos = line2d.get_point_position(0)
+	var end_pos = line2d.get_point_position(1)
+	
+	# Calculate the global position of the line end
+	var line_end_global_position = line2d.to_global(end_pos)
+	
+	# Position the arrowhead at the end of the line
 	arrowhead.global_position = line_end_global_position
-	arrowhead.rotation = line2d.get_point_position(0).angle_to_point(line2d.get_point_position(1))
+
+	# Calculate the direction vector from start to end
+	var direction = (end_pos - start_pos).normalized()
+	
+	# Set the arrowhead rotation based on the direction
+	arrowhead.rotation = direction.angle() - deg_to_rad(-90)  # Adjust rotation to make it point correctly
 
 func update_line_points() -> void:
 	if Global.get_active_line() and Global.get_active_line() == line2d:
