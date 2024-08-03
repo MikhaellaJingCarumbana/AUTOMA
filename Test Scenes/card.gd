@@ -238,3 +238,5 @@ func update_arrowhead_position(arrowhead, line, end_pos) -> void:
 	arrowhead.global_position = end_pos
 	var direction = (line.get_point_position(1) - line.get_point_position(0)).normalized()
 	arrowhead.rotation = direction.angle()
+
+#working but won't connect to endbuttons
