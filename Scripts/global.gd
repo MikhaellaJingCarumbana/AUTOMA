@@ -71,3 +71,5 @@ func get_start_button2() -> Button:
 
 func get_end_button() -> Button:
 	return end_button
+
+#tentative
