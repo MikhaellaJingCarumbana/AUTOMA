@@ -1,16 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceqv71t0diqm4"]
+[gd_scene load_steps=4 format=3 uid="uid://ceqv71t0diqm4"]
 
-[ext_resource type="Shader" path="res://shaders/Skybackground.gdshader" id="1_uoctw"]
-[ext_resource type="Texture2D" uid="uid://byrbbdso5id02" path="res://Art/Parallaxx/Dynamic Space Background FREE/Nebula Blue.png" id="2_6ak0q"]
-[ext_resource type="Shader" path="res://shaders/Skybackground2.gdshader" id="3_odc42"]
-[ext_resource type="Texture2D" uid="uid://duykndnotof6o" path="res://Art/Parallaxx/Dynamic Space Background FREE/Stars Small_2.png" id="4_q8sag"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_scd07"]
 [ext_resource type="PackedScene" uid="uid://bo37wn5msx4ck" path="res://Scenes/PracticeQuestion.tscn" id="5_xm6j2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ev14r"]
-shader = ExtResource("1_uoctw")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qq47x"]
-shader = ExtResource("3_odc42")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37hcx"]
+shader = ExtResource("1_scd07")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.0196078, 0.588235, 0.45098, 1)
+shader_parameter/colour_2 = Color(0.0117647, 0.941176, 0.631373, 1)
+shader_parameter/colour_3 = null
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
 
 [node name="PracticeQuestionNew" type="Control"]
 layout_mode = 3
@@ -20,30 +27,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sky Background" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ev14r")
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_37hcx")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_6ak0q")
-expand_mode = 1
-
-[node name="Sky Background2" type="TextureRect" parent="."]
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_qq47x")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_q8sag")
-expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -60,4 +51,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PracticeQuestion" parent="HBoxContainer" instance=ExtResource("5_xm6j2")]
-position = Vector2(15, 64)
+position = Vector2(15, 15)

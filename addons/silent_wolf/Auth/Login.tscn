@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bi7lxcglf2tnc"]
+[gd_scene load_steps=16 format=3 uid="uid://bi7lxcglf2tnc"]
 
 [ext_resource type="Script" path="res://addons/silent_wolf/Auth/Login.gd" id="1"]
 [ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://addons/silent_wolf/assets/themes/sw_theme.tres" id="1_bbh8k"]
 [ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="2"]
+[ext_resource type="FontFile" uid="uid://bdptwgknwu18c" path="res://Fonts/king-witch-font/KingWitch-Rpm1v.ttf" id="3_g1nq6"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_lc00d"]
 [ext_resource type="Texture2D" uid="uid://bpn62aabunxva" path="res://addons/silent_wolf/assets/gfx/checkbox_checked.png" id="4_ak74a"]
 [ext_resource type="Texture2D" uid="uid://bgs8a50ilk5cj" path="res://addons/silent_wolf/assets/gfx/checkbox_unchecked.png" id="5_3asm1"]
@@ -65,7 +66,7 @@ alignment = 1
 modulate = Color(1, 1, 1, 0.623529)
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lc00d")
+theme_override_fonts/font = ExtResource("3_g1nq6")
 placeholder_text = "Username"
 max_length = 30
 
@@ -77,7 +78,7 @@ alignment = 1
 modulate = Color(1, 1, 1, 0.623529)
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lc00d")
+theme_override_fonts/font = ExtResource("3_g1nq6")
 placeholder_text = "Password"
 max_length = 30
 secret = true
