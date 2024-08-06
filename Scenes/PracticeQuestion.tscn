@@ -11,6 +11,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4n0a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1ask"]
+bg_color = Color(0.0196078, 0.588235, 0.45098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45d3i"]
 
@@ -23,35 +28,36 @@ offset_top = 104.0
 offset_right = 640.0
 offset_bottom = 132.0
 theme_override_fonts/font = ExtResource("2_gnqec")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "Player Name
 "
 
 [node name="QuestionLabel" type="Label" parent="."]
-offset_left = 200.0
-offset_top = 216.0
-offset_right = 1024.0
-offset_bottom = 248.0
+offset_left = 199.0
+offset_top = 234.0
+offset_right = 1023.0
+offset_bottom = 282.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_gnqec")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 50
 text = "Question
 "
 horizontal_alignment = 1
 
 [node name="AnswerInput" type="LineEdit" parent="."]
 offset_left = 320.0
-offset_top = 320.0
+offset_top = 353.0
 offset_right = 896.0
-offset_bottom = 381.0
+offset_bottom = 414.0
 theme_override_fonts/font = ExtResource("3_jkceg")
 theme_override_font_sizes/font_size = 20
 
 [node name="SubmitButton" type="Button" parent="."]
-offset_left = 486.0
-offset_top = 416.0
-offset_right = 728.0
-offset_bottom = 479.0
+offset_left = 485.0
+offset_top = 511.0
+offset_right = 727.0
+offset_bottom = 574.0
+theme_override_colors/font_hover_color = Color(0.85098, 0.690196, 0.25098, 1)
 theme_override_fonts/font = ExtResource("2_gnqec")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_p4n0a")
@@ -66,7 +72,7 @@ offset_top = 114.0
 offset_right = 1079.0
 offset_bottom = 147.0
 theme_override_fonts/font = ExtResource("2_gnqec")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "Score"
 
 [node name="Timer" type="Timer" parent="."]
@@ -90,7 +96,7 @@ offset_top = 40.0
 offset_right = 534.0
 offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("2_gnqec")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 40
 text = "Difficulty"
 
 [node name="BackButton" parent="." instance=ExtResource("2_vx2bf")]
