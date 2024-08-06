@@ -84,6 +84,7 @@ max_length = 30
 secret = true
 
 [node name="LinkButton" type="LinkButton" parent="FormContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
