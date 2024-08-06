@@ -53,10 +53,10 @@ theme_override_fonts/font = ExtResource("3_jkceg")
 theme_override_font_sizes/font_size = 20
 
 [node name="SubmitButton" type="Button" parent="."]
-offset_left = 485.0
-offset_top = 511.0
-offset_right = 727.0
-offset_bottom = 574.0
+offset_left = 486.0
+offset_top = 446.0
+offset_right = 728.0
+offset_bottom = 509.0
 theme_override_colors/font_hover_color = Color(0.85098, 0.690196, 0.25098, 1)
 theme_override_fonts/font = ExtResource("2_gnqec")
 theme_override_font_sizes/font_size = 30
