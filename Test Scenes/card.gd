@@ -29,19 +29,16 @@ var last_pos: Vector2
 var velocity: Vector2
 
 var line_active = false  # Flag to check if the line is active
-var line_active2 = false
+var line_Active2 = false
 
 @onready var card_texture: TextureRect = $CardTexture
 @onready var shadow = $Shadow
 @onready var collision_shape = $DestroyArea/CollisionShape2D
 @onready var line2d = $Line2D
-@onready var line2d2 = $Line2D2
 @onready var arrowhead = $Arrowhead
-@onready var arrowhead2 = $Arrowhead2
 @onready var start_button = $StartButton
 @onready var end_button = $EndButton
-@onready var start_button2 = $StartButton2
-@onready var end_button2 = $EndButton2
+
 
 func _ready() -> void:
 	angle_x_max = deg_to_rad(angle_x_max)
@@ -55,21 +52,12 @@ func _ready() -> void:
 	line2d.add_point(Vector2.ZERO)
 	line2d.add_point(Vector2.ZERO)
 	
-	line2d2.width = 4.0
-	line2d2.default_color = line_color  # Set the initial color for Line2D2
-	line2d2.clear_points()
-	line2d2.add_point(Vector2.ZERO)
-	line2d2.add_point(Vector2.ZERO)
-	
-	# Initialize arrowheads
+	# Initialize arrowhead
 	arrowhead.visible = false
-	update_arrowhead_shape(arrowhead)
+	update_arrowhead_shape()
 	arrowhead.modulate = arrowhead_color  # Set the initial color for Arrowhead
 
-	arrowhead2.visible = false
-	update_arrowhead_shape(arrowhead2)
-	arrowhead2.modulate = arrowhead_color  # Set the initial color for Arrowhead2
-
+	# Connect signals for buttons
 
 	# Start updating line points in _process
 	set_process(true)
@@ -79,9 +67,7 @@ func _process(delta: float) -> void:
 	follow_mouse(delta)
 	handle_shadow(delta)
 	if Global.get_active_line() == line2d:
-		update_line_points(line2d, arrowhead, start_button, end_button)
-	elif Global.get_active_line() == line2d2:
-		update_line_points(line2d2, arrowhead2, start_button2, end_button2)
+		update_line_points()
 
 func destroy() -> void:
 	card_texture.use_parent_material = true
@@ -156,10 +142,10 @@ func _on_mouse_exited() -> void:
 	tween_hover.tween_property(self, "scale", Vector2.ONE, 0.55)
 
 func _on_start_button_pressed() -> void:
-	if Global.get_active_line() == line2d:
-		clear_line(line2d, arrowhead)
+	if Global.get_active_line():
+		clear_line()
 	else:
-		var button_center = get_start_button_position(start_button)
+		var button_center = get_start_button_position()
 		line2d.clear_points()
 		line2d.add_point(line2d.to_local(button_center))
 		line2d.add_point(line2d.to_local(button_center))  # Initialize end point to start point
@@ -170,73 +156,66 @@ func _on_start_button_pressed() -> void:
 		print("Start button position: ", button_center)  # Debug start button position
 
 func _on_end_button_pressed() -> void:
-	if Global.get_active_line() == line2d:
+	if Global.get_active_line():
 		Global.set_end_button(end_button)
-		line_active = false  # Set the line_active flag to false when end_button is pressed
-		print("Line ended at: ", end_button.global_position)  # Debug line end
-		print("End button position: ", get_end_button_position(end_button))  # Debug end button position
-		arrowhead.visible = false  # Hide arrowhead when line is finalized
-		Global.set_active_line(null)  # Deactivate the line after ending it
+		line_active = false  # Set line_active to false to stop updating the line position
+		arrowhead.visible = false  # Ensure arrowhead is visible
+		print("End button clicked")  # Debug end button click
+		print("End button position: ", get_end_button_position())  # Debug end button position
+		print("Line finalized at: ", get_end_button_position())  # Debug final line position
 
-func _on_start_button_2_pressed() -> void:
-	if Global.get_active_line() == line2d2:
-		clear_line(line2d2, arrowhead2)
-	else:
-		var button_center = get_start_button_position(start_button2)
-		line2d2.clear_points()
-		line2d2.add_point(line2d2.to_local(button_center))
-		line2d2.add_point(line2d2.to_local(button_center))  # Initialize end point to start point
-		Global.set_active_line(line2d2)  # Pass only the line2d2
-		line_active2 = true
-		arrowhead2.visible = true  # Show arrowhead when line is active
-		print("Line2 started at: ", button_center)  # Debug line2 start
-		print("Start button2 position: ", button_center)  # Debug start button2 position
+func update_arrowhead_shape() -> void:
+	# Define the points for the arrowhead shape
+	var points = [
+		Vector2(0, -10),  # Top vertex
+		Vector2(-5, 10),  # Bottom-left vertex
+		Vector2(5, 10)    # Bottom-right vertex
+	]
+	arrowhead.polygon = PackedVector2Array(points)
+	arrowhead.visible = false  # Initially hide the arrowhead
 
-func _on_end_button_2_pressed() -> void:
-	if Global.get_active_line() == line2d2:
-		Global.set_end_button(end_button2)
-		line_active2 = false  # Set the line_active2 flag to false when end_button2 is pressed
-		print("Line2 ended at: ", end_button2.global_position)  # Debug line2 end
-		print("End button2 position: ", get_end_button_position(end_button2))  # Debug end button2 position
-		arrowhead2.visible = false  # Hide arrowhead2 when line2 is finalized
-		Global.set_active_line(null)  # Deactivate the line2 after ending it
+func update_arrowhead_position() -> void:
+	if not line2d.get_point_count() == 2:
+		return
 
-func clear_line(line, arrowhead) -> void:
-	line.clear_points()
-	line.add_point(Vector2.ZERO)
-	line.add_point(Vector2.ZERO)
-	arrowhead.visible = false  # Hide the arrowhead when the line is cleared
+	var start_pos = line2d.get_point_position(0)
+	var end_pos = line2d.get_point_position(1)
+	
+	# Calculate the global position of the line end
+	var line_end_global_position = line2d.to_global(end_pos)
+	
+	# Position the arrowhead at the end of the line
+	arrowhead.global_position = line_end_global_position
 
-func update_line_points(line, arrowhead, start_button, end_button) -> void:
-	if line_active:
-		var button_center = get_start_button_position(start_button)
-		line.set_point_position(0, line.to_local(button_center))
-		var end_pos = get_global_mouse_position()
-		line.set_point_position(1, line.to_local(end_pos))
-		update_arrowhead_position(arrowhead, line, end_pos)
-	elif line_active2:
-		var button_center2 = get_start_button_position(start_button2)
-		line.set_point_position(0, line.to_local(button_center2))
-		var end_pos2 = get_global_mouse_position()
-		line.set_point_position(1, line.to_local(end_pos2))
-		update_arrowhead_position(arrowhead, line, end_pos2)
+	# Calculate the direction vector from start to end
+	var direction = (end_pos - start_pos).normalized()
+	
+	# Set the arrowhead rotation based on the direction
+	arrowhead.rotation = direction.angle() - deg_to_rad(-90)  # Adjust rotation to make it point correctly
 
-func get_start_button_position(button) -> Vector2:
-	return button.get_global_transform().origin
+func update_line_points() -> void:
+	if Global.get_active_line() and Global.get_active_line() == line2d:
+		var start_pos = get_start_button_position()
+		var end_pos = get_end_button_position()
+		line2d.set_point_position(0, line2d.to_local(start_pos))
+		line2d.set_point_position(1, line2d.to_local(end_pos))
+		update_arrowhead_position()  # Update arrowhead position after line points update
 
-func get_end_button_position(button) -> Vector2:
-	return button.get_global_transform().origin
+func clear_line() -> void:
+	if Global.get_active_line():
+		Global.set_active_line(null)
+		Global.set_end_button(null)
+		line2d.clear_points()
+		arrowhead.visible = false
 
-func update_arrowhead_shape(arrowhead) -> void:
-	var points = PackedVector2Array()
-	points.append(Vector2(0, -arrowhead_height / 2))
-	points.append(Vector2(arrowhead_width, 0))
-	points.append(Vector2(0, arrowhead_height / 2))
-	arrowhead.polygon = points
 
-func update_arrowhead_position(arrowhead, line, end_pos) -> void:
-	arrowhead.global_position = end_pos
-	var direction = (line.get_point_position(1) - line.get_point_position(0)).normalized()
-	arrowhead.rotation = direction.angle()
+func get_start_button_position() -> Vector2:
+	return start_button.get_global_position() + (start_button.size / 2)
+	
 
-#working but won't connect to endbuttons
+func get_end_button_position() -> Vector2:
+	if Global.get_end_button():
+		return Global.get_end_button().get_global_position() + (Global.get_end_button().size / 2)
+	return Vector2.ZERO
+
+

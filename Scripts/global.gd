@@ -34,29 +34,23 @@ var end_button: Button = null
 
 func set_active_line(line: Line2D):
 	active_line = line
-
-func set_active_line2(line: Line2D):
 	active_line2 = line
 
 func clear_active_line():
 	active_line = null
+	active_line2 = null
 	start_button = null
 	end_button = null
 
-func clear_active_line2():
-	active_line2 = null
-	start_button2 = null
-	end_button = null
-
+func get_active_line2() -> Line2D:
+	return active_line2 
+	
 func get_active_line() -> Line2D:
 	return active_line
 
-func get_active_line2() -> Line2D:
-	return active_line2
-
 func set_start_button(button: Button):
 	start_button = button
-
+	
 func set_start_button2(button: Button):
 	start_button2 = button
 
@@ -68,8 +62,6 @@ func get_start_button() -> Button:
 
 func get_start_button2() -> Button:
 	return start_button2
-
+	
 func get_end_button() -> Button:
 	return end_button
-
-#tentative

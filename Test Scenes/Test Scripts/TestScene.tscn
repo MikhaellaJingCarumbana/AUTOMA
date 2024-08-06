@@ -5,21 +5,5 @@
 [node name="TestScene" type="Node2D"]
 
 [node name="Card" parent="." instance=ExtResource("1_1ifpa")]
-angle_x_max = null
-angle_y_max = null
-max_offset_shadow = null
-spring = null
-damp = null
-velocity_multiplier = null
-arrowhead_width = null
-arrowhead_height = null
 
 [node name="Card2" parent="." instance=ExtResource("1_1ifpa")]
-angle_x_max = null
-angle_y_max = null
-max_offset_shadow = null
-spring = null
-damp = null
-velocity_multiplier = null
-arrowhead_width = null
-arrowhead_height = null

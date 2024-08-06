@@ -1,20 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://8x4hm3xpsv2x"]
+[gd_scene load_steps=19 format=3 uid="uid://8x4hm3xpsv2x"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_rve0b"]
 [ext_resource type="PackedScene" uid="uid://o8yfe6ca2r8s" path="res://Test Scenes/Card.tscn" id="1_u4ayy"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_ykd8d"]
 [ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="3_i6jkk"]
 [ext_resource type="Texture2D" uid="uid://d0bqr37ip74w6" path="res://Art/Custom UI/Q3.png" id="3_k5r82"]
-[ext_resource type="PackedScene" uid="uid://drlrygj7e8ox4" path="res://Card Nodes/Q1.tscn" id="3_p6ses"]
 [ext_resource type="Texture2D" uid="uid://wxxxj81on7v3" path="res://Art/Lucid V1.2/SVG/Flat/Chevron-Arrow-Left.svg" id="4_74tmi"]
 [ext_resource type="Texture2D" uid="uid://cybokbuedjr5q" path="res://Art/Custom UI/Q2.png" id="4_hdfbf"]
 [ext_resource type="PackedScene" uid="uid://obspdh2xccef" path="res://Card Nodes/Q2.tscn" id="4_ot7h4"]
 [ext_resource type="Texture2D" uid="uid://15ppwngtxetg" path="res://Art/Custom UI/Q1.png" id="5_stflv"]
 [ext_resource type="PackedScene" uid="uid://cmijt7onkajit" path="res://Card Nodes/Q3.tscn" id="5_yh6a2"]
 [ext_resource type="PackedScene" uid="uid://cx4velyf76axa" path="res://Card Nodes/Q4.tscn" id="6_dq05n"]
-[ext_resource type="PackedScene" uid="uid://6wmf82cst83x" path="res://Card Nodes/Q5.tscn" id="7_1jhsh"]
 [ext_resource type="Script" path="res://Scenes/drawn_cards.gd" id="7_s2qud"]
-[ext_resource type="PackedScene" uid="uid://hxoobim1x3ec" path="res://Card Nodes/Q6.tscn" id="8_w1egj"]
 
 [sub_resource type="GDScript" id="GDScript_vtyic"]
 script/source = "extends Control
@@ -143,22 +140,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="Card2" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("4_ot7h4")]
+[node name="Card" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("4_ot7h4")]
 layout_mode = 2
 
-[node name="Card3" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("5_yh6a2")]
+[node name="Card2" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("5_yh6a2")]
+layout_mode = 2
+
+[node name="Card3" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("6_dq05n")]
 layout_mode = 2
 
 [node name="Card4" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("6_dq05n")]
-layout_mode = 2
-
-[node name="Card5" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("7_1jhsh")]
-layout_mode = 2
-
-[node name="Card6" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("8_w1egj")]
-layout_mode = 2
-
-[node name="Card" parent="Parallax/Hand/HBoxContainer" instance=ExtResource("3_p6ses")]
 layout_mode = 2
 
 [node name="DrawnCards" type="Control" parent="Parallax" node_paths=PackedStringArray("from")]
