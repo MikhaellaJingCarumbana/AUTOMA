@@ -1,26 +1,23 @@
-[gd_scene load_steps=14 format=3 uid="uid://dudgxgkqv7cso"]
+[gd_scene load_steps=4 format=3 uid="uid://dudgxgkqv7cso"]
 
-[ext_resource type="Shader" path="res://shaders/Skybackground.gdshader" id="1_n6rus"]
-[ext_resource type="Texture2D" uid="uid://c2ylfnr7y48p6" path="res://Art/Parallaxx/summer8/1.png" id="2_uqdvf"]
-[ext_resource type="Shader" path="res://shaders/Skybackground2.gdshader" id="3_u0dt2"]
-[ext_resource type="Texture2D" uid="uid://3lk0puod1d80" path="res://Art/Parallaxx/summer8/2.png" id="4_rt4hy"]
-[ext_resource type="Shader" path="res://shaders/skybackground3.gdshader" id="5_0sgp3"]
-[ext_resource type="Texture2D" uid="uid://fkjb2m2upmsc" path="res://Art/Parallaxx/summer8/3.png" id="6_jafux"]
-[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="7_tly0d"]
-[ext_resource type="Texture2D" uid="uid://cicp7rotn0hwc" path="res://Art/Parallaxx/summer8/4.png" id="8_dx0og"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_set5f"]
 [ext_resource type="PackedScene" uid="uid://b2h8ok8yfc7wb" path="res://addons/silent_wolf/Scores/Leaderboard.tscn" id="9_4prba"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lujc0"]
-shader = ExtResource("1_n6rus")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cflnf"]
-shader = ExtResource("3_u0dt2")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h5iim"]
-shader = ExtResource("5_0sgp3")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1xdq7"]
-shader = ExtResource("7_tly0d")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5ddh"]
+shader = ExtResource("1_set5f")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 5.0
+shader_parameter/spin_speed = 2.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.533333, 0.780392, 0.772549, 1)
+shader_parameter/colour_2 = Color(0.156863, 0.509804, 0.670588, 1)
+shader_parameter/colour_3 = Color(0.0392157, 0.247059, 0.360784, 1)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
@@ -30,60 +27,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sky Background" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_lujc0")
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_w5ddh")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_uqdvf")
-
-[node name="Sky Background2" type="TextureRect" parent="."]
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_cflnf")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_rt4hy")
-
-[node name="Sky Background3" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_h5iim")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_jafux")
-
-[node name="grass" type="TextureRect" parent="."]
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_1xdq7")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_dx0og")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.154876, 0.154876, 0.154876, 0.470588)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

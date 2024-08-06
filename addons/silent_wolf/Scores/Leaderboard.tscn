@@ -1,11 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2h8ok8yfc7wb"]
+[gd_scene load_steps=9 format=3 uid="uid://b2h8ok8yfc7wb"]
 
 [ext_resource type="Script" path="res://addons/silent_wolf/Scores/Leaderboard.gd" id="1"]
 [ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://addons/silent_wolf/assets/themes/sw_theme.tres" id="2_ixaq4"]
-[ext_resource type="FontFile" uid="uid://k128qfbnuk" path="res://Fonts/upheaval (2)/upheavtt.ttf" id="3_so5j4"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_p6s3g"]
 [ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="4"]
 
 [sub_resource type="Theme" id="Theme_j1gah"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4scp6"]
+bg_color = Color(0.505882, 0.780392, 0.847059, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3q5dn"]
+bg_color = Color(0.505882, 0.780392, 0.847059, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4b4c"]
 
 [node name="Leaderboard" type="Node2D"]
 script = ExtResource("1")
@@ -37,17 +53,17 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Board/TitleContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_so5j4")
-theme_override_font_sizes/font_size = 72
+theme_override_fonts/font = ExtResource("3_p6s3g")
+theme_override_font_sizes/font_size = 80
 text = "Leaderboard"
 horizontal_alignment = 1
 
 [node name="MessageContainer" type="CenterContainer" parent="Board"]
-visible = false
 layout_mode = 2
 
 [node name="TextMessage" type="Label" parent="Board/MessageContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p6s3g")
 theme_override_font_sizes/font_size = 36
 text = "Loading scores..."
 
@@ -64,8 +80,13 @@ layout_mode = 2
 [node name="CloseButton" parent="Board/CloseButtonContainer" instance=ExtResource("4")]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_so5j4")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.894118, 0.160784, 0, 1)
+theme_override_fonts/font = ExtResource("3_p6s3g")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_4scp6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3q5dn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g4b4c")
 text = "CLOSE"
 
 [connection signal="pressed" from="Board/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]
