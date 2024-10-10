@@ -1,11 +1,11 @@
 extends Node
-# Label(String), Bool
+class_name State
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var label: String
+#var isStart: bool
+#var isEnd: bool
 
+#HelperMethods
+#func check_isStart():
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func check_IsEnd():
