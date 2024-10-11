@@ -3,7 +3,12 @@ class_name Transition
 
 var from: State
 var to: State
-var letter: PackedStringArray
+var alphabet: Array[String]
+
+func _init(fromState, toState, value):
+	from = fromState
+	to = toState
+	alphabet = value
 
 #HelperMethods
 func _ready():
