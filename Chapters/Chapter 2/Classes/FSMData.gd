@@ -125,10 +125,51 @@ func get_outgoing(state:State):
 			outTransitions.append(transition)
 	return outTransitions
 
-
-func check_if_string_IsValid():
-	return false
-
+### NAA KO GI ADD ISHI, SORRY KARON PAKO KA REALIZE ANI NILA ###
+func is_accepting(state: State):
+	return acceptingStates.any(func(s): return s.label == state.label)
+	
+func get_state_by_label(label: String):
+	var index = states.find(func(state): return state.label == label)
+	if index == -1:
+		return null
+		
+	return states[index]
+	
+func check_if_string_IsValid(string: String, current_state: State = initialState):
+	# Some language accepts empty string as valid
+	# but say a(a+b)*, empty string is not valid in this case
+	# mainly because the language requires an 'a' in the start
+	if string.is_empty(): 
+		# A way to determine if empty string is a valid word for the language
+		# is to check if the current state is an accepting state 
+		return is_accepting(current_state)
+	
+	var current_letter = string[0]
+	var rest = string.substr(1)
+	
+	var outgoing_transitions = get_outgoing(current_state)
+	
+	# The transition that the current letter will transition to
+	var outgoing_transition_index = outgoing_transitions.find(func(transition): return transition.has(current_letter))
+	if outgoing_transition_index == -1:
+		var error_format = "Error StringValidityCheck: No outgoing index found in state [%s] for '%s'";
+		var error_str = error_format % [current_state.label, current_letter]
+		print(error_str)
+		return false
+		
+	var outgoing_transition = outgoing_transitions[outgoing_transition_index]
+	var outgoing_state = get_state_by_label(outgoing_transition.to)
+	
+	if outgoing_state == null:
+		var error_format = "Error StringValidityCheck: Transition goes to a nonexisting state [%s]"
+		var error_str = error_format % [outgoing_state.to]
+		print(error_str)
+		return false
+		
+	# Recursively run the function and pass the string except the current_letter (because we are done with it)
+	# And now the current state should be the outgoing state based on the current_letter
+	return check_if_string_IsValid(rest, outgoing_state)
 
 
 #Checking
