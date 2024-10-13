@@ -54,6 +54,11 @@ text/autopauses={}
 variables={}
 glossary/default_case_sensitive=true
 
+[display]
+
+window/size/viewport_width=2500
+window/size/viewport_height=400
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
