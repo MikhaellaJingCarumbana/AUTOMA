@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Scripts/global.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -57,7 +57,7 @@ glossary/default_case_sensitive=true
 [display]
 
 window/size/viewport_width=2500
-window/size/viewport_height=400
+window/size/viewport_height=245
 
 [editor_plugins]
 

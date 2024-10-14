@@ -1,46 +1,39 @@
 extends CharacterBody2D
 
-
-const speed = 200.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 @onready var sprite_2d = $AnimatedSprite2D
-var current_dir = "none"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var is_facing_left = false  # Tracks the direction the character is facing
 
-
-func player_movement(delta):
-	if Input.is_action_pressed("ui_right"):
-		current_dir = "right"
-		play_anim(1)
-		velocity.x = speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_left"):
-		current_dir = "left"
-		play_anim(1)
-		velocity.x = -speed
-		velocity.y = 0
+func _physics_process(delta):
+	# Update animation based on velocity
+	if velocity.x > 1 or velocity.x < -1:
+		sprite_2d.play("Run")
+		is_facing_left = velocity.x < 0  # Update facing direction
+	elif not is_on_floor():
+		sprite_2d.play("Jump")
 	else:
-		play_anim(0)
-		velocity.x = 0
-		velocity.y = 0
+		sprite_2d.play("Idle")
+	
+	# Flip the sprite based on the last known direction
+	sprite_2d.flip_h = is_facing_left
+
+	# Add gravity
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	# Handle jump
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle movement/deceleration
+	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, 12)
 
 	move_and_slide()
-
-func play_anim(movement):
-	var dir = current_dir
-	var anim = $AnimatedSprite2D
-
-	if dir == "right":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("Running")
-		elif movement == 0:
-			anim.play("Idle")
-	elif dir == "left":
-		anim.flip_h = true
-		if movement == 1:
-			anim.play("Running")
-		elif movement == 0:
-			anim.play("Idle")
