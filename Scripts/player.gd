@@ -4,8 +4,8 @@ const speed = 100
 var current_dir = "none"
 
 @onready var all_interactions = []
-@onready var InteractLabel = $"Interaction Component/InteractLabel"
-
+@onready var InteractLabel = $"Interaction Component/Interaction Area/InteractLabel"
+@onready var sprite_2d = $AnimatedSprite2D
 func _ready():
 	update_interactions()
 
@@ -88,7 +88,7 @@ func update_interactions():
 	if all_interactions:
 		InteractLabel.text = all_interactions[0].interact_label
 	else:
-		InteractLabel.text = ""
+		InteractLabel.text = " "
 
 func execute_interaction():
 	if all_interactions:
