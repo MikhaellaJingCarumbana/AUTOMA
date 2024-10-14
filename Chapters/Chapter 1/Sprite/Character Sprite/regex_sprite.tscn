@@ -1,11 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=47 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="Texture2D" uid="uid://baguwgst3pjir" path="res://Chapters/Chapter 1/Sprite/Red Hood/Spritesheet/idle and  alter/idle sheet-Sheet.png" id="2_nupwd"]
 [ext_resource type="Texture2D" uid="uid://c0dn5wd5ebwle" path="res://Chapters/Chapter 1/Sprite/Red Hood/Spritesheet/idle and  alter/itch jump sheet-Sheet.png" id="3_4bkex"]
 [ext_resource type="Texture2D" uid="uid://t3ouuj7q5xou" path="res://Chapters/Chapter 1/Sprite/Red Hood/Spritesheet/idle and  alter/itch run-Sheet sheet.png" id="4_yvg02"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_x61ev"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_rkvm1"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_ousdc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgjkp"]
 atlas = ExtResource("2_nupwd")
@@ -301,12 +300,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2aan"]
 size = Vector2(25, 38)
 
-[sub_resource type="Resource" id="Resource_np4q0"]
-script = ExtResource("6_rkvm1")
-duration = 1.0
-transition = 0
-ease = 2
-
 [node name="Regex Sprite" type="CharacterBody2D"]
 script = ExtResource("1_2hvlw")
 
@@ -325,9 +318,7 @@ position = Vector2(1.5, 1)
 shape = SubResource("RectangleShape2D_l2aan")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 2)
+zoom = Vector2(4, 3)
 
-[node name="PhantomCamera2D" type="Node2D" parent="Camera2D"]
-script = ExtResource("5_x61ev")
-snap_to_pixel = true
-tween_resource = SubResource("Resource_np4q0")
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("5_ousdc")
