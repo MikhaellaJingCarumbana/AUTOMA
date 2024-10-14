@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgyfpmq8jkma3"
-path="res://.godot/imported/itch light atk sheet-Sheet.png-0c183b97169a542b985ab6cb8ddd0e10.ctex"
+path="res://.godot/imported/itch light atk sheet-Sheet.png-ac0a020095b31fbc2210d2dd56472f75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Chapters/Chapter 1/Sprite/Spritesheet/idle and  alter/itch light atk sheet-Sheet.png"
-dest_files=["res://.godot/imported/itch light atk sheet-Sheet.png-0c183b97169a542b985ab6cb8ddd0e10.ctex"]
+source_file="res://Chapters/Chapter 1/Sprite/Red Hood/Spritesheet/idle and  alter/itch light atk sheet-Sheet.png"
+dest_files=["res://.godot/imported/itch light atk sheet-Sheet.png-ac0a020095b31fbc2210d2dd56472f75.ctex"]
 
 [params]
 

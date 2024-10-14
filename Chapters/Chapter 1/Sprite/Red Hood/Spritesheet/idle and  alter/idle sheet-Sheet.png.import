@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0dn5wd5ebwle"
-path="res://.godot/imported/itch jump sheet-Sheet.png-2eb6f7494e17c9b2c135bb9783d7a0b4.ctex"
+uid="uid://baguwgst3pjir"
+path="res://.godot/imported/idle sheet-Sheet.png-3a5a4899597d605fa8bc5543c64de1a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Chapters/Chapter 1/Sprite/Spritesheet/idle and  alter/itch jump sheet-Sheet.png"
-dest_files=["res://.godot/imported/itch jump sheet-Sheet.png-2eb6f7494e17c9b2c135bb9783d7a0b4.ctex"]
+source_file="res://Chapters/Chapter 1/Sprite/Red Hood/Spritesheet/idle and  alter/idle sheet-Sheet.png"
+dest_files=["res://.godot/imported/idle sheet-Sheet.png-3a5a4899597d605fa8bc5543c64de1a8.ctex"]
 
 [params]
 

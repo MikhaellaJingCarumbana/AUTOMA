@@ -1,6 +1,5 @@
 [gd_scene load_steps=21 format=3 uid="uid://dey5ts6fvaec6"]
 
-[ext_resource type="PackedScene" uid="uid://bp71fuwvt3gcr" path="res://Scenes/player.tscn" id="1_12bk2"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/dungeonItems.png" id="2_totrw"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Tilemap 3/Tilesetv3.png" id="3_g7lwc"]
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Tilemap 2/Dungeon Tile Set/Dungeon Tile Set.png" id="4_86p7w"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bmyuo0wkvpclc" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/back.png" id="7_8dfjl"]
 [ext_resource type="Texture2D" uid="uid://nrlhtlmttxlf" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/front.png" id="8_m4vii"]
 [ext_resource type="Texture2D" uid="uid://dgs30xirr1o1m" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/mountains.png" id="9_6284v"]
+[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/regex_sprite.tscn" id="10_1lenu"]
 [ext_resource type="Texture2D" uid="uid://clmqsjuuhjl8o" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/tileset.png" id="10_bysf4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bei7b"]
@@ -4660,5 +4660,5 @@ layer_4/tile_data = PackedInt32Array(720896, 196616, 3, 786432, 196616, 4, 85196
 layer_5/name = "front decorations"
 layer_5/tile_data = PackedInt32Array(720939, 262145, 40, 720940, 327681, 40, 458844, 262145, 39, 458845, 327681, 39, 589973, 1, 26, 655509, 1, 27, 589974, 65537, 26, 655510, 65537, 27, 589969, 1, 26, 655505, 1, 27, 589970, 65537, 26, 655506, 65537, 27, 524435, 983040, 7, 589971, 983040, 8, 655507, 983040, 9, 524436, 1048576, 7, 589972, 1048576, 8, 655508, 1048576, 9)
 
-[node name="Player" parent="." instance=ExtResource("1_12bk2")]
-position = Vector2(23, 151)
+[node name="Regex Sprite" parent="." instance=ExtResource("10_1lenu")]
+position = Vector2(25, 157)

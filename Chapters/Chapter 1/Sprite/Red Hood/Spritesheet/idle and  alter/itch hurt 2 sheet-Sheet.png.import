@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baguwgst3pjir"
-path="res://.godot/imported/idle sheet-Sheet.png-dd9f7e2f045906ffd7f6c5eb89d9dd0b.ctex"
+uid="uid://xkrek108w8p4"
+path="res://.godot/imported/itch hurt 2 sheet-Sheet.png-9701831dd1b5709e4e8043bbd5b41e22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Chapters/Chapter 1/Sprite/Spritesheet/idle and  alter/idle sheet-Sheet.png"
-dest_files=["res://.godot/imported/idle sheet-Sheet.png-dd9f7e2f045906ffd7f6c5eb89d9dd0b.ctex"]
+source_file="res://Chapters/Chapter 1/Sprite/Red Hood/Spritesheet/idle and  alter/itch hurt 2 sheet-Sheet.png"
+dest_files=["res://.godot/imported/itch hurt 2 sheet-Sheet.png-9701831dd1b5709e4e8043bbd5b41e22.ctex"]
 
 [params]
 

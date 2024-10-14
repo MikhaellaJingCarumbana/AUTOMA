@@ -5,7 +5,7 @@ var current_dir = "none"
 
 @onready var all_interactions = []
 @onready var InteractLabel = $"Interaction Component/InteractLabel"
-
+@onready var sprite_2d = $AnimatedSprite2D
 func _ready():
 	update_interactions()
 

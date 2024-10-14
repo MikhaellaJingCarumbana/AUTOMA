@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gps7fcwsnfd3"
-path="res://.godot/imported/red hood itch free Copy-Sheet.png-c18b7c52b5971f4a55874550236d7c7b.ctex"
+uid="uid://t3ouuj7q5xou"
+path="res://.godot/imported/itch run-Sheet sheet.png-8282c24ef90ce8674d60917414d28986.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Chapters/Chapter 1/Sprite/Spritesheet/red hood itch free Copy-Sheet.png"
-dest_files=["res://.godot/imported/red hood itch free Copy-Sheet.png-c18b7c52b5971f4a55874550236d7c7b.ctex"]
+source_file="res://Chapters/Chapter 1/Sprite/Red Hood/Spritesheet/idle and  alter/itch run-Sheet sheet.png"
+dest_files=["res://.godot/imported/itch run-Sheet sheet.png-8282c24ef90ce8674d60917414d28986.ctex"]
 
 [params]
 

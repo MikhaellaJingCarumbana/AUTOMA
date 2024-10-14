@@ -323,8 +323,7 @@ script = ExtResource("1_ctwy0")
 y_sort_enabled = true
 position = Vector2(1, 14)
 sprite_frames = SubResource("SpriteFrames_qbhcp")
-animation = &"Death"
-frame_progress = 0.508073
+animation = &"Idle"
 speed_scale = 2.0
 offset = Vector2(0, -15)
 
@@ -349,7 +348,7 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component/Interaction Area"]
 shape = SubResource("CircleShape2D_o8qij")
 
-[node name="InteractLabel" type="Label" parent="Interaction Component"]
+[node name="InteractLabel" type="Label" parent="Interaction Component/Interaction Area"]
 z_index = 1
 anchors_preset = 13
 anchor_left = 0.5
