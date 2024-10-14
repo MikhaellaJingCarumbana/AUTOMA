@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dey5ts6fvaec6"]
+[gd_scene load_steps=21 format=3 uid="uid://dey5ts6fvaec6"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/dungeonItems.png" id="2_totrw"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Tilemap 3/Tilesetv3.png" id="3_g7lwc"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dgs30xirr1o1m" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/mountains.png" id="9_6284v"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/regex_sprite.tscn" id="10_1lenu"]
 [ext_resource type="Texture2D" uid="uid://clmqsjuuhjl8o" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/tileset.png" id="10_bysf4"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="11_tg4gs"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_8do7f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bei7b"]
 texture = ExtResource("2_totrw")
@@ -4644,12 +4642,6 @@ sources/6 = SubResource("TileSetAtlasSource_c1icu")
 sources/7 = SubResource("TileSetAtlasSource_jtt0e")
 sources/8 = SubResource("TileSetAtlasSource_s1bpu")
 
-[sub_resource type="Resource" id="Resource_qi7ul"]
-script = ExtResource("12_8do7f")
-duration = 1.0
-transition = 0
-ease = 2
-
 [node name="Beginner" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -4670,9 +4662,3 @@ layer_5/tile_data = PackedInt32Array(720939, 262145, 40, 720940, 327681, 40, 458
 
 [node name="Regex Sprite" parent="." instance=ExtResource("10_1lenu")]
 position = Vector2(29, 155)
-
-[node name="PhantomCamera2D" type="Node2D" parent="."]
-position = Vector2(26, 123)
-script = ExtResource("11_tg4gs")
-snap_to_pixel = true
-tween_resource = SubResource("Resource_qi7ul")
