@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://c7nnv2q7emujm"]
+[gd_scene load_steps=24 format=3 uid="uid://c7nnv2q7emujm"]
 
 [ext_resource type="Texture2D" uid="uid://dt033nedesvjb" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_1.png" id="1_wsofs"]
 [ext_resource type="Texture2D" uid="uid://bqb6p0unts320" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_2.png" id="2_5dur7"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/dungeonItems.png" id="2_mb0n7"]
+[ext_resource type="Texture2D" uid="uid://dofm1udsnthps" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_3.png" id="3_21i6y"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Tilemap 3/Tilesetv3.png" id="3_q2fkt"]
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Tilemap 2/Dungeon Tile Set/Dungeon Tile Set.png" id="4_88d54"]
 [ext_resource type="PackedScene" uid="uid://bp71fuwvt3gcr" path="res://Scenes/player.tscn" id="6_jbh70"]
@@ -5785,28 +5786,48 @@ texture = ExtResource("2_5dur7")
 
 [node name="BackgroundLayer3" type="Sprite2D" parent="BackgroundLayer2"]
 position = Vector2(318.916, -0.350195)
-scale = Vector2(1, 1)
 texture = ExtResource("2_5dur7")
 
 [node name="BackgroundLayer4" type="Sprite2D" parent="BackgroundLayer2"]
 position = Vector2(633.86, -0.350195)
-scale = Vector2(1, 1)
 texture = ExtResource("2_5dur7")
 
 [node name="BackgroundLayer5" type="Sprite2D" parent="BackgroundLayer2"]
 position = Vector2(943.747, -0.350195)
-scale = Vector2(1, 1)
 texture = ExtResource("2_5dur7")
 
 [node name="BackgroundLayer6" type="Sprite2D" parent="BackgroundLayer2"]
 position = Vector2(1255.8, 0.350194)
-scale = Vector2(1, 1)
 texture = ExtResource("2_5dur7")
 
 [node name="BackgroundLayer7" type="Sprite2D" parent="BackgroundLayer2"]
 position = Vector2(1572.19, 0.350194)
-scale = Vector2(1, 1)
 texture = ExtResource("2_5dur7")
+
+[node name="BackgroundLayer3" type="Sprite2D" parent="."]
+position = Vector2(215, 125.5)
+scale = Vector2(1.39375, 1.45)
+texture = ExtResource("3_21i6y")
+
+[node name="BackgroundLayer4" type="Sprite2D" parent="BackgroundLayer3"]
+position = Vector2(317.848, -1.03448)
+texture = ExtResource("3_21i6y")
+
+[node name="BackgroundLayer5" type="Sprite2D" parent="BackgroundLayer3"]
+position = Vector2(635.695, -1.03448)
+texture = ExtResource("3_21i6y")
+
+[node name="BackgroundLayer6" type="Sprite2D" parent="BackgroundLayer3"]
+position = Vector2(954.978, -1.03448)
+texture = ExtResource("3_21i6y")
+
+[node name="BackgroundLayer7" type="Sprite2D" parent="BackgroundLayer3"]
+position = Vector2(1274.26, -1.03448)
+texture = ExtResource("3_21i6y")
+
+[node name="BackgroundLayer8" type="Sprite2D" parent="BackgroundLayer3"]
+position = Vector2(1592.11, -1.03448)
+texture = ExtResource("3_21i6y")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_77kuf")
