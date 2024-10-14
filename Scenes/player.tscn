@@ -334,13 +334,9 @@ y_sort_enabled = true
 position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_mf7ds")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-limit_smoothed = true
-
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 script = ExtResource("8_nf2pw")
-zoom = Vector2(4, 4)
+zoom = Vector2(17, 4)
 tween_resource = SubResource("Resource_x04y7")
 
 [node name="Interaction Component" type="Node2D" parent="."]
@@ -373,6 +369,9 @@ text = "Test
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(509.554, 100)
 
 [connection signal="area_entered" from="Interaction Component/Interaction Area" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interaction Component/Interaction Area" to="." method="_on_interaction_area_area_exited"]
