@@ -160,7 +160,7 @@ texture_filter = 1
 texture_repeat = 2
 sprite_frames = SubResource("SpriteFrames_klort")
 animation = &"Run"
-frame_progress = 0.764891
+frame_progress = 0.403736
 speed_scale = 2.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

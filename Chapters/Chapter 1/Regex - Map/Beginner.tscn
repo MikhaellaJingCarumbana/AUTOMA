@@ -4662,20 +4662,17 @@ layer_5/name = "front decorations"
 layer_5/tile_data = PackedInt32Array(720939, 262145, 40, 720940, 327681, 40, 458844, 262145, 39, 458845, 327681, 39, 589973, 1, 26, 655509, 1, 27, 589974, 65537, 26, 655510, 65537, 27, 589969, 1, 26, 655505, 1, 27, 589970, 65537, 26, 655506, 65537, 27, 524435, 983040, 7, 589971, 983040, 8, 655507, 983040, 9, 524436, 1048576, 7, 589972, 1048576, 8, 655508, 1048576, 9)
 
 [node name="Regex Sprite" parent="." instance=ExtResource("10_1lenu")]
-position = Vector2(29, 155)
+position = Vector2(2204, 127)
 
-[node name="Doors" type="Node" parent="."]
+[node name="Beginner" type="Node" parent="."]
 
-[node name="Door_B" parent="Doors" instance=ExtResource("11_sser8")]
-position = Vector2(2451, 136)
+[node name="Door" parent="Beginner" instance=ExtResource("11_sser8")]
+position = Vector2(2453, 147)
 destination_level_tag = "Intermediate"
-destination_door_tag = "E"
+destination_door_tag = "Intermediate"
 spawn_direction = "left"
 
-[node name="CollisionShape2D" parent="Doors/Door_B" index="0"]
-position = Vector2(-2.5, 8.25)
+[node name="Spawn" parent="Beginner/Door" index="1"]
+position = Vector2(-55, 1)
 
-[node name="Spawn" parent="Doors/Door_B" index="1"]
-position = Vector2(-54, 5)
-
-[editable path="Doors/Door_B"]
+[editable path="Beginner/Door"]

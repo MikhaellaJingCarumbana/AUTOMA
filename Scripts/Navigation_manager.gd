@@ -17,4 +17,4 @@ func go_to_level(level_tag, destination_tag):
 			
 	if scene_to_load != null:
 		spawn_door_tag = destination_tag
-		get_tree().change_scene_to_file(scene_to_load)
+		get_tree().change_scene_to_packed(scene_to_load) 
