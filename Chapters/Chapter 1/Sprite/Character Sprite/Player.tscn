@@ -151,7 +151,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hegce"]
 radius = 8.5
 
-[node name="Regex Sprite" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2hvlw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -160,7 +160,7 @@ texture_filter = 1
 texture_repeat = 2
 sprite_frames = SubResource("SpriteFrames_klort")
 animation = &"Run"
-frame_progress = 0.313862
+frame_progress = 0.764891
 speed_scale = 2.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

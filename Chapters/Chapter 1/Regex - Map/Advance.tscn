@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bioknavfsfrd5" path="res://Newly Added Assets/forest-nature-fantasy-tileset-free/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="3_isj7t"]
 [ext_resource type="Texture2D" uid="uid://cta1w8ylh8cxe" path="res://Newly Added Assets/forest-nature-fantasy-tileset-free/Fantasy Swamp Forest/Free/Terrain_and_Props.png" id="4_16wx6"]
 [ext_resource type="Texture2D" uid="uid://d0jgsq8vw8gel" path="res://Newly Added Assets/forest-nature-fantasy-tileset-free/Fantasy Swamp Forest/Free/BG_1/BG_1 rotate.png" id="4_hmd0j"]
-[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/regex_sprite.tscn" id="6_ffkrh"]
+[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="6_ffkrh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h56wd"]
 texture = ExtResource("4_16wx6")

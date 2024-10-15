@@ -21,6 +21,7 @@ Global="*res://Scripts/global.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+NavigationManager="*res://Scripts/Navigation_manager.gd"
 
 [dialogic]
 

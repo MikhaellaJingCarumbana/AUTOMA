@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c7nnv2q7emujm"]
+[gd_scene load_steps=25 format=3 uid="uid://c7nnv2q7emujm"]
 
 [ext_resource type="Texture2D" uid="uid://dt033nedesvjb" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_1.png" id="1_wsofs"]
 [ext_resource type="Texture2D" uid="uid://bqb6p0unts320" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_2.png" id="2_5dur7"]
@@ -12,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://bnnvkhwglip27" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/decorations/shop.png" id="9_5p2lw"]
 [ext_resource type="Texture2D" uid="uid://dpu58tpajnj5f" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/decorations/sign.png" id="10_u5du7"]
 [ext_resource type="Texture2D" uid="uid://c0m2ej15qkc3p" path="res://Newly Added Assets/Pixel art Platformer/Pixel art Platformer/Props/props.png" id="11_hdk1d"]
-[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/regex_sprite.tscn" id="13_qwt8b"]
+[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="13_qwt8b"]
+[ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/door.tscn" id="14_fya6k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5j5sg"]
 texture = ExtResource("2_mb0n7")
@@ -5845,3 +5846,16 @@ layer_4/tile_data = PackedInt32Array()
 
 [node name="Regex Sprite" parent="." instance=ExtResource("13_qwt8b")]
 position = Vector2(44, 59)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Door_I" parent="Node" instance=ExtResource("14_fya6k")]
+position = Vector2(5, 51)
+destination_level_tag = "Beginner"
+destination_door_tag = "W"
+spawn_direction = "right"
+
+[node name="Spawn" parent="Node/Door_I" index="1"]
+position = Vector2(37, 5)
+
+[editable path="Node/Door_I"]

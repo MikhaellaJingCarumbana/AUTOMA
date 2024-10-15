@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/dungeonItems.png" id="3_cmiye"]
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Tilemap 2/Dungeon Tile Set/Dungeon Tile Set.png" id="4_ureq3"]
 [ext_resource type="Texture2D" uid="uid://b4so1f780e60f" path="res://Art/Forest BETA V3/Forest Structures.png" id="5_cuinv"]
-[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/regex_sprite.tscn" id="6_sr1lg"]
+[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="6_sr1lg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cktx6"]
 texture = ExtResource("1_4adu0")
