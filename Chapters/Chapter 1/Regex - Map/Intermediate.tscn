@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7nnv2q7emujm"]
+[gd_scene load_steps=26 format=3 uid="uid://c7nnv2q7emujm"]
 
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/level1.gd" id="1_fqw1w"]
 [ext_resource type="Texture2D" uid="uid://dt033nedesvjb" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_1.png" id="1_wsofs"]
 [ext_resource type="Texture2D" uid="uid://bqb6p0unts320" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_2.png" id="2_5dur7"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/dungeonItems.png" id="2_mb0n7"]
@@ -5754,6 +5755,7 @@ sources/8 = SubResource("TileSetAtlasSource_t706y")
 sources/9 = SubResource("TileSetAtlasSource_kr44x")
 
 [node name="Intermediate" type="Node2D"]
+script = ExtResource("1_fqw1w")
 
 [node name="BackgroundLayer1" type="Sprite2D" parent="."]
 position = Vector2(294, 122.5)
@@ -5844,18 +5846,18 @@ layer_3/tile_data = PackedInt32Array(721039, 524292, 0, 721040, 589828, 0, 72104
 layer_4/name = "props"
 layer_4/tile_data = PackedInt32Array()
 
-[node name="Doors" type="Node" parent="."]
+[node name="Door" type="Node" parent="."]
 
-[node name="Intermediate" parent="Doors" instance=ExtResource("14_fya6k")]
+[node name="Intermediate" parent="Door" instance=ExtResource("14_fya6k")]
 position = Vector2(5, 51)
 destination_level_tag = "Beginner"
 destination_door_tag = "Beginner"
 spawn_direction = "right"
 
-[node name="Spawn" parent="Doors/Intermediate" index="1"]
+[node name="Spawn" parent="Door/Intermediate" index="1"]
 position = Vector2(37, 5)
 
-[node name="Player" parent="Doors/Intermediate" instance=ExtResource("13_qwt8b")]
+[node name="Player" parent="Door/Intermediate" instance=ExtResource("13_qwt8b")]
 position = Vector2(48, 9)
 
-[editable path="Doors/Intermediate"]
+[editable path="Door/Intermediate"]
