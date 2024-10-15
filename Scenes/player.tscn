@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bp71fuwvt3gcr"]
+[gd_scene load_steps=49 format=3 uid="uid://bp71fuwvt3gcr"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ctwy0"]
 [ext_resource type="Texture2D" uid="uid://6e88fxglnddy" path="res://Art/Blue_witch/B_witch_attack.png" id="2_aspur"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dpc6qcsa4o4rx" path="res://Art/Blue_witch/B_witch_death.png" id="5_bc1ob"]
 [ext_resource type="Texture2D" uid="uid://bv47obxhu44pb" path="res://Art/Blue_witch/B_witch_idle.png" id="6_xq4x6"]
 [ext_resource type="Texture2D" uid="uid://d082regcl6y1n" path="res://Art/Blue_witch/B_witch_run.png" id="7_638tb"]
-[ext_resource type="Script" path="res://addons1/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_nf2pw"]
-[ext_resource type="Script" path="res://PhantomCamera/addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_bj4i3"]
 [ext_resource type="FontFile" uid="uid://k128qfbnuk" path="res://Fonts/upheaval (2)/upheavtt.ttf" id="10_xio3b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x27kw"]
@@ -306,12 +304,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mf7ds"]
 radius = 5.0
 
-[sub_resource type="Resource" id="Resource_x04y7"]
-script = ExtResource("9_bj4i3")
-duration = 1.0
-transition = 0
-ease = 2
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8qij"]
 radius = 27.074
 
@@ -332,11 +324,6 @@ visible = false
 y_sort_enabled = true
 position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_mf7ds")
-
-[node name="PhantomCamera2D" type="Node2D" parent="."]
-script = ExtResource("8_nf2pw")
-zoom = Vector2(17, 4)
-tween_resource = SubResource("Resource_x04y7")
 
 [node name="Interaction Component" type="Node2D" parent="."]
 
@@ -370,7 +357,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(509.554, 100)
+scale = Vector2(1.94221, -1.16146)
+limit_left = 100
 
 [connection signal="area_entered" from="Interaction Component/Interaction Area" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interaction Component/Interaction Area" to="." method="_on_interaction_area_area_exited"]

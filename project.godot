@@ -18,8 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Scripts/global.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
@@ -56,12 +57,12 @@ glossary/default_case_sensitive=true
 
 [display]
 
-window/size/viewport_width=2500
-window/size/viewport_height=400
+window/size/resizable=false
+window/default_gravity=980.0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [input]
 
