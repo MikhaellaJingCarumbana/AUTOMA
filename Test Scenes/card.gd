@@ -1,5 +1,3 @@
-#testing 
-#testing again
 extends Button
 
 @export var angle_x_max: float = 15.0
