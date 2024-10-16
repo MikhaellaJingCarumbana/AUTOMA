@@ -4674,6 +4674,9 @@ destination_level_tag = "Intermediate"
 destination_door_tag = "Intermediate"
 spawn_direction = "left"
 
+[node name="CollisionShape2D" parent="Door/Beginner" index="0"]
+position = Vector2(-4, -2)
+
 [node name="Spawn" parent="Door/Beginner" index="1"]
 position = Vector2(-55, 1)
 

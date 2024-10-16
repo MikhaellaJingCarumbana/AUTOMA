@@ -168,9 +168,9 @@ position = Vector2(-2, 2)
 shape = SubResource("CapsuleShape2D_hegce")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -28)
+position = Vector2(-1, 4)
 scale = Vector2(-0.0337744, 293.224)
-zoom = Vector2(4, 3.8)
+zoom = Vector2(6, 6)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("5_ousdc")

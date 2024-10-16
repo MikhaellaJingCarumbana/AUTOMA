@@ -19,8 +19,9 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/global.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 NavigationManager="*res://Scripts/Navigation_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
@@ -63,7 +64,7 @@ window/size/mode=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [input]
 
