@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://156uivyhtwag" path="res://Art/EPIC RPG World Pack - [FREE Demo]Ancient Ruins/EPIC RPG World Pack - [FREE Demo]Ancient Ruins - Copia/Props/altar 224x288 - standing on grass.png" id="9_gx5ml"]
 [ext_resource type="Texture2D" uid="uid://b4so1f780e60f" path="res://Art/Forest BETA V3/Forest Structures.png" id="10_676jc"]
 [ext_resource type="PackedScene" uid="uid://dv0jcs1d3y764" path="res://Scenes/eleanor.tscn" id="14_fl44u"]
-[ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/interact_area.tscn" id="14_pum36"]
+[ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="14_pum36"]
 [ext_resource type="Texture2D" uid="uid://tbyetemngdwo" path="res://Art/PixiVan Forest (Beta)/Stairs Bridge.png" id="18_wutyo"]
 [ext_resource type="Texture2D" uid="uid://c4tu5p2gjvsav" path="res://Art/PixiVan Forest (Beta)/Trees.png" id="19_yocry"]
 

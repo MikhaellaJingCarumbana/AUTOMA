@@ -1,17 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://dey5ts6fvaec6"]
+[gd_scene load_steps=20 format=3 uid="uid://dey5ts6fvaec6"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/level.gd" id="1_i8t56"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/dungeonItems.png" id="2_totrw"]
-[ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="3_g7lwc"]
-[ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="4_86p7w"]
 [ext_resource type="Texture2D" uid="uid://04xl5qgep3ry" path="res://Art/Tilemap 1/others/ground tile.png" id="5_36yoq"]
-[ext_resource type="Texture2D" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/all-props.png" id="6_pfgsi"]
-[ext_resource type="Texture2D" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/back.png" id="7_8dfjl"]
-[ext_resource type="Texture2D" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/front.png" id="8_m4vii"]
-[ext_resource type="Texture2D" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/mountains.png" id="9_6284v"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="10_1lenu"]
-[ext_resource type="Texture2D" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/tileset.png" id="10_bysf4"]
-[ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/door.tscn" id="11_sser8"]
+[ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="12_e666x"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_7ttin"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_w7ca3"]
 
@@ -835,7 +828,6 @@ texture = ExtResource("2_totrw")
 30:9/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ftxk"]
-texture = ExtResource("3_g7lwc")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -2914,7 +2906,6 @@ texture = ExtResource("3_g7lwc")
 13:51/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qs3xm"]
-texture = ExtResource("4_86p7w")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
@@ -3433,7 +3424,6 @@ texture = ExtResource("5_36yoq")
 23:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_llpok"]
-texture = ExtResource("6_pfgsi")
 9:4/0 = 0
 9:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:4/0/physics_layer_0/angular_velocity = 0.0
@@ -3646,7 +3636,6 @@ texture = ExtResource("6_pfgsi")
 19:12/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwh5t"]
-texture = ExtResource("7_8dfjl")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -3853,7 +3842,6 @@ texture = ExtResource("7_8dfjl")
 3:16/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1icu"]
-texture = ExtResource("8_m4vii")
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
@@ -3979,7 +3967,6 @@ texture = ExtResource("8_m4vii")
 5:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtt0e"]
-texture = ExtResource("9_6284v")
 8:7/0 = 0
 8:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:7/0/physics_layer_0/angular_velocity = 0.0
@@ -4444,7 +4431,6 @@ texture = ExtResource("9_6284v")
 4:8/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s1bpu"]
-texture = ExtResource("10_bysf4")
 6:0/0 = 0
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_0/angular_velocity = 0.0
@@ -4679,7 +4665,7 @@ position = Vector2(2204, 127)
 
 [node name="Door" type="Node" parent="."]
 
-[node name="Beginner" parent="Door" instance=ExtResource("11_sser8")]
+[node name="Beginner" parent="Door" instance=ExtResource("12_e666x")]
 position = Vector2(2453, 147)
 destination_level_tag = "Intermediate"
 destination_door_tag = "Intermediate"

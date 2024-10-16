@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://qwj22lc8qjt8"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/interact_area.gd" id="1_k4ky1"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/interact_area.gd" id="1_3emxj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d3o4l"]
 radius = 23.6008
@@ -9,7 +9,7 @@ radius = 23.6008
 collision_layer = 2
 collision_mask = 0
 monitoring = false
-script = ExtResource("1_k4ky1")
+script = ExtResource("1_3emxj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d3o4l")

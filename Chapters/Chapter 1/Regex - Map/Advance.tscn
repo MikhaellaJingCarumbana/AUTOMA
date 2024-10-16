@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwex5tnw64yck"]
+[gd_scene load_steps=10 format=3 uid="uid://bwex5tnw64yck"]
 
 [ext_resource type="Texture2D" uid="uid://bwxl6qx4i55i1" path="res://Newly Added Assets/forest-nature-fantasy-tileset-free/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="1_54j2c"]
 [ext_resource type="Texture2D" uid="uid://ckopcmh0j0mn5" path="res://Newly Added Assets/forest-nature-fantasy-tileset-free/Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="2_sddi2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cta1w8ylh8cxe" path="res://Newly Added Assets/forest-nature-fantasy-tileset-free/Fantasy Swamp Forest/Free/Terrain_and_Props.png" id="4_16wx6"]
 [ext_resource type="Texture2D" uid="uid://d0jgsq8vw8gel" path="res://Newly Added Assets/forest-nature-fantasy-tileset-free/Fantasy Swamp Forest/Free/BG_1/BG_1 rotate.png" id="4_hmd0j"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="6_ffkrh"]
+[ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="7_76xmt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h56wd"]
 texture = ExtResource("4_16wx6")
@@ -1280,4 +1281,19 @@ layer_8/name = "infront of props"
 layer_8/tile_data = PackedInt32Array(524415, 1048580, 20, 524413, 393220, 20, 589949, 393220, 21, 524414, 393220, 268435476, 589950, 393220, 268435477, 655474, 393220, 268435476, 721010, 393220, 268435477, 655473, 393220, 1879048212, 655472, 393220, 1879048213, 786538, 393220, 1879048212, 786537, 393220, 1879048213, 786539, 393220, 536870933, 852075, 393220, 536870932, 655459, 393220, 1073741845, 655458, 393220, 1073741844, 458842, 393220, 1073741845, 458841, 393220, 1073741844, 458843, 393220, 268435476, 524379, 393220, 1879048212, 524378, 393220, 1879048213, 458844, 393220, 536870933, 524380, 1048580, 805306388, 589915, 1048580, 1342177300)
 
 [node name="Regex Sprite" parent="." instance=ExtResource("6_ffkrh")]
-position = Vector2(45, 220)
+position = Vector2(69, 219)
+
+[node name="Door" type="Node" parent="."]
+
+[node name="Advance" parent="Door" instance=ExtResource("7_76xmt")]
+destination_level_tag = "Intermediate"
+destination_door_tag = "Intermediate"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Door/Advance" index="0"]
+position = Vector2(131, 208)
+
+[node name="Spawn" parent="Door/Advance" index="1"]
+position = Vector2(91, 219)
+
+[editable path="Door/Advance"]
