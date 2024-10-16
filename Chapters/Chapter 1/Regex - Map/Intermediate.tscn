@@ -5854,10 +5854,13 @@ destination_level_tag = "Beginner"
 destination_door_tag = "Beginner"
 spawn_direction = "right"
 
+[node name="CollisionShape2D" parent="Door/Intermediate" index="0"]
+position = Vector2(9, 1)
+
 [node name="Spawn" parent="Door/Intermediate" index="1"]
-position = Vector2(37, 5)
+position = Vector2(43, 5)
 
 [node name="Player" parent="." instance=ExtResource("13_qwt8b")]
-position = Vector2(46, 62)
+position = Vector2(59, 62)
 
 [editable path="Door/Intermediate"]

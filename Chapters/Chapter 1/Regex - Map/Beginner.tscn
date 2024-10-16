@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dey5ts6fvaec6"]
+[gd_scene load_steps=27 format=3 uid="uid://dey5ts6fvaec6"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/level.gd" id="1_i8t56"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/dungeonItems.png" id="2_totrw"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="10_1lenu"]
 [ext_resource type="Texture2D" uid="uid://clmqsjuuhjl8o" path="res://Background Image/Fort of Illusion Files/Fort of Illusion Files/Layers/tileset.png" id="10_bysf4"]
 [ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/door.tscn" id="11_sser8"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_7ttin"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_w7ca3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bei7b"]
 texture = ExtResource("2_totrw")
@@ -4644,6 +4646,15 @@ sources/6 = SubResource("TileSetAtlasSource_c1icu")
 sources/7 = SubResource("TileSetAtlasSource_jtt0e")
 sources/8 = SubResource("TileSetAtlasSource_s1bpu")
 
+[sub_resource type="Resource" id="Resource_c6uyg"]
+script = ExtResource("14_w7ca3")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe3tn"]
+size = Vector2(2495, 238)
+
 [node name="Beginner" type="Node2D"]
 script = ExtResource("1_i8t56")
 
@@ -4675,9 +4686,25 @@ destination_door_tag = "Intermediate"
 spawn_direction = "left"
 
 [node name="CollisionShape2D" parent="Door/Beginner" index="0"]
-position = Vector2(-4, -2)
+position = Vector2(-5, 0.625)
 
 [node name="Spawn" parent="Door/Beginner" index="1"]
-position = Vector2(-55, 1)
+position = Vector2(-41, 7)
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(2204, 127)
+script = ExtResource("13_7ttin")
+follow_mode = 5
+follow_target = NodePath("../Regex Sprite")
+zoom = Vector2(6, 6)
+tween_resource = SubResource("Resource_c6uyg")
+limit_target = NodePath("../camera_bounds/collision")
+
+[node name="camera_bounds" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="camera_bounds"]
+position = Vector2(1247.5, 120)
+shape = SubResource("RectangleShape2D_pe3tn")
+disabled = true
 
 [editable path="Door/Beginner"]
