@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0f24qjj4qgow"
-path="res://.godot/imported/magical stone activation animation .png-1c4b52d9e8d18f12ce3d3173583b9167.ctex"
+uid="uid://svy24eqpwx5u"
+path="res://.godot/imported/AnimationSheet_Character.png-f563c5e4ee9c1a961d1ac0438d971711.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game Component/Tilemap 1/others/magical stone activation animation .png"
-dest_files=["res://.godot/imported/magical stone activation animation .png-1c4b52d9e8d18f12ce3d3173583b9167.ctex"]
+source_file="res://Chapters/Chapter 1/Sprite/Red Hooded/AnimationSheet_Character.png"
+dest_files=["res://.godot/imported/AnimationSheet_Character.png-f563c5e4ee9c1a961d1ac0438d971711.ctex"]
 
 [params]
 
