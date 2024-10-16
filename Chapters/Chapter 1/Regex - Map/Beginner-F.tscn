@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2eymjdf4i78p"]
+
+[sub_resource type="TileSet" id="TileSet_wccnq"]
+physics_layer_0/collision_layer = 1
+
+[node name="Beginner-f" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_wccnq")
+format = 2

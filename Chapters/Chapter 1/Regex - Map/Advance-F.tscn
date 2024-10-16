@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjqxi1mmenx8a"]
+
+[sub_resource type="TileSet" id="TileSet_f2fop"]
+physics_layer_0/collision_layer = 1
+
+[node name="Advance-f" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_f2fop")
+format = 2
