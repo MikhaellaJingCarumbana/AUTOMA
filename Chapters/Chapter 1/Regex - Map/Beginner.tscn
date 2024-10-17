@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dey5ts6fvaec6"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/level.gd" id="1_i8t56"]
-[ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/dungeonItems.png" id="2_totrw"]
+[ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="2_totrw"]
 [ext_resource type="Texture2D" uid="uid://04xl5qgep3ry" path="res://Art/Tilemap 1/others/ground tile.png" id="5_36yoq"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="10_1lenu"]
 [ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="12_e666x"]
