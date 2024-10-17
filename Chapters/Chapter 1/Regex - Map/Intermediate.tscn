@@ -2172,11 +2172,11 @@ position = Vector2(441, 51)
 position = Vector2(488, 67)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(1016, 188.5)
+position = Vector2(1016, 178.857)
 script = ExtResource("14_hmmyn")
 follow_mode = 5
 follow_target = NodePath("../Player")
-zoom = Vector2(6, 8)
+zoom = Vector2(5, 7)
 tween_resource = SubResource("Resource_rthti")
 tween_on_load = false
 limit_target = NodePath("../Camera_bound/CollisionShape2D")
