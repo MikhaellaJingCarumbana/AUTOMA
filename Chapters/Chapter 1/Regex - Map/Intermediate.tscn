@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c7nnv2q7emujm"]
+[gd_scene load_steps=28 format=3 uid="uid://c7nnv2q7emujm"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/level.gd" id="1_f6hjg"]
 [ext_resource type="Texture2D" uid="uid://dt033nedesvjb" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_1.png" id="1_wsofs"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://c0m2ej15qkc3p" path="res://Newly Added Assets/Pixel art Platformer/Pixel art Platformer/Props/props.png" id="11_hdk1d"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="13_qwt8b"]
 [ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="14_3i54j"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="14_hmmyn"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="15_djpgk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5j5sg"]
 texture = ExtResource("2_mb0n7")
@@ -5750,6 +5752,15 @@ sources/7 = SubResource("TileSetAtlasSource_nlypn")
 sources/8 = SubResource("TileSetAtlasSource_t706y")
 sources/9 = SubResource("TileSetAtlasSource_kr44x")
 
+[sub_resource type="Resource" id="Resource_rthti"]
+script = ExtResource("15_djpgk")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcfc1"]
+size = Vector2(2660, 253)
+
 [node name="Intermediate" type="Node2D"]
 script = ExtResource("1_f6hjg")
 
@@ -5843,19 +5854,36 @@ layer_4/name = "props"
 layer_4/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("13_qwt8b")]
-position = Vector2(86, 63)
+position = Vector2(129, 191)
 
 [node name="Door" type="Node" parent="."]
 
 [node name="Intermediate" parent="Door" instance=ExtResource("14_3i54j")]
+position = Vector2(233, 94)
 destination_level_tag = "Advance"
 destination_door_tag = "Advance"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Door/Intermediate" index="0"]
-position = Vector2(23, 50)
+position = Vector2(-64, 83)
 
 [node name="Spawn" parent="Door/Intermediate" index="1"]
-position = Vector2(62, 51)
+position = Vector2(-27, 93)
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(129, 188.5)
+script = ExtResource("14_hmmyn")
+follow_mode = 5
+follow_target = NodePath("../Player")
+zoom = Vector2(6, 8)
+tween_resource = SubResource("Resource_rthti")
+tween_on_load = false
+limit_target = NodePath("../Camera_bound/CollisionShape2D")
+
+[node name="Camera_bound" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bound"]
+position = Vector2(1330, 129.5)
+shape = SubResource("RectangleShape2D_pcfc1")
 
 [editable path="Door/Intermediate"]
