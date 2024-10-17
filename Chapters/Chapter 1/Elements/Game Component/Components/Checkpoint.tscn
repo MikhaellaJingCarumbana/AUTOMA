@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhrxy31csctq8"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/checkpoint.gd" id="1_ngquk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d6og"]
+size = Vector2(24, 100)
+
+[node name="Checkpoint" type="Area2D"]
+script = ExtResource("1_ngquk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 40)
+shape = SubResource("RectangleShape2D_6d6og")
+debug_color = Color(0.0728393, 0.64171, 0.295167, 0.42)
+
+[node name="Respawn point" type="Marker2D" parent="."]
+position = Vector2(33, 41)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
