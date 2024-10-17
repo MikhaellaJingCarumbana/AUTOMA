@@ -1,8 +1,24 @@
-[gd_scene load_steps=24 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=28 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="Texture2D" uid="uid://svy24eqpwx5u" path="res://Chapters/Chapter 1/Sprite/Red Hooded/AnimationSheet_Character.png" id="2_lk2dd"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_ousdc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk2ee"]
+atlas = ExtResource("2_lk2dd")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwfuu"]
+atlas = ExtResource("2_lk2dd")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cv17"]
+atlas = ExtResource("2_lk2dd")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dkty"]
+atlas = ExtResource("2_lk2dd")
+region = Rect2(96, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0xmv"]
 atlas = ExtResource("2_lk2dd")
@@ -78,6 +94,23 @@ region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_klort"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk2ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwfuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cv17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dkty")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p0xmv")
@@ -159,9 +192,9 @@ y_sort_enabled = true
 texture_filter = 1
 texture_repeat = 2
 sprite_frames = SubResource("SpriteFrames_klort")
-animation = &"Run"
-frame_progress = 0.403736
-speed_scale = 2.5
+animation = &"Idle"
+frame_progress = 0.517523
+speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2)
