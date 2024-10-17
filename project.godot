@@ -22,7 +22,7 @@ SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 NavigationManager="*res://Scripts/Navigation_manager.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-TransitionScreen="*res://Chapters/Chapter 1/Elements/Game Component/Scripts/transition_screen.gd"
+TransitionScreen="*res://Chapters/Chapter 1/Elements/Game Component/Components/transition_screen.tscn"
 
 [dialogic]
 

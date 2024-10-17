@@ -1,23 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsxqcbalbhwag"]
+[gd_scene load_steps=6 format=3 uid="uid://btornml02824v"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/transition_screen.gd" id="1_i4rb5"]
+[sub_resource type="GDScript" id="GDScript_r47u0"]
+resource_name = "transition_screen"
+script/source = "extends CanvasLayer
 
-[sub_resource type="Animation" id="Animation_82mpf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
+signal on_transition_finished
 
-[sub_resource type="Animation" id="Animation_gof0k"]
+
+@onready var color_rect = $ColorRect
+@onready var animation_player = $AnimationPlayer
+
+func _ready():
+	color_rect.visible = false
+	animation_player.animation_finished.connect(_on_animation_finished)
+	
+func _on_animation_finished(anim_name):
+	if anim_name == \"fade_to_black\":
+		on_transition_finished.emit()
+		animation_player.play(\"fade_to_normal\")
+	elif anim_name == \"fade_to_normal\":
+		color_rect.visible = false
+		
+func transition():
+	color_rect.visible = true
+	animation_player.play(\"fade_to_black\")
+"
+
+[sub_resource type="Animation" id="Animation_noup1"]
 resource_name = "fade_to_black"
 length = 0.5
 tracks/0/type = "value"
@@ -33,7 +42,22 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ttp7a"]
+[sub_resource type="Animation" id="Animation_k4tg1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_afm68"]
 resource_name = "fade_to_normal"
 length = 0.5
 tracks/0/type = "value"
@@ -46,18 +70,18 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rn1im"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73euv"]
 _data = {
-"RESET": SubResource("Animation_82mpf"),
-"fade_to_black": SubResource("Animation_gof0k"),
-"fade_to_normal": SubResource("Animation_ttp7a")
+"RESET": SubResource("Animation_k4tg1"),
+"fade_to_black": SubResource("Animation_noup1"),
+"fade_to_normal": SubResource("Animation_afm68")
 }
 
 [node name="TransitionScreen" type="CanvasLayer"]
-script = ExtResource("1_i4rb5")
+script = SubResource("GDScript_r47u0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -66,10 +90,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-color = Color(0.0603381, 0.00997965, 0.137083, 1)
+color = Color(0.0750453, 0.0527722, 0.103093, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_rn1im")
+"": SubResource("AnimationLibrary_73euv")
 }
