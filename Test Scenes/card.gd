@@ -217,5 +217,3 @@ func get_end_button_position() -> Vector2:
 	if Global.get_end_button():
 		return Global.get_end_button().get_global_position() + (Global.get_end_button().size / 2)
 	return Vector2.ZERO
-
-

@@ -5,7 +5,7 @@ func enter() -> void:
 	if ui_layer:
 		card_ui.reparent(ui_layer)
 		
-	card_ui.cardstatelabel.text = "D"
+	card_ui.cardstatelabel.text = "N"
 
 func on_input(event: InputEvent) -> void:
 	var mouse_motion := event is InputEventMouseMotion
@@ -14,8 +14,9 @@ func on_input(event: InputEvent) -> void:
 	
 	if mouse_motion:
 		card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset
-	if cancel:
-		transition_requested.emit(self, CardState.Phase.BASE)
-	elif confirm:
-		get_viewport().set_input_as_handled()
-		transition_requested.emit(self, CardState.Phase.RELEASED)
+	if card_ui.mouse_entered:
+		if cancel:
+			transition_requested.emit(self, CardState.Phase.BASE)
+		elif confirm:
+			get_viewport().set_input_as_handled()
+			transition_requested.emit(self, CardState.Phase.RELEASED)
