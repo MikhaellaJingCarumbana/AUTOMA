@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c7nnv2q7emujm"]
+[gd_scene load_steps=30 format=3 uid="uid://c7nnv2q7emujm"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/level.gd" id="1_f6hjg"]
 [ext_resource type="Texture2D" uid="uid://dt033nedesvjb" path="res://Newly Added Assets/oak_woods_v1.0/oak_woods_v1.0/background/background_layer_1.png" id="1_wsofs"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="14_3i54j"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="14_hmmyn"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="15_djpgk"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/deathzone.gd" id="16_8iali"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5j5sg"]
 texture = ExtResource("2_mb0n7")
@@ -5761,6 +5762,9 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcfc1"]
 size = Vector2(2660, 253)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vufi7"]
+size = Vector2(2750, 73)
+
 [node name="Intermediate" type="Node2D"]
 script = ExtResource("1_f6hjg")
 
@@ -5854,7 +5858,7 @@ layer_4/name = "props"
 layer_4/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("13_qwt8b")]
-position = Vector2(129, 191)
+position = Vector2(1016, 192)
 
 [node name="Door" type="Node" parent="."]
 
@@ -5865,13 +5869,13 @@ destination_door_tag = "Advance"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Door/Intermediate" index="0"]
-position = Vector2(-64, 83)
+position = Vector2(688, 82)
 
 [node name="Spawn" parent="Door/Intermediate" index="1"]
-position = Vector2(-27, 93)
+position = Vector2(734, 88)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(129, 188.5)
+position = Vector2(1016, 188.5)
 script = ExtResource("14_hmmyn")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -5885,5 +5889,16 @@ limit_target = NodePath("../Camera_bound/CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bound"]
 position = Vector2(1330, 129.5)
 shape = SubResource("RectangleShape2D_pcfc1")
+disabled = true
+
+[node name="death_zone" type="Area2D" parent="."]
+script = ExtResource("16_8iali")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
+position = Vector2(1356, 275)
+shape = SubResource("RectangleShape2D_vufi7")
+debug_color = Color(0.968014, 0.18005, 0, 0.42)
+
+[connection signal="body_entered" from="death_zone" to="death_zone" method="_on_body_entered"]
 
 [editable path="Door/Intermediate"]
