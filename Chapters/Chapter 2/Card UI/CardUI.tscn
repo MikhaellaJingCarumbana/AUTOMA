@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx04e03gcrohe"]
+[gd_scene load_steps=13 format=3 uid="uid://dx04e03gcrohe"]
 
 [ext_resource type="Theme" uid="uid://kbuvpsiofcvd" path="res://Themes/card_theme.tres" id="1_011vm"]
 [ext_resource type="Texture2D" uid="uid://dpawubh532r0l" path="res://Art/Custom UI/Card Blank.png" id="1_f4kud"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 2/Card UI/Card States/CardClickedState.gd" id="7_fe5ai"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/Card UI/Card States/CardDraggingState.gd" id="8_cduqj"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/Card UI/Card States/CardReleasedState.gd" id="9_l36ml"]
+[ext_resource type="Script" path="res://Chapters/Chapter 2/Card UI/Card States/CardPlayingState.gd" id="10_qps7x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sbf46"]
 font = ExtResource("2_wh25t")
@@ -80,7 +81,40 @@ phase = 2
 
 [node name="CardReleasedState" type="Node" parent="CardStateMachine"]
 script = ExtResource("9_l36ml")
+phase = 3
+
+[node name="CardPlayingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("10_qps7x")
 phase = 4
+
+[node name="EndButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -5.5
+offset_bottom = 5.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_011vm")
+action_mode = 0
+icon_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -5.5
+offset_right = 10.0
+offset_bottom = 5.5
+grow_vertical = 2
+theme = ExtResource("1_011vm")
+action_mode = 0
+icon_alignment = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
