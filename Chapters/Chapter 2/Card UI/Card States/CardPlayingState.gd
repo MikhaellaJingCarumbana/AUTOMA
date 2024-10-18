@@ -11,4 +11,3 @@ func on_input(event: InputEvent) -> void:
 		#card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.pivot_offset
 	#if place:
 	return
-
