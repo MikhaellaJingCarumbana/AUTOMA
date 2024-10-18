@@ -201,7 +201,7 @@ position = Vector2(-2, 2)
 shape = SubResource("CapsuleShape2D_hegce")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 4)
+position = Vector2(-1, -27)
 scale = Vector2(-0.0337744, 293.224)
 zoom = Vector2(6, 6)
 

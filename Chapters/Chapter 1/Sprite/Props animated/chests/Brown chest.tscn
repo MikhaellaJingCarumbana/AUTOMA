@@ -1,0 +1,122 @@
+[gd_scene load_steps=17 format=3 uid="uid://cwsjbvfsg8dm4"]
+
+[ext_resource type="Texture2D" uid="uid://dqum2uwuos6dc" path="res://Chapters/Chapter 1/Sprite/props/Fantasy RPG (Toony) 32x32.png" id="1_4dcg6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogaj3"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi0el"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udt2e"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t7t8"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fydmf"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuivx"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvb13"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdre7"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xedq4"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(160, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lsy4"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj5y7"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv6jk"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u1la"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y85m"]
+atlas = ExtResource("1_4dcg6")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnq3t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogaj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi0el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udt2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t7t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fydmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuivx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvb13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdre7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xedq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lsy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj5y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv6jk")
+}],
+"loop": true,
+"name": &"Brown_Open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u1la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y85m")
+}],
+"loop": true,
+"name": &"Brown_idle",
+"speed": 5.0
+}]
+
+[node name="BrownChest" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mnq3t")
+animation = &"Brown_idle"
+frame_progress = 0.0828747
+speed_scale = 5.0

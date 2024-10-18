@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="14_hmmyn"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="15_djpgk"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/deathzone.gd" id="16_8iali"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/checkpoint_manager.gd" id="17_mjypb"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/CheckpointManager.gd" id="17_a15yg"]
 [ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="18_r2k08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5j5sg"]
@@ -2058,7 +2058,7 @@ transition = 0
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcfc1"]
-size = Vector2(2660, 253)
+size = Vector2(2662, 222.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vufi7"]
 size = Vector2(2750, 73)
@@ -2169,10 +2169,10 @@ spawn_direction = "right"
 position = Vector2(441, 51)
 
 [node name="Spawn" parent="Door/Intermediate" index="1"]
-position = Vector2(488, 67)
+position = Vector2(494, 80)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(1016, 178.857)
+position = Vector2(1016, 174.857)
 script = ExtResource("14_hmmyn")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -2184,7 +2184,7 @@ limit_target = NodePath("../Camera_bound/CollisionShape2D")
 [node name="Camera_bound" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bound"]
-position = Vector2(1330, 129.5)
+position = Vector2(1737, 140.75)
 shape = SubResource("RectangleShape2D_pcfc1")
 disabled = true
 
@@ -2197,7 +2197,7 @@ shape = SubResource("RectangleShape2D_vufi7")
 debug_color = Color(0.968014, 0.18005, 0, 0.42)
 
 [node name="CheckpointManager" type="Node" parent="."]
-script = ExtResource("17_mjypb")
+script = ExtResource("17_a15yg")
 
 [node name="Checkpoint" parent="CheckpointManager" instance=ExtResource("18_r2k08")]
 position = Vector2(1132, 119)
