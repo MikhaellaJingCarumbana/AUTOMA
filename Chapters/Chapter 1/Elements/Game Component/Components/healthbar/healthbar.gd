@@ -26,6 +26,5 @@ func init_health(_health):
 	damage_bar.max_value = health
 	damage_bar.value = health
 
-
 func _on_timer_timeout() -> void:
 	damage_bar.value = health

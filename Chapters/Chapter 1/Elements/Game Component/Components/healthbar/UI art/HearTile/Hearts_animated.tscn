@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://mqwfa1u2qa1t"]
+
+[node name="HeartsAnimated" type="CharacterBody2D"]

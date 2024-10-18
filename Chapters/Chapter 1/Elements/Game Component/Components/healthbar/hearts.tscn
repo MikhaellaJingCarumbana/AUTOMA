@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwgcrkhs7khtu"]
+
+[ext_resource type="Texture2D" uid="uid://cwphuaosajbei" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/UI art/HearTile/Cuore1.png" id="1_8d6g6"]
+[ext_resource type="Texture2D" uid="uid://dq3j14dfy73y7" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/UI art/HearTile/Cuore2.png" id="2_khqfj"]
+[ext_resource type="Texture2D" uid="uid://bir0gjocrpdpa" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/UI art/HearTile/Cuore3.png" id="3_s0mmk"]
+[ext_resource type="Texture2D" uid="uid://crqeodtjcusd2" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/UI art/HearTile/Cuore4.png" id="4_0og2t"]
+[ext_resource type="Texture2D" uid="uid://cg1t786sgho4a" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/UI art/HearTile/Cuore5.png" id="5_8xgam"]
+[ext_resource type="Texture2D" uid="uid://bku8ov0dcmhgx" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/UI art/HearTile/Cuore6.png" id="6_alxd5"]
+[ext_resource type="Texture2D" uid="uid://cp4xj0xlgid6a" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/UI art/HearTile/Cuore7.png" id="7_2cgoh"]
+[ext_resource type="Texture2D" uid="uid://1v8h7eqas4py" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/UI art/HearTile/Cuore8.png" id="8_7nvr8"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/hearts.gd" id="9_pgsdi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4s8ll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8d6g6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_khqfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s0mmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0og2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8xgam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_alxd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2cgoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7nvr8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Hearts" type="AnimatedSprite2D"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_4s8ll")
+animation = &"Idle"
+frame_progress = 0.998916
+speed_scale = 2.0
+script = ExtResource("9_pgsdi")
