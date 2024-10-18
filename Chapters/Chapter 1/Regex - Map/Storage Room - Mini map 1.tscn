@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ceqh74b6eiy65" path="res://Art/Dungeon Vibes Tilesets/Dungeon Prison/Assets/Props.png" id="1_nwlpb"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_ksfu1"]
-[ext_resource type="Texture2D" uid="uid://c2vddttocqcx2" path="res://Art/Dungeon Vibes Tilesets/Medieval_Castle_Asset_Pack/Medieval_Castle_Asset_Pack/Decorations/bookshelf_1.png" id="3_go80h"]
-[ext_resource type="Texture2D" uid="uid://da0r7poweyk14" path="res://Art/Dungeon Vibes Tilesets/Medieval_Castle_Asset_Pack/Medieval_Castle_Asset_Pack/Decorations/bookshelf_2.png" id="4_tl6hg"]
-[ext_resource type="Texture2D" uid="uid://brmevwrx4cg44" path="res://Art/Dungeon Vibes Tilesets/OLD SHOP/OLD SHOP/old shop objects_v1.png" id="5_fwpav"]
-[ext_resource type="Texture2D" uid="uid://da0ulwhomqd2f" path="res://Art/Dungeon Vibes Tilesets/OLD SHOP/OLD SHOP/old shop tile_v1.png" id="6_q068a"]
-[ext_resource type="Texture2D" uid="uid://c5qqyah124q2e" path="res://Art/Dungeon Vibes Tilesets/UndergroundMine/UndergroundMine/UM_UndergroundMine_TileSet 16x16.png" id="7_k02i0"]
+[ext_resource type="Texture2D" path="res://Art/Dungeon Vibes Tilesets/Medieval_Castle_Asset_Pack/Medieval_Castle_Asset_Pack/Decorations/bookshelf_1.png" id="3_go80h"]
+[ext_resource type="Texture2D" path="res://Art/Dungeon Vibes Tilesets/Medieval_Castle_Asset_Pack/Medieval_Castle_Asset_Pack/Decorations/bookshelf_2.png" id="4_tl6hg"]
+[ext_resource type="Texture2D" path="res://Art/Dungeon Vibes Tilesets/OLD SHOP/OLD SHOP/old shop objects_v1.png" id="5_fwpav"]
+[ext_resource type="Texture2D" path="res://Art/Dungeon Vibes Tilesets/OLD SHOP/OLD SHOP/old shop tile_v1.png" id="6_q068a"]
+[ext_resource type="Texture2D" path="res://Art/Dungeon Vibes Tilesets/UndergroundMine/UndergroundMine/UM_UndergroundMine_TileSet 16x16.png" id="7_k02i0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rcny"]
 texture = ExtResource("1_nwlpb")
