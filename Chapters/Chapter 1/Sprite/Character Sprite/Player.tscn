@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=30 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="Texture2D" uid="uid://svy24eqpwx5u" path="res://Chapters/Chapter 1/Sprite/Red Hooded/AnimationSheet_Character.png" id="2_lk2dd"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="4_y6k7y"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_ousdc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rk2ee"]
@@ -184,6 +185,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hegce"]
 radius = 8.5
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a08na"]
+radius = 28.1603
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2hvlw")
 
@@ -207,3 +211,30 @@ zoom = Vector2(6, 6)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("5_ousdc")
+
+[node name="Interaction Component" type="Node2D" parent="."]
+z_index = 1
+
+[node name="InteractionArea" type="Area2D" parent="Interaction Component"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component/InteractionArea"]
+shape = SubResource("CircleShape2D_a08na")
+
+[node name="InteractLabel" type="Label" parent="Interaction Component/InteractionArea"]
+offset_left = -25.0
+offset_top = -24.0
+offset_right = 973.0
+offset_bottom = 90.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/font = ExtResource("4_y6k7y")
+theme_override_font_sizes/font_size = 120
+text = "PRESS E TO INTERACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="area_entered" from="Interaction Component/InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="Interaction Component/InteractionArea" to="." method="_on_interaction_area_area_exited"]

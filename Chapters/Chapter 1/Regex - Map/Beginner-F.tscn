@@ -6406,18 +6406,21 @@ layer_7/tile_data = PackedInt32Array(3276828, 5832707, 12, 3342364, 5832707, 13,
 [node name="BrownChest" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(353, 113)
 
+[node name="Player" parent="." instance=ExtResource("5_e65jt")]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(187, 111)
+
 [node name="InteractArea" parent="." instance=ExtResource("9_td7nl")]
 position = Vector2(353, 113)
 scale = Vector2(2.05263, 2.2069)
+collision_mask = 4
 interact_label = "Open Chest"
-interact_type = "print_text"
+interact_type = "open_chest"
 interact_value = "It's working"
 
-[node name="Player" parent="." instance=ExtResource("5_e65jt")]
-position = Vector2(146, 64)
-
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(146, 77.1429)
+position = Vector2(187, 111)
 script = ExtResource("6_hkbon")
 follow_mode = 5
 follow_target = NodePath("../Player")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwsjbvfsg8dm4"]
+[gd_scene load_steps=19 format=3 uid="uid://cwsjbvfsg8dm4"]
 
 [ext_resource type="Texture2D" uid="uid://dqum2uwuos6dc" path="res://Chapters/Chapter 1/Sprite/props/Fantasy RPG (Toony) 32x32.png" id="1_4dcg6"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/scripts/brown_chest.gd" id="1_p86rj"]
+[ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="3_fdf6o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogaj3"]
 atlas = ExtResource("1_4dcg6")
@@ -114,9 +116,14 @@ animations = [{
 }]
 
 [node name="BrownChest" type="CharacterBody2D"]
+script = ExtResource("1_p86rj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mnq3t")
 animation = &"Brown_idle"
 frame_progress = 0.0828747
 speed_scale = 5.0
+
+[node name="InteractArea" parent="." instance=ExtResource("3_fdf6o")]
+scale = Vector2(2.35167, 2.33633)
+collision_layer = 0

@@ -26,16 +26,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"Eleanor_NPC": "res://Characters/Eleanor_NPC.dch",
-"Eleanor_Tutorial": "res://Timeline/Eleanor_Tutorial.dch",
-"Player": "res://Timeline/Player.dch"
-}
-directories/dtl_directory={
-"Eleanor_Intro": "res://Timeline/Eleanor_Intro.dtl",
-"test": "res://Timeline/test.dtl",
-"timeline": "res://timeline.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 layout/style_list=["res://Styles/NovelStylewithImage.tres", "res://Styles/Visual Novel.tres"]
 layout/default_style="res://Styles/NovelStylewithImage.tres"
 text/letter_speed=0.01
@@ -65,7 +57,7 @@ window/size/mode=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [input]
 
@@ -98,8 +90,10 @@ right_mouse={
 
 [layer_names]
 
+2d_render/layer_2="interactions"
 2d_physics/layer_1="Card_Target_Selector"
 2d_physics/layer_2="Card_Drop_Area"
+2d_physics/layer_3="interactions"
 
 [physics]
 

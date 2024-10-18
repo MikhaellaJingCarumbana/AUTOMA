@@ -2570,3 +2570,4 @@ follow_mode = 5
 follow_target = NodePath("../Player")
 zoom = Vector2(6, 6)
 tween_resource = SubResource("Resource_j5g7j")
+tween_on_load = false

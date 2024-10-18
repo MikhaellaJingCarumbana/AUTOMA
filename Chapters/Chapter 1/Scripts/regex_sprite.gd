@@ -6,7 +6,10 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -600.0
 @onready var sprite_2d = $AnimatedSprite2D
 @onready var all_interactions = []
-@onready var InteractLabel = $"Interaction Component/Interaction Area/InteractLabel"
+@onready var InteractLabel = $"Interaction Component/InteractionArea/InteractLabel"
+@onready var chest_scene = preload("res://Chapters/Chapter 1/Sprite/Props animated/chests/Brown chest.tscn")
+
+var chest_instance: Brown_Chest
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -55,8 +58,7 @@ func _physics_process(delta):
 	# Handle interactions
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
-
-# Interactions
+		
 
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0, area)
@@ -69,21 +71,30 @@ func _on_interaction_area_area_exited(area):
 	print("Exited interaction area")
 
 func update_interactions():
-	if all_interactions.size() > 0:
+	if all_interactions:
 		InteractLabel.text = all_interactions[0].interact_label
 	else:
 		InteractLabel.text = " "
 
 func execute_interaction():
-	if all_interactions.size() > 0:
+	if all_interactions:
 		var current_interaction = all_interactions[0]
 		match current_interaction.interact_type:
 			"print_text":
 				print(current_interaction.interact_value)
 			"open_dialogic_timeline":
 				open_dialogic_timeline(current_interaction.timeline_name)
+			"open_chest":
+				open_chest()
 		print("Executing interaction: %s" % current_interaction.interact_type)
 
 func open_dialogic_timeline(timeline_name):
 	print("Starting Dialogic timeline: %s" % timeline_name)
 	Dialogic.start(timeline_name)
+	
+func open_chest():
+	if chest_instance:
+		chest_instance.play_open_chest()
+		print("Called open_chest on the chest instanbce")
+	else:
+		print("chest instance not found")
