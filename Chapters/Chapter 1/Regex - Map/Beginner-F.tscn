@@ -6491,3 +6491,12 @@ layout_mode = 2
 
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(712, 103)
+
+[node name="cylcops2" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(206, 336)
+
+[node name="cylcops3" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(548, 561)
+
+[node name="cylcops4" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(758, 862)
