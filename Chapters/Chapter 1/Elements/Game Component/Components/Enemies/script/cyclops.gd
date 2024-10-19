@@ -26,6 +26,7 @@ var is_roaming: bool = true
 var player: CharacterBody2D
 var player_in_area = false
 
+
 func _process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -80,3 +81,15 @@ func _on_direction_timer_timeout() -> void:
 func choose(array):
 	array.shuffle()
 	return array.front()
+
+
+func _on_area_2d_body_entered(body):
+	if (body.name == "Player"):
+		var y_delta = position.y - body.position.y
+		print(y_delta)
+		if(y_delta > 14):
+			print("Destroy enemy")
+			queue_free()
+			body.jump()
+		else:
+			print("Decrease player health")

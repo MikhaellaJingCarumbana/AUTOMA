@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -560.0
 @onready var sprite_2d = $AnimatedSprite2D
 @onready var all_interactions = []
 @onready var InteractLabel = $"Interaction Component/InteractionArea/InteractLabel"
@@ -13,11 +13,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_left = false  # Tracks the direction the character is facing
 var movable = true
 
+func jump():
+	velocity.y = JUMP_VELOCITY
+
 func _ready():
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
 	update_interactions()
 	Global.playerBody = self
-	
+		
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 	sprite_2d.play("Run")

@@ -196,8 +196,7 @@ y_sort_enabled = true
 texture_filter = 1
 texture_repeat = 2
 sprite_frames = SubResource("SpriteFrames_klort")
-animation = &"Idle"
-frame_progress = 0.602542
+animation = &"Hurt"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
