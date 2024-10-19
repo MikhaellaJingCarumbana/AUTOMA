@@ -21,7 +21,7 @@ shader_parameter/contrast = 1.0
 shader_parameter/spin_amount = 0.2
 shader_parameter/pixel_filter = 700.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjwnj"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fg8b3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mm1oc"]
 bg_color = Color(0.509804, 0.254902, 0.611765, 1)
@@ -31,9 +31,9 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_color = Color(0.215686, 0.0901961, 0.266667, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fg8b3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjwnj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eyjy3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7mq0e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkcrm"]
 bg_color = Color(0.509804, 0.254902, 0.611765, 1)
@@ -42,9 +42,9 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7mq0e"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eyjy3"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pi1o4"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntst3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0tiy"]
 bg_color = Color(0.509804, 0.254902, 0.611765, 1)
@@ -53,9 +53,9 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntst3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pi1o4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvaas"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_edkft"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_popmi"]
 bg_color = Color(0.509804, 0.254902, 0.611765, 1)
@@ -64,9 +64,9 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_edkft"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvaas"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebtjc"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6fh5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw0h5"]
 bg_color = Color(0.509804, 0.254902, 0.611765, 1)
@@ -75,7 +75,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6fh5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebtjc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -130,9 +130,9 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("4_wyrd4")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cjwnj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mm1oc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fg8b3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mm1oc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cjwnj")
 text = "Start"
 
 [node name="Leaderboard" type="Button" parent="VBoxContainer"]
@@ -141,9 +141,9 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("4_wyrd4")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_eyjy3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nkcrm")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7mq0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nkcrm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eyjy3")
 text = "Leaderboards
 "
 
@@ -153,9 +153,9 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("4_wyrd4")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_pi1o4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_y0tiy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ntst3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y0tiy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pi1o4")
 text = "Story mode
 "
 
@@ -165,9 +165,9 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("4_wyrd4")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_kvaas")
-theme_override_styles/hover = SubResource("StyleBoxFlat_popmi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_edkft")
+theme_override_styles/hover = SubResource("StyleBoxFlat_popmi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kvaas")
 text = "Practice
 "
 
@@ -177,9 +177,9 @@ layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("4_wyrd4")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ebtjc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qw0h5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n6fh5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qw0h5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ebtjc")
 text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

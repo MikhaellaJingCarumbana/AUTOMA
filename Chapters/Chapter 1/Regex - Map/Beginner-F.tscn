@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=21 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_td7nl"]
 [ext_resource type="PackedScene" uid="uid://cwgcrkhs7khtu" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/hearts.tscn" id="10_87j4p"]
 [ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="11_hwmb2"]
+[ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="11_kboke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6487,6 +6488,11 @@ layout_mode = 2
 
 [node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect3" instance=ExtResource("10_87j4p")]
 
+[node name="PauseGame" parent="UI" instance=ExtResource("11_kboke")]
+
+[node name="PauseMenu" parent="UI/PauseGame" index="0"]
+visible = false
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
@@ -6500,3 +6506,5 @@ position = Vector2(548, 561)
 
 [node name="cylcops4" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(758, 862)
+
+[editable path="UI/PauseGame"]
