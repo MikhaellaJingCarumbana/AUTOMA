@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dp3widlhymt1d"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_0cude"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/pause_game.gd" id="1_ltwn7"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/scripts/pause_game.gd" id="1_ltwn7"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="1_x08am"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
