@@ -93,3 +93,4 @@ func _on_area_2d_body_entered(body):
 			body.jump()
 		else:
 			print("Decrease player health")
+			#body.queue_free()

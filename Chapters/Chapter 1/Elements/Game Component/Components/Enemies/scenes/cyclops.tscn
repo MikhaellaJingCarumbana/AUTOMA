@@ -237,23 +237,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc1v4"]
-size = Vector2(24, 24.75)
+size = Vector2(22, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlg1d"]
-size = Vector2(30, 29.25)
+size = Vector2(24, 17)
 
 [node name="Cyclops" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_4jjch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 0.8)
+scale = Vector2(0.9, 0.5)
 sprite_frames = SubResource("SpriteFrames_hx42s")
 animation = &"death"
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13.625)
+position = Vector2(0, 8.5)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mc1v4")
 
@@ -263,7 +263,7 @@ autostart = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 13.375)
+position = Vector2(2.38419e-07, 8.5)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hlg1d")
 
