@@ -1,6 +1,17 @@
 extends Node
 
 
+var gameStarted : bool
+
+var playerBody : CharacterBody2D
+var playerWeaponEquip : bool
+
+var playerAlive: bool
+var playerDamageZone : Area2D
+var playerDamageAmount : int
+
+var setDamageZone : Area2D
+var setDamageAmount : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SilentWolf.configure({

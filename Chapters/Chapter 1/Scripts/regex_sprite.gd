@@ -16,7 +16,8 @@ var movable = true
 func _ready():
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
 	update_interactions()
-
+	Global.playerBody = self
+	
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 	sprite_2d.play("Run")

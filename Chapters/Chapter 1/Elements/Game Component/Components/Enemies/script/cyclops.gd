@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 class_name CyclopsEnemy
 
-const speed = 10 
-var is_cyclops_chase: bool
+const speed = 30 
+var is_cyclops_chase: bool = true
 
 
 #health
@@ -23,10 +23,15 @@ const gravity = 900
 var knocback_force = 200
 var is_roaming: bool = true
 
+var player: CharacterBody2D
+var player_in_area = false
+
 func _process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		velocity.x = 0
+		
+	player = Global.playerBody
 	move(delta)
 	handle_animation()
 	move_and_slide()
@@ -56,9 +61,14 @@ func move(delta):
 	if !dead:
 		if !is_cyclops_chase:
 			velocity += dir * speed * delta
+		elif is_cyclops_chase and !taking_damage:
+			var dir_to_player = position.direction_to(player.position) * speed
+			velocity.x = dir_to_player.x
+			dir.x = abs(velocity.x)/velocity.x
 		is_roaming = true
 	elif dead:
 		velocity.x = 0
+		
 		
 			
 func _on_direction_timer_timeout() -> void:
