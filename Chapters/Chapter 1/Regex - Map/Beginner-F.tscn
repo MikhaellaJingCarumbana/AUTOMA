@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=20 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cwsjbvfsg8dm4" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Brown chest.tscn" id="8_dbcjb"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_td7nl"]
 [ext_resource type="PackedScene" uid="uid://cwgcrkhs7khtu" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/hearts.tscn" id="10_87j4p"]
+[ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="11_hwmb2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6485,3 +6486,8 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
 [node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect3" instance=ExtResource("10_87j4p")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(712, 103)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://c2dvxvgl68anw"]
+[gd_scene load_steps=31 format=3 uid="uid://c2dvxvgl68anw"]
 
 [ext_resource type="Texture2D" uid="uid://f0yvrtuxh7ar" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/tooth walker/tooth walker sprite-Sheet.png" id="1_qp56p"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/toothwalker.gd" id="1_tbb8s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwad8"]
 atlas = ExtResource("1_qp56p")
@@ -207,10 +208,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kesnv"]
+height = 44.0
+
 [node name="Toothwalker" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_tbb8s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jmw5h")
-animation = &"Attack"
-frame_progress = 0.39982
+animation = &"Hurt"
+frame_progress = 0.661241
 speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
+shape = SubResource("CapsuleShape2D_kesnv")
