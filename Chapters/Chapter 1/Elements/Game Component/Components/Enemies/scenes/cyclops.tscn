@@ -254,7 +254,6 @@ speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mc1v4")
 
 [node name="DirectionTimer" type="Timer" parent="."]
@@ -264,7 +263,6 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2.38419e-07, 8.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hlg1d")
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]

@@ -1,6 +1,7 @@
 extends CharacterBody2D
-
 class_name CyclopsEnemy
+
+@onready var game_manager: Node = %GameManager
 
 const speed = 30 
 var is_cyclops_chase: bool = true
@@ -86,6 +87,7 @@ func choose(array):
 func _on_area_2d_body_entered(body):
 	if (body.name == "Player"):
 		var y_delta = position.y - body.position.y
+		var x_delta = body.position.x - position.x
 		print(y_delta)
 		if(y_delta > 14):
 			print("Destroy enemy")
@@ -93,4 +95,8 @@ func _on_area_2d_body_entered(body):
 			body.jump()
 		else:
 			print("Decrease player health")
-			#body.queue_free()
+			game_manager.decrease_health()
+			if (x_delta > 0):
+				body.jump_slide(500)
+			else:
+				body.jump_slide(-500)

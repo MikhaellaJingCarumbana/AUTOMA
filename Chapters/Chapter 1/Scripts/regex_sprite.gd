@@ -15,7 +15,11 @@ var movable = true
 
 func jump():
 	velocity.y = JUMP_VELOCITY
-
+	
+func jump_slide(x):
+	velocity.y = JUMP_VELOCITY
+	velocity.x = x
+	
 func _ready():
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
 	update_interactions()
