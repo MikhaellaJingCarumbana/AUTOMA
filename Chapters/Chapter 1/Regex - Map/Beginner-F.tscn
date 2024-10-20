@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=23 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cwgcrkhs7khtu" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/hearts.tscn" id="10_87j4p"]
 [ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="11_hwmb2"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="11_kboke"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="11_wd45e"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
@@ -6445,15 +6446,12 @@ disabled = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
-anchors_preset = -1
-anchor_left = 0.84
-anchor_top = 0.031
-anchor_right = 0.84
-anchor_bottom = 0.031
-offset_left = -87.8
-offset_top = -0.480003
-offset_right = 129.2
-offset_bottom = 78.52
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -374.0
+offset_top = 31.0
+offset_bottom = 109.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -6461,15 +6459,12 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_3t2oi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Panel"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.0
-offset_right = 54.0
+offset_left = -158.0
+offset_right = 158.0
 grow_horizontal = 2
-grow_vertical = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI/Panel/HBoxContainer"]
@@ -6489,6 +6484,37 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
 [node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect3" instance=ExtResource("10_87j4p")]
+
+[node name="TextureRect4" type="TextureRect" parent="UI/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect4" instance=ExtResource("10_87j4p")]
+
+[node name="TextureRect5" type="TextureRect" parent="UI/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect5" instance=ExtResource("10_87j4p")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="UI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_wd45e")
+theme_override_font_sizes/font_size = 25
+text = "Player Health"
 
 [node name="PauseGame" parent="UI" instance=ExtResource("11_kboke")]
 
@@ -6511,6 +6537,6 @@ position = Vector2(758, 862)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
 unique_name_in_owner = true
-hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3")]
+hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [editable path="UI/PauseGame"]
