@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdd5nv72q5cjb"]
+[gd_scene load_steps=9 format=3 uid="uid://bdd5nv72q5cjb"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_350qq"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_rukui"]
+[ext_resource type="PackedScene" uid="uid://s8hnkfjbn7ii" path="res://Chapters/Chapter 2/Transition UI/card_target_selector.tscn" id="3_2ff3i"]
 [ext_resource type="PackedScene" uid="uid://dx04e03gcrohe" path="res://Chapters/Chapter 2/Card UI/CardUI.tscn" id="3_884yi"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/UI/Hand.gd" id="3_m2khy"]
 
@@ -107,6 +108,8 @@ collision_layer = 2
 position = Vector2(146.5, 174.125)
 shape = SubResource("RectangleShape2D_7olrf")
 debug_color = Color(0.12549, 0.580392, 0.772549, 0.639216)
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("3_2ff3i")]
 
 [node name="GameUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
