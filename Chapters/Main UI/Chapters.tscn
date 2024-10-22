@@ -37,7 +37,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="Label2" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -53,21 +53,5 @@ theme_override_font_sizes/font_size = 200
 text = "Select Level
 "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Button" parent="." instance=ExtResource("3_u3726")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.593
-anchor_bottom = 0.623
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 0.139954
-offset_bottom = 0.159973
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1, 25.44)
-
-[node name="Button" parent="VBoxContainer" instance=ExtResource("3_u3726")]
-layout_mode = 2
-icon_alignment = 1
