@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhfjskqlhy33j"]
 
-[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_cygwm"]
-[ext_resource type="PackedScene" uid="uid://smtpyjhmn308" path="res://addons/silent_wolf/Auth/RegisterUsernamePassword.tscn" id="9_dnjib"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_r73q1"]
+[ext_resource type="PackedScene" uid="uid://smtpyjhmn308" path="res://addons/silent_wolf/Auth/RegisterUsernamePassword.tscn" id="2_x1tiw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u6y6t"]
-shader = ExtResource("1_cygwm")
+shader = ExtResource("1_r73q1")
 shader_parameter/polar_coordinates = false
 shader_parameter/polar_center = Vector2(0.5, 0.5)
 shader_parameter/polar_zoom = 1.0
@@ -52,5 +52,5 @@ offset_bottom = -310.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Register" parent="Container" instance=ExtResource("9_dnjib")]
+[node name="Register" parent="Container" instance=ExtResource("2_x1tiw")]
 layout_mode = 2

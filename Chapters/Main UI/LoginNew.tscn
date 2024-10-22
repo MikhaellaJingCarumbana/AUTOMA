@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cena46h4pp01u"]
 
-[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_scj0o"]
-[ext_resource type="Texture2D" uid="uid://baulymhjfl8as" path="res://Art/logo change/Automa Logo 5.svg" id="2_50vt4"]
-[ext_resource type="PackedScene" uid="uid://bi7lxcglf2tnc" path="res://addons/silent_wolf/Auth/Login.tscn" id="9_2epl6"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_6gpqc"]
+[ext_resource type="Texture2D" uid="uid://baulymhjfl8as" path="res://Art/logo change/Automa Logo 5.svg" id="2_w73db"]
+[ext_resource type="PackedScene" uid="uid://bi7lxcglf2tnc" path="res://addons/silent_wolf/Auth/Login.tscn" id="3_m6ffg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ohx2m"]
-shader = ExtResource("1_scj0o")
+shader = ExtResource("1_6gpqc")
 shader_parameter/polar_coordinates = false
 shader_parameter/polar_center = Vector2(0.5, 0.5)
 shader_parameter/polar_zoom = 1.0
@@ -49,11 +49,11 @@ offset_top = -467.32
 offset_right = 298.304
 offset_bottom = 157.68
 grow_horizontal = 2
-texture = ExtResource("2_50vt4")
+texture = ExtResource("2_w73db")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Login" parent="." instance=ExtResource("9_2epl6")]
+[node name="Login" parent="." instance=ExtResource("3_m6ffg")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
