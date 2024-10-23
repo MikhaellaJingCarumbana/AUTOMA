@@ -1,0 +1,80 @@
+{
+	"easy": [
+		{
+			"question": "What is the capital of France?",
+			"correct_answers": ["Paris"]
+		},
+		{
+			"question": "What is 2 + 2?",
+			"correct_answers": ["4", "four"]
+		},
+		{
+			"question": "What color is the sky?",
+			"correct_answers": ["Blue"]
+		},
+		{
+			"question": "What is the largest ocean on Earth?",
+			"correct_answers": ["Pacific Ocean"]
+		},
+		{
+			"question": "What is the primary language spoken in Spain?",
+			"correct_answers": ["Spanish"]
+		},
+		{
+			"question": "How many continents are there on Earth?",
+			"correct_answers": ["7", "Seven"]
+		}
+	],
+	"moderate": [
+		{
+			"question": "Who painted the Mona Lisa?",
+			"correct_answers": ["Leonardo da Vinci"]
+		},
+		{
+			"question": "What is the square root of 64?",
+			"correct_answers": ["8", "Eight"]
+		},
+		{
+			"question": "What is the capital of Japan?",
+			"correct_answers": ["Tokyo"]
+		},
+		{
+			"question": "Who developed the theory of relativity?",
+			"correct_answers": ["Albert Einstein"]
+		},
+		{
+			"question": "What is the capital of Canada?",
+			"correct_answers": ["Ottawa"]
+		},
+		{
+			"question": "What is the longest river in the world?",
+			"correct_answers": ["Nile River"]
+		}
+	],
+	"difficult": [
+		{
+			"question": "What is the chemical symbol for gold?",
+			"correct_answers": ["Au"]
+		},
+		{
+			"question": "What is the largest planet in our solar system?",
+			"correct_answers": ["Jupiter"]
+		},
+		{
+			"question": "Who wrote the play 'Hamlet'?",
+			"correct_answers": ["William Shakespeare"]
+		},
+		{
+			"question": "What is the powerhouse of the cell?",
+			"correct_answers": ["Mitochondria"]
+		},
+		{
+			"question": "Who wrote 'The Odyssey'?",
+			"correct_answers": ["Homer"]
+		},
+		{
+			"question": "What is the smallest prime number?",
+			"correct_answers": ["2", "Two"]
+		}
+	]
+}

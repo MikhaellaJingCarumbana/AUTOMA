@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3eolp7t5i1ff"]
+
+[ext_resource type="PackedScene" uid="uid://drlrygj7e8ox4" path="res://Card Nodes/Q1.tscn" id="1_1ifpa"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Card" parent="." instance=ExtResource("1_1ifpa")]
+
+[node name="Card2" parent="." instance=ExtResource("1_1ifpa")]

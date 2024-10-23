@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdd5nv72q5cjb"]
+
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_350qq"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_rukui"]
+[ext_resource type="PackedScene" uid="uid://s8hnkfjbn7ii" path="res://Chapters/Chapter 2/Transition UI/card_target_selector.tscn" id="3_2ff3i"]
+[ext_resource type="PackedScene" uid="uid://dx04e03gcrohe" path="res://Chapters/Chapter 2/Card UI/CardUI.tscn" id="3_884yi"]
+[ext_resource type="Script" path="res://Chapters/Chapter 2/UI/Hand.gd" id="3_m2khy"]
+
+[sub_resource type="GDScript" id="GDScript_vtyic"]
+script/source = "extends Control
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/MainMenu.tscn\")
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1fae"]
+resource_local_to_scene = true
+shader = ExtResource("1_350qq")
+shader_parameter/polar_coordinates = true
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 0.0
+shader_parameter/spin_speed = 3.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.0196078, 0.588235, 0.45098, 1)
+shader_parameter/colour_2 = Color(0.0117647, 0.941176, 0.631373, 1)
+shader_parameter/colour_3 = Color(0.0588235, 0.313726, 0.305882, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.1
+shader_parameter/pixel_filter = 1000.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7olrf"]
+size = Vector2(1309, 559.75)
+
+[node name="TestCardScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = SubResource("GDScript_vtyic")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r1fae")
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -266.5
+offset_right = 266.5
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_rukui")
+theme_override_font_sizes/normal_font_size = 110
+bbcode_enabled = true
+text = "[center][wave amp=25.0 freq=9.0 connected=1]automa demo[/wave][/center]
+"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -702.0
+offset_top = -369.5
+offset_right = 702.0
+offset_bottom = 267.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+color = Color(0.24989, 0.201449, 0.357757, 0.470588)
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -703.5
+offset_top = -371.0
+offset_right = 703.5
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CardDropArea" type="Area2D" parent="BoxContainer"]
+position = Vector2(556, 140)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxContainer/CardDropArea"]
+position = Vector2(146.5, 174.125)
+shape = SubResource("RectangleShape2D_7olrf")
+debug_color = Color(0.12549, 0.580392, 0.772549, 0.639216)
+
+[node name="CardTargetSelector" parent="." instance=ExtResource("3_2ff3i")]
+
+[node name="GameUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="GameUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -713.5
+offset_top = -203.0
+offset_right = 713.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 1
+script = ExtResource("3_m2khy")
+
+[node name="CardUI" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
+layout_mode = 2
+
+[node name="CardUI2" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
+layout_mode = 2
+
+[node name="CardUI3" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
+layout_mode = 2

@@ -1,0 +1,169 @@
+[gd_scene load_steps=19 format=3 uid="uid://bmhyxleh2s6df"]
+
+[ext_resource type="Shader" path="res://shaders/fake_3D.gdshader" id="1_ff5a6"]
+[ext_resource type="Script" path="res://Test Scenes/card.gd" id="2_yojoo"]
+[ext_resource type="Texture2D" uid="uid://15ppwngtxetg" path="res://Art/Custom UI/Q1.png" id="3_aw5d6"]
+[ext_resource type="Texture2D" uid="uid://cybokbuedjr5q" path="res://Art/Custom UI/Q2.png" id="4_g05pq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q47vs"]
+shader = ExtResource("1_ff5a6")
+shader_parameter/rect_size = null
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s8ucw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky0bt"]
+resource_local_to_scene = true
+shader = ExtResource("1_ff5a6")
+shader_parameter/rect_size = Vector2(185, 249)
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbmc3"]
+size = Vector2(118, 153)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fn7ga"]
+bg_color = Color(0.85098, 0.690196, 0.25098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7fcqj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0x7bq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54oo7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27s15"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_678c1"]
+bg_color = Color(0.85098, 0.690196, 0.25098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_antkv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1omig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50xyd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gt8xx"]
+
+[node name="Card" type="Button"]
+material = SubResource("ShaderMaterial_q47vs")
+custom_minimum_size = Vector2(152, 207)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -103.5
+offset_right = 76.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(76, 103.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s8ucw")
+script = ExtResource("2_yojoo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.305882)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 14.0
+offset_right = 2.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_aw5d6")
+expand_mode = 1
+
+[node name="CardTexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ky0bt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 22.0
+offset_right = -12.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_g05pq")
+expand_mode = 1
+
+[node name="DestroyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyArea"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(73, 109.5)
+shape = SubResource("RectangleShape2D_nbmc3")
+disabled = true
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="Arrowhead" type="Polygon2D" parent="."]
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.349158
+anchor_top = 0.440401
+anchor_right = -0.309684
+anchor_bottom = 0.479048
+offset_left = 23.072
+offset_top = 12.337
+offset_right = 37.072
+offset_bottom = 26.337
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fn7ga")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7fcqj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0x7bq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_54oo7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_27s15")
+metadata/_edit_use_anchors_ = true
+
+[node name="EndButton" type="Button" parent="."]
+custom_minimum_size = Vector2(20, 22)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.08553
+anchor_top = 0.54057
+anchor_right = 1.125
+anchor_bottom = 0.574386
+offset_left = -7.0
+offset_top = -7.39799
+offset_right = 7.0
+offset_bottom = 7.60201
+theme_override_styles/normal = SubResource("StyleBoxFlat_678c1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_antkv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1omig")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_50xyd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gt8xx")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="EndButton" to="." method="_on_end_button_pressed"]

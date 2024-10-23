@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://lu4pil2kdny6"]
+
+[ext_resource type="Script" path="res://Test Scenes/Test Scripts/Card.gd" id="1_cdm3d"]
+[ext_resource type="Texture2D" uid="uid://deumvmbkqgepj" path="res://Art/Card UI/CardBack/CardBack.png" id="2_dtrwt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ei3p"]
+
+[node name="Card2" type="Button"]
+material = SubResource("ShaderMaterial_5ei3p")
+offset_right = 99.0
+offset_bottom = 131.0
+flat = true
+script = ExtResource("1_cdm3d")
+angle_x_max = null
+angle_y_max = null
+max_offset_shadow = null
+spring = null
+damp = null
+velocity_multiplier = null
+
+[node name="CardTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_dtrwt")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

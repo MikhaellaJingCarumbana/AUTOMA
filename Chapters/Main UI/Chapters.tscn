@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca2qthc04yijg"]
+
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_ffb46"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_x6bey"]
+[ext_resource type="PackedScene" uid="uid://cfhr26yjb38d3" path="res://Chapters/Main UI/Scripts/button.tscn" id="3_u3726"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hlxob"]
+shader = ExtResource("1_ffb46")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.509804, 0.254902, 0.611765, 1)
+shader_parameter/colour_2 = Color(0.211765, 0.0313726, 0.27451, 1)
+shader_parameter/colour_3 = Color(0.239216, 0.12549, 0.447059, 1)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
+
+[node name="Chapters" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hlxob")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 95.0
+offset_right = 611.0
+offset_bottom = 285.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_x6bey")
+theme_override_font_sizes/font_size = 200
+text = "Select Level
+"
+
+[node name="Button" parent="." instance=ExtResource("3_u3726")]
+layout_mode = 1

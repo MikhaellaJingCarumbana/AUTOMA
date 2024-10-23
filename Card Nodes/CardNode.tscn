@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://s7nhdsm1617p"]
+
+[ext_resource type="PackedScene" uid="uid://o8yfe6ca2r8s" path="res://Test Scenes/Card.tscn" id="1_hlsfq"]
+[ext_resource type="PackedScene" uid="uid://osd2quih8kq1" path="res://Card Nodes/arrow.tscn" id="2_lwxpg"]
+
+[node name="Q1" type="Node2D"]
+
+[node name="Card" parent="." instance=ExtResource("1_hlsfq")]
+angle_x_max = null
+angle_y_max = null
+max_offset_shadow = null
+spring = null
+damp = null
+velocity_multiplier = null
+arrowhead_width = null
+arrowhead_height = null
+
+[node name="Arrow" parent="." instance=ExtResource("2_lwxpg")]
+position = Vector2(-378, -176)
