@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 class_name Player
 
+# Define states for the Finite State Machine
+enum PlayerState { IDLE, RUNNING, JUMPING }
+var state = PlayerState.IDLE
+
 const SPEED = 200.0
 const JUMP_VELOCITY = -560.0
 @onready var sprite_2d = $AnimatedSprite2D
@@ -13,12 +17,15 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_left = false  # Tracks the direction the character is facing
 var movable = true
 
+# Player movement functions
 func jump():
 	velocity.y = JUMP_VELOCITY
+	state = PlayerState.JUMPING
 	
 func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
 	velocity.x = x
+	state = PlayerState.JUMPING
 	
 func _ready():
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
@@ -30,41 +37,50 @@ func _on_spawn(position: Vector2, direction: String):
 	sprite_2d.play("Run")
 	sprite_2d.stop()
 
+# Main FSM logic
 func _physics_process(delta):
-	# Update animation based on velocity
-	if velocity.x > 1 or velocity.x < -1:
-		sprite_2d.play("Run")
-		is_facing_left = velocity.x < 0  # Update facing direction
-	elif not is_on_floor():
-		sprite_2d.play("Jump")
-	else:
-		sprite_2d.play("Idle")
+	match state:
+		PlayerState.IDLE:
+			if Input.get_axis("ui_left", "ui_right") != 0:
+				state = PlayerState.RUNNING
+			elif Input.is_action_just_pressed("ui_accept") and is_on_floor():
+				jump()
+		PlayerState.RUNNING:
+			if Input.get_axis("ui_left", "ui_right") == 0:
+				state = PlayerState.IDLE
+			elif Input.is_action_just_pressed("ui_accept") and is_on_floor():
+				jump()
+			else:
+				move()
+		PlayerState.JUMPING:
+			if is_on_floor():
+				state = PlayerState.IDLE
+	
+	apply_gravity(delta)
+	update_animation()
 
-	# Flip the sprite based on the last known direction
-	sprite_2d.flip_h = is_facing_left
+func move():
+	var direction = Input.get_axis("ui_left", "ui_right")
+	velocity.x = direction * SPEED
+	is_facing_left = velocity.x < 0
+	move_and_slide()
 
-	# Add gravity
+func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+# Update animation based on FSM state
+func update_animation():
+	match state:
+		PlayerState.IDLE:
+			sprite_2d.play("Idle")
+		PlayerState.RUNNING:
+			sprite_2d.play("Run")
+			sprite_2d.flip_h = is_facing_left
+		PlayerState.JUMPING:
+			sprite_2d.play("Jump")
 
-	# Get the input direction and handle movement/deceleration
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction != 0:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, 12)
-
-	move_and_slide()
-
-	# Handle interactions
-	if Input.is_action_just_pressed("interact"):
-		execute_interaction()
-		
-
+# Handle interactions (unchanged)
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0, area)
 	update_interactions()

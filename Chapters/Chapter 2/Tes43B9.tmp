@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg1dgrnn7whsd"]
-
-[ext_resource type="Script" path="res://Chapters/Chapter 2/Classes/FSMData.gd" id="1_gx31i"]
-
-[node name="FSMData" type="Node"]
-script = ExtResource("1_gx31i")
