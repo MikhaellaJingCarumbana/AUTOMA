@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdd5nv72q5cjb"]
+[gd_scene load_steps=9 format=3 uid="uid://bdd5nv72q5cjb"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_350qq"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_rukui"]
 [ext_resource type="PackedScene" uid="uid://s8hnkfjbn7ii" path="res://Chapters/Chapter 2/Transition UI/card_target_selector.tscn" id="3_2ff3i"]
 [ext_resource type="PackedScene" uid="uid://dx04e03gcrohe" path="res://Chapters/Chapter 2/Card UI/CardUI.tscn" id="3_884yi"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/UI/Hand.gd" id="3_m2khy"]
-[ext_resource type="Resource" uid="uid://l6nrwbtrupfp" path="res://Chapters/Chapter 2/Custom Resources/nonstatecard.tres" id="6_t15gt"]
 
 [sub_resource type="GDScript" id="GDScript_vtyic"]
 script/source = "extends Control
@@ -132,12 +131,9 @@ script = ExtResource("3_m2khy")
 
 [node name="CardUI" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
 layout_mode = 2
-card = ExtResource("6_t15gt")
 
 [node name="CardUI2" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
 layout_mode = 2
-card = ExtResource("6_t15gt")
 
 [node name="CardUI3" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
 layout_mode = 2
-card = ExtResource("6_t15gt")

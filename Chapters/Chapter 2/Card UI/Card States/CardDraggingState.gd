@@ -1,6 +1,7 @@
 extends CardState
 
 func enter() -> void:
+	#var statecard := card_ui.card.is_state_card()
 	var ui_layer = get_tree().get_first_node_in_group("ui_layer")
 	if ui_layer:
 		card_ui.reparent(ui_layer)
