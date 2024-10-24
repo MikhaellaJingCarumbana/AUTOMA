@@ -1,7 +1,8 @@
-extends Node
 class_name State
+extends Node
 
-var label: String
+
+@export var label: String
 #var isStart: bool
 #var isEnd: bool
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx04e03gcrohe"]
+[gd_scene load_steps=14 format=3 uid="uid://dx04e03gcrohe"]
 
 [ext_resource type="Theme" uid="uid://kbuvpsiofcvd" path="res://Themes/card_theme.tres" id="1_011vm"]
 [ext_resource type="Texture2D" uid="uid://dpawubh532r0l" path="res://Art/Custom UI/Card Blank.png" id="1_f4kud"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/Card UI/CardUI.gd" id="2_r3jn4"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_wh25t"]
+[ext_resource type="StyleBox" uid="uid://dh3033drefdia" path="res://Chapters/Chapter 2/Card UI/card_base_stylebox.tres" id="3_3cxkn"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/Card UI/CardStateMachine.gd" id="5_df1aj"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/Card UI/Card States/CardBaseState.gd" id="6_1gb77"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/Card UI/Card States/CardClickedState.gd" id="7_fe5ai"]
@@ -31,6 +32,16 @@ size_flags_vertical = 4
 theme = ExtResource("1_011vm")
 script = ExtResource("2_r3jn4")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_3cxkn")
+
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -39,6 +50,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_011vm")
 texture = ExtResource("1_f4kud")
 expand_mode = 1
 

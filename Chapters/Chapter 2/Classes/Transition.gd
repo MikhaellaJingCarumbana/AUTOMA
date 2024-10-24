@@ -1,8 +1,8 @@
 extends Node
 class_name Transition
 
-var from: State
-var to: State
+@export var from: State
+@export var to: State
 var alphabet: Array[String]
 
 func has(letter: String):

@@ -1,0 +1,5 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://dh3033drefdia"]
+
+[resource]
+bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
+border_color = Color(0.756382, 0.560595, 0.120653, 1)

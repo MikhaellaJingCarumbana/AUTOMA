@@ -5,7 +5,8 @@ var statecard: bool
 
 
 func enter() -> void:
-	card_ui.cardstatelabel.text = "1"
+	#card_ui.cardstatelabel.text = "1"
+	card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLEBOX)
 	var nonstate:= card_ui.card.is_nonstate_card()
 	if nonstate != null:
 		card_ui.card.set_state_card()

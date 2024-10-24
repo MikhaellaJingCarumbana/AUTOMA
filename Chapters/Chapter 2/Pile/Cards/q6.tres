@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cp3unv738ai84"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 2/Custom Resources/card.gd" id="1_nvik3"]
+
+[resource]
+script = ExtResource("1_nvik3")
+id = "6"
+type = 0
+target = 0

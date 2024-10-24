@@ -6,7 +6,7 @@ func enter() -> void:
 	if ui_layer:
 		card_ui.reparent(ui_layer)
 		
-	card_ui.cardstatelabel.text = "N"
+	card_ui.panel.set("theme_override_styles/panel", card_ui.DRAG_STYLEBOX)
 
 func on_input(event: InputEvent) -> void:
 	var mouse_motion := event is InputEventMouseMotion

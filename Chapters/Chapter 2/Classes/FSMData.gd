@@ -1,12 +1,14 @@
 extends Node
 class_name FSMData
 
-var states : Array[State] = []
-var initialState : State
-var acceptingStates: Array[State] = []
-var transitions : Array[Transition]
-var newTransition : Transition
-var alphabet: Array[String] = ['a','b']
+signal states_changed
+
+@export var states : Array[State] = []
+@export var initialState : State
+@export var acceptingStates: Array[State] = []
+@export var transitions : Array[Transition]
+@export var newTransition : Transition
+@export var alphabet: Array[String] = ['a','b']
 
 
 #Methods
@@ -171,6 +173,9 @@ func check_if_string_IsValid(string: String, current_state: State = initialState
 	# And now the current state should be the outgoing state based on the current_letter
 	return check_if_string_IsValid(rest, outgoing_state)
 
+func create_instance() -> Node:
+	var instance: FSMData = self.duplicate()
+	return instance
 
 #Checking
 

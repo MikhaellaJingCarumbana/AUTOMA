@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdd5nv72q5cjb"]
+[gd_scene load_steps=14 format=3 uid="uid://bdd5nv72q5cjb"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_350qq"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_rukui"]
 [ext_resource type="PackedScene" uid="uid://s8hnkfjbn7ii" path="res://Chapters/Chapter 2/Transition UI/card_target_selector.tscn" id="3_2ff3i"]
 [ext_resource type="PackedScene" uid="uid://dx04e03gcrohe" path="res://Chapters/Chapter 2/Card UI/CardUI.tscn" id="3_884yi"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/UI/Hand.gd" id="3_m2khy"]
-[ext_resource type="Resource" uid="uid://l6nrwbtrupfp" path="res://Chapters/Chapter 2/Custom Resources/nonstatecard.tres" id="6_t15gt"]
+[ext_resource type="Resource" uid="uid://bm6ebm86c2xqw" path="res://Chapters/Chapter 2/Pile/Cards/q1.tres" id="6_iu0uc"]
+[ext_resource type="Resource" uid="uid://c3xfffygayasc" path="res://Chapters/Chapter 2/Pile/Cards/q2.tres" id="7_ruysf"]
+[ext_resource type="Resource" uid="uid://ub6puhwgvqjj" path="res://Chapters/Chapter 2/Pile/Cards/q3.tres" id="8_amrc6"]
+[ext_resource type="Resource" uid="uid://cajbqgbwkj26t" path="res://Chapters/Chapter 2/Pile/Cards/q4.tres" id="9_nyos3"]
+[ext_resource type="Resource" uid="uid://dyixoykbe4vgn" path="res://Chapters/Chapter 2/Pile/Cards/q5.tres" id="10_5spbe"]
 
 [sub_resource type="GDScript" id="GDScript_vtyic"]
 script/source = "extends Control
@@ -132,12 +136,20 @@ script = ExtResource("3_m2khy")
 
 [node name="CardUI" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
 layout_mode = 2
-card = ExtResource("6_t15gt")
+card = ExtResource("6_iu0uc")
 
 [node name="CardUI2" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
 layout_mode = 2
-card = ExtResource("6_t15gt")
+card = ExtResource("7_ruysf")
 
 [node name="CardUI3" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
 layout_mode = 2
-card = ExtResource("6_t15gt")
+card = ExtResource("8_amrc6")
+
+[node name="CardUI4" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
+layout_mode = 2
+card = ExtResource("9_nyos3")
+
+[node name="CardUI5" parent="GameUI/Hand" instance=ExtResource("3_884yi")]
+layout_mode = 2
+card = ExtResource("10_5spbe")
