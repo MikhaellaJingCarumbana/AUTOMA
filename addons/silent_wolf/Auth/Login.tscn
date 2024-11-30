@@ -8,18 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://bpn62aabunxva" path="res://addons/silent_wolf/assets/gfx/checkbox_checked.png" id="4_ak74a"]
 [ext_resource type="Texture2D" uid="uid://bgs8a50ilk5cj" path="res://addons/silent_wolf/assets/gfx/checkbox_unchecked.png" id="5_3asm1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2el5p"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xugj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdx0q"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xugj"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2el5p"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7f4f"]
-bg_color = Color(0.0980392, 0.266667, 0.505882, 0.368627)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dq4x4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ae363"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mfp4"]
 bg_color = Color(0.0980392, 0.266667, 0.505882, 0.862745)
@@ -35,9 +32,12 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ae363"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dq4x4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7f4f"]
+bg_color = Color(0.0980392, 0.266667, 0.505882, 0.368627)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Login" type="TextureRect"]
 anchors_preset = -1
@@ -107,16 +107,16 @@ underline = 1
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_lc00d")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7xugj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gdx0q")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2el5p")
 theme_override_icons/checked = ExtResource("4_ak74a")
 theme_override_icons/unchecked = ExtResource("5_3asm1")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_2el5p")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_gdx0q")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_7xugj")
 text = "Stay signed in for 30 days"
 expand_icon = true
 
@@ -135,15 +135,15 @@ autowrap_mode = 1
 custom_minimum_size = Vector2(280, 60)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.85098, 0.690196, 0.25098, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_lc00d")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_j7f4f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dq4x4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ae363")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7mfp4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vk2gt")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ae363")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_dq4x4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7f4f")
 text = "Submit"
 
 [node name="ProcessingLabel" type="Label" parent="FormContainer"]

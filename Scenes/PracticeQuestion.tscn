@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c35jbmcdqa0aq" path="res://Art/Lucid V1.2/PNG/Flat/64/Chevron-Arrow-Left.png" id="3_jxawc"]
 [ext_resource type="Texture2D" uid="uid://brp1pdt2gotv5" path="res://Art/Lucid V1.2/PNG/Flat/64/Redo.png" id="3_lnmxp"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4n0a"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45d3i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1ask"]
 bg_color = Color(0.0196078, 0.588235, 0.45098, 1)
@@ -17,7 +17,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45d3i"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p4n0a"]
 
 [node name="PracticeQuestion" type="Node2D"]
 script = ExtResource("1_qlsdx")
@@ -60,9 +60,9 @@ offset_bottom = 509.0
 theme_override_colors/font_hover_color = Color(0.85098, 0.690196, 0.25098, 1)
 theme_override_fonts/font = ExtResource("2_gnqec")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxEmpty_p4n0a")
-theme_override_styles/hover = SubResource("StyleBoxFlat_l1ask")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_45d3i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l1ask")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p4n0a")
 text = "SUBMIT
 "
 

@@ -56,11 +56,11 @@ shader_parameter/contrast = 2.0
 shader_parameter/spin_amount = 0.1
 shader_parameter/pixel_filter = 1000.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xwrk"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3gly"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uky6s"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3gly"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xwrk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2x0vd"]
 shader = ExtResource("3_i6jkk")
@@ -192,9 +192,9 @@ offset_left = -29.63
 offset_top = 40.0
 offset_right = 6.37
 offset_bottom = 102.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_3xwrk")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_uky6s")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n3gly")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uky6s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3xwrk")
 icon = ExtResource("4_74tmi")
 flat = true
 
