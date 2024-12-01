@@ -13,9 +13,9 @@ shader_parameter/polar_repeat = 1.0
 shader_parameter/spin_rotation = null
 shader_parameter/spin_speed = 3.0
 shader_parameter/offset = Vector2(0, 0)
-shader_parameter/colour_1 = Color(0.498039, 0.792157, 0.945098, 0.823529)
-shader_parameter/colour_2 = Color(0.145098, 0.368627, 0.466667, 0.698039)
-shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 0.686275)
+shader_parameter/colour_1 = Color(0.498039, 0.792157, 0.945098, 1)
+shader_parameter/colour_2 = Color(0.145098, 0.368627, 0.466667, 1)
+shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 1)
 shader_parameter/contrast = 1.0
 shader_parameter/spin_amount = 0.2
 shader_parameter/pixel_filter = 700.0
@@ -105,5 +105,5 @@ text = "Chapters"
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Chapters" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Chapters" to="." method="_on_chapters_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Chapters" to="." method="_on_main_menu_pressed"]

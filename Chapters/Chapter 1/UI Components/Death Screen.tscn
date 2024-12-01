@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://p7gw8d51vfui"]
+[gd_scene load_steps=7 format=3 uid="uid://p7gw8d51vfui"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/scripts/death_screen.gd" id="1_oxbxf"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uevoa"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_yflp4"]
-[ext_resource type="Texture2D" uid="uid://b5t3mcu2symw8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/Cyclops/Enemy_008_B.png" id="4_33trw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
 shader = ExtResource("2_uevoa")
@@ -14,9 +13,9 @@ shader_parameter/polar_repeat = 1.0
 shader_parameter/spin_rotation = null
 shader_parameter/spin_speed = 3.0
 shader_parameter/offset = Vector2(0, 0)
-shader_parameter/colour_1 = Color(0.498039, 0.792157, 0.945098, 0.823529)
-shader_parameter/colour_2 = Color(0.145098, 0.368627, 0.466667, 0.698039)
-shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 0.811765)
+shader_parameter/colour_1 = Color(0.498039, 0.792157, 0.945098, 0.807843)
+shader_parameter/colour_2 = Color(0.145098, 0.368627, 0.466667, 0.807843)
+shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 0.807843)
 shader_parameter/contrast = 1.0
 shader_parameter/spin_amount = 0.2
 shader_parameter/pixel_filter = 700.0
@@ -29,98 +28,6 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7y27"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_08ktc"]
-atlas = ExtResource("4_33trw")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_klrqo"]
-atlas = ExtResource("4_33trw")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ehofr"]
-atlas = ExtResource("4_33trw")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bs1kh"]
-atlas = ExtResource("4_33trw")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0omfb"]
-atlas = ExtResource("4_33trw")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ih50m"]
-atlas = ExtResource("4_33trw")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0urt0"]
-atlas = ExtResource("4_33trw")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85yy4"]
-atlas = ExtResource("4_33trw")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k2tvr"]
-atlas = ExtResource("4_33trw")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jegum"]
-atlas = ExtResource("4_33trw")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5538"]
-atlas = ExtResource("4_33trw")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y15sc"]
-atlas = ExtResource("4_33trw")
-region = Rect2(160, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gufiu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_08ktc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_klrqo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ehofr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bs1kh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0omfb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ih50m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0urt0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_85yy4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k2tvr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jegum")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n5538")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y15sc")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="DeathScreen" type="Node"]
 script = ExtResource("1_oxbxf")
@@ -138,15 +45,15 @@ color = Color(0.164706, 0.164706, 0.207843, 1)
 
 [node name="Label" type="Label" parent="PauseMenu"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.472
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.472
 offset_left = -373.0
-offset_top = -142.5
+offset_top = -142.76
 offset_right = 373.0
-offset_bottom = 142.5
+offset_bottom = 142.24
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.605674, 1.31156e-06, 2.88785e-07, 1)
@@ -189,13 +96,6 @@ theme_override_font_sizes/font_size = 70
 theme_override_styles/hover = SubResource("StyleBoxFlat_b4sqp")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_g7y27")
 text = "main menu"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(513, 318)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_gufiu")
-frame_progress = 0.359249
-speed_scale = 2.0
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

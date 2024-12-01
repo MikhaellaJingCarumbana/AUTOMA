@@ -1,6 +1,5 @@
 extends Node
 
-
 @export var hearts : Array[Node]
 
 var points = 0
@@ -15,7 +14,7 @@ func decrease_health():
 		else:
 			hearts[h].hide()
 	if (lives == 0):
-		get_tree().reload_current_scene()
+		get_node("../UI/DeathScreen").game_over()
 		
 func add_point():
 	points += 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=24 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="11_kboke"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="11_wd45e"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
+[ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="15_axvxt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6425,6 +6426,16 @@ light_mask = 4
 visibility_layer = 4
 position = Vector2(187, 111)
 
+[node name="Camera2D" parent="Player" index="2"]
+physics_interpolation_mode = 1
+position = Vector2(0, 0)
+scale = Vector2(1, 1)
+zoom = Vector2(5, 7)
+limit_left = -1
+limit_top = 0
+limit_right = 1025
+limit_bottom = 1089
+
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(187, 111)
 script = ExtResource("6_hkbon")
@@ -6521,6 +6532,11 @@ text = "Player Health"
 [node name="PauseMenu" parent="UI/PauseGame" index="0"]
 visible = false
 
+[node name="DeathScreen" parent="UI" instance=ExtResource("15_axvxt")]
+
+[node name="PauseMenu" parent="UI/DeathScreen" index="0"]
+visible = false
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
@@ -6539,4 +6555,6 @@ position = Vector2(758, 862)
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
+[editable path="Player"]
 [editable path="UI/PauseGame"]
+[editable path="UI/DeathScreen"]
