@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca2qthc04yijg"]
+[gd_scene load_steps=7 format=3 uid="uid://ca2qthc04yijg"]
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_ffb46"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_x6bey"]
-[ext_resource type="PackedScene" uid="uid://cfhr26yjb38d3" path="res://Chapters/Main UI/Scripts/button.tscn" id="3_u3726"]
+[ext_resource type="PackedScene" uid="uid://c28gnfhsitl7x" path="res://Chapters/Main UI/Scripts/Chapter 1.tscn" id="3_u3726"]
+[ext_resource type="PackedScene" uid="uid://gw46pwfwa0px" path="res://Chapters/Main UI/Scripts/Chapter 2.tscn" id="4_460ri"]
+[ext_resource type="PackedScene" uid="uid://pgyekjut1n5j" path="res://Chapters/Main UI/Scripts/Chapter 3.tscn" id="5_ecow0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hlxob"]
 shader = ExtResource("1_ffb46")
@@ -67,16 +69,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="Button" parent="HBoxContainer" instance=ExtResource("3_u3726")]
+[node name="Chapter 1" parent="HBoxContainer" instance=ExtResource("3_u3726")]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 
-[node name="Button2" parent="HBoxContainer" instance=ExtResource("3_u3726")]
+[node name="Chapter 2" parent="HBoxContainer" instance=ExtResource("4_460ri")]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 
-[node name="Button3" parent="HBoxContainer" instance=ExtResource("3_u3726")]
+[node name="Chapter 3" parent="HBoxContainer" instance=ExtResource("5_ecow0")]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Chapter 1" to="HBoxContainer/Chapter 1" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Chapter 1" to="HBoxContainer/Chapter 1" method="_on_pressed_chapter1"]
+[connection signal="pressed" from="HBoxContainer/Chapter 2" to="HBoxContainer/Chapter 2" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Chapter 2" to="HBoxContainer/Chapter 2" method="_on_pressed_chapter2"]

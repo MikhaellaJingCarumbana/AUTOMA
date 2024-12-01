@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfhr26yjb38d3"]
+[gd_scene load_steps=8 format=3 uid="uid://gw46pwfwa0px"]
 
-[ext_resource type="Script" path="res://Chapters/Main UI/Scripts/button.gd" id="1_tjnyx"]
-[ext_resource type="Texture2D" uid="uid://u0elpqkq4fdh" path="res://Art/Custom UI/Chapter 1.png" id="2_wdhxj"]
+[ext_resource type="Script" path="res://Chapters/Main UI/Scripts/button.gd" id="1_u6xrh"]
+[ext_resource type="Texture2D" uid="uid://538jirqtgbgh" path="res://Art/Custom UI/Chapter 2.png" id="2_yrn4f"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xjuen"]
 
@@ -31,7 +31,7 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fdaax"
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_0ekcj")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ysffp")
 theme_override_styles/normal = SubResource("StyleBoxFlat_h7ni3")
-script = ExtResource("1_tjnyx")
+script = ExtResource("1_u6xrh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -40,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_wdhxj")
+texture = ExtResource("2_yrn4f")
 expand_mode = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

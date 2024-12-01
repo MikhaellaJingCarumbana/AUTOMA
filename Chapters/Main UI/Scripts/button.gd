@@ -19,6 +19,7 @@ var velocity: Vector2
 @export var hover_duration: float = 0.5  # Duration of the hover effect
 
 const chapter1 = preload("res://Chapters/Chapter 1/Regex - Map/Beginner-F.tscn")
+const chapter2 = preload("res://Chapters/Chapter 2/TestScene.tscn")
 
 # Called when the node is added to the scene
 func _ready() -> void:
@@ -50,5 +51,9 @@ func _on_gui_input(event: InputEvent) -> void:
 	pass # Replace with function body.
 
 
-func _on_pressed() -> void:
+func _on_pressed_chapter1() -> void:
 	get_tree().change_scene_to_packed(chapter1)
+
+
+func _on_pressed_chapter2() -> void:
+	get_tree().change_scene_to_packed(chapter2)
