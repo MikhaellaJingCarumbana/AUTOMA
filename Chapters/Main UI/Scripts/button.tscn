@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfhr26yjb38d3"]
 
 [ext_resource type="Script" path="res://Chapters/Main UI/Scripts/button.gd" id="1_tjnyx"]
-[ext_resource type="Texture2D" uid="uid://bgsd6mdmotsem" path="res://Art/Custom UI/Level card.png" id="2_tgeat"]
+[ext_resource type="Texture2D" uid="uid://u0elpqkq4fdh" path="res://Art/Custom UI/Chapter 1.png" id="2_wdhxj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xjuen"]
 
@@ -40,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_tgeat")
+texture = ExtResource("2_wdhxj")
 expand_mode = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

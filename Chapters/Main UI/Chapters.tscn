@@ -11,7 +11,7 @@ shader_parameter/polar_center = Vector2(0.5, 0.5)
 shader_parameter/polar_zoom = 1.0
 shader_parameter/polar_repeat = 1.0
 shader_parameter/spin_rotation = null
-shader_parameter/spin_speed = 1.0
+shader_parameter/spin_speed = 2.0
 shader_parameter/offset = Vector2(0, 0)
 shader_parameter/colour_1 = Color(0.509804, 0.254902, 0.611765, 1)
 shader_parameter/colour_2 = Color(0.211765, 0.0313726, 0.27451, 1)
@@ -42,39 +42,39 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -220.0
-offset_top = 95.0
-offset_right = 611.0
-offset_bottom = 285.0
+offset_left = -375.0
+offset_top = 158.0
+offset_right = 1126.0
+offset_bottom = 348.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("2_x6bey")
 theme_override_font_sizes/font_size = 200
-text = "Select Level
-"
+text = "Choose your Adventure"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.444
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.444
 offset_left = -509.0
-offset_top = -127.0
+offset_top = -160.52
 offset_right = 508.0
-offset_bottom = 198.0
+offset_bottom = 367.48
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
 
 [node name="Button" parent="HBoxContainer" instance=ExtResource("3_u3726")]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 
 [node name="Button2" parent="HBoxContainer" instance=ExtResource("3_u3726")]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 
 [node name="Button3" parent="HBoxContainer" instance=ExtResource("3_u3726")]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
