@@ -78,3 +78,5 @@ layout_mode = 2
 [node name="Button3" parent="HBoxContainer" instance=ExtResource("3_u3726")]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_pressed"]

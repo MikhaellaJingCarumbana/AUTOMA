@@ -18,6 +18,8 @@ var velocity: Vector2
 @export var hover_scale: Vector2 = Vector2(1.2, 1.2)  # How much the button scales on hover
 @export var hover_duration: float = 0.5  # Duration of the hover effect
 
+const chapter1 = preload("res://Chapters/Chapter 1/Regex - Map/Beginner-F.tscn")
+
 # Called when the node is added to the scene
 func _ready() -> void:
 	# Create the tween for hover animation
@@ -46,3 +48,7 @@ func _on_mouse_exited() -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	pass # Replace with function body.
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_packed(chapter1)
