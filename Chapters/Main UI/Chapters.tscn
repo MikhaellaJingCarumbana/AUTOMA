@@ -53,5 +53,28 @@ theme_override_font_sizes/font_size = 200
 text = "Select Level
 "
 
-[node name="Button" parent="." instance=ExtResource("3_u3726")]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -127.0
+offset_right = 508.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="HBoxContainer" instance=ExtResource("3_u3726")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Button2" parent="HBoxContainer" instance=ExtResource("3_u3726")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Button3" parent="HBoxContainer" instance=ExtResource("3_u3726")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2

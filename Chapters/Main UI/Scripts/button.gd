@@ -40,7 +40,7 @@ func _on_mouse_exited() -> void:
 	if tween_hover and tween_hover.is_running():
 		tween_hover.kill()
 	tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-	tween_hover.tween_property(self, "scale", Vector2.ONE, 0.55)
+	tween_hover.tween_property(self, "scale", Vector2.ONE, 0.65)
 
 
 
