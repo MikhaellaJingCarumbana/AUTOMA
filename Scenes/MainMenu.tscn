@@ -1,12 +1,12 @@
 [gd_scene load_steps=21 format=3 uid="uid://cfkgjewglxqf6"]
 
-[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_s7t2i"]
-[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_bjjmn"]
-[ext_resource type="Texture2D" uid="uid://bxdcqdb5af370" path="res://Art/logo change/Automa logo 4.svg" id="3_p8o12"]
-[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="4_4f00m"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_gic3k"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_1ekgh"]
+[ext_resource type="Texture2D" uid="uid://bxdcqdb5af370" path="res://Art/logo change/Automa logo 4.svg" id="3_gf06c"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="4_xdowu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ysaap"]
-shader = ExtResource("2_bjjmn")
+shader = ExtResource("2_1ekgh")
 shader_parameter/polar_coordinates = false
 shader_parameter/polar_center = Vector2(0.5, 0.5)
 shader_parameter/polar_zoom = 1.0
@@ -84,7 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_s7t2i")
+script = ExtResource("1_gic3k")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ysaap")
@@ -108,7 +108,7 @@ offset_right = 418.848
 offset_bottom = 242.792
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_p8o12")
+texture = ExtResource("3_gf06c")
 expand_mode = 1
 stretch_mode = 5
 
@@ -128,7 +128,7 @@ offset_bottom = 270.64
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("4_4f00m")
+theme_override_fonts/font = ExtResource("4_xdowu")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fg8b3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mm1oc")
@@ -139,7 +139,7 @@ text = "Start"
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("4_4f00m")
+theme_override_fonts/font = ExtResource("4_xdowu")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7mq0e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nkcrm")
@@ -151,7 +151,7 @@ text = "Leaderboards
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("4_4f00m")
+theme_override_fonts/font = ExtResource("4_xdowu")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ntst3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_y0tiy")
@@ -163,7 +163,7 @@ text = "Story mode
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("4_4f00m")
+theme_override_fonts/font = ExtResource("4_xdowu")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_edkft")
 theme_override_styles/hover = SubResource("StyleBoxFlat_popmi")
@@ -175,7 +175,7 @@ text = "Practice
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.866667, 0.639216, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("4_4f00m")
+theme_override_fonts/font = ExtResource("4_xdowu")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n6fh5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qw0h5")

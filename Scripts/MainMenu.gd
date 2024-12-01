@@ -4,6 +4,7 @@ extends Control
 @onready var exit_button = $VBoxContainer/Exit
 @onready var world_scene = preload("res://Scenes/world.tscn")
 @onready var practice_questions = preload("res://Scenes/PracticeQuestionNew.tscn")
+@onready var chapters = preload("res://Chapters/Main UI/Chapters.tscn")
 
 
 
@@ -19,7 +20,7 @@ func _on_exit_pressed():
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scenes/AutomaScene.tscn")
+	get_tree().change_scene_to_packed(chapters)
 
 
 
