@@ -1,6 +1,5 @@
 extends Node
 
-const main_menu = preload("res://Chapters/Main UI/Chapters.tscn")
 @onready var deathscreen : ColorRect = $PauseMenu
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +17,7 @@ func _on_resume_pressed() -> void:
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_packed(main_menu)
+	get_tree().change_scene_to_file("res://Chapters/Main UI/Chapters.tscn")
 
 func game_over():
 	deathscreen.show()
