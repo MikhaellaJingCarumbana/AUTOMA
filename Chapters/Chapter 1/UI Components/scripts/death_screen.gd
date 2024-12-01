@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 
 
 func _on_resume_pressed() -> void:
-	
 	get_tree().reload_current_scene()
 
 
