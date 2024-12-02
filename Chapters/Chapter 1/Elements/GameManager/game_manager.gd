@@ -15,6 +15,7 @@ func decrease_health():
 			hearts[h].hide()
 	if (lives == 0):
 		get_node("../UI/DeathScreen").game_over()
+	
 		
 func add_point():
 	points += 1

@@ -105,5 +105,5 @@ text = "Chapters"
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Chapters" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Chapters" to="." method="_on_chapters_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Chapters" to="." method="_on_main_menu_pressed"]
