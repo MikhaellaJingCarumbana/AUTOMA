@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmsalwq5xoat6"]
+
+[ext_resource type="Texture2D" uid="uid://bhgj4bibo7ik3" path="res://Chapters/Chapter 1/Sprite/Props animated/doors/spr_portal_strip8.png" id="1_hxmpp"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/doors/portaldoor.gd" id="2_dbegi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leqla"]
+atlas = ExtResource("1_hxmpp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa8lx"]
+atlas = ExtResource("1_hxmpp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7jof"]
+atlas = ExtResource("1_hxmpp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if035"]
+atlas = ExtResource("1_hxmpp")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiri0"]
+atlas = ExtResource("1_hxmpp")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivfbo"]
+atlas = ExtResource("1_hxmpp")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maigd"]
+atlas = ExtResource("1_hxmpp")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pckks"]
+atlas = ExtResource("1_hxmpp")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4m1ui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leqla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa8lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7jof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if035")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiri0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivfbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maigd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pckks")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Portaldoor" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_4m1ui")
+animation = &"Idle"
+frame_progress = 0.505003
+speed_scale = 2.0
+script = ExtResource("2_dbegi")
