@@ -19,3 +19,7 @@ func open_chest():
 		if sprite_2d.sprite_frames.has_animation("Open"):
 			sprite_2d.play("Open")  # Play the opening animation
 		is_chest_open = true  # Update the state to open
+
+
+func _on_death_zone_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

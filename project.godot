@@ -76,6 +76,10 @@ folder_colors={
 "res://Art/Dungeon Vibes Tilesets/": "yellow"
 }
 
+[global_group]
+
+Player=""
+
 [input]
 
 dialogic_default_action={

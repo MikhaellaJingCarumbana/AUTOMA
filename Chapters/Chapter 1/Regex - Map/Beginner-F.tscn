@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=28 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -10,11 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://cwsjbvfsg8dm4" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Brown chest.tscn" id="8_dbcjb"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_td7nl"]
 [ext_resource type="PackedScene" uid="uid://cwgcrkhs7khtu" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/hearts.tscn" id="10_87j4p"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/deathzone.gd" id="10_crjax"]
 [ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="11_hwmb2"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="11_kboke"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="11_wd45e"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="15_axvxt"]
+[ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="17_h4yah"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/CheckpointManager.gd" id="17_wv7rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6387,6 +6390,9 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y4kd"]
 size = Vector2(1026, 1089)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g6ax"]
+size = Vector2(1095, 75)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t2oi"]
 
 [node name="Beginner-f" type="Node2D"]
@@ -6453,6 +6459,14 @@ limit_target = NodePath("../camera_bounds/CollisionShape2D")
 position = Vector2(512, 544.5)
 shape = SubResource("RectangleShape2D_4y4kd")
 disabled = true
+
+[node name="death_zone" type="Area2D" parent="."]
+script = ExtResource("10_crjax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
+position = Vector2(527, 1093.5)
+shape = SubResource("RectangleShape2D_6g6ax")
+debug_color = Color(1, 0, 0.0875942, 0.42)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -6555,6 +6569,18 @@ position = Vector2(758, 862)
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
+[node name="CheckpointManager" type="Node" parent="."]
+script = ExtResource("17_wv7rg")
+
+[node name="Checkpoint" parent="CheckpointManager" groups=["Player"] instance=ExtResource("17_h4yah")]
+position = Vector2(193, 533)
+
+[node name="Respawn point" parent="CheckpointManager/Checkpoint" index="1"]
+position = Vector2(36, 73)
+
+[connection signal="body_entered" from="death_zone" to="death_zone" method="_on_body_entered"]
+
 [editable path="Player"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]
+[editable path="CheckpointManager/Checkpoint"]

@@ -18,7 +18,7 @@ var velocity: Vector2
 @export var hover_scale: Vector2 = Vector2(1.2, 1.2)  # How much the button scales on hover
 @export var hover_duration: float = 0.5  # Duration of the hover effect
 
-const chapter2 = preload("res://Chapters/Chapter 2/TestScene.tscn")
+
 
 # Called when the node is added to the scene
 func _ready() -> void:
@@ -55,4 +55,4 @@ func _on_pressed_chapter1() -> void:
 
 
 func _on_pressed_chapter2() -> void:
-	get_tree().change_scene_to_packed(chapter2)
+	get_tree().change_scene_to_file("res://Chapters/Chapter 2/Card UI/TestCardScene.tscn")

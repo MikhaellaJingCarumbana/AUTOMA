@@ -1171,4 +1171,8 @@ position = Vector2(593, 96)
 shape = SubResource("RectangleShape2D_cm5ky")
 disabled = true
 
+[node name="death_zone" type="Area2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="death_zone"]
+
 [editable path="Door/Intro Map - 1"]
