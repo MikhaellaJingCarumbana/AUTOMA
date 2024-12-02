@@ -68,7 +68,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [file_customization]
 
