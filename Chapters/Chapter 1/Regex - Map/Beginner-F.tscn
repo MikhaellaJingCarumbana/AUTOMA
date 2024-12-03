@@ -6423,6 +6423,9 @@ layer_7/tile_data = PackedInt32Array(1376275, 262145, 34, 1376276, 327681, 34, 2
 [node name="Clues" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(345, 113)
 
+[node name="Clues2" parent="." instance=ExtResource("20_argpt")]
+position = Vector2(718, 254)
+
 [node name="Brownchest" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(353, 113)
 
@@ -6497,10 +6500,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = -32
-limit_top = 2
-limit_right = 994
-limit_bottom = 1091
+limit_left = -1
+limit_top = -4
+limit_right = 1025
+limit_bottom = 1086
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(187, 111)
@@ -6630,9 +6633,8 @@ position = Vector2(548, 561)
 [node name="cylcops4" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(758, 862)
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
+[node name="GameManager" parent="." instance=ExtResource("13_bhq4s")]
 unique_name_in_owner = true
-hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [node name="CheckpointManager" type="Node" parent="."]
 script = ExtResource("17_wv7rg")
