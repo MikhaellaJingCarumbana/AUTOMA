@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=31 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="17_h4yah"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/CheckpointManager.gd" id="17_wv7rg"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
+[ext_resource type="PackedScene" uid="uid://dyytr848w430b" path="res://Chapters/Chapter 1/UI Components/Clue_System.tscn" id="21_tr3at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6610,6 +6611,11 @@ visible = false
 [node name="PauseMenu" parent="UI/DeathScreen" index="0"]
 visible = false
 
+[node name="Clue_System" parent="UI" instance=ExtResource("21_tr3at")]
+
+[node name="PauseMenu" parent="UI/Clue_System" index="0"]
+visible = false
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
@@ -6642,4 +6648,5 @@ position = Vector2(36, 73)
 [editable path="Player"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]
+[editable path="UI/Clue_System"]
 [editable path="CheckpointManager/Checkpoint"]
