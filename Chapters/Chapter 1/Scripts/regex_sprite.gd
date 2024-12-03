@@ -7,12 +7,11 @@ const JUMP_VELOCITY = -560.0
 @onready var sprite_2d = $AnimatedSprite2D
 @onready var all_interactions = []
 @onready var InteractLabel = $"Interaction Component/InteractionArea/InteractLabel"
-@onready var game_manager = %GameManager
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_left = false  # Tracks the direction the character is facing
 var movable = true
-var is_dead = false
 
 func jump():
 	velocity.y = JUMP_VELOCITY
@@ -32,8 +31,6 @@ func _on_spawn(position: Vector2, direction: String):
 	sprite_2d.stop()
 
 func _physics_process(delta):
-	if is_dead:
-		return
 	# Update animation based on velocity
 	if velocity.x > 1 or velocity.x < -1:
 		sprite_2d.play("Run")
@@ -66,13 +63,6 @@ func _physics_process(delta):
 	# Handle interactions
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
-	
-	if game_manager.lives == 0 and not is_dead:
-		play_death_animation()
-	
-func play_death_animation():
-	is_dead = true
-	sprite_2d.play("Death")
 		
 
 func _on_interaction_area_area_entered(area):
