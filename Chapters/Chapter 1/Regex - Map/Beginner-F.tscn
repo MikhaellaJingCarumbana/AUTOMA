@@ -6613,9 +6613,6 @@ visible = false
 
 [node name="Clue_System" parent="UI" instance=ExtResource("21_tr3at")]
 
-[node name="PauseMenu" parent="UI/Clue_System" index="0"]
-visible = false
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]

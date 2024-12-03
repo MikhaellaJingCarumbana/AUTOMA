@@ -12,8 +12,7 @@ func _ready() -> void:
 func _set_selection():
 	await get_tree().create_timer(0.01).timeout
 	_select_deselect_highlight()
-
-
+		
 func _on_previous_pressed() -> void:
 	var scrollValue = targetScroll - _get_space_between()
 	
