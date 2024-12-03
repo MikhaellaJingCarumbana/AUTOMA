@@ -6516,7 +6516,7 @@ limit_target = NodePath("../camera_bounds/CollisionShape2D")
 [node name="camera_bounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
-position = Vector2(481, 546)
+position = Vector2(512, 541)
 shape = SubResource("RectangleShape2D_4y4kd")
 disabled = true
 

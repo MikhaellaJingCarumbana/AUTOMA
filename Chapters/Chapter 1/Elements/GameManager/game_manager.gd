@@ -5,6 +5,9 @@ extends Node
 var points = 0
 var lives = 5
 
+signal clue_collected(index: int)
+
+
 func decrease_health():
 	lives -= 1
 	print(lives)
@@ -17,8 +20,7 @@ func decrease_health():
 		get_node("../UI/DeathScreen").game_over()
 	
 		
-func add_point():
-	points += 1
-	print(points)
+func clues_collected(clue_index: int):
+	emit_signal("clue_collected", clue_index)
 	
 	

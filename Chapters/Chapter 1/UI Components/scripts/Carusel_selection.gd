@@ -6,6 +6,20 @@ extends Node
 
 var targetScroll = 0
 
+func _ready() -> void:
+	_set_selection()
+	var game_manager = %GameManager
+	game_manager.connect("clues_collected", _on_clue_collected)
+
+func _set_selection():
+	await get_tree().create_timer(0.01).timeout
+	_select_deselect_highlight()
+
+func _on_clue_collected(index: int):
+	var clue_texture = object_container.get_children()[index]
+	if clue_texture and clue_texture is TextureRect:
+		clue_texture.visible = true
+		
 func _on_previous_pressed() -> void:
 	var scrollValue = targetScroll - _get_space_between()
 	

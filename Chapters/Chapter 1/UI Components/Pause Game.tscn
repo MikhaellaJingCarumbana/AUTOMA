@@ -93,17 +93,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_b4sqp")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_g7y27")
 text = "main menu"
 
-[node name="Chapters" type="Button" parent="PauseMenu/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.498039, 0.792157, 0.945098, 1)
-theme_override_fonts/font = ExtResource("1_x08am")
-theme_override_font_sizes/font_size = 70
-theme_override_styles/hover = SubResource("StyleBoxFlat_b4sqp")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_g7y27")
-text = "Chapters"
-
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Chapters" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Chapters" to="." method="_on_chapters_pressed"]
