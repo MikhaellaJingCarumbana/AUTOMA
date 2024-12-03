@@ -12,9 +12,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var clue_pressed = Input.is_action_just_pressed("Clue System")
 	if (clue_pressed == true):
-		get_tree().paused = true
-		pause_menu.show()
+		carousel_selection.show()
 		
 func _on_button_pressed() -> void:
-	pause_menu.hide()
+	carousel_selection.hide()
 	get_tree().paused = false
