@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Automa"
-run/main_scene="res://Scenes/eleanor.tscn"
+run/main_scene="res://Scenes/LoginNew.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -68,13 +68,17 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
 "res://Art/Dungeon Vibes Tilesets/": "yellow"
 }
+
+[global_group]
+
+Player=""
 
 [input]
 
