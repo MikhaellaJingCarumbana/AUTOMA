@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh0d1tsgec7pn"]
+
+[ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_ui.gd" id="1_4a5od"]
+
+[node name="Chap2Game1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4a5od")

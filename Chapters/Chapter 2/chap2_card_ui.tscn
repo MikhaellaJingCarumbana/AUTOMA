@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c711vmhnmvwgk"]
+
+[ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_ui.gd" id="1_o1rlg"]
+[ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_pile_ui.gd" id="2_ah6eb"]
+
+[node name="CardScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_o1rlg")
+
+[node name="Frontface" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Backface" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CardPileUI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_ah6eb")

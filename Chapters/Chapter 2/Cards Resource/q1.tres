@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bm6ebm86c2xqw"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 2/OldTestFolder/Custom Resources/card.gd" id="1_rasdk"]
+
+[resource]
+script = ExtResource("1_rasdk")
+id = "1"
+type = 0
+target = 0
