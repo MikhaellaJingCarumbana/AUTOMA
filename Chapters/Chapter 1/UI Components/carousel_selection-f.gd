@@ -2,6 +2,7 @@ extends Control
 
 @onready var scroll_container: ScrollContainer = %ScrollContainer
 @onready var object_container: HBoxContainer = %ObjectContainer
+@onready var clue_description: Label = $"PanelContainer/MarginContainer/VBoxContainer/Clue Description"
 
 @export var clues: Array[TextureRect]
 
