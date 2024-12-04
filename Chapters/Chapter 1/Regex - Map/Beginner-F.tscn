@@ -6387,7 +6387,7 @@ transition = 10
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y4kd"]
-size = Vector2(1026, 1089)
+size = Vector2(1026, 1074)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6g6ax"]
 size = Vector2(1095, 75)
@@ -6517,7 +6517,7 @@ limit_target = NodePath("../camera_bounds/CollisionShape2D")
 [node name="camera_bounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
-position = Vector2(512, 554)
+position = Vector2(512, 539)
 shape = SubResource("RectangleShape2D_4y4kd")
 disabled = true
 
@@ -6525,7 +6525,7 @@ disabled = true
 script = ExtResource("10_crjax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
-position = Vector2(524, 1117)
+position = Vector2(527, 1105)
 shape = SubResource("RectangleShape2D_6g6ax")
 debug_color = Color(1, 0, 0.0875942, 0.42)
 
@@ -6546,7 +6546,7 @@ position = Vector2(548, 561)
 position = Vector2(758, 862)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
-hearts = [null, null, null, null, null]
+hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [node name="CheckpointManager" type="Node" parent="."]
 script = ExtResource("17_wv7rg")
