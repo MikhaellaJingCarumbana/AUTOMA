@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyytr848w430b"]
+[gd_scene load_steps=14 format=3 uid="uid://dyytr848w430b"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/carousel_selection-f.gd" id="1_i1mta"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system.gd" id="1_nhicg"]
 [ext_resource type="Texture2D" uid="uid://b5m8g5evc2yfe" path="res://Art/Lucid V1.2/PNG/Shadow/16/Chevron-Arrow-Left.png" id="2_7gigg"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_mfc2p"]
-[ext_resource type="Texture2D" uid="uid://bs3ejp5q8fyrj" path="res://Art/Custom UI/Untitled (300 x 300 px) (900 x 900 px) (600 x 700 px).png" id="3_cx74m"]
+[ext_resource type="Texture2D" uid="uid://cjr46fmmjq3iy" path="res://Art/Regular Expression Clues/regular expression edited/1.png" id="5_mu3pv"]
+[ext_resource type="Texture2D" uid="uid://bbjpwsyowknju" path="res://Art/Regular Expression Clues/regular expression edited/2.png" id="6_7gsd4"]
 [ext_resource type="Texture2D" uid="uid://c55x116lwo2j7" path="res://Art/Lucid V1.2/PNG/Flat/16/Left-Arrow.png" id="6_ixr57"]
+[ext_resource type="Texture2D" uid="uid://j2jpofsjg2w4" path="res://Art/Regular Expression Clues/regular expression edited/3.png" id="7_icf3s"]
 [ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="7_ii8fw"]
+[ext_resource type="Texture2D" uid="uid://u0gfn1tso3wn" path="res://Art/Regular Expression Clues/regular expression edited/4.png" id="8_hl7tr"]
+[ext_resource type="Texture2D" uid="uid://dkaln4f5y2ihs" path="res://Art/Regular Expression Clues/regular expression edited/5.png" id="9_q16nr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
 shader = ExtResource("2_mfc2p")
@@ -120,15 +124,23 @@ theme_override_constants/margin_bottom = 0
 
 [node name="TextureRect" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
 layout_mode = 2
-texture = ExtResource("3_cx74m")
+texture = ExtResource("5_mu3pv")
 
 [node name="TextureRect2" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
 layout_mode = 2
-texture = ExtResource("3_cx74m")
+texture = ExtResource("6_7gsd4")
 
 [node name="TextureRect3" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
 layout_mode = 2
-texture = ExtResource("3_cx74m")
+texture = ExtResource("7_icf3s")
+
+[node name="TextureRect4" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
+layout_mode = 2
+texture = ExtResource("8_hl7tr")
+
+[node name="TextureRect5" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
+layout_mode = 2
+texture = ExtResource("9_q16nr")
 
 [node name="MarginContainer" type="MarginContainer" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
 layout_mode = 2

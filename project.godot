@@ -27,16 +27,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"Eleanor_NPC": "res://Characters/Eleanor_NPC.dch",
-"Eleanor_Tutorial": "res://Timeline/Eleanor_Tutorial.dch",
-"Player": "res://Timeline/Player.dch"
-}
-directories/dtl_directory={
-"Eleanor_Intro": "res://Timeline/Eleanor_Intro.dtl",
-"test": "res://Timeline/test.dtl",
-"timeline": "res://timeline.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 layout/style_list=["res://Styles/NovelStylewithImage.tres", "res://Styles/Visual Novel.tres"]
 layout/default_style="res://Styles/NovelStylewithImage.tres"
 text/letter_speed=0.01

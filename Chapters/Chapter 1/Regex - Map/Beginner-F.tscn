@@ -6428,6 +6428,18 @@ parent_chest = NodePath("../Brownchest")
 position = Vector2(718, 256)
 parent_chest = NodePath("../Brownchest2")
 
+[node name="Clues3" parent="." instance=ExtResource("20_argpt")]
+position = Vector2(730, 513)
+parent_chest = NodePath("../Brownchest3")
+
+[node name="Clues4" parent="." instance=ExtResource("20_argpt")]
+position = Vector2(255, 609)
+parent_chest = NodePath("../Brownchest4")
+
+[node name="Clues5" parent="." instance=ExtResource("20_argpt")]
+position = Vector2(255, 914)
+parent_chest = NodePath("../Brownchest2")
+
 [node name="Brownchest" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(353, 113)
 
@@ -6469,19 +6481,9 @@ interact_type = "open_chest"
 interact_value = "It's working"
 
 [node name="Brownchest5" parent="." instance=ExtResource("8_dbcjb")]
-position = Vector2(625, 863)
+position = Vector2(262, 913)
 
 [node name="InteractArea2" parent="Brownchest5" instance=ExtResource("9_td7nl")]
-scale = Vector2(2.05263, 2.2069)
-collision_mask = 4
-interact_label = "Open Chest"
-interact_type = "open_chest"
-interact_value = "It's working"
-
-[node name="Brownchest6" parent="." instance=ExtResource("8_dbcjb")]
-position = Vector2(118, 928)
-
-[node name="InteractArea2" parent="Brownchest6" instance=ExtResource("9_td7nl")]
 scale = Vector2(2.05263, 2.2069)
 collision_mask = 4
 interact_label = "Open Chest"
@@ -6651,6 +6653,9 @@ position = Vector2(36, 73)
 
 [editable path="Clues"]
 [editable path="Clues2"]
+[editable path="Clues3"]
+[editable path="Clues4"]
+[editable path="Clues5"]
 [editable path="Player"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]
