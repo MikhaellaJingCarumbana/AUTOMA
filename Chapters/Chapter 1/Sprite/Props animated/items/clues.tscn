@@ -1,17 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://demhtg7h654xh"]
+[gd_scene load_steps=5 format=3 uid="uid://demhtg7h654xh"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.gd" id="1_0bexh"]
-[ext_resource type="Texture2D" uid="uid://uul3scsmwj2t" path="res://Chapters/Chapter 1/Sprite/Props animated/items/Sheet.png" id="2_qckjs"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0nfpf"]
-atlas = ExtResource("2_qckjs")
-region = Rect2(112, 64, 16, 16)
+[ext_resource type="Texture2D" uid="uid://dc3peu0fdh63u" path="res://Art/48x48/scroll_01b.png" id="2_rsp5q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b0uil"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0nfpf")
+"texture": ExtResource("2_rsp5q")
 }],
 "loop": true,
 "name": &"default",
@@ -25,7 +21,8 @@ radius = 5.0
 script = ExtResource("1_0bexh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.375, 0.375)
+position = Vector2(-0.0625001, -0.0625001)
+scale = Vector2(0.122396, 0.122396)
 sprite_frames = SubResource("SpriteFrames_b0uil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
