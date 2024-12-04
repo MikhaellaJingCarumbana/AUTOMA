@@ -6422,9 +6422,11 @@ layer_7/tile_data = PackedInt32Array(1376275, 262145, 34, 1376276, 327681, 34, 2
 
 [node name="Clues" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(345, 113)
+parent_chest = NodePath("../Brownchest")
 
 [node name="Clues2" parent="." instance=ExtResource("20_argpt")]
-position = Vector2(718, 254)
+position = Vector2(718, 256)
+parent_chest = NodePath("../Brownchest2")
 
 [node name="Brownchest" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(353, 113)
@@ -6501,9 +6503,9 @@ position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
 limit_left = -1
-limit_top = -4
+limit_top = 9
 limit_right = 1025
-limit_bottom = 1086
+limit_bottom = 1098
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(187, 111)
@@ -6519,7 +6521,7 @@ limit_target = NodePath("../camera_bounds/CollisionShape2D")
 [node name="camera_bounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
-position = Vector2(512, 541)
+position = Vector2(512, 553)
 shape = SubResource("RectangleShape2D_4y4kd")
 disabled = true
 
@@ -6633,8 +6635,8 @@ position = Vector2(548, 561)
 [node name="cylcops4" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(758, 862)
 
-[node name="GameManager" parent="." instance=ExtResource("13_bhq4s")]
-unique_name_in_owner = true
+[node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
+hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [node name="CheckpointManager" type="Node" parent="."]
 script = ExtResource("17_wv7rg")
@@ -6647,6 +6649,8 @@ position = Vector2(36, 73)
 
 [connection signal="body_entered" from="death_zone" to="death_zone" method="_on_body_entered"]
 
+[editable path="Clues"]
+[editable path="Clues2"]
 [editable path="Player"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]

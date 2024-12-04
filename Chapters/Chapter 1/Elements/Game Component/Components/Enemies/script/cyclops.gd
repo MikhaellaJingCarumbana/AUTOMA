@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name CyclopsEnemy
 
-@onready var game_manager: Node = %GameManager
+@onready var game_manager: Node = $"../../GameManager"
 
 const speed = 30 
 var is_cyclops_chase: bool = true

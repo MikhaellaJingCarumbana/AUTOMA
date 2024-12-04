@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -560.0
 @onready var sprite_2d = $AnimatedSprite2D
 @onready var all_interactions = []
 @onready var InteractLabel = $"Interaction Component/InteractionArea/InteractLabel"
-@onready var game_manager = %GameManager
+@onready var game_manager = $"../GameManager"
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_left = false  # Tracks the direction the character is facing

@@ -1,6 +1,6 @@
 extends Node
 
-@export var hearts : Array[Node]
+@export var hearts: Array[Node]
 @onready var clue_system: Control = $"../UI/Clue_System/CarouselSelection"
 
 var points = 0
