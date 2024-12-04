@@ -6422,6 +6422,11 @@ layer_7/tile_data = PackedInt32Array(1376275, 262145, 34, 1376276, 327681, 34, 2
 
 [node name="Clues" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(345, 113)
+parent_chest = NodePath("../Brownchest")
+
+[node name="Clues2" parent="." instance=ExtResource("20_argpt")]
+position = Vector2(718, 256)
+parent_chest = NodePath("../Brownchest2")
 
 [node name="Brownchest" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(353, 113)
@@ -6433,9 +6438,6 @@ interact_label = "Open Chest"
 interact_type = "open_chest"
 interact_value = "It's working"
 
-[node name="Clues2" parent="." instance=ExtResource("20_argpt")]
-position = Vector2(717, 257)
-
 [node name="Brownchest2" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(726, 256)
 
@@ -6445,9 +6447,6 @@ collision_mask = 4
 interact_label = "Open Chest"
 interact_type = "open_chest"
 interact_value = "It's working"
-
-[node name="Clues3" parent="." instance=ExtResource("20_argpt")]
-position = Vector2(730, 514)
 
 [node name="Brownchest3" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(739, 512)
@@ -6652,7 +6651,6 @@ position = Vector2(36, 73)
 
 [editable path="Clues"]
 [editable path="Clues2"]
-[editable path="Clues3"]
 [editable path="Player"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]
