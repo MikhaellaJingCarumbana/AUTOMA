@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name CyclopsEnemy
 
 @onready var game_manager: Node = $"../../GameManager"
+@export var note_scene: PackedScene
 
 const speed = 30 
 var is_cyclops_chase: bool = true
@@ -57,7 +58,16 @@ func handle_animation():
 			handle_death()
 			
 func handle_death():
+	print("DEBUG: handle_death called for ", self.name)
+	var note = get_node_or_null("Note")
+	if note:
+		note.visible = true
+		print("DEBUG: Note visibility set to true")
+		print("DEBUG: Note position: ", note.global_position)
+	else:
+		print("DEBUG: No note node found under enemy")
 	self.queue_free()
+	print("Enemy has been freed")
 
 func move(delta):
 	if !dead:
@@ -91,7 +101,7 @@ func _on_area_2d_body_entered(body):
 		print(y_delta)
 		if(y_delta > 14):
 			print("Destroy enemy")
-			queue_free()
+			handle_death()
 			body.jump()
 		else:
 			print("Decrease player health")

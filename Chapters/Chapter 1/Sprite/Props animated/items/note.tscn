@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://duu4qwnplk6q4"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.gd" id="1_1h84t"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/items/notes.gd" id="1_2bwga"]
 [ext_resource type="Texture2D" uid="uid://uul3scsmwj2t" path="res://Chapters/Chapter 1/Sprite/Props animated/items/Sheet.png" id="2_o5wwd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xj32p"]
@@ -22,7 +22,7 @@ animations = [{
 radius = 5.0
 
 [node name="Note" type="Area2D"]
-script = ExtResource("1_1h84t")
+script = ExtResource("1_2bwga")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.96046e-08, 5.96046e-08)

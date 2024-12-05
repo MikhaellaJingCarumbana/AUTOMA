@@ -6,15 +6,28 @@ extends Area2D
 @onready var game_manager: Node = $"../GameManager"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	visible = false
+	set_visibility_layer_bit(0, false)
+	set_collision_mask_value(0, false)
+	print("DEBUG: Note initialized as invisible and non-collidable.")
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	animated_sprite_2d.play("default")
+	if enemy and enemy.dead:
+		visible = true
+		set_collision_layer_value(0, true)
+		set_collision_mask_value(0, true)
+		animated_sprite_2d.play("default")
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	print("DEBUG: Body entered Note area:", body.name)
+	if visible and body.is_in_group("Player"):
+		print("DEBUG: Player")
 		queue_free()
-		game_manager.add_clue()
+		game_manager.add_note()
+		print("DEBUG: Note collected and game manager updated.")
+	elif not visible:
+		print("DEBUG: Note is not visible; cannot be collected.")
