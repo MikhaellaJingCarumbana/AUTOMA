@@ -6428,7 +6428,7 @@ position = Vector2(730, 513)
 parent_chest = NodePath("../Brownchest3")
 
 [node name="Clues4" parent="." instance=ExtResource("20_argpt")]
-position = Vector2(255, 609)
+position = Vector2(633, 864)
 parent_chest = NodePath("../Brownchest4")
 
 [node name="Clues5" parent="." instance=ExtResource("20_argpt")]
@@ -6466,7 +6466,7 @@ interact_type = "open_chest"
 interact_value = "It's working"
 
 [node name="Brownchest4" parent="." instance=ExtResource("8_dbcjb")]
-position = Vector2(264, 608)
+position = Vector2(641, 864)
 
 [node name="InteractArea2" parent="Brownchest4" instance=ExtResource("9_td7nl")]
 scale = Vector2(2.05263, 2.2069)
@@ -6572,12 +6572,15 @@ position = Vector2(643, 1024)
 position = Vector2(789, 1024)
 
 [node name="Note" parent="Enemies" instance=ExtResource("15_56mjy")]
+position = Vector2(-40, -31)
 parent_enemy = NodePath("../cylcops5")
 
 [node name="Note2" parent="Enemies" instance=ExtResource("15_56mjy")]
+position = Vector2(-40, -31)
 parent_enemy = NodePath("../cylcops7")
 
 [node name="Note3" parent="Enemies" instance=ExtResource("15_56mjy")]
+position = Vector2(-41, -31)
 parent_enemy = NodePath("../cylcops11")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]

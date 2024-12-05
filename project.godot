@@ -20,10 +20,10 @@ config/icon="res://icon.svg"
 Global="*res://Scripts/global.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 NavigationManager="*res://Scripts/Navigation_manager.gd"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 TransitionScreen="*res://Chapters/Chapter 1/Elements/Game Component/Components/transition_screen.tscn"
 CardEvents="*res://Chapters/Chapter 2/OldTestFolder/global/card_events.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
@@ -68,7 +68,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/simple_card_pile_ui/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/simple_card_pile_ui/plugin.cfg")
 
 [file_customization]
 
