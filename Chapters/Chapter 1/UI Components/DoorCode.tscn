@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgx5rm0prmpo1"]
+[gd_scene load_steps=8 format=3 uid="uid://cgx5rm0prmpo1"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/door_code.gd" id="1_jkk3y"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_l88a0"]
+[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="3_5fc7o"]
 [ext_resource type="FontFile" uid="uid://dexd0d2xxu57p" path="res://Fonts/ds-runenglish-2-font/DsRunenglish2-nR5O.ttf" id="3_00858"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_m2org"]
 
@@ -21,6 +22,12 @@ shader_parameter/contrast = 1.0
 shader_parameter/spin_amount = 0.9
 shader_parameter/pixel_filter = 700.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ucfga"]
+shader = ExtResource("3_5fc7o")
+shader_parameter/height = 3.0
+shader_parameter/frequency = 20.0
+shader_parameter/speed = 3.0
+
 [node name="DoorCode" type="Node"]
 script = ExtResource("1_jkk3y")
 
@@ -34,6 +41,7 @@ grow_vertical = 2
 color = Color(0.164706, 0.164706, 0.207843, 1)
 
 [node name="Label" type="Label" parent="PauseMenu"]
+material = SubResource("ShaderMaterial_ucfga")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
