@@ -59,13 +59,14 @@ func handle_animation():
 			
 func handle_death():
 	print("DEBUG: handle_death called for ", self.name)
-	var note = get_node_or_null("Note")
+	var note = get_parent().get_node_or_null("Note")
 	if note:
 		note.visible = true
-		print("DEBUG: Note visibility set to true")
-		print("DEBUG: Note position: ", note.global_position)
+		note.set_collision_layer_value(0, true)
+		note.set_collision_mask_value(0, true)
+		print("DEBUG: Note made visible and collidable at position: ", note.global_position)
 	else:
-		print("DEBUG: No note node found under enemy")
+		print("DEBUG: No note node found under the same parent as enemy.")
 	self.queue_free()
 	print("Enemy has been freed")
 

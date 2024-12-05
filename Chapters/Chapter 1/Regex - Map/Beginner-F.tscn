@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=27 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="11_hwmb2"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
 [ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="13_yy40w"]
+[ext_resource type="PackedScene" uid="uid://duu4qwnplk6q4" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note.tscn" id="15_56mjy"]
 [ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="17_h4yah"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/CheckpointManager.gd" id="17_wv7rg"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
@@ -6535,9 +6536,7 @@ debug_color = Color(1, 0, 0.0875942, 0.42)
 
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(712, 103)
-
-[node name="Note" parent="Enemies/cylcops" index="4"]
-parent_enemy = NodePath("..")
+note_scene = ExtResource("15_56mjy")
 
 [node name="cylcops2" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(206, 336)
@@ -6547,6 +6546,9 @@ position = Vector2(548, 561)
 
 [node name="cylcops4" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(758, 862)
+
+[node name="Note" parent="Enemies" instance=ExtResource("15_56mjy")]
+parent_enemy = NodePath("../cylcops")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
