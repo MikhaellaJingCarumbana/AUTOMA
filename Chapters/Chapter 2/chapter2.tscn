@@ -25,11 +25,14 @@ shader_parameter/spin_amount = 0.1
 shader_parameter/pixel_filter = 1000.0
 
 [sub_resource type="Curve" id="Curve_rfnjg"]
-_data = [Vector2(0.016129, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.17921, 0.0, 0, 0]
-point_count = 2
+min_value = 1.0
+max_value = 7.0
+_data = [Vector2(0, 1), 0.0, 5.96842, 0, 1, Vector2(0.52381, 4.12632), 6.05804, 6.05804, 0, 0, Vector2(1, 7), 6.03474, 0.0, 1, 0]
+point_count = 3
 
 [sub_resource type="Curve" id="Curve_lkg0v"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.483871, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.010989), 0.0, 0.0, 0, 0]
+max_value = 25.0
+_data = [Vector2(0, 0), 0.0, 30.0, 0, 0, Vector2(0.509, 15), 0.0, 0.0, 0, 0, Vector2(1, 0.010989), -30.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43vyn"]
@@ -79,8 +82,9 @@ extended_card_ui = ExtResource("5_kugne")
 draw_pile_position = Vector2(20, 750)
 hand_pile_position = Vector2(630, 750)
 discard_pile_position = Vector2(1250, 750)
+card_return_speed = 0.1
 draw_pile_layout = 2
-card_ui_hover_distance = 1
+max_hand_size = 7
 hand_rotation_curve = SubResource("Curve_rfnjg")
 hand_vertical_curve = SubResource("Curve_lkg0v")
 

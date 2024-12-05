@@ -8,7 +8,6 @@ extends Node2D
 var current_hovered_card : CardUI
 
 func _ready() -> void:
-    card_pile_ui.draw(5)
     card_pile_ui.connect("card_hovered", func(card_ui):
         rich_text_label.text = card_ui.card_data.format_description()
         panel_container.visible = true

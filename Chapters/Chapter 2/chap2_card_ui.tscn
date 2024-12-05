@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c711vmhnmvwgk"]
+[gd_scene load_steps=7 format=3 uid="uid://c711vmhnmvwgk"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chap2_card_ui.gd" id="1_3xf8w"]
 [ext_resource type="Texture2D" uid="uid://bchk5gad3pysb" path="res://Art/Custom UI/card_back.png" id="2_a6lh3"]
 [ext_resource type="Texture2D" uid="uid://dpawubh532r0l" path="res://Art/Custom UI/Card Blank.png" id="3_6mrkm"]
 [ext_resource type="Theme" uid="uid://kbuvpsiofcvd" path="res://Themes/card_theme.tres" id="4_4eggr"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="5_njvqj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rdjd"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -54,7 +55,8 @@ offset_left = 35.0
 offset_top = 249.0
 offset_right = 170.0
 offset_bottom = 265.0
-theme = ExtResource("4_4eggr")
 theme_override_colors/font_color = Color(0.859112, 0.694012, 0.254367, 1)
+theme_override_fonts/font = ExtResource("5_njvqj")
+theme_override_font_sizes/font_size = 15
 text = "type of card"
 horizontal_alignment = 1
