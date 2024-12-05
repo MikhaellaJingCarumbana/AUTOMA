@@ -6416,18 +6416,23 @@ layer_7/tile_data = PackedInt32Array(1376275, 262145, 34, 1376276, 327681, 34, 2
 
 [node name="Clues" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(345, 114)
+parent_chest = NodePath("../Brownchest")
 
 [node name="Clues2" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(718, 257)
+parent_chest = NodePath("../Brownchest2")
 
 [node name="Clues3" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(730, 513)
+parent_chest = NodePath("../Brownchest3")
 
 [node name="Clues4" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(255, 609)
+parent_chest = NodePath("../Brownchest4")
 
 [node name="Clues5" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(255, 914)
+parent_chest = NodePath("../Brownchest5")
 
 [node name="Brownchest" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(353, 113)
