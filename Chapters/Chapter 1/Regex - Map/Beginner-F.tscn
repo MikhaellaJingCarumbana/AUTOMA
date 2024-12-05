@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=27 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="11_hwmb2"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
 [ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="13_yy40w"]
+[ext_resource type="PackedScene" uid="uid://duu4qwnplk6q4" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note.tscn" id="15_yllmc"]
 [ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="17_h4yah"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/CheckpointManager.gd" id="17_wv7rg"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
@@ -6416,12 +6417,15 @@ layer_7/tile_data = PackedInt32Array(1376275, 262145, 34, 1376276, 327681, 34, 2
 
 [node name="Clues" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(345, 114)
+parent_chest = NodePath("../Brownchest")
 
 [node name="Clues2" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(718, 257)
+parent_chest = NodePath("../Brownchest2")
 
 [node name="Clues3" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(730, 513)
+parent_chest = NodePath("../Brownchest3")
 
 [node name="Clues4" parent="." instance=ExtResource("20_argpt")]
 position = Vector2(255, 609)
@@ -6531,11 +6535,14 @@ debug_color = Color(1, 0, 0.0875942, 0.42)
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(712, 103)
 
-[node name="Note" parent="Enemies/cylcops" index="4"]
-parent_enemy = NodePath("..")
+[node name="Note" parent="Enemies" instance=ExtResource("15_yllmc")]
+parent_enemy = NodePath("../cylcops")
 
 [node name="cylcops2" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(206, 336)
+
+[node name="Note2" parent="Enemies" instance=ExtResource("15_yllmc")]
+parent_enemy = NodePath("../cylcops2")
 
 [node name="cylcops3" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(548, 561)
