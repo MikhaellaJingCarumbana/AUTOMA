@@ -6550,6 +6550,9 @@ position = Vector2(758, 862)
 [node name="Note" parent="Enemies" instance=ExtResource("15_56mjy")]
 parent_enemy = NodePath("../cylcops")
 
+[node name="Note2" parent="Enemies" instance=ExtResource("15_56mjy")]
+parent_enemy = NodePath("../cylcops2")
+
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
