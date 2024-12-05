@@ -22,3 +22,7 @@ func _on_button_pressed() -> void:
 func _on_back_pressed() -> void:
 	carousel_selection.hide()
 	get_tree().paused = false
+
+
+func _on_previous_pressed() -> void:
+	pass # Replace with function body.

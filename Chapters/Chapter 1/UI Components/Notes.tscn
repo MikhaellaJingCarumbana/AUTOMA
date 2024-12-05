@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cxadbt5dl8y50"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/note_system.gd" id="1_h6n1d"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/carousel_selection-f.gd" id="2_sjc0g"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/note_carusel.gd" id="2_3uh30"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="3_sqgoo"]
 [ext_resource type="Texture2D" uid="uid://b5m8g5evc2yfe" path="res://Art/Lucid V1.2/PNG/Shadow/16/Chevron-Arrow-Left.png" id="4_vaf0w"]
 [ext_resource type="Texture2D" uid="uid://cjr46fmmjq3iy" path="res://Art/Regular Expression Clues/regular expression edited/1.png" id="5_3mlgx"]
@@ -41,7 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_sjc0g")
+script = ExtResource("2_3uh30")
 
 [node name="PauseMenu" type="ColorRect" parent="CarouselSelection"]
 material = SubResource("ShaderMaterial_aq6tb")

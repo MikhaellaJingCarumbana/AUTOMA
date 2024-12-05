@@ -15,8 +15,8 @@ func _ready() -> void:
 		if object is TextureRect:
 			object.visible = false
 			
-func show_clue(index: int):
-	print("Show clue called with index:", index)
+func show_note(index: int):
+	print("Show note called with index:", index)
 	var texture_recs = object_container.get_children()
 	var texture_rect_found = false
 	
@@ -24,7 +24,7 @@ func show_clue(index: int):
 		if child is TextureRect:
 			texture_rect_found = true
 			if index == 1:
-				print("Revealing clue:", child.name)
+				print("Revealing note:", child.name)
 				child.visible = true
 				return
 			index -= 1
