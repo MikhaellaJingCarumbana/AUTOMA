@@ -8,9 +8,9 @@ extends Area2D
 @onready var game_manager: Node = get_parent().get_parent().get_node("GameManager")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	visible = false
-	set_visibility_layer_bit(0, false)
-	set_collision_mask_value(0, false)
+	visible = true
+	set_visibility_layer_bit(0, true)
+	set_collision_mask_value(0, true)
 	print("DEBUG: Note initialized as invisible and non-collidable.")
 
 	if enemy:
