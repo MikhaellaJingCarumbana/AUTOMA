@@ -20,22 +20,31 @@ expand_margin_bottom = 1.0
 shadow_color = Color(0, 0, 0, 0.141176)
 shadow_size = 8
 
-[node name="CardScene" type="Control"]
+[node name="CardUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 211.0
+offset_bottom = 301.0
 script = ExtResource("1_3xf8w")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 209.0
+offset_bottom = 298.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5rdjd")
 
 [node name="Backface" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 209.0
+offset_bottom = 298.0
+texture = ExtResource("2_a6lh3")
+expand_mode = 1
 
 [node name="Frontface" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 209.0
 offset_bottom = 298.0
+theme = ExtResource("4_4eggr")
 texture = ExtResource("3_6mrkm")
 expand_mode = 1
 

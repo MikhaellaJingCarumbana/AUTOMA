@@ -49,8 +49,8 @@ script = ExtResource("1_nl1si")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_o86ny")
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 2498.0
+offset_bottom = 1564.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 699.0
