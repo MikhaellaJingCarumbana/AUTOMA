@@ -44,7 +44,6 @@ func add_note():
 		print("Error: clue_system is not assigned!")
 
 
-
 	
 	
 	
