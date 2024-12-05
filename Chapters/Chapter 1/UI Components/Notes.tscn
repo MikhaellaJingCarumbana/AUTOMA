@@ -228,4 +228,3 @@ horizontal_alignment = 1
 [connection signal="pressed" from="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/Previous" to="CarouselSelection" method="_on_previous_pressed"]
 [connection signal="pressed" from="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2/Next" to="CarouselSelection" method="_on_next_pressed"]
 [connection signal="pressed" from="CarouselSelection/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="CarouselSelection/Back" to="." method="_on_button_pressed"]
