@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name CyclopsEnemy
 
 @onready var game_manager: Node = $"../../GameManager"
-@onready var note_scene: Area2D = $"../Note"
+@export var note_scene: PackedScene
 
 const speed = 30 
 var is_cyclops_chase: bool = true
@@ -59,18 +59,15 @@ func handle_animation():
 			
 func handle_death():
 	print("DEBUG: handle_death called for ", self.name)
-	
-	if note_scene:
-		note_scene.global_position = self.global_position
-		note_scene.visible = true
-		note_scene.set_collision_layer_value(0, true)
-		note_scene.set_collision_mask_value(0, true)
-		print("DEBUG: Note made visible and collidable at position: ", note_scene.global_position)
+	var note = get_node_or_null("Note")
+	if note:
+		note.visible = true
+		print("DEBUG: Note visibility set to true")
+		print("DEBUG: Note position: ", note.global_position)
 	else:
-		print("ERROR: note_scene is null or not assigned!")
-		
+		print("DEBUG: No note node found under enemy")
 	self.queue_free()
-	print("DEBUG: Enemy has been freed")
+	print("Enemy has been freed")
 
 func move(delta):
 	if !dead:
