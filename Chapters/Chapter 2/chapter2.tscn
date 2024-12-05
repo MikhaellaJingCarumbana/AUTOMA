@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=11 format=3 uid="uid://bh0d1tsgec7pn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_g2cp2"]
+[ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_pile_ui.gd" id="4_43p60"]
+[ext_resource type="PackedScene" uid="uid://c711vmhnmvwgk" path="res://Chapters/Chapter 2/chap2_card_ui.tscn" id="5_kugne"]
+[ext_resource type="FontFile" uid="uid://dfetpkhknyaka" path="res://Fonts/retro_gaming/Retro Gaming.ttf" id="6_fsa4l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o86ny"]
 resource_local_to_scene = true
@@ -21,25 +24,85 @@ shader_parameter/contrast = 2.0
 shader_parameter/spin_amount = 0.1
 shader_parameter/pixel_filter = 1000.0
 
+[sub_resource type="Curve" id="Curve_rfnjg"]
+_data = [Vector2(0.016129, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.17921, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_lkg0v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.483871, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43vyn"]
+bg_color = Color(0.240145, 0.139829, 0.325101, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.239216, 0.141176, 0.32549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_nl1si")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_o86ny")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1622.0
-offset_bottom = 1105.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 514.0
-offset_right = 1047.0
-offset_bottom = 106.0
+offset_left = 699.0
+offset_top = 8.0
+offset_right = 1232.0
+offset_bottom = 114.0
 theme_override_fonts/normal_font = ExtResource("3_g2cp2")
 theme_override_font_sizes/normal_font_size = 110
 bbcode_enabled = true
 text = "[center][wave amp=25.0 freq=9.0 connected=1]automa demo[/wave][/center]
 "
+
+[node name="CardPileUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+script = ExtResource("4_43p60")
+json_card_database_path = "res://Chapters/Chapter 2/chap2_card_database.json"
+json_card_collection_path = "res://Chapters/Chapter 2/test_collection.json"
+extended_card_ui = ExtResource("5_kugne")
+draw_pile_position = Vector2(20, 750)
+hand_pile_position = Vector2(630, 750)
+discard_pile_position = Vector2(1250, 750)
+draw_pile_layout = 2
+card_ui_hover_distance = 1
+hand_rotation_curve = SubResource("Curve_rfnjg")
+hand_vertical_curve = SubResource("Curve_lkg0v")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+z_index = 4000
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 330.0
+offset_bottom = 50.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_43vyn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("6_fsa4l")
+theme_override_font_sizes/bold_italics_font_size = 2
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]Summon the enchanted state Q15 into your mystical DFA. . [/center]"
+fit_content = true

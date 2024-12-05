@@ -1,16 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://c711vmhnmvwgk"]
+[gd_scene load_steps=6 format=3 uid="uid://c711vmhnmvwgk"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 2/chap_2_card_ui.gd" id="1_3xf8w"]
+[ext_resource type="Script" path="res://Chapters/Chapter 2/chap2_card_ui.gd" id="1_3xf8w"]
 [ext_resource type="Texture2D" uid="uid://bchk5gad3pysb" path="res://Art/Custom UI/card_back.png" id="2_a6lh3"]
 [ext_resource type="Texture2D" uid="uid://dpawubh532r0l" path="res://Art/Custom UI/Card Blank.png" id="3_6mrkm"]
 [ext_resource type="Theme" uid="uid://kbuvpsiofcvd" path="res://Themes/card_theme.tres" id="4_4eggr"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rdjd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.705882, 0.498039, 0.176471, 1)
+border_blend = true
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.141176)
+shadow_size = 8
+
 [node name="CardUI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 211.0
+offset_bottom = 301.0
 script = ExtResource("1_3xf8w")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 209.0
+offset_bottom = 298.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5rdjd")
 
 [node name="Backface" type="TextureRect" parent="."]
 layout_mode = 0
@@ -23,6 +43,7 @@ expand_mode = 1
 layout_mode = 0
 offset_right = 209.0
 offset_bottom = 298.0
+theme = ExtResource("4_4eggr")
 texture = ExtResource("3_6mrkm")
 expand_mode = 1
 
