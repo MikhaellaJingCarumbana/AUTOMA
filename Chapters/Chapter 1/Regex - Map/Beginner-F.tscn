@@ -6535,7 +6535,7 @@ debug_color = Color(1, 0, 0.0875942, 0.42)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
-position = Vector2(712, 103)
+position = Vector2(712, 112)
 note_scene = ExtResource("15_56mjy")
 
 [node name="cylcops2" parent="Enemies" instance=ExtResource("11_hwmb2")]
@@ -6547,11 +6547,38 @@ position = Vector2(548, 561)
 [node name="cylcops4" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(758, 862)
 
+[node name="cylcops5" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(138, 609)
+
+[node name="cylcops6" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(593, 255)
+
+[node name="cylcops7" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(655, 720)
+
+[node name="cylcops8" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(788, 719)
+
+[node name="cylcops9" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(539, 864)
+
+[node name="cylcops10" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(57, 929)
+
+[node name="cylcops11" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(643, 1024)
+
+[node name="cylcops12" parent="Enemies" instance=ExtResource("11_hwmb2")]
+position = Vector2(789, 1024)
+
 [node name="Note" parent="Enemies" instance=ExtResource("15_56mjy")]
-parent_enemy = NodePath("../cylcops")
+parent_enemy = NodePath("../cylcops5")
 
 [node name="Note2" parent="Enemies" instance=ExtResource("15_56mjy")]
-parent_enemy = NodePath("../cylcops2")
+parent_enemy = NodePath("../cylcops7")
+
+[node name="Note3" parent="Enemies" instance=ExtResource("15_56mjy")]
+parent_enemy = NodePath("../cylcops11")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
@@ -6582,4 +6609,12 @@ position = Vector2(36, 73)
 [editable path="Enemies/cylcops2"]
 [editable path="Enemies/cylcops3"]
 [editable path="Enemies/cylcops4"]
+[editable path="Enemies/cylcops5"]
+[editable path="Enemies/cylcops6"]
+[editable path="Enemies/cylcops7"]
+[editable path="Enemies/cylcops8"]
+[editable path="Enemies/cylcops9"]
+[editable path="Enemies/cylcops10"]
+[editable path="Enemies/cylcops11"]
+[editable path="Enemies/cylcops12"]
 [editable path="CheckpointManager/Checkpoint"]
