@@ -2,12 +2,17 @@ extends Node
 
 @export var hearts: Array[Node]
 @onready var clue_system: Control = $"../UI/Clue_System/CarouselSelection"
+@onready var note_system: Control = $"../UI/Note System/CarouselSelection"
 
 var points = 0
 var lives = 5
 var clues_collected = 0
+var notes_collected = 0
 
 signal clue_collected(index: int)
+signal note_collected(index: int)
+
+
 
 
 func decrease_health():
@@ -30,6 +35,15 @@ func add_clue():
 	else:
 		print("Error: clue_system is not assigned!")
 		
+func add_note():
+	notes_collected += 1
+	if note_system:
+		print("Note collected!")
+		note_system.call("show_note", notes_collected)
+	else:
+		print("Error: clue_system is not assigned!")
+
+
 
 	
 	

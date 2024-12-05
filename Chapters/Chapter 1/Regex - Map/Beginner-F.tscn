@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=26 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -10,17 +10,13 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_l14n2"]
 [ext_resource type="PackedScene" uid="uid://cwsjbvfsg8dm4" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Brown chest.tscn" id="8_dbcjb"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_td7nl"]
-[ext_resource type="PackedScene" uid="uid://cwgcrkhs7khtu" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/hearts.tscn" id="10_87j4p"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/deathzone.gd" id="10_crjax"]
 [ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="11_hwmb2"]
-[ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="11_kboke"]
-[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="11_wd45e"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
-[ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="15_axvxt"]
+[ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="13_yy40w"]
 [ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="17_h4yah"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/CheckpointManager.gd" id="17_wv7rg"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
-[ext_resource type="PackedScene" uid="uid://dyytr848w430b" path="res://Chapters/Chapter 1/UI Components/Clue_System.tscn" id="21_tr3at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6391,12 +6387,10 @@ transition = 10
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y4kd"]
-size = Vector2(1026, 1089)
+size = Vector2(1026, 1074)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6g6ax"]
 size = Vector2(1095, 75)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t2oi"]
 
 [node name="Beginner-f" type="Node2D"]
 
@@ -6421,12 +6415,19 @@ layer_7/name = "infront of props"
 layer_7/tile_data = PackedInt32Array(1376275, 262145, 34, 1376276, 327681, 34, 2228262, 131073, 26, 2293798, 131073, 27, 2228263, 196609, 26, 2293799, 196609, 27, 2228251, 131073, 26, 2293787, 131073, 27, 2228252, 196609, 26, 2293788, 196609, 27, 1769516, 655361, 7, 1769517, 655361, 7, 1769518, 655361, 7, 1769519, 655361, 7, 2818069, 655361, 7, 2818070, 655361, 7, 2752534, 655361, 7, 2752533, 655361, 7, 3997754, 655361, 7, 3997753, 655361, 7, 4063289, 655361, 7, 4063290, 655361, 7, 4063291, 655361, 7, 4063288, 655361, 7, 4128824, 655361, 7, 4128823, 655361, 7, 4128825, 655361, 7, 4128822, 655361, 7, 4194358, 655361, 7, 4194359, 655361, 7, 4194360, 655361, 7, 4194357, 655361, 7, 3670074, 655361, 7, 3670075, 655361, 7, 3735611, 655361, 7, 3735610, 655361, 7, 3735609, 655361, 7, 3342394, 655361, 7, 3407930, 655361, 7, 3407931, 655361, 7, 3407932, 655361, 7, 3407929, 655361, 7, 3342393, 655361, 7, 3080247, 655361, 7, 3080248, 655361, 7, 3145784, 655361, 7, 3145783, 655361, 7, 2818106, 655361, 7, 2818107, 655361, 7, 2818108, 655361, 7, 2752564, 655361, 7, 2752565, 655361, 7, 2687029, 655361, 7, 2359353, 655361, 7, 2424889, 655361, 7, 2424890, 655361, 7, 2424891, 655361, 7, 2424888, 655361, 7, 2490424, 655361, 7, 2687030, 655361, 7, 2752566, 655361, 7, 2687031, 655361, 7, 2752567, 655361, 7, 2752568, 655361, 7, 2752569, 655361, 7, 2752570, 655361, 7, 2687032, 655361, 7, 2687033, 655361, 7, 2818098, 655361, 7, 2818099, 655361, 7, 2818100, 655361, 7, 2818101, 655361, 7, 1376313, 655361, 7, 1441849, 655361, 7, 1441848, 655361, 7, 1441850, 655361, 7, 2031672, 655361, 7, 2031673, 655361, 7, 2097210, 655361, 7, 2097209, 655361, 7, 2097208, 655361, 7, 2490423, 655361, 7, 1703994, 655361, 7, 1703993, 655361, 7, 1441851, 655361, 7, 2490425, 655361, 7, 2818109, 655361, 7, 2818102, 655361, 7, 2818103, 655361, 7, 2818104, 655361, 7, 2818105, 655361, 7, 2818097, 655361, 7, 2752563, 655361, 7, 2752571, 655361, 7, 3604487, 655361, 7, 3604488, 655361, 7, 3604489, 655361, 7, 3604490, 655361, 7, 3473420, 655361, 7, 3473421, 655361, 7, 3473422, 655361, 7, 3473423, 655361, 7, 3473424, 655361, 7, 3342354, 655361, 7, 3342355, 655361, 7, 3342356, 655361, 7, 3342357, 655361, 7, 3342358, 655361, 7, 3276818, 655361, 7, 3276819, 655361, 7, 3276820, 655361, 7, 3276821, 655361, 7, 3276822, 655361, 7, 3145750, 655361, 7, 3145749, 655361, 7, 3211285, 655361, 7, 3211286, 655361, 7, 3211287, 655361, 7, 3211288, 655361, 7, 3211289, 655361, 7, 1900573, 655361, 7, 1900574, 655361, 7, 1900575, 655361, 7, 1900576, 655361, 7, 1900577, 655361, 7, 1900578, 655361, 7, 1900579, 655361, 7, 1900580, 655361, 7, 1966108, 655361, 7, 1900569, 655361, 7, 1900568, 655361, 7, 1966104, 655361, 7, 1966105, 655361, 7, 917531, 655361, 7, 983066, 655361, 7, 983067, 655361, 7, 983065, 655361, 7)
 
 [node name="Clues" parent="." instance=ExtResource("20_argpt")]
-position = Vector2(345, 113)
-parent_chest = NodePath("../Brownchest")
+position = Vector2(345, 114)
 
 [node name="Clues2" parent="." instance=ExtResource("20_argpt")]
-position = Vector2(718, 256)
-parent_chest = NodePath("../Brownchest2")
+position = Vector2(718, 257)
+
+[node name="Clues3" parent="." instance=ExtResource("20_argpt")]
+position = Vector2(730, 513)
+
+[node name="Clues4" parent="." instance=ExtResource("20_argpt")]
+position = Vector2(255, 609)
+
+[node name="Clues5" parent="." instance=ExtResource("20_argpt")]
+position = Vector2(255, 914)
 
 [node name="Brownchest" parent="." instance=ExtResource("8_dbcjb")]
 position = Vector2(353, 113)
@@ -6469,19 +6470,9 @@ interact_type = "open_chest"
 interact_value = "It's working"
 
 [node name="Brownchest5" parent="." instance=ExtResource("8_dbcjb")]
-position = Vector2(625, 863)
+position = Vector2(262, 913)
 
 [node name="InteractArea2" parent="Brownchest5" instance=ExtResource("9_td7nl")]
-scale = Vector2(2.05263, 2.2069)
-collision_mask = 4
-interact_label = "Open Chest"
-interact_type = "open_chest"
-interact_value = "It's working"
-
-[node name="Brownchest6" parent="." instance=ExtResource("8_dbcjb")]
-position = Vector2(118, 928)
-
-[node name="InteractArea2" parent="Brownchest6" instance=ExtResource("9_td7nl")]
 scale = Vector2(2.05263, 2.2069)
 collision_mask = 4
 interact_label = "Open Chest"
@@ -6503,9 +6494,9 @@ position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
 limit_left = -1
-limit_top = 9
+limit_top = 2
 limit_right = 1025
-limit_bottom = 1098
+limit_bottom = 1076
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(187, 111)
@@ -6521,7 +6512,7 @@ limit_target = NodePath("../camera_bounds/CollisionShape2D")
 [node name="camera_bounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
-position = Vector2(512, 553)
+position = Vector2(512, 539)
 shape = SubResource("RectangleShape2D_4y4kd")
 disabled = true
 
@@ -6529,102 +6520,19 @@ disabled = true
 script = ExtResource("10_crjax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
-position = Vector2(524, 1117)
+position = Vector2(527, 1105)
 shape = SubResource("RectangleShape2D_6g6ax")
 debug_color = Color(1, 0, 0.0875942, 0.42)
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -374.0
-offset_top = 72.0
-offset_bottom = 150.0
-grow_horizontal = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxEmpty_3t2oi")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -158.0
-offset_right = 158.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect" instance=ExtResource("10_87j4p")]
-
-[node name="TextureRect2" type="TextureRect" parent="UI/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect2" instance=ExtResource("10_87j4p")]
-
-[node name="TextureRect3" type="TextureRect" parent="UI/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect3" instance=ExtResource("10_87j4p")]
-
-[node name="TextureRect4" type="TextureRect" parent="UI/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect4" instance=ExtResource("10_87j4p")]
-
-[node name="TextureRect5" type="TextureRect" parent="UI/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="UI/Panel/HBoxContainer/TextureRect5" instance=ExtResource("10_87j4p")]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="UI/Panel/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_wd45e")
-theme_override_font_sizes/font_size = 25
-text = "Player Health"
-
-[node name="PauseGame" parent="UI" instance=ExtResource("11_kboke")]
-
-[node name="PauseMenu" parent="UI/PauseGame" index="0"]
-visible = false
-
-[node name="DeathScreen" parent="UI" instance=ExtResource("15_axvxt")]
-
-[node name="PauseMenu" parent="UI/DeathScreen" index="0"]
-visible = false
-
-[node name="Clue_System" parent="UI" instance=ExtResource("21_tr3at")]
-
-[node name="CarouselSelection" parent="UI/Clue_System" index="0"]
-visible = false
+[node name="UI" parent="." instance=ExtResource("13_yy40w")]
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="cylcops" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(712, 103)
+
+[node name="Note" parent="Enemies/cylcops" index="4"]
+parent_enemy = NodePath("..")
 
 [node name="cylcops2" parent="Enemies" instance=ExtResource("11_hwmb2")]
 position = Vector2(206, 336)
@@ -6651,8 +6559,17 @@ position = Vector2(36, 73)
 
 [editable path="Clues"]
 [editable path="Clues2"]
+[editable path="Clues3"]
+[editable path="Clues4"]
+[editable path="Clues5"]
 [editable path="Player"]
+[editable path="UI"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/Clue_System"]
+[editable path="UI/Note System"]
+[editable path="Enemies/cylcops"]
+[editable path="Enemies/cylcops2"]
+[editable path="Enemies/cylcops3"]
+[editable path="Enemies/cylcops4"]
 [editable path="CheckpointManager/Checkpoint"]

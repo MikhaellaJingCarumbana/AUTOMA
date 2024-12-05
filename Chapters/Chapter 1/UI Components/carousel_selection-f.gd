@@ -2,6 +2,7 @@ extends Control
 
 @onready var scroll_container: ScrollContainer = %ScrollContainer
 @onready var object_container: HBoxContainer = %ObjectContainer
+@onready var clue_description: Label = $"PanelContainer/MarginContainer/VBoxContainer/Clue Description"
 
 @export var clues: Array[TextureRect]
 
@@ -34,6 +35,7 @@ func show_clue(index: int):
 		print("Error: No TextureRects found in object_container")
 	else:
 		print("Error: Could not find texturerect for the given index:", index)
+	
 			
 			
 func _on_previous_pressed() -> void:
