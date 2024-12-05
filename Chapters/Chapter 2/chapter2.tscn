@@ -1,8 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=5 format=3 uid="uid://bh0d1tsgec7pn"]
 
-[ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_ui.gd" id="1_4a5od"]
+[ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_g2cp2"]
 
-[node name="Chap2Game1" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_4a5od")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o86ny"]
+resource_local_to_scene = true
+shader = ExtResource("2_uerw4")
+shader_parameter/polar_coordinates = true
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 0.0
+shader_parameter/spin_speed = 3.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.0196078, 0.588235, 0.45098, 1)
+shader_parameter/colour_2 = Color(0.0117647, 0.941176, 0.631373, 1)
+shader_parameter/colour_3 = Color(0.0588235, 0.313726, 0.305882, 1)
+shader_parameter/contrast = 2.0
+shader_parameter/spin_amount = 0.1
+shader_parameter/pixel_filter = 1000.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nl1si")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_o86ny")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1622.0
+offset_bottom = 1105.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 514.0
+offset_right = 1047.0
+offset_bottom = 106.0
+theme_override_fonts/normal_font = ExtResource("3_g2cp2")
+theme_override_font_sizes/normal_font_size = 110
+bbcode_enabled = true
+text = "[center][wave amp=25.0 freq=9.0 connected=1]automa demo[/wave][/center]
+"
