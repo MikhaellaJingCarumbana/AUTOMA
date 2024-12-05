@@ -6496,7 +6496,7 @@ position = Vector2(187, 111)
 
 [node name="Camera2D" parent="Player" index="2"]
 physics_interpolation_mode = 1
-position = Vector2(0, 0)
+position = Vector2(4, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
 limit_left = -1
@@ -6505,7 +6505,7 @@ limit_right = 1025
 limit_bottom = 1076
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(187, 111)
+position = Vector2(191, 111)
 script = ExtResource("6_hkbon")
 follow_mode = 5
 follow_target = NodePath("../Player")
