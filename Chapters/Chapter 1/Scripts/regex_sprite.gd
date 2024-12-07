@@ -101,8 +101,8 @@ func execute_interaction():
 				open_dialogic_timeline(current_interaction.timeline_name)
 			"open_chest":
 				current_interaction.get_parent().open_chest()
-			"interact door":
-				current_interaction.get
+			"open_door_code":
+				current_interaction.interact()
 		print("Executing interaction: %s" % current_interaction.interact_type)
 			
 

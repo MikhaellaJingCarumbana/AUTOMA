@@ -6490,6 +6490,10 @@ interact_value = "It's working"
 position = Vector2(721, 1000)
 scale = Vector2(0.695312, 0.644531)
 
+[node name="InteractArea" parent="Portaldoor" index="1"]
+interact_type = "open_door_code"
+door_code_path = NodePath("..")
+
 [node name="Player" parent="." instance=ExtResource("5_e65jt")]
 light_mask = 4
 visibility_layer = 4

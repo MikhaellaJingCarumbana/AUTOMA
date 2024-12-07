@@ -82,3 +82,4 @@ scale = Vector2(-2.00193, 2.73072)
 
 [node name="InteractArea" parent="." instance=ExtResource("4_g0n6l")]
 scale = Vector2(3.72, 3.64)
+interact_label = "Press E to interact with door"
