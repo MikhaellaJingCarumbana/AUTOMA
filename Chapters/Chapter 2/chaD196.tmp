@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=11 format=3 uid="uid://bh0d1tsgec7pn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_pile_ui.gd" id="4_43p60"]
 [ext_resource type="PackedScene" uid="uid://c711vmhnmvwgk" path="res://Chapters/Chapter 2/chap2_card_ui.tscn" id="5_kugne"]
 [ext_resource type="FontFile" uid="uid://dfetpkhknyaka" path="res://Fonts/retro_gaming/Retro Gaming.ttf" id="6_fsa4l"]
-[ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_dropzone.gd" id="7_7qf07"]
-[ext_resource type="Texture2D" uid="uid://cf8dh8okwampc" path="res://image_2024-07-22_133418062.jpg" id="8_1f1sr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o86ny"]
 resource_local_to_scene = true
@@ -73,22 +71,23 @@ offset_right = 273.0
 offset_bottom = 96.0
 text = "RESET CARDS"
 
+[node name="DrawButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 107.0
+offset_right = 274.0
+offset_bottom = 153.0
+text = "DRAW A RANDOM 
+STATE CARD"
+
 [node name="DrawTransitionORANDButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 114.0
+offset_top = 172.0
 offset_right = 276.0
-offset_bottom = 164.0
+offset_bottom = 222.0
 text = "DRAW TRANSITION CARD
 "
-
-[node name="DrawEffectButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 181.0
-offset_right = 278.0
-offset_bottom = 230.0
-text = "DRAW EFFECT CARD"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 699.0
@@ -146,32 +145,6 @@ bbcode_enabled = true
 text = "[center]Summon the enchanted state Q15 into your mystical DFA. . [/center]"
 fit_content = true
 
-[node name="CardDropzone" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1625.0
-offset_top = 703.0
-offset_right = 1880.0
-offset_bottom = 1041.0
-script = ExtResource("7_7qf07")
-
-[node name="TextureRect" type="TextureRect" parent="CardDropzone"]
-layout_mode = 0
-offset_left = 174.0
-offset_top = -21.0
-offset_right = 428.0
-offset_bottom = 323.0
-texture = ExtResource("8_1f1sr")
-expand_mode = 5
-
-[node name="Label" type="Label" parent="CardDropzone"]
-layout_mode = 0
-offset_left = 263.0
-offset_top = -61.0
-offset_right = 332.0
-offset_bottom = -38.0
-text = "DISCARD"
-
 [connection signal="pressed" from="Control/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Control/DrawButton" to="." method="_on_draw_button_pressed"]
 [connection signal="pressed" from="Control/DrawTransitionORANDButton" to="." method="_on_draw_transition_orand_button_pressed"]
-[connection signal="pressed" from="Control/DrawEffectButton" to="." method="_on_draw_effect_button_pressed"]
