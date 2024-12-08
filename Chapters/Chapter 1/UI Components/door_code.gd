@@ -1,10 +1,10 @@
 extends Node
 
-@export var question_File: Resource
+@export_file("*.json") var json_file: String = ""
 @onready var pause_menu: ColorRect = $PauseMenu
-@onready var question_label: Label = $PauseMenu/Label
 @onready var submit: Button = $PauseMenu/Submit
 @onready var answer_input: LineEdit = $PauseMenu/answer_input
+@onready var question_label: Label = $PauseMenu/Label
 
 var questions = []
 var current_question_index = -1
@@ -12,7 +12,8 @@ var current_question_index = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	load_question()
+	next_question()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,12 +29,12 @@ func _on_button_pressed() -> void:
 	pause_menu.hide()
 	
 func load_question() -> void:
-	if not question_File:
-		print("No question file selected in the inspector")
+	if json_file == "":
+		print("No JSON file selected")
 		return
 		
-	var file = FileAccess.open(question_File.resource_path, FileAccess.READ)
-	if file:
+	var file = FileAccess.open(json_file, FileAccess.READ)
+	if file: 
 		var json_data = file.get_as_text()
 		file.close()
 		
@@ -42,12 +43,11 @@ func load_question() -> void:
 		
 		if error == OK:
 			questions = json.data
-			print("Questions loaded successfully")
-			
 		else:
-			print("Error parsing JSON: " + json.get_error_message() + " at line " + str(json.get_error_line()))
+			print("Error parsing JSON: " + json.get_error_message() + " at lisne " + str(json.get_error_line()))
 	else:
-		print("Question file could not be opened")
+		print("Could not open file: " + json_file)
+
 		
 func next_question():
 	
