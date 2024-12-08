@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgx5rm0prmpo1"]
+[gd_scene load_steps=9 format=3 uid="uid://cgx5rm0prmpo1"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/door_code.gd" id="1_jkk3y"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_l88a0"]
 [ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="3_5fc7o"]
 [ext_resource type="FontFile" uid="uid://dexd0d2xxu57p" path="res://Fonts/ds-runenglish-2-font/DsRunenglish2-nR5O.ttf" id="3_00858"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_m2org"]
+[ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="6_wxrwi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
 shader = ExtResource("2_l88a0")
@@ -66,7 +67,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="PauseMenu"]
+[node name="answer_input" type="LineEdit" parent="PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -74,9 +75,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -680.0
-offset_top = 76.0
+offset_top = 27.0
 offset_right = 680.0
-offset_bottom = 183.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_00858")
@@ -128,3 +129,38 @@ text = "open the door"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Back" type="Button" parent="PauseMenu"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.023
+anchor_top = 0.052
+anchor_right = 0.023
+anchor_bottom = 0.052
+offset_left = 97.84
+offset_top = -0.16
+offset_right = 161.84
+offset_bottom = 63.84
+scale = Vector2(1.5, 1.5)
+icon = ExtResource("6_wxrwi")
+
+[node name="Submit" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.5
+offset_top = -370.0
+offset_right = 151.5
+offset_bottom = -293.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_m2org")
+theme_override_font_sizes/font_size = 50
+text = "Submit"
+
+[connection signal="pressed" from="PauseMenu/Back" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Submit" to="." method="_on_submit_pressed"]
