@@ -1,10 +1,6 @@
 [
 	{
-		"question": "What is the capital of France?",
-		"correct_answers": ["Paris"]
-	},
-	{
-		"question": "What is 2 + 2?",
-		"correct_answers": ["4", "four"]
+		"question": "L = { w e {a,b} * / w starts with aa and ends with bb and contains baba as substring} ",
+		"correct_answers": ["aa (a+b)* baba (a+b)* bb"]
 	}
 ]
