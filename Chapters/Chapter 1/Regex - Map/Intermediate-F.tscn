@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=17 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="5_cnw82"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="6_857ww"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="7_q1itm"]
+[ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="8_0y7ae"]
+[ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="9_pvdh5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6528,3 +6530,16 @@ layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 196
 
 [node name="Player" parent="TileMap" instance=ExtResource("7_q1itm")]
 position = Vector2(214, 237)
+
+[node name="UI" parent="." instance=ExtResource("8_0y7ae")]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("9_pvdh5")]
+unique_name_in_owner = true
+hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
+
+[editable path="UI"]
+[editable path="UI/Panel"]
+[editable path="UI/PauseGame"]
+[editable path="UI/DeathScreen"]
+[editable path="UI/Clue_System"]
+[editable path="UI/Note System"]

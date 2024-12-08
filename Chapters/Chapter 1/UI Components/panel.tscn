@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://byg7c45yhcbdt"]
+
+[ext_resource type="PackedScene" uid="uid://cwgcrkhs7khtu" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/hearts.tscn" id="1_b8k5r"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_n4q00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t2oi"]
+
+[node name="Panel" type="Panel"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -374.0
+offset_top = 72.0
+offset_bottom = 150.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3t2oi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_right = 158.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Hearts" parent="HBoxContainer/TextureRect" instance=ExtResource("1_b8k5r")]
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Hearts" parent="HBoxContainer/TextureRect2" instance=ExtResource("1_b8k5r")]
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Hearts" parent="HBoxContainer/TextureRect3" instance=ExtResource("1_b8k5r")]
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Hearts" parent="HBoxContainer/TextureRect4" instance=ExtResource("1_b8k5r")]
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Hearts" parent="HBoxContainer/TextureRect5" instance=ExtResource("1_b8k5r")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n4q00")
+theme_override_font_sizes/font_size = 25
+text = "Player Health"

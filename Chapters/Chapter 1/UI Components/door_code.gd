@@ -61,6 +61,7 @@ func next_question():
 	else:
 		question_label.text = "Door unlocked"
 		submit.hide()
+		get_tree().change_scene_to_file("res://Chapters/Chapter 1/Regex - Map/Intermediate-F.tscn")
 		
 
 func _on_submit_pressed() -> void:

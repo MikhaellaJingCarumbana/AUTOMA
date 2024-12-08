@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cputc5mpyun1c"]
+[gd_scene load_steps=11 format=3 uid="uid://cputc5mpyun1c"]
 
-[ext_resource type="PackedScene" uid="uid://cwgcrkhs7khtu" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/hearts.tscn" id="1_bifrw"]
-[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_0qfns"]
+[ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="1_atnv4"]
 [ext_resource type="Texture2D" uid="uid://ckhval463k7ni" path="res://Art/48x48/book_05g.png" id="3_1fmyx"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="4_u7rdi"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="5_ykde3"]
@@ -18,76 +17,7 @@
 
 [node name="UI" type="CanvasLayer"]
 
-[node name="Panel" type="Panel" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -374.0
-offset_top = 72.0
-offset_bottom = 150.0
-grow_horizontal = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxEmpty_3t2oi")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -158.0
-offset_right = 158.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="Panel/HBoxContainer/TextureRect" instance=ExtResource("1_bifrw")]
-
-[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="Panel/HBoxContainer/TextureRect2" instance=ExtResource("1_bifrw")]
-
-[node name="TextureRect3" type="TextureRect" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="Panel/HBoxContainer/TextureRect3" instance=ExtResource("1_bifrw")]
-
-[node name="TextureRect4" type="TextureRect" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="Panel/HBoxContainer/TextureRect4" instance=ExtResource("1_bifrw")]
-
-[node name="TextureRect5" type="TextureRect" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="Panel/HBoxContainer/TextureRect5" instance=ExtResource("1_bifrw")]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_0qfns")
-theme_override_font_sizes/font_size = 25
-text = "Player Health"
+[node name="Panel" parent="." instance=ExtResource("1_atnv4")]
 
 [node name="Notes" type="Panel" parent="."]
 offset_top = 57.0

@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://ducr0oiagx5wp"]
+
+[ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="1_ur7yh"]
+[ext_resource type="PackedScene" uid="uid://duu4qwnplk6q4" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note.tscn" id="2_nelnu"]
+
+[node name="Enemies" type="Node"]
+
+[node name="cylcops" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(712, 112)
+note_scene = ExtResource("2_nelnu")
+
+[node name="cylcops2" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(206, 336)
+
+[node name="cylcops3" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(548, 561)
+
+[node name="cylcops4" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(758, 862)
+
+[node name="cylcops5" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(138, 609)
+
+[node name="cylcops6" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(593, 255)
+
+[node name="cylcops7" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(655, 720)
+
+[node name="cylcops8" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(788, 719)
+
+[node name="cylcops9" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(539, 864)
+
+[node name="cylcops10" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(57, 929)
+
+[node name="cylcops11" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(643, 1024)
+
+[node name="cylcops12" parent="." instance=ExtResource("1_ur7yh")]
+position = Vector2(789, 1024)
+
+[node name="Note" parent="." instance=ExtResource("2_nelnu")]
+position = Vector2(-40, -31)
+parent_enemy = NodePath("../cylcops5")
+
+[node name="Note2" parent="." instance=ExtResource("2_nelnu")]
+position = Vector2(-40, -31)
+parent_enemy = NodePath("../cylcops7")
+
+[node name="Note3" parent="." instance=ExtResource("2_nelnu")]
+position = Vector2(-41, -31)
+parent_enemy = NodePath("../cylcops11")
+
+[editable path="cylcops"]
+[editable path="cylcops2"]
+[editable path="cylcops3"]
+[editable path="cylcops4"]
+[editable path="cylcops5"]
+[editable path="cylcops6"]
+[editable path="cylcops7"]
+[editable path="cylcops8"]
+[editable path="cylcops9"]
+[editable path="cylcops10"]
+[editable path="cylcops11"]
+[editable path="cylcops12"]
