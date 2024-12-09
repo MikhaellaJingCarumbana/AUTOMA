@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=24 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -11,9 +11,8 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_d8o1v"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="9_pvdh5"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_t2u1d"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/deathzone.gd" id="10_2n7sm"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/spikes.gd" id="10_nls0b"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_iqdbx"]
-[ext_resource type="PackedScene" uid="uid://ducr0oiagx5wp" path="res://Chapters/Chapter 1/UI Components/enemies.tscn" id="14_f7sqd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6575,7 +6574,7 @@ shape = SubResource("RectangleShape2D_rut0x")
 debug_color = Color(0.74902, 0.94902, 1, 0.196078)
 
 [node name="death_zone" type="Area2D" parent="."]
-script = ExtResource("10_2n7sm")
+script = ExtResource("10_nls0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
 position = Vector2(463, 517.875)
@@ -6590,9 +6589,8 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 
 [node name="CheckpointManager" parent="." instance=ExtResource("13_iqdbx")]
 
-[node name="Enemies" parent="." instance=ExtResource("14_f7sqd")]
-
 [connection signal="body_entered" from="death_zone" to="death_zone" method="_on_body_entered"]
+[connection signal="body_exited" from="death_zone" to="death_zone" method="_on_body_exited"]
 
 [editable path="Player"]
 [editable path="UI"]
@@ -6601,3 +6599,5 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="UI/DeathScreen"]
 [editable path="UI/Clue_System"]
 [editable path="UI/Note System"]
+[editable path="CheckpointManager"]
+[editable path="CheckpointManager/Checkpoint"]
