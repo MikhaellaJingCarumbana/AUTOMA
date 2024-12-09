@@ -24,37 +24,36 @@ shadow_size = 8
 [node name="CardUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 211.0
-offset_bottom = 301.0
+offset_right = 133.0
+offset_bottom = 188.0
 script = ExtResource("1_3xf8w")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 209.0
-offset_bottom = 298.0
+offset_right = 131.0
+offset_bottom = 186.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5rdjd")
 
 [node name="Backface" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 209.0
-offset_bottom = 298.0
+offset_right = 130.0
+offset_bottom = 186.0
 texture = ExtResource("2_a6lh3")
 
 [node name="Frontface" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 209.0
-offset_bottom = 298.0
+offset_right = 131.0
+offset_bottom = 186.0
 theme = ExtResource("4_4eggr")
 texture = ExtResource("4_07wvx")
 
 [node name="TypeLabel" type="Label" parent="Frontface"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 249.0
-offset_right = 170.0
-offset_bottom = 265.0
+offset_top = 153.0
+offset_right = 132.0
+offset_bottom = 168.0
 theme_override_colors/font_color = Color(0.859112, 0.694012, 0.254367, 1)
 theme_override_fonts/font = ExtResource("5_njvqj")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 text = "type of card"
 horizontal_alignment = 1

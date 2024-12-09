@@ -22,8 +22,8 @@ func _ready() -> void:
 func _process(delta):
     if current_hovered_card:
         var target_pos = current_hovered_card.position
-        target_pos.y += 80
-        target_pos.x += 180
+        target_pos.y += 30
+        target_pos.x += 100
         panel_container.position = target_pos
 
 func _on_reset_button_pressed():
