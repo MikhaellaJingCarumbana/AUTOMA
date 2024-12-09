@@ -40,3 +40,7 @@ func _get_effect_card():
 	
 func _on_draw_effect_button_pressed():
 	card_pile_ui.create_card_in_pile(_get_effect_card(), CardPileUI.Piles.hand_pile)
+
+func _on_discard_button_pressed():
+	for card_ui in card_pile_ui.get_cards_in_pile(CardPileUI.Piles.hand_pile):
+		card_pile_ui.set_card_pile(card_ui, CardPileUI.Piles.discard_pile)

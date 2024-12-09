@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=12 format=3 uid="uid://bh0d1tsgec7pn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
@@ -6,8 +6,7 @@
 [ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_pile_ui.gd" id="4_43p60"]
 [ext_resource type="PackedScene" uid="uid://c711vmhnmvwgk" path="res://Chapters/Chapter 2/chap2_card_ui.tscn" id="5_kugne"]
 [ext_resource type="FontFile" uid="uid://dfetpkhknyaka" path="res://Fonts/retro_gaming/Retro Gaming.ttf" id="6_fsa4l"]
-[ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_dropzone.gd" id="7_7qf07"]
-[ext_resource type="Texture2D" uid="uid://cf8dh8okwampc" path="res://image_2024-07-22_133418062.jpg" id="8_1f1sr"]
+[ext_resource type="Script" path="res://Chapters/Chapter 2/dropzone_discard.gd" id="7_rtgtg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o86ny"]
 resource_local_to_scene = true
@@ -28,14 +27,15 @@ shader_parameter/pixel_filter = 1000.0
 
 [sub_resource type="Curve" id="Curve_rfnjg"]
 min_value = 1.0
-max_value = 7.0
-_data = [Vector2(0, 1), 0.0, 5.96842, 0, 1, Vector2(0.52381, 4.12632), 6.05804, 6.05804, 0, 0, Vector2(1, 7), 6.03474, 0.0, 1, 0]
-point_count = 3
+max_value = 8.0
+_data = [Vector2(0, 0), 0.0, 0.0, 1, 0, Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Curve" id="Curve_lkg0v"]
 max_value = 25.0
-_data = [Vector2(0, 0), 0.0, 30.0, 0, 0, Vector2(0.509, 15), 0.0, 0.0, 0, 0, Vector2(1, 0.010989), -30.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43vyn"]
 bg_color = Color(0.240145, 0.139829, 0.325101, 1)
@@ -62,33 +62,41 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 49.0
 offset_top = 133.0
-offset_right = 598.0
-offset_bottom = 704.0
+offset_right = 506.0
+offset_bottom = 377.0
 
 [node name="ResetButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 44.0
-offset_right = 273.0
-offset_bottom = 96.0
+offset_left = 18.0
+offset_top = 29.0
+offset_right = 159.0
+offset_bottom = 78.0
 text = "RESET CARDS"
 
 [node name="DrawTransitionORANDButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 114.0
-offset_right = 276.0
-offset_bottom = 164.0
+offset_left = 179.0
+offset_top = 29.0
+offset_right = 423.0
+offset_bottom = 79.0
 text = "DRAW TRANSITION CARD
 "
 
 [node name="DrawEffectButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 181.0
-offset_right = 278.0
-offset_bottom = 230.0
+offset_left = 180.0
+offset_top = 88.0
+offset_right = 424.0
+offset_bottom = 137.0
 text = "DRAW EFFECT CARD"
+
+[node name="DiscardButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 90.0
+offset_right = 159.0
+offset_bottom = 138.0
+text = "DISCARD CARDS"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 699.0
@@ -115,11 +123,13 @@ json_card_database_path = "res://Chapters/Chapter 2/chap2_card_database.json"
 json_card_collection_path = "res://Chapters/Chapter 2/test_collection.json"
 extended_card_ui = ExtResource("5_kugne")
 draw_pile_position = Vector2(20, 750)
-hand_pile_position = Vector2(630, 750)
-discard_pile_position = Vector2(1250, 750)
+hand_pile_position = Vector2(800, 750)
+discard_pile_position = Vector2(1850, 750)
 card_return_speed = 0.1
 draw_pile_layout = 2
-max_hand_size = 7
+max_hand_size = 8
+max_hand_spread = 1000
+card_ui_hover_distance = 20
 hand_rotation_curve = SubResource("Curve_rfnjg")
 hand_vertical_curve = SubResource("Curve_lkg0v")
 
@@ -146,32 +156,26 @@ bbcode_enabled = true
 text = "[center]Summon the enchanted state Q15 into your mystical DFA. . [/center]"
 fit_content = true
 
-[node name="CardDropzone" type="Control" parent="."]
+[node name="Dropzone_Discard" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1625.0
-offset_top = 703.0
-offset_right = 1880.0
-offset_bottom = 1041.0
-script = ExtResource("7_7qf07")
+offset_left = 1832.0
+offset_top = 749.0
+offset_right = 2063.0
+offset_bottom = 1045.0
+script = ExtResource("7_rtgtg")
+card_pile_ui = NodePath("../CardPileUI")
+can_drag_top_card = false
 
-[node name="TextureRect" type="TextureRect" parent="CardDropzone"]
+[node name="Label" type="Label" parent="Dropzone_Discard"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = -21.0
-offset_right = 428.0
-offset_bottom = 323.0
-texture = ExtResource("8_1f1sr")
-expand_mode = 5
-
-[node name="Label" type="Label" parent="CardDropzone"]
-layout_mode = 0
-offset_left = 263.0
+offset_left = 41.0
 offset_top = -61.0
-offset_right = 332.0
-offset_bottom = -38.0
-text = "DISCARD"
+offset_right = 163.0
+offset_bottom = -27.0
+text = "DISCARD ZONE"
 
 [connection signal="pressed" from="Control/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Control/DrawTransitionORANDButton" to="." method="_on_draw_transition_orand_button_pressed"]
 [connection signal="pressed" from="Control/DrawEffectButton" to="." method="_on_draw_effect_button_pressed"]
+[connection signal="pressed" from="Control/DiscardButton" to="." method="_on_discard_button_pressed"]

@@ -31,7 +31,7 @@ enum PilesCardLayouts {
 @export_group("Pile Positions")
 @export var draw_pile_position = Vector2(20, 460)
 @export var hand_pile_position = Vector2(630, 460)
-@export var discard_pile_position = Vector2(1250, 460)
+@export var discard_pile_position = Vector2(1800, 460)
 
 @export_group("Pile Displays")
 @export var stack_display_gap := 8
@@ -136,7 +136,6 @@ func get_card_pile_size(pile : Piles):
 		return _draw_pile.size()
 	return 0
 	
-
 
 func _maybe_remove_card_from_any_piles(card : CardUI):
 	if _hand_pile.find(card) != -1:
