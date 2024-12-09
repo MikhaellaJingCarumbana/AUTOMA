@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=14 format=3 uid="uid://bh0d1tsgec7pn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dfetpkhknyaka" path="res://Fonts/retro_gaming/Retro Gaming.ttf" id="6_fsa4l"]
 [ext_resource type="Script" path="res://addons/simple_card_pile_ui/card_dropzone.gd" id="7_7qf07"]
 [ext_resource type="Script" path="res://Chapters/Chapter 2/dropzone_discard.gd" id="7_rtgtg"]
+[ext_resource type="Script" path="res://Chapters/Chapter 2/card_dropzone_state.gd" id="8_3fook"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o86ny"]
 resource_local_to_scene = true
@@ -191,14 +192,39 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.10302, 0.102273, 1.20327e-08, 0.239216)
 
-[node name="CardDropzone" type="Control" parent="."]
+[node name="CardDropzone" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 590.0
-offset_top = 180.0
-offset_right = 789.0
-offset_bottom = 442.0
+offset_left = 581.0
+offset_top = 192.0
+offset_right = 714.0
+offset_bottom = 380.0
+script = ExtResource("8_3fook")
+accept_type = "state"
+card_pile_ui = NodePath("../CardPileUI")
+layout = 1
+
+[node name="ColorRect2" type="ColorRect" parent="CardDropzone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.0862745, 0, 0.152941)
+
+[node name="CardDropzone2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 823.0
+offset_top = 194.0
+offset_right = 956.0
+offset_bottom = 382.0
 script = ExtResource("7_7qf07")
+max_stack_display = 1
+layout = 1
 
 [connection signal="pressed" from="Control/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Control/DrawTransitionORANDButton" to="." method="_on_draw_transition_orand_button_pressed"]
