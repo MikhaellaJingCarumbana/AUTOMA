@@ -6687,8 +6687,44 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Cyclops" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(300, 247)
+[node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(918, 246)
+
+[node name="Skull2" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(94, 566)
+
+[node name="Skull3" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(720, 534)
+
+[node name="Skull4" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(910, 535)
+
+[node name="Skull5" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(655, 678)
+
+[node name="Skull6" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(692, 790)
+
+[node name="Skull7" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(517, 790)
+
+[node name="Skull8" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(925, 918)
+
+[node name="Skull9" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(682, 934)
+
+[node name="Skull10" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(825, 1041)
+
+[node name="Skull11" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(203, 1046)
+
+[node name="Skull12" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(312, 1046)
+
+[node name="Skull13" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(538, 663)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("9_pvdh5")]
 unique_name_in_owner = true

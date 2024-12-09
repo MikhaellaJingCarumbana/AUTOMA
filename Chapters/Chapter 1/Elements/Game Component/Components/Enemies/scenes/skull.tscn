@@ -251,7 +251,7 @@ unique_name_in_owner = true
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_hx42s")
 animation = &"deal_damage"
-frame_progress = 0.525625
+frame_progress = 0.851605
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
