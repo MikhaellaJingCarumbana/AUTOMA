@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=25 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -8,7 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="6_857ww"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="7_q1itm"]
 [ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="8_0y7ae"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_d8o1v"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="9_pvdh5"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_t2u1d"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/deathzone.gd" id="10_2n7sm"]
+[ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_iqdbx"]
+[ext_resource type="PackedScene" uid="uid://ducr0oiagx5wp" path="res://Chapters/Chapter 1/UI Components/enemies.tscn" id="14_f7sqd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6511,6 +6516,18 @@ sources/3 = SubResource("TileSetAtlasSource_8hfya")
 sources/4 = SubResource("TileSetAtlasSource_16fmk")
 sources/5 = SubResource("TileSetAtlasSource_jmam0")
 
+[sub_resource type="Resource" id="Resource_dyqua"]
+script = ExtResource("9_t2u1d")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rut0x"]
+size = Vector2(1024, 1081)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aexk4"]
+size = Vector2(68, 31.75)
+
 [node name="Intermediate-f" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6528,8 +6545,42 @@ layer_4/tile_data = PackedInt32Array(327686, 6291457, 12, 393222, 6291457, 13, 4
 layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
-[node name="Player" parent="TileMap" instance=ExtResource("7_q1itm")]
-position = Vector2(214, 237)
+[node name="Player" parent="." instance=ExtResource("7_q1itm")]
+position = Vector2(213, 241)
+
+[node name="Camera2D" parent="Player" index="2"]
+physics_interpolation_mode = 1
+position = Vector2(0, 0)
+scale = Vector2(1, 1)
+zoom = Vector2(5, 7)
+limit_left = -1
+limit_top = 6
+limit_right = 1023
+limit_bottom = 1087
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(213, 241)
+script = ExtResource("8_d8o1v")
+follow_mode = 1
+follow_target = NodePath("../Player")
+zoom = Vector2(5, 7)
+tween_resource = SubResource("Resource_dyqua")
+limit_target = NodePath("../Camera_bounds/CollisionShape2D")
+
+[node name="Camera_bounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bounds"]
+position = Vector2(511, 546.5)
+shape = SubResource("RectangleShape2D_rut0x")
+debug_color = Color(0.74902, 0.94902, 1, 0.196078)
+
+[node name="death_zone" type="Area2D" parent="."]
+script = ExtResource("10_2n7sm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
+position = Vector2(463, 517.875)
+shape = SubResource("RectangleShape2D_aexk4")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
 [node name="UI" parent="." instance=ExtResource("8_0y7ae")]
 
@@ -6537,6 +6588,13 @@ position = Vector2(214, 237)
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
+[node name="CheckpointManager" parent="." instance=ExtResource("13_iqdbx")]
+
+[node name="Enemies" parent="." instance=ExtResource("14_f7sqd")]
+
+[connection signal="body_entered" from="death_zone" to="death_zone" method="_on_body_entered"]
+
+[editable path="Player"]
 [editable path="UI"]
 [editable path="UI/Panel"]
 [editable path="UI/PauseGame"]

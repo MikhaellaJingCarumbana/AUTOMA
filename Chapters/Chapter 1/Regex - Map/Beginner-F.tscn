@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=25 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -10,13 +10,12 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_l14n2"]
 [ext_resource type="PackedScene" uid="uid://cwsjbvfsg8dm4" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Brown chest.tscn" id="8_dbcjb"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_td7nl"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/deathzone.gd" id="10_crjax"]
+[ext_resource type="PackedScene" uid="uid://nuh3a8lcx5d6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="12_7hj65"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
 [ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="13_yy40w"]
 [ext_resource type="PackedScene" uid="uid://cgx5rm0prmpo1" path="res://Chapters/Chapter 1/UI Components/DoorCode.tscn" id="14_voc4h"]
 [ext_resource type="PackedScene" uid="uid://ducr0oiagx5wp" path="res://Chapters/Chapter 1/UI Components/enemies.tscn" id="15_jxqpq"]
-[ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="17_h4yah"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/CheckpointManager.gd" id="17_wv7rg"]
+[ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="17_f6l53"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
@@ -6390,9 +6389,6 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y4kd"]
 size = Vector2(1026, 1074)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g6ax"]
-size = Vector2(1095, 75)
-
 [node name="Beginner-f" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6526,13 +6522,7 @@ position = Vector2(535, 547)
 shape = SubResource("RectangleShape2D_4y4kd")
 disabled = true
 
-[node name="death_zone" type="Area2D" parent="."]
-script = ExtResource("10_crjax")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
-position = Vector2(527, 1105)
-shape = SubResource("RectangleShape2D_6g6ax")
-debug_color = Color(1, 0, 0.0875942, 0.42)
+[node name="death_zone" parent="." instance=ExtResource("12_7hj65")]
 
 [node name="UI" parent="." instance=ExtResource("13_yy40w")]
 
@@ -6547,16 +6537,7 @@ visible = false
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
-[node name="CheckpointManager" type="Node" parent="."]
-script = ExtResource("17_wv7rg")
-
-[node name="Checkpoint" parent="CheckpointManager" groups=["Player"] instance=ExtResource("17_h4yah")]
-position = Vector2(193, 533)
-
-[node name="Respawn point" parent="CheckpointManager/Checkpoint" index="1"]
-position = Vector2(36, 73)
-
-[connection signal="body_entered" from="death_zone" to="death_zone" method="_on_body_entered"]
+[node name="CheckpointManager" parent="." instance=ExtResource("17_f6l53")]
 
 [editable path="Clues"]
 [editable path="Clues2"]
@@ -6565,10 +6546,24 @@ position = Vector2(36, 73)
 [editable path="Clues5"]
 [editable path="Portaldoor"]
 [editable path="Player"]
+[editable path="death_zone"]
 [editable path="UI"]
+[editable path="UI/Panel"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/Clue_System"]
 [editable path="UI/Note System"]
 [editable path="UI/DoorCode"]
-[editable path="CheckpointManager/Checkpoint"]
+[editable path="Enemies"]
+[editable path="Enemies/cylcops"]
+[editable path="Enemies/cylcops2"]
+[editable path="Enemies/cylcops3"]
+[editable path="Enemies/cylcops4"]
+[editable path="Enemies/cylcops5"]
+[editable path="Enemies/cylcops6"]
+[editable path="Enemies/cylcops7"]
+[editable path="Enemies/cylcops8"]
+[editable path="Enemies/cylcops9"]
+[editable path="Enemies/cylcops10"]
+[editable path="Enemies/cylcops11"]
+[editable path="Enemies/cylcops12"]

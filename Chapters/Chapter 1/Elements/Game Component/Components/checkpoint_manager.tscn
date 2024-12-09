@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://mameywtekkis"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Scripts/CheckpointManager.gd" id="1_p68xh"]
+[ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="2_h1mmi"]
+
+[node name="CheckpointManager" type="Node"]
+script = ExtResource("1_p68xh")
+
+[node name="Checkpoint" parent="." groups=["Player"] instance=ExtResource("2_h1mmi")]
+position = Vector2(193, 533)
+
+[node name="Respawn point" parent="Checkpoint" index="1"]
+position = Vector2(36, 73)
+
+[editable path="Checkpoint"]
