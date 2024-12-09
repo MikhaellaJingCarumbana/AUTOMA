@@ -125,9 +125,9 @@ json_card_collection_path = "res://Chapters/Chapter 2/test_collection.json"
 extended_card_ui = ExtResource("5_kugne")
 draw_pile_position = Vector2(20, 900)
 hand_pile_position = Vector2(800, 900)
-discard_pile_position = Vector2(1850, 900)
-stack_display_gap = 15
-max_stack_display = 15
+discard_pile_position = Vector2(1870, 900)
+stack_display_gap = 10
+max_stack_display = 10
 card_return_speed = 0.1
 draw_pile_layout = 2
 max_hand_size = 8
@@ -162,10 +162,10 @@ fit_content = true
 [node name="Dropzone_Discard" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1832.0
-offset_top = 872.0
-offset_right = 1985.0
-offset_bottom = 1063.0
+offset_left = 1870.0
+offset_top = 880.0
+offset_right = 2003.0
+offset_bottom = 1070.0
 script = ExtResource("7_rtgtg")
 card_pile_ui = NodePath("../CardPileUI")
 can_drag_top_card = false
@@ -173,13 +173,23 @@ can_drag_top_card = false
 [node name="Label" type="Label" parent="Dropzone_Discard"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.172
-anchor_bottom = 0.172
-offset_left = 11.0
-offset_top = -72.852
-offset_right = 133.0
-offset_bottom = -38.852
+anchor_left = 0.03
+anchor_right = 1.0
+offset_left = 18.05
+offset_top = -43.0
+offset_right = -20.0
+offset_bottom = -9.0
+grow_horizontal = 2
 text = "DISCARD ZONE"
+
+[node name="ColorRect" type="ColorRect" parent="Dropzone_Discard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10302, 0.102273, 1.20327e-08, 0.239216)
 
 [node name="CardDropzone" type="Control" parent="."]
 layout_mode = 3
