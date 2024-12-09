@@ -1,11 +1,11 @@
 extends CharacterBody2D
-class_name skullEnemy
+class_name SkullEnemy
 
 @onready var game_manager: Node = %GameManager
 @export var note_scene: PackedScene
 
 const speed = 30 
-var is_skull_chase: bool = true
+var is_cyclops_chase: bool = true
 
 
 #health
@@ -40,7 +40,7 @@ func _process(delta):
 	move_and_slide()
 	
 func handle_animation():
-	var anim_sprite = $AnimatedSprite2D
+	var anim_sprite = %AnimatedSprite2D
 	if !dead and !taking_damage and !is_dealing_damage:
 		anim_sprite.play("walk")
 		if dir.x == -1:
@@ -72,9 +72,9 @@ func handle_death():
 
 func move(delta):
 	if !dead:
-		if !is_skull_chase:
+		if !is_cyclops_chase:
 			velocity += dir * speed * delta
-		elif is_skull_chase and !taking_damage:
+		elif is_cyclops_chase and !taking_damage:
 			var dir_to_player = position.direction_to(player.position) * speed
 			velocity.x = dir_to_player.x
 			dir.x = abs(velocity.x)/velocity.x
@@ -86,7 +86,7 @@ func move(delta):
 			
 func _on_direction_timer_timeout() -> void:
 	$DirectionTimer.wait_time = choose([1.5,2.0, 2.5])
-	if !is_skull_chase:
+	if !is_cyclops_chase:
 		dir = choose([Vector2.RIGHT, Vector2.LEFT])
 		velocity.x = 0
 	
