@@ -6691,7 +6691,7 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_4ahud")]
-position = Vector2(292, 244)
+position = Vector2(507, 152)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("9_pvdh5")]
 unique_name_in_owner = true
