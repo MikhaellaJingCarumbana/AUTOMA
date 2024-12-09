@@ -24,15 +24,22 @@ var dir: Vector2
 const gravity = 900
 var knocback_force = 200
 var is_roaming: bool = true
+const float_speed = 2.0
+const float_amplitude = 10.0
+var float_time: float = 0.0
 
 var player: CharacterBody2D
 var player_in_area = false
 
+@export var hover_height: float = 10.0
 
+
+func _ready():
+	position.y -= hover_height
+	
 func _process(delta):
-	if !is_on_floor():
-		velocity.y += gravity * delta
-		velocity.x = 0
+	float_time += delta
+	position.y += sin(float_time * float_speed) * float_amplitude * delta
 		
 	player = Global.playerBody
 	move(delta)

@@ -6688,7 +6688,7 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Cyclops" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(298, 249)
+position = Vector2(300, 247)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("9_pvdh5")]
 unique_name_in_owner = true

@@ -242,7 +242,7 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rrr10"]
 radius = 9.0
 
-[node name="Cyclops" type="CharacterBody2D"]
+[node name="Skull" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_u6ei2")
 
@@ -251,7 +251,7 @@ unique_name_in_owner = true
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_hx42s")
 animation = &"deal_damage"
-frame_progress = 0.206419
+frame_progress = 0.525625
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
