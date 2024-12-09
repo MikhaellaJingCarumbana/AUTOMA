@@ -11,7 +11,7 @@ var health_decrease_timer: Timer
 func _ready():
 	checkpoint_manager = get_parent().get_node("CheckpointManager")
 	player = get_parent().get_node("Player")
-	game_manager = get_parent().get_node("GameManager")
+	game_manager = get_parent().get_node("%GameManager")
 	
 	health_decrease_timer = Timer.new()
 	health_decrease_timer.wait_time = 0.5

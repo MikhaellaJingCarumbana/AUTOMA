@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=32 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -6524,8 +6524,32 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rut0x"]
 size = Vector2(1024, 1081)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aexk4"]
-size = Vector2(68, 31.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iro4"]
+size = Vector2(65, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm5x4"]
+size = Vector2(33.5, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tb4d"]
+size = Vector2(33.5, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hiys"]
+size = Vector2(32, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vngt"]
+size = Vector2(10.75, 64.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iq60"]
+size = Vector2(269.114, 7.79523)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lqc0"]
+size = Vector2(18.259, 66.0314)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wirrw"]
+size = Vector2(254.321, 28.8894)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhqhu"]
+size = Vector2(211.282, 9.28545)
 
 [node name="Intermediate-f" type="Node2D"]
 
@@ -6573,12 +6597,92 @@ position = Vector2(511, 546.5)
 shape = SubResource("RectangleShape2D_rut0x")
 debug_color = Color(0.74902, 0.94902, 1, 0.196078)
 
-[node name="death_zone" type="Area2D" parent="."]
+[node name="Death Zones" type="Node" parent="."]
+
+[node name="spike" type="Area2D" parent="Death Zones"]
 script = ExtResource("10_nls0b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
-position = Vector2(463, 517.875)
-shape = SubResource("RectangleShape2D_aexk4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike"]
+position = Vector2(463.5, 508.5)
+shape = SubResource("RectangleShape2D_2iro4")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[node name="spike2" type="Area2D" parent="Death Zones"]
+script = ExtResource("10_nls0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike2"]
+position = Vector2(608.25, 685)
+shape = SubResource("RectangleShape2D_gm5x4")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[node name="spike3" type="Area2D" parent="Death Zones"]
+script = ExtResource("10_nls0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike3"]
+position = Vector2(719, 685)
+shape = SubResource("RectangleShape2D_0tb4d")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[node name="spike4" type="Area2D" parent="Death Zones"]
+position = Vector2(81, 0)
+script = ExtResource("10_nls0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike4"]
+position = Vector2(719, 684.5)
+scale = Vector2(1, 1.01235)
+shape = SubResource("RectangleShape2D_7hiys")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[node name="spike5" type="Area2D" parent="Death Zones"]
+position = Vector2(81, 0)
+script = ExtResource("10_nls0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike5"]
+position = Vector2(266.625, 832.75)
+shape = SubResource("RectangleShape2D_2vngt")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[node name="spike6" type="Area2D" parent="Death Zones"]
+position = Vector2(81, 0)
+scale = Vector2(0.479351, 1.0263)
+script = ExtResource("10_nls0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike6"]
+position = Vector2(399.498, 854.525)
+shape = SubResource("RectangleShape2D_7iq60")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[node name="spike7" type="Area2D" parent="Death Zones"]
+position = Vector2(81, 0)
+scale = Vector2(0.383373, 0.969233)
+script = ExtResource("10_nls0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike7"]
+position = Vector2(298.665, 859.442)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_4lqc0")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[node name="spike8" type="Area2D" parent="Death Zones"]
+position = Vector2(81, 0)
+scale = Vector2(0.383373, 0.969233)
+script = ExtResource("10_nls0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike8"]
+position = Vector2(1166.62, 1129.76)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wirrw")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[node name="spike9" type="Area2D" parent="Death Zones"]
+position = Vector2(81, 0)
+scale = Vector2(0.383373, 0.969233)
+script = ExtResource("10_nls0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike9"]
+position = Vector2(1519.41, 1085.91)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jhqhu")
 debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
 [node name="UI" parent="." instance=ExtResource("8_0y7ae")]
@@ -6589,8 +6693,24 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 
 [node name="CheckpointManager" parent="." instance=ExtResource("13_iqdbx")]
 
-[connection signal="body_entered" from="death_zone" to="death_zone" method="_on_body_entered"]
-[connection signal="body_exited" from="death_zone" to="death_zone" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike3" to="Death Zones/spike3" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike3" to="Death Zones/spike3" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike4" to="Death Zones/spike4" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike4" to="Death Zones/spike4" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike5" to="Death Zones/spike5" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike5" to="Death Zones/spike5" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike6" to="Death Zones/spike6" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike6" to="Death Zones/spike6" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike7" to="Death Zones/spike7" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike7" to="Death Zones/spike7" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike8" to="Death Zones/spike8" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike8" to="Death Zones/spike8" method="_on_body_exited"]
+[connection signal="body_entered" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_entered"]
+[connection signal="body_exited" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_exited"]
 
 [editable path="Player"]
 [editable path="UI"]
