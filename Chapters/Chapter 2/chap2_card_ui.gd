@@ -8,12 +8,12 @@ class_name Chap2CardUI extends CardUI
 @onready var type_label = $Frontface/TypeLabel
 
 func _ready():
-	super()
-	card_data.connect("card_data_updated", _update_display)
-	_update_display()
+    super()
+    card_data.connect("card_data_updated", _update_display)
+    _update_display()
 
-	
+    
 func _update_display():
-	type_label.text = "%s" % card_data.type
+    type_label.text = "%s" % card_data.type
 
  
