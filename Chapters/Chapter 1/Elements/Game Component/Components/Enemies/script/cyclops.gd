@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name CyclopsEnemy
 
-@onready var game_manager: Node = $"../../GameManager"
+@onready var game_manager: Node = %GameManager
 @export var note_scene: PackedScene
 
 const speed = 30 
@@ -40,7 +40,7 @@ func _process(delta):
 	move_and_slide()
 	
 func handle_animation():
-	var anim_sprite = $AnimatedSprite2D
+	var anim_sprite = %AnimatedSprite2D
 	if !dead and !taking_damage and !is_dealing_damage:
 		anim_sprite.play("walk")
 		if dir.x == -1:

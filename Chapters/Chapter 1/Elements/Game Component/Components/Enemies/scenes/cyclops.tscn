@@ -242,14 +242,15 @@ size = Vector2(22, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlg1d"]
 size = Vector2(24, 17)
 
-[node name="Cyclops" type="CharacterBody2D"]
+[node name="Skull" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_4jjch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(0.9, 0.5)
 sprite_frames = SubResource("SpriteFrames_hx42s")
-animation = &"death"
+animation = &"walk"
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
