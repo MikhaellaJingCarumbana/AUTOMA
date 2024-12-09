@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=34 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_t2u1d"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/spikes.gd" id="10_nls0b"]
 [ext_resource type="PackedScene" uid="uid://d2uf5d7bgtkgk" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/skull1.tscn" id="12_4ahud"]
+[ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="13_1liq6"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_iqdbx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
@@ -6692,6 +6693,9 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_4ahud")]
 position = Vector2(292, 244)
+
+[node name="Cyclops" parent="Enemies" instance=ExtResource("13_1liq6")]
+position = Vector2(356, 239)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("9_pvdh5")]
 unique_name_in_owner = true
