@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=34 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/spikes.gd" id="10_nls0b"]
 [ext_resource type="PackedScene" uid="uid://1qohgqlv5m1j" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/skull.tscn" id="12_k2flh"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_iqdbx"]
+[ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="13_recdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6725,6 +6726,9 @@ position = Vector2(312, 1046)
 
 [node name="Skull13" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(538, 663)
+
+[node name="Skull14" parent="Enemies" instance=ExtResource("13_recdu")]
+position = Vector2(302, 240)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("9_pvdh5")]
 unique_name_in_owner = true

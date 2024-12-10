@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=26 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -14,8 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
 [ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="13_yy40w"]
 [ext_resource type="PackedScene" uid="uid://cgx5rm0prmpo1" path="res://Chapters/Chapter 1/UI Components/DoorCode.tscn" id="14_voc4h"]
-[ext_resource type="PackedScene" uid="uid://ducr0oiagx5wp" path="res://Chapters/Chapter 1/UI Components/enemies.tscn" id="15_jxqpq"]
+[ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="16_lwju0"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="17_f6l53"]
+[ext_resource type="PackedScene" uid="uid://duu4qwnplk6q4" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note.tscn" id="18_yd2h7"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
@@ -6531,13 +6532,58 @@ disabled = true
 [node name="PauseMenu" parent="UI/DoorCode" index="0"]
 visible = false
 
-[node name="Enemies" parent="." instance=ExtResource("15_jxqpq")]
-
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [node name="CheckpointManager" parent="." instance=ExtResource("17_f6l53")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Skull" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(740, 111)
+
+[node name="Skull2" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(585, 255)
+
+[node name="Skull3" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(253, 336)
+
+[node name="Skull4" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(520, 559)
+
+[node name="Skull5" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(763, 512)
+
+[node name="Skull6" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(677, 720)
+
+[node name="Skull7" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(766, 719)
+
+[node name="Skull8" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(258, 606)
+
+[node name="Skull9" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(517, 864)
+
+[node name="Skull10" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(102, 928)
+
+[node name="Skull11" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(287, 912)
+
+[node name="Skull12" parent="Enemies" instance=ExtResource("16_lwju0")]
+position = Vector2(925, 957)
+
+[node name="Note" parent="Enemies" instance=ExtResource("18_yd2h7")]
+parent_enemy = NodePath("../Skull4")
+
+[node name="Note2" parent="Enemies" instance=ExtResource("18_yd2h7")]
+parent_enemy = NodePath("../Skull7")
+
+[node name="Note3" parent="Enemies" instance=ExtResource("18_yd2h7")]
+parent_enemy = NodePath("../Skull10")
 
 [editable path="Clues"]
 [editable path="Clues2"]
@@ -6554,16 +6600,3 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="UI/Clue_System"]
 [editable path="UI/Note System"]
 [editable path="UI/DoorCode"]
-[editable path="Enemies"]
-[editable path="Enemies/cylcops"]
-[editable path="Enemies/cylcops2"]
-[editable path="Enemies/cylcops3"]
-[editable path="Enemies/cylcops4"]
-[editable path="Enemies/cylcops5"]
-[editable path="Enemies/cylcops6"]
-[editable path="Enemies/cylcops7"]
-[editable path="Enemies/cylcops8"]
-[editable path="Enemies/cylcops9"]
-[editable path="Enemies/cylcops10"]
-[editable path="Enemies/cylcops11"]
-[editable path="Enemies/cylcops12"]

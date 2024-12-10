@@ -29,6 +29,9 @@ var player: CharacterBody2D
 var player_in_area = false
 
 
+func _ready():
+	print("DEBUG: game_manager assigned? ", game_manager != null)
+
 func _process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
