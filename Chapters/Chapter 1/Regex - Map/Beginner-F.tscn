@@ -6517,6 +6517,7 @@ tween_on_load = false
 limit_target = NodePath("../camera_bounds/CollisionShape2D")
 
 [node name="camera_bounds" type="Area2D" parent="."]
+position = Vector2(-20, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
 position = Vector2(535, 547)
