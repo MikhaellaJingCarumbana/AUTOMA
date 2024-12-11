@@ -118,3 +118,6 @@ func _on_area_2d_body_entered(body):
 				body.jump_slide(500)
 			else:
 				body.jump_slide(-500)
+				
+				
+	#github streak saver hahaha
