@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=37 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_8op8n"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="9_pvdh5"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_t2u1d"]
+[ext_resource type="PackedScene" uid="uid://xci00g1uphd1" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note(level2).tscn" id="10_kl4pt"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/spikes.gd" id="10_nls0b"]
 [ext_resource type="PackedScene" uid="uid://1qohgqlv5m1j" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/skull.tscn" id="12_k2flh"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_iqdbx"]
@@ -6793,6 +6794,9 @@ position = Vector2(312, 1046)
 
 [node name="Skull13" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(538, 663)
+
+[node name="Note" parent="Enemies" instance=ExtResource("10_kl4pt")]
+parent_enemy = NodePath("../Skull")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("9_pvdh5")]
 unique_name_in_owner = true
