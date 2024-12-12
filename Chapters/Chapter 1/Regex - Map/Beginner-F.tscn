@@ -6497,16 +6497,16 @@ position = Vector2(187, 111)
 
 [node name="Camera2D" parent="Player" index="2"]
 physics_interpolation_mode = 1
-position = Vector2(27, 0)
+position = Vector2(7, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = 22
-limit_top = 10
-limit_right = 1048
-limit_bottom = 1084
+limit_left = 2
+limit_top = -6
+limit_right = 1028
+limit_bottom = 1068
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(214, 111)
+position = Vector2(194, 111)
 script = ExtResource("6_hkbon")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -6591,6 +6591,7 @@ parent_enemy = NodePath("../Skull10")
 [editable path="Clues3"]
 [editable path="Clues4"]
 [editable path="Clues5"]
+[editable path="Brownchest"]
 [editable path="Portaldoor"]
 [editable path="Player"]
 [editable path="death_zone"]
