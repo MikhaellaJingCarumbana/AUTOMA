@@ -6796,6 +6796,7 @@ position = Vector2(312, 1046)
 position = Vector2(538, 663)
 
 [node name="Note" parent="Enemies" instance=ExtResource("10_kl4pt")]
+position = Vector2(-17, 256)
 parent_enemy = NodePath("../Skull")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("9_pvdh5")]
