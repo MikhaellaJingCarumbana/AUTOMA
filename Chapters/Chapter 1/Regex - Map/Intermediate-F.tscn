@@ -6574,18 +6574,65 @@ layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 196
 
 [node name="Clues" parent="." instance=ExtResource("15_02jqw")]
 unique_name_in_owner = true
-position = Vector2(334, 241)
+position = Vector2(512, 146)
+parent_chest = NodePath("../BlueChest")
+
+[node name="Clues2" parent="." instance=ExtResource("15_02jqw")]
+unique_name_in_owner = true
+position = Vector2(532, 497)
+parent_chest = NodePath("../BlueChest")
+
+[node name="Clues3" parent="." instance=ExtResource("15_02jqw")]
+unique_name_in_owner = true
+position = Vector2(811, 529)
+parent_chest = NodePath("../BlueChest")
+
+[node name="Clues4" parent="." instance=ExtResource("15_02jqw")]
+unique_name_in_owner = true
+position = Vector2(158, 561)
+parent_chest = NodePath("../BlueChest")
+
+[node name="Clues5" parent="." instance=ExtResource("15_02jqw")]
+unique_name_in_owner = true
+position = Vector2(256, 800)
 parent_chest = NodePath("../BlueChest")
 
 [node name="BlueChest" parent="." instance=ExtResource("16_xt7s8")]
-position = Vector2(340, 241)
-
-[node name="InteractArea" parent="BlueChest" index="1"]
-interact_label = "Open chest"
-interact_type = "open_chest"
-interact_value = "working????"
+position = Vector2(518, 145)
 
 [node name="InteractArea2" parent="BlueChest" instance=ExtResource("9_8op8n")]
+interact_label = "open chest"
+interact_type = "open_chest"
+interact_value = "working???"
+
+[node name="BlueChest2" parent="." instance=ExtResource("16_xt7s8")]
+position = Vector2(537, 497)
+
+[node name="InteractArea2" parent="BlueChest2" instance=ExtResource("9_8op8n")]
+interact_label = "open chest"
+interact_type = "open_chest"
+interact_value = "working???"
+
+[node name="BlueChest3" parent="." instance=ExtResource("16_xt7s8")]
+position = Vector2(818, 529)
+
+[node name="InteractArea2" parent="BlueChest3" instance=ExtResource("9_8op8n")]
+interact_label = "open chest"
+interact_type = "open_chest"
+interact_value = "working???"
+
+[node name="BlueChest4" parent="." instance=ExtResource("16_xt7s8")]
+position = Vector2(163, 561)
+
+[node name="InteractArea2" parent="BlueChest4" instance=ExtResource("9_8op8n")]
+interact_label = "open chest"
+interact_type = "open_chest"
+interact_value = "working???"
+
+[node name="BlueChest5" parent="." instance=ExtResource("16_xt7s8")]
+position = Vector2(263, 800)
+
+[node name="InteractArea2" parent="BlueChest5" instance=ExtResource("9_8op8n")]
 interact_label = "open chest"
 interact_type = "open_chest"
 interact_value = "working???"
@@ -6773,8 +6820,10 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [connection signal="body_exited" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_exited"]
 
 [editable path="Clues"]
-[editable path="BlueChest"]
-[editable path="BlueChest/InteractArea"]
+[editable path="Clues2"]
+[editable path="Clues3"]
+[editable path="Clues4"]
+[editable path="Clues5"]
 [editable path="Player"]
 [editable path="UI"]
 [editable path="UI/Panel"]
