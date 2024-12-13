@@ -1,7 +1,7 @@
 extends Node
 
-@onready var pause_menu: ColorRect = $CarouselSelection/PauseMenu
-@onready var carousel_selection: Control = $CarouselSelection
+@onready var pause_menu: ColorRect = %PauseMenu
+@onready var carousel_selection: Control = %CarouselSelection
 @onready var clue_system: Node = $"."
 
 # Called when the node enters the scene tree for the first time.

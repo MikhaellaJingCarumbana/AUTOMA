@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bhd3d0sbsd3te"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system.gd" id="1_480ix"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system2.gd" id="1_67f4r"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/carousel_selection (level2).gd" id="2_iolt0"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="3_klh1p"]
 [ext_resource type="Texture2D" uid="uid://b5m8g5evc2yfe" path="res://Art/Lucid V1.2/PNG/Shadow/16/Chevron-Arrow-Left.png" id="4_6wcd3"]
@@ -29,7 +29,7 @@ shader_parameter/pixel_filter = 700.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ph7g"]
 
 [node name="Clue_System2" type="Node"]
-script = ExtResource("1_480ix")
+script = ExtResource("1_67f4r")
 
 [node name="CarouselSelection" type="Control" parent="."]
 layout_mode = 3

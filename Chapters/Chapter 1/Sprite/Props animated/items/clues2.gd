@@ -15,8 +15,6 @@ var time_elapsed: float = 0.0
 func _ready() -> void:
 	base_y_position = global_position.y
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_elapsed += delta
