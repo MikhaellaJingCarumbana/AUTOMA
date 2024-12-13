@@ -3,7 +3,7 @@ extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var parent_chest: NodePath
 @onready var chest: Node = get_node(parent_chest)
-@onready var game_manager: Node = $"../GameManager"
+@onready var game_manager: Node = %GameManager
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

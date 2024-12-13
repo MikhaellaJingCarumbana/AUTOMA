@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbcdqgmo2ujv3" path="res://Art/Dungeon Vibes Tilesets/RoguelikeDungeonTileset.png" id="4_7ynm4"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="5_cnw82"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="6_857ww"]
+[ext_resource type="PackedScene" uid="uid://vhshve7ggaee" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues2.tscn" id="7_8b7mw"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="7_q1itm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_d8o1v"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_8op8n"]
@@ -16,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://1qohgqlv5m1j" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/skull.tscn" id="12_k2flh"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_iqdbx"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="14_su5ms"]
-[ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="15_02jqw"]
 [ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="15_epllm"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="16_7kixp"]
 [ext_resource type="PackedScene" uid="uid://6oq7q4arwyqu" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Blue Chest.tscn" id="16_xt7s8"]
@@ -6577,30 +6577,13 @@ layer_4/tile_data = PackedInt32Array(327686, 6291457, 12, 393222, 6291457, 13, 4
 layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
-[node name="Clues" parent="." instance=ExtResource("15_02jqw")]
-unique_name_in_owner = true
-position = Vector2(512, 146)
+[node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
+position = Vector2(506, 146)
 parent_chest = NodePath("../BlueChest")
 
-[node name="Clues2" parent="." instance=ExtResource("15_02jqw")]
-unique_name_in_owner = true
-position = Vector2(532, 497)
-parent_chest = NodePath("../BlueChest")
-
-[node name="Clues3" parent="." instance=ExtResource("15_02jqw")]
-unique_name_in_owner = true
-position = Vector2(811, 529)
-parent_chest = NodePath("../BlueChest")
-
-[node name="Clues4" parent="." instance=ExtResource("15_02jqw")]
-unique_name_in_owner = true
-position = Vector2(158, 561)
-parent_chest = NodePath("../BlueChest")
-
-[node name="Clues5" parent="." instance=ExtResource("15_02jqw")]
-unique_name_in_owner = true
-position = Vector2(256, 800)
-parent_chest = NodePath("../BlueChest")
+[node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
+position = Vector2(526, 498)
+parent_chest = NodePath("../BlueChest2")
 
 [node name="BlueChest" parent="." instance=ExtResource("16_xt7s8")]
 position = Vector2(518, 145)
@@ -6650,6 +6633,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
+limit_left = -1
+limit_top = 6
+limit_right = 1023
+limit_bottom = 1087
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(213, 241)
@@ -6845,9 +6832,6 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 
 [editable path="Clues"]
 [editable path="Clues2"]
-[editable path="Clues3"]
-[editable path="Clues4"]
-[editable path="Clues5"]
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/PauseGame"]

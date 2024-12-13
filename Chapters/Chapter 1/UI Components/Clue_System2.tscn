@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bhd3d0sbsd3te"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system.gd" id="1_480ix"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/carousel_selection-f.gd" id="2_v5hux"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/carousel_selection (level2).gd" id="2_iolt0"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="3_klh1p"]
 [ext_resource type="Texture2D" uid="uid://b5m8g5evc2yfe" path="res://Art/Lucid V1.2/PNG/Shadow/16/Chevron-Arrow-Left.png" id="4_6wcd3"]
 [ext_resource type="Texture2D" uid="uid://c8d3knqj8qlif" path="res://Art/Regular Expression Clues No.2/edited/9.png" id="5_2j2ne"]
@@ -32,17 +32,15 @@ shader_parameter/pixel_filter = 700.0
 script = ExtResource("1_480ix")
 
 [node name="CarouselSelection" type="Control" parent="."]
-unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_v5hux")
+script = ExtResource("2_iolt0")
 
 [node name="PauseMenu" type="ColorRect" parent="CarouselSelection"]
-unique_name_in_owner = true
 material = SubResource("ShaderMaterial_aq6tb")
 layout_mode = 1
 anchors_preset = 15
