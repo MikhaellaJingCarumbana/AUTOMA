@@ -1,20 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyytr848w430b"]
+[gd_scene load_steps=12 format=3 uid="uid://bhd3d0sbsd3te"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/carousel_selection-f.gd" id="1_i1mta"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system.gd" id="1_nhicg"]
-[ext_resource type="Texture2D" uid="uid://b5m8g5evc2yfe" path="res://Art/Lucid V1.2/PNG/Shadow/16/Chevron-Arrow-Left.png" id="2_7gigg"]
-[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_mfc2p"]
-[ext_resource type="Texture2D" uid="uid://cjr46fmmjq3iy" path="res://Art/Regular Expression Clues/regular expression edited/1.png" id="5_mu3pv"]
-[ext_resource type="Texture2D" uid="uid://bbjpwsyowknju" path="res://Art/Regular Expression Clues/regular expression edited/2.png" id="6_7gsd4"]
-[ext_resource type="Texture2D" uid="uid://c55x116lwo2j7" path="res://Art/Lucid V1.2/PNG/Flat/16/Left-Arrow.png" id="6_ixr57"]
-[ext_resource type="Texture2D" uid="uid://j2jpofsjg2w4" path="res://Art/Regular Expression Clues/regular expression edited/3.png" id="7_icf3s"]
-[ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="7_ii8fw"]
-[ext_resource type="Texture2D" uid="uid://u0gfn1tso3wn" path="res://Art/Regular Expression Clues/regular expression edited/4.png" id="8_hl7tr"]
-[ext_resource type="Texture2D" uid="uid://dkaln4f5y2ihs" path="res://Art/Regular Expression Clues/regular expression edited/5.png" id="9_q16nr"]
-[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="10_tutu4"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system.gd" id="1_480ix"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/carousel_selection-f.gd" id="2_v5hux"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="3_klh1p"]
+[ext_resource type="Texture2D" uid="uid://b5m8g5evc2yfe" path="res://Art/Lucid V1.2/PNG/Shadow/16/Chevron-Arrow-Left.png" id="4_6wcd3"]
+[ext_resource type="Texture2D" uid="uid://c8d3knqj8qlif" path="res://Art/Regular Expression Clues No.2/edited/9.png" id="5_2j2ne"]
+[ext_resource type="Texture2D" uid="uid://jy7b6wkffwcm" path="res://Art/Regular Expression Clues No.2/edited/10.png" id="6_e3458"]
+[ext_resource type="Texture2D" uid="uid://c55x116lwo2j7" path="res://Art/Lucid V1.2/PNG/Flat/16/Left-Arrow.png" id="10_4ki34"]
+[ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="11_5olcj"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="12_u17ri"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
-shader = ExtResource("2_mfc2p")
+shader = ExtResource("3_klh1p")
 shader_parameter/polar_coordinates = false
 shader_parameter/polar_center = Vector2(0.5, 0.5)
 shader_parameter/polar_zoom = 1.0
@@ -31,8 +28,8 @@ shader_parameter/pixel_filter = 700.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ph7g"]
 
-[node name="Clue_System" type="Node"]
-script = ExtResource("1_nhicg")
+[node name="Clue_System2" type="Node"]
+script = ExtResource("1_480ix")
 
 [node name="CarouselSelection" type="Control" parent="."]
 unique_name_in_owner = true
@@ -42,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_i1mta")
+script = ExtResource("2_v5hux")
 
 [node name="PauseMenu" type="ColorRect" parent="CarouselSelection"]
 unique_name_in_owner = true
@@ -83,7 +80,7 @@ custom_minimum_size = Vector2(70, 90)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = ExtResource("2_7gigg")
+texture = ExtResource("4_6wcd3")
 
 [node name="Previous" type="Button" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
 layout_mode = 1
@@ -127,23 +124,11 @@ theme_override_constants/margin_bottom = 0
 
 [node name="TextureRect" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
 layout_mode = 2
-texture = ExtResource("5_mu3pv")
+texture = ExtResource("5_2j2ne")
 
 [node name="TextureRect2" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
 layout_mode = 2
-texture = ExtResource("6_7gsd4")
-
-[node name="TextureRect3" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
-layout_mode = 2
-texture = ExtResource("7_icf3s")
-
-[node name="TextureRect4" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
-layout_mode = 2
-texture = ExtResource("8_hl7tr")
-
-[node name="TextureRect5" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
-layout_mode = 2
-texture = ExtResource("9_q16nr")
+texture = ExtResource("6_e3458")
 
 [node name="MarginContainer" type="MarginContainer" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
 layout_mode = 2
@@ -157,7 +142,7 @@ custom_minimum_size = Vector2(70, 90)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = ExtResource("2_7gigg")
+texture = ExtResource("4_6wcd3")
 flip_h = true
 
 [node name="Next" type="Button" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2"]
@@ -201,8 +186,8 @@ offset_left = 39.0
 offset_top = 42.0
 offset_right = 103.0
 offset_bottom = 106.0
-theme_override_icons/icon = ExtResource("6_ixr57")
-icon = ExtResource("7_ii8fw")
+theme_override_icons/icon = ExtResource("10_4ki34")
+icon = ExtResource("11_5olcj")
 
 [node name="Label" type="Label" parent="CarouselSelection"]
 layout_mode = 1
@@ -214,7 +199,7 @@ offset_top = 38.0
 offset_right = 208.0
 offset_bottom = 133.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("10_tutu4")
+theme_override_fonts/font = ExtResource("12_u17ri")
 theme_override_font_sizes/font_size = 90
 text = "Clues System"
 
@@ -231,7 +216,7 @@ offset_right = 442.5
 offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("10_tutu4")
+theme_override_fonts/font = ExtResource("12_u17ri")
 theme_override_font_sizes/font_size = 40
 text = "The Clue System holds cards with hints to unlock the next level. 
 Decipher each clue's description to progress!"

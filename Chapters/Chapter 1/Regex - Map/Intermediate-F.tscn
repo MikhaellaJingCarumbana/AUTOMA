@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=41 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="5_cnw82"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="6_857ww"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="7_q1itm"]
-[ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="8_0y7ae"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_d8o1v"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_8op8n"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="9_pvdh5"]
@@ -16,8 +15,13 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/spikes.gd" id="10_nls0b"]
 [ext_resource type="PackedScene" uid="uid://1qohgqlv5m1j" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/skull.tscn" id="12_k2flh"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_iqdbx"]
+[ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="14_su5ms"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="15_02jqw"]
+[ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="15_epllm"]
+[ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="16_7kixp"]
 [ext_resource type="PackedScene" uid="uid://6oq7q4arwyqu" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Blue Chest.tscn" id="16_xt7s8"]
+[ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="17_v4ecl"]
+[ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="18_ca3xp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6646,10 +6650,6 @@ physics_interpolation_mode = 1
 position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = -1
-limit_top = 6
-limit_right = 1023
-limit_bottom = 1087
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(213, 241)
@@ -6752,7 +6752,26 @@ position = Vector2(1519.41, 1085.91)
 shape = SubResource("RectangleShape2D_jhqhu")
 debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
-[node name="UI" parent="." instance=ExtResource("8_0y7ae")]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" parent="UI" instance=ExtResource("14_su5ms")]
+
+[node name="Notes" parent="UI" instance=ExtResource("15_epllm")]
+
+[node name="PauseGame" parent="UI" instance=ExtResource("16_7kixp")]
+
+[node name="PauseMenu" parent="UI/PauseGame" index="0"]
+visible = false
+
+[node name="DeathScreen" parent="UI" instance=ExtResource("17_v4ecl")]
+
+[node name="PauseMenu" parent="UI/DeathScreen" index="0"]
+visible = false
+
+[node name="Clue_System2" parent="UI" instance=ExtResource("18_ca3xp")]
+
+[node name="CarouselSelection" parent="UI/Clue_System2" index="0"]
+visible = false
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -6830,11 +6849,9 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="Clues4"]
 [editable path="Clues5"]
 [editable path="Player"]
-[editable path="UI"]
 [editable path="UI/Panel"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]
-[editable path="UI/Clue_System"]
-[editable path="UI/Note System"]
+[editable path="UI/Clue_System2"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfvu57xiwe423"]
+
+[ext_resource type="Texture2D" uid="uid://ckhval463k7ni" path="res://Art/48x48/book_05g.png" id="1_l6boh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t2oi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6r66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1nst"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_td2uy"]
+
+[node name="Notes" type="Panel"]
+offset_top = 57.0
+offset_right = 374.0
+offset_bottom = 135.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3t2oi")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+offset_left = 37.0
+offset_top = -26.0
+offset_right = 93.0
+offset_bottom = 30.0
+scale = Vector2(2, 2)
+theme_override_icons/icon = ExtResource("1_l6boh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6r66")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_s1nst")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_td2uy")
+icon = ExtResource("1_l6boh")
