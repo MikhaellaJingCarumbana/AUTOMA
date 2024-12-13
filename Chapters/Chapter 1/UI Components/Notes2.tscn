@@ -1,0 +1,230 @@
+[gd_scene load_steps=13 format=3 uid="uid://cofswi7j1xxfg"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/note_system2.gd" id="1_vmk37"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/note_carusel.gd" id="2_kjw6v"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="3_6vljt"]
+[ext_resource type="Texture2D" uid="uid://b5m8g5evc2yfe" path="res://Art/Lucid V1.2/PNG/Shadow/16/Chevron-Arrow-Left.png" id="4_wtny2"]
+[ext_resource type="Texture2D" uid="uid://cjm56eops8hka" path="res://Art/Regular Expression Notes No.2/edited/11.png" id="5_ly1mp"]
+[ext_resource type="Texture2D" uid="uid://dsqotpn6v3elf" path="res://Art/Regular Expression Notes No.2/edited/12.png" id="6_w1dp0"]
+[ext_resource type="Texture2D" uid="uid://b6g3r8quv1vf6" path="res://Art/Regular Expression Notes No.2/edited/13.png" id="7_yy4a5"]
+[ext_resource type="Texture2D" uid="uid://c55x116lwo2j7" path="res://Art/Lucid V1.2/PNG/Flat/16/Left-Arrow.png" id="8_3cmbg"]
+[ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="9_4d7ke"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="10_2aol0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
+shader = ExtResource("3_6vljt")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 3.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.498039, 0.792157, 0.945098, 0.807843)
+shader_parameter/colour_2 = Color(0.145098, 0.368627, 0.466667, 0.807843)
+shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 0.807843)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.2
+shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ph7g"]
+
+[node name="Note System" type="Node"]
+script = ExtResource("1_vmk37")
+
+[node name="CarouselSelection" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kjw6v")
+
+[node name="PauseMenu" type="ColorRect" parent="CarouselSelection"]
+material = SubResource("ShaderMaterial_aq6tb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.164706, 0.207843, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="CarouselSelection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CarouselSelection/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CarouselSelection/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="TextureRect" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 90)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_wtny2")
+
+[node name="Previous" type="Button" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ph7g")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="ObjectContainer" type="HBoxContainer" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 50
+
+[node name="MarginContainer2" type="MarginContainer" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 440
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="TextureRect" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
+layout_mode = 2
+texture = ExtResource("5_ly1mp")
+
+[node name="TextureRect2" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
+layout_mode = 2
+texture = ExtResource("6_w1dp0")
+
+[node name="TextureRect3" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
+layout_mode = 2
+texture = ExtResource("7_yy4a5")
+
+[node name="MarginContainer" type="MarginContainer" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/ObjectContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 440
+theme_override_constants/margin_bottom = 0
+
+[node name="TextureRect2" type="TextureRect" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 90)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_wtny2")
+flip_h = true
+
+[node name="Next" type="Button" parent="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6ph7g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ph7g")
+
+[node name="SelectionMarker" type="Control" parent="CarouselSelection"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="CarouselSelection"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+offset_left = 39.0
+offset_top = 42.0
+offset_right = 103.0
+offset_bottom = 106.0
+theme_override_icons/icon = ExtResource("8_3cmbg")
+icon = ExtResource("9_4d7ke")
+
+[node name="Label" type="Label" parent="CarouselSelection"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.0
+offset_top = 38.0
+offset_right = 208.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_2aol0")
+theme_override_font_sizes/font_size = 90
+text = "Lost Journals"
+
+[node name="Description" type="Label" parent="CarouselSelection"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -436.5
+offset_top = -162.0
+offset_right = 436.5
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_2aol0")
+theme_override_font_sizes/font_size = 40
+text = "The Lost Journals reveal diary entries from past adventurers, 
+offering lessons and insights to guide you through the dungeon."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/Previous" to="CarouselSelection" method="_on_previous_pressed"]
+[connection signal="pressed" from="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2/Next" to="CarouselSelection" method="_on_next_pressed"]
+[connection signal="pressed" from="CarouselSelection/Back" to="." method="_on_back_pressed"]
