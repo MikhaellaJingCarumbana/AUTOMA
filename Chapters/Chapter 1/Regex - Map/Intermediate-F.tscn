@@ -6811,9 +6811,8 @@ position = Vector2(538, 663)
 position = Vector2(2, 6)
 parent_enemy = NodePath("../Skull")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
+[node name="GameManager" parent="." instance=ExtResource("22_lwn0i")]
 unique_name_in_owner = true
-hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [node name="CheckpointManager" parent="." instance=ExtResource("13_iqdbx")]
 

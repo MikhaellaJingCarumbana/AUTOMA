@@ -2,7 +2,8 @@ extends Node
 
 @export var hearts: Array[Node]
 @onready var note_system: Control = $"../UI/Note System/CarouselSelection"
-@onready var clue_system: Control = %CarouselSelection
+@onready var clue_system: Control = $"../UI/Clue_System/CarouselSelection"
+
 
 
 
