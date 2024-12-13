@@ -15,8 +15,6 @@ signal clue_collected(index: int)
 signal note_collected(index: int)
 
 
-
-
 func decrease_health():
 	lives -= 1
 	print(lives)

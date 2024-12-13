@@ -6578,13 +6578,15 @@ position = Vector2(287, 912)
 position = Vector2(925, 957)
 
 [node name="Note" parent="Enemies" instance=ExtResource("18_yd2h7")]
-parent_enemy = NodePath("../Skull4")
+parent_enemy = NodePath("../Skull")
 
 [node name="Note2" parent="Enemies" instance=ExtResource("18_yd2h7")]
 parent_enemy = NodePath("../Skull7")
 
 [node name="Note3" parent="Enemies" instance=ExtResource("18_yd2h7")]
 parent_enemy = NodePath("../Skull10")
+
+[connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 
 [editable path="Clues"]
 [editable path="Clues2"]
@@ -6597,6 +6599,7 @@ parent_enemy = NodePath("../Skull10")
 [editable path="death_zone"]
 [editable path="UI"]
 [editable path="UI/Panel"]
+[editable path="UI/Notes"]
 [editable path="UI/PauseGame"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/Clue_System"]

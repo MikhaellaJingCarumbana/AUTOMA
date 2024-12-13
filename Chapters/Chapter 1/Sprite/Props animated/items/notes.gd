@@ -6,12 +6,19 @@ extends Area2D
 @onready var enemy: CyclopsEnemy = get_node_or_null(parent_enemy)
 
 @onready var game_manager: Node = get_parent().get_parent().get_node("GameManager")
+@export var float_amplitude: float = 5.0
+@export var float_speed: float = 2.0
+var base_y_position: float = 0.0
+var time_elapsed: float = 0.0
+var is_floating: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = true
 	set_visibility_layer_bit(0, true)
 	set_collision_mask_value(0, true)
 	print("DEBUG: Note initialized as invisible and non-collidable.")
+	
+	base_y_position = position.y 
 
 	if enemy:
 		print("DEBUG: Bound to parent_enemy: ", enemy.name)
@@ -21,11 +28,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if enemy:
-		if enemy.dead: 
-			make_visible_at_enemy_position()
-	else:
-		pass
+	if is_floating:
+		time_elapsed += delta
+		position.y = base_y_position + sin(time_elapsed * float_speed) * float_amplitude
+	elif enemy and enemy.dead:
+		make_visible_at_enemy_position()
+
 		
 func make_visible_at_enemy_position() -> void:
 	print("DEBUG: Making note visible at enemy position.")
@@ -34,6 +42,8 @@ func make_visible_at_enemy_position() -> void:
 	set_collision_layer_value(0, true)
 	set_collision_mask_value(0, true)
 	animated_sprite_2d.play("default")
+	base_y_position = position.y
+	is_floating = true
 	print("DEBUG: Note made visible at position: ", global_position)
 
 
