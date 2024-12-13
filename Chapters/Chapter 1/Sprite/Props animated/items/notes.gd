@@ -7,7 +7,7 @@ extends Area2D
 
 @onready var game_manager: Node = get_parent().get_parent().get_node("GameManager")
 @export var float_amplitude: float = 5.0
-@export var float_speed: float = 2.0
+@export var float_speed: float = 4.0
 var base_y_position: float = 0.0
 var time_elapsed: float = 0.0
 var is_floating: bool = false
