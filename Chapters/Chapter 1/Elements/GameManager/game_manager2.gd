@@ -54,7 +54,13 @@ func increase_charge():
 	else:
 		print("Charge is at maximum!")
 
-
+#func start_powerup_timer(player: Player):
+	#var powerup_timer = Timer.new()
+	#add_child(powerup_timer)
+	#powerup_timer.one_shot = true
+	#powerup_timer.wait_time = 10.0
+	#powerup_timer.connect("timeout", _reset_powerup)
+	#powerup_timer.start()
 	
 	
 	

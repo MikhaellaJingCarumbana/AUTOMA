@@ -16,8 +16,14 @@ var is_dead = false
 var has_charge_powerip = false
 var jump_boost_timer: Timer
 
+var jump_count = 0
+var max_jumps = 4
+
 func jump():
-	velocity.y = JUMP_VELOCITY
+	if is_on_floor():
+		jump_count += 1
+		velocity.y = JUMP_VELOCITY
+		print("DEBUG: Jump executed. Jump count: %d, Velocity: %f" % [jump_count, velocity.y])
 	
 func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
@@ -59,6 +65,7 @@ func _physics_process(delta):
 
 	# Flip the sprite based on the last known direction
 	sprite_2d.flip_h = is_facing_left
+	
 
 	# Add gravity
 	if not is_on_floor():
@@ -86,6 +93,11 @@ func _physics_process(delta):
 	
 	if game_manager.lives == 0 and not is_dead:
 		play_death_animation()
+		
+	#reset jump count when on the floor
+	if is_on_floor():
+		jump_count = 0
+	
 	
 func play_death_animation():
 	is_dead = true
@@ -134,3 +146,9 @@ func charge_jump():
 		print("Charge jumo with charge level:", game_manager.charge_level)
 	else:
 		jump()
+		
+func _reset_powerup():
+	has_charge_powerip = false
+	max_jumps = 1
+	JUMP_VELOCITY = -560.0
+	print("DEBUG: Powerup expired. Jump reset.")

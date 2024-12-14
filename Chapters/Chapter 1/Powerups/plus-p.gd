@@ -67,5 +67,9 @@ func _on_body_entered(body: Node2D) -> void:
 		print("DEBUG: Note is not visible; cannot be collected.")
 		
 func apply_powerup(player: Node2D) -> void:
-	player.velocity.y -= 300
-	print("DEBUG: Powerup effect applied! Player jump boosted.")
+	if player is Player:
+		player.has_charge_powerip = true
+		player.JUMP_VELOCITY = -760.0
+		print("DEBUG: Powerup effect applied! Player jump boosted and double jump enabled.")
+		
+	queue_free()
