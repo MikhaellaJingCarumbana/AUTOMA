@@ -14,7 +14,8 @@ var base_y_position: float = 0.0
 var time_elapsed: float = 0.0
 var is_floating: bool = false
 
-@export var powerup_duration: float = 5.0
+@export var powerup_duration: float = 0.25
+var is_powerup_active: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,12 +33,16 @@ func _ready() -> void:
 		print("ERROR: parent_enemy is not set or invalid.")
 		
 	#start the timer for demonstration
-	powerup_timer.wait_time = 10.0
-	powerup_timer.start()
-	time_remaining = powerup_timer.wait_time
-	print("DEBUG: Timer started with %.2f seconds." % powerup_timer.wait_time)
+	powerup_timer.stop()
 
-
+func _on_powerup_collected():
+	if not is_powerup_active:
+		apply_powerup_effect()
+		powerup_timer.wait_time = 10.0
+		powerup_timer.start()
+		is_powerup_active = true
+		print("DEBUG: Power-up collected! Timer started for %.2f seconds." % powerup_timer.wait_time)
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_floating:
@@ -46,18 +51,13 @@ func _process(delta: float) -> void:
 	elif enemy and enemy.dead:
 		make_visible_at_enemy_position()
 	
-	if not powerup_timer.is_stopped():
-		time_remaining -= delta
-		if time_remaining > 0:
-			print("DEBUG: Time remaining: %.2f seconds" % time_remaining)
-		else:
-			print("DEBUG: Powerup effect expired!")
-			_reset_powerup()
+	if is_powerup_active:
+		print("DEBUG: Timer running. Time left: %.2f seconds" % powerup_timer.get_time_left())
+		
+		if powerup_timer.is_stopped():
+			reset_to_default()
+		
 
-
-func _on_timer_tick() -> void:
-		print("DEBUG: Timer ticked!")
-		_reset_powerup()
 		
 func make_visible_at_enemy_position() -> void:
 	print("DEBUG: Making note visible at enemy position.")
@@ -89,14 +89,22 @@ func _on_body_entered(body: Node2D) -> void:
 		print("DEBUG: Note is not visible; cannot be collected.")
 		
 func apply_powerup(player: Node2D) -> void:
-	if player is Player:
+	if player is Player and not is_powerup_active:
 		player.has_charge_powerip = true
 		player.JUMP_VELOCITY = -760.0
-		print("DEBUG: Powerup effect applied! Player jump boosted and double jump enabled.")
 		powerup_timer.start(powerup_duration)
-		print("DEBUG: Timer started with duration: ", powerup_timer.wait_time)
+		is_powerup_active = true
+		print("DEBUG: Powerup effect applied! Timer started with duration %.2f seconds." % powerup_duration)
+
+func apply_powerup_effect():
+	print("DEBUG: Power-up effect applied")
 	
-func _reset_powerup() -> void:
-	powerup_timer.stop()
-	time_remaining = 0.0
-	print("DEBUG: Timer stopped and powerup reset")
+func reset_to_default():
+	if is_powerup_active:
+		is_powerup_active = false
+		powerup_timer.stop()
+		var player = get_tree().get_current_scene().get_node("Player")
+		if player:
+			player.has_charge_powerup = false
+			player.JUMP_VELOCITY = -560.0
+		print("DEBUG: Powerup expired. Player reset to default settings.")
