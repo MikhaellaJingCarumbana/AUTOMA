@@ -6812,7 +6812,8 @@ position = Vector2(538, 663)
 position = Vector2(2, 6)
 parent_enemy = NodePath("../Skull2")
 
-[node name="Plus" parent="Enemies" instance=ExtResource("22_fd4b0")]
+[node name="Plus" parent="Enemies" node_paths=PackedStringArray("powerup_timer") instance=ExtResource("22_fd4b0")]
+powerup_timer = NodePath("PowerupTimer")
 parent_enemy = NodePath("../Skull")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
@@ -6850,5 +6851,6 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="UI/DeathScreen"]
 [editable path="UI/Clue_System2"]
 [editable path="UI/Note System"]
+[editable path="Enemies/Plus"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]

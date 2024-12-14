@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var powerup_timer: Timer
+var time_remaining: float = 0.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var parent_enemy: NodePath
@@ -12,6 +14,7 @@ var base_y_position: float = 0.0
 var time_elapsed: float = 0.0
 var is_floating: bool = false
 
+@export var powerup_duration: float = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +30,13 @@ func _ready() -> void:
 		enemy.connect("tree_exiting", _on_enemy_freed)
 	else:
 		print("ERROR: parent_enemy is not set or invalid.")
+		
+	#start the timer for demonstration
+	powerup_timer.wait_time = 10.0
+	powerup_timer.start()
+	time_remaining = powerup_timer.wait_time
+	print("DEBUG: Timer started with %.2f seconds." % powerup_timer.wait_time)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,7 +45,19 @@ func _process(delta: float) -> void:
 		position.y = base_y_position + sin(time_elapsed * float_speed) * float_amplitude
 	elif enemy and enemy.dead:
 		make_visible_at_enemy_position()
+	
+	if not powerup_timer.is_stopped():
+		time_remaining -= delta
+		if time_remaining > 0:
+			print("DEBUG: Time remaining: %.2f seconds" % time_remaining)
+		else:
+			print("DEBUG: Powerup effect expired!")
+			_reset_powerup()
 
+
+func _on_timer_tick() -> void:
+		print("DEBUG: Timer ticked!")
+		_reset_powerup()
 		
 func make_visible_at_enemy_position() -> void:
 	print("DEBUG: Making note visible at enemy position.")
@@ -71,5 +93,10 @@ func apply_powerup(player: Node2D) -> void:
 		player.has_charge_powerip = true
 		player.JUMP_VELOCITY = -760.0
 		print("DEBUG: Powerup effect applied! Player jump boosted and double jump enabled.")
-		
-	queue_free()
+		powerup_timer.start(powerup_duration)
+		print("DEBUG: Timer started with duration: ", powerup_timer.wait_time)
+	
+func _reset_powerup() -> void:
+	powerup_timer.stop()
+	time_remaining = 0.0
+	print("DEBUG: Timer stopped and powerup reset")
