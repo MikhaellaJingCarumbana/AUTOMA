@@ -60,10 +60,12 @@ func _on_enemy_freed() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	print("DEBUG: Body entered Note area:", body.name)
 	if visible and body.is_in_group("Player"):
-		print("DEBUG: Player collected the note.")
-		body.has_charge_powerip = true
-		game_manager.charge_level = 0
+		print("DEBUG: Player collected the + powerup!")
+		apply_powerup(body)
 		queue_free()
 	elif not visible:
 		print("DEBUG: Note is not visible; cannot be collected.")
 		
+func apply_powerup(player: Node2D) -> void:
+	player.velocity.y -= 300
+	print("DEBUG: Powerup effect applied! Player jump boosted.")

@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -560.0
+var JUMP_VELOCITY = -560.0
 @onready var sprite_2d = $AnimatedSprite2D
 @onready var all_interactions = []
 @onready var InteractLabel = $"Interaction Component/InteractionArea/InteractLabel"
@@ -14,6 +14,7 @@ var is_facing_left = false  # Tracks the direction the character is facing
 var movable = true
 var is_dead = false
 var has_charge_powerip = false
+var jump_boost_timer: Timer
 
 func jump():
 	velocity.y = JUMP_VELOCITY
@@ -22,10 +23,22 @@ func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
 	velocity.x = x
 	
+func boost_jump():
+	JUMP_VELOCITY -= 200
+	print("DEBUG: Jump boosted temporarily!")
+	jump_boost_timer.start(5)
+	
+func _reset_jump_boost():
+	JUMP_VELOCITY += 200
+	print("DEBUG: Jump boost reset.")
+	
 func _ready():
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
 	update_interactions()
 	Global.playerBody = self
+	jump_boost_timer = Timer.new()
+	jump_boost_timer.one_shot = true
+	jump_boost_timer.connect("timeout", _reset_jump_boost)
 		
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
