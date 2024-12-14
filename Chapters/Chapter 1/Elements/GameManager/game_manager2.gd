@@ -13,6 +13,9 @@ var notes_collected = 0
 signal clue_collected(index: int)
 signal note_collected(index: int)
 
+var charge_level = 0
+var max_charge = 5
+
 
 
 
@@ -43,6 +46,13 @@ func add_note():
 		note_system.call("show_note", notes_collected)
 	else:
 		print("Error: clue_system is not assigned!")
+		
+func increase_charge():
+	if charge_level < max_charge:
+		charge_level += 1
+		print("Charge increased to: ", charge_level)
+	else:
+		print("Charge is at maximum!")
 
 
 	

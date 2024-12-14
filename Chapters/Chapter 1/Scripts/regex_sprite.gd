@@ -13,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_left = false  # Tracks the direction the character is facing
 var movable = true
 var is_dead = false
+var has_charge_powerip = false
 
 func jump():
 	velocity.y = JUMP_VELOCITY
@@ -52,7 +53,10 @@ func _physics_process(delta):
 
 	# Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		if has_charge_powerip:
+			charge_jump()
+		else: 
+			jump()
 
 	# Get the input direction and handle movement/deceleration
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -109,3 +113,11 @@ func execute_interaction():
 func open_dialogic_timeline(timeline_name):
 	print("Starting Dialogic timeline: %s" % timeline_name)
 	Dialogic.start(timeline_name)
+	
+func charge_jump():
+	if has_charge_powerip:
+		game_manager.increase_charge()
+		velocity.y = JUMP_VELOCITY - (game_manager.charge_level * 50)
+		print("Charge jumo with charge level:", game_manager.charge_level)
+	else:
+		jump()
