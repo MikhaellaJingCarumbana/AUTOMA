@@ -19,6 +19,7 @@ var jump_boost_timer: Timer
 var jump_count = 0
 var max_jumps = 4
 
+
 func jump():
 	if is_on_floor():
 		jump_count += 1
