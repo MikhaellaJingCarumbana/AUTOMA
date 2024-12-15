@@ -80,6 +80,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print("DEBUG: Body entered Note area:", body.name)
 	if visible and body.is_in_group("Player"):
 		print("DEBUG: Player collected the + powerup!")
+		emit_signal("powerup_collected")
 		apply_powerup(body)
 		queue_free()
 	elif not visible:
@@ -91,16 +92,8 @@ func _on_body_entered(body: Node2D) -> void:
 		
 func apply_powerup(player: Node2D) -> void:
 	
-	if player is Player:
-		player.has_charge_powerip = true
-		player.JUMP_VELOCITY = -760.0
-	
-		if game_manager:
-			game_manager.activate_player_powerup(5.0)
-		else:
-			print("ERROR: GameManager not found!")
-		
-		queue_free()
+	if not is_powerup_active:
+		is_powerup_active = true
 		
 func _on_powerup_timer_timeout() -> void:
 	if is_powerup_active:

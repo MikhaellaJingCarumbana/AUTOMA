@@ -3,6 +3,9 @@ extends Node
 @export var hearts: Array[Node]
 @onready var note_system: Control = $"../UI/Note System/CarouselSelection"
 @onready var clue_system: Control = $"../UI/Clue_System2/CarouselSelection"
+@onready var powerup_choose: ColorRect = $"../UI/Powerup_Choose/PauseMenu"
+@onready var player: Player = $"../Player"
+
 
 
 var points = 0
@@ -18,6 +21,14 @@ var max_charge = 5
 
 var is_powerup_active: bool = false
 var powerup_time_left: float = 0.0
+
+
+func _ready() -> void:
+	powerup_choose.connect("powerup_selected", _apply_powerup)
+	
+func _on_powerup_collected() -> void:
+	print("DEBUG: Powerup collected!")
+	powerup_choose.show()
 
 func _process(delta: float) -> void:
 	if is_powerup_active:
@@ -74,5 +85,16 @@ func reset_player_powerup():
 			player.JUMP_VELOCITY = -560.0
 			print("DEBUG: Player power-up reset complete.")
 
+func _apply_powerup(powerup_type: String) -> void:
+	match powerup_type:
+		"speed":
+			player.speed_boost()
+		"jump":
+			player.jump_boost()
+		_:
+			print("DEBUG: Unknown powerup type: %s" % powerup_type)
+			
+	powerup_choose.hide()
+	print("DEBUG: UI hidden after selection!")
 
 	

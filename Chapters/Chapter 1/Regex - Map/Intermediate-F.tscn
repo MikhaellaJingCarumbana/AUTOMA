@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=44 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="17_v4ecl"]
 [ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="18_ca3xp"]
 [ext_resource type="PackedScene" uid="uid://cofswi7j1xxfg" path="res://Chapters/Chapter 1/UI Components/Notes2.tscn" id="19_0u2xi"]
+[ext_resource type="PackedScene" uid="uid://bfj36amncwg2m" path="res://Chapters/Chapter 1/UI Components/Powerup UI/powerup_plus.tscn" id="20_hq8r3"]
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
 
@@ -6767,6 +6768,8 @@ visible = false
 [node name="CarouselSelection" parent="UI/Note System" index="0"]
 visible = false
 
+[node name="Powerup_Choose" parent="UI" instance=ExtResource("20_hq8r3")]
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
@@ -6850,6 +6853,7 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="UI/DeathScreen"]
 [editable path="UI/Clue_System2"]
 [editable path="UI/Note System"]
+[editable path="UI/Powerup_Choose"]
 [editable path="Enemies/Plus"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]

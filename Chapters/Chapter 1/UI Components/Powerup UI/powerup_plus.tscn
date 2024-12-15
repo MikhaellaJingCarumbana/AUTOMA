@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfj36amncwg2m"]
+[gd_scene load_steps=7 format=3 uid="uid://bfj36amncwg2m"]
 
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/Powerup UI/powerup_plus.gd" id="1_staja"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_yd47a"]
 [ext_resource type="PackedScene" uid="uid://co2gxpd2ceok8" path="res://Chapters/Chapter 1/UI Components/Powerup UI/jump.tscn" id="3_6j2gx"]
 [ext_resource type="PackedScene" uid="uid://5oujyc5whgkh" path="res://Chapters/Chapter 1/UI Components/Powerup UI/Speed.tscn" id="3_s0qhp"]
@@ -22,6 +23,7 @@ shader_parameter/spin_amount = 0.9
 shader_parameter/pixel_filter = 700.0
 
 [node name="Powerup_Choose" type="Node"]
+script = ExtResource("1_staja")
 
 [node name="PauseMenu" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_aq6tb")

@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 class_name Player
 
-const SPEED = 200.0
+var SPEED = 200.0
+var original_speed = SPEED
+var speed_boost_active = false
 var JUMP_VELOCITY = -560.0
 @onready var sprite_2d = $AnimatedSprite2D
 @onready var all_interactions = []
@@ -45,7 +47,9 @@ func _ready():
 	Global.playerBody = self
 	jump_boost_timer = Timer.new()
 	jump_boost_timer.one_shot = true
-	jump_boost_timer.connect("timeout", _reset_jump_boost)
+	add_child(jump_boost_timer)
+	jump_boost_timer.timeout.connect(_reset_speed_boost)
+	jump_boost_timer.timeout.connect(_reset_jump_boost)
 		
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
@@ -137,7 +141,16 @@ func open_dialogic_timeline(timeline_name):
 	print("Starting Dialogic timeline: %s" % timeline_name)
 	Dialogic.start(timeline_name)
 	
+func jump_boost():
+	if not has_charge_powerip:
+		boost_jump()
 
+func _reset_speed_boost():
+	if speed_boost_active:
+		SPEED = original_speed
+		speed_boost_active = false
+		print("DEBUG: Speed boost reset. Current speed: %f" % SPEED)
+		
 		
 func _reset_powerup():
 	has_charge_powerip = false
