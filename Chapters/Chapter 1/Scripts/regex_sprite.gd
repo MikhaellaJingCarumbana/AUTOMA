@@ -73,9 +73,6 @@ func _physics_process(delta):
 
 	# Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		if has_charge_powerip:
-			charge_jump()
-		else: 
 			jump()
 
 	# Get the input direction and handle movement/deceleration
@@ -139,13 +136,7 @@ func open_dialogic_timeline(timeline_name):
 	print("Starting Dialogic timeline: %s" % timeline_name)
 	Dialogic.start(timeline_name)
 	
-func charge_jump():
-	if has_charge_powerip:
-		game_manager.increase_charge()
-		velocity.y = JUMP_VELOCITY - (game_manager.charge_level * 50)
-		print("Charge jumo with charge level:", game_manager.charge_level)
-	else:
-		jump()
+
 		
 func _reset_powerup():
 	has_charge_powerip = false

@@ -6812,8 +6812,7 @@ position = Vector2(538, 663)
 position = Vector2(2, 6)
 parent_enemy = NodePath("../Skull2")
 
-[node name="Plus" parent="Enemies" node_paths=PackedStringArray("powerup_timer") instance=ExtResource("22_fd4b0")]
-powerup_timer = NodePath("PowerupTimer")
+[node name="Plus" parent="Enemies" instance=ExtResource("22_fd4b0")]
 parent_enemy = NodePath("../Skull")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]

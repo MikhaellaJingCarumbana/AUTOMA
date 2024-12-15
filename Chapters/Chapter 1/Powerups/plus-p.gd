@@ -1,20 +1,19 @@
 extends Area2D
 
-@export var powerup_timer: Timer
-var time_remaining: float = 0.0
+@export var powerup_duration: float = 3.0 
+@export var float_amplitude: float = 5.0
+@export var float_speed: float = 4.0
 
+@onready var powerup_timer: Timer = $PowerupTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var parent_enemy: NodePath
 @onready var enemy: SkullEnemy = get_node_or_null(parent_enemy)
 
 @onready var game_manager: Node = get_parent().get_parent().get_node("GameManager")
-@export var float_amplitude: float = 5.0
-@export var float_speed: float = 4.0
+
 var base_y_position: float = 0.0
 var time_elapsed: float = 0.0
 var is_floating: bool = false
-
-@export var powerup_duration: float = 0.25
 var is_powerup_active: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -54,10 +53,6 @@ func _process(delta: float) -> void:
 	if is_powerup_active:
 		print("DEBUG: Timer running. Time left: %.2f seconds" % powerup_timer.get_time_left())
 		
-		if powerup_timer.is_stopped():
-			reset_to_default()
-		
-
 		
 func make_visible_at_enemy_position() -> void:
 	print("DEBUG: Making note visible at enemy position.")
@@ -88,14 +83,32 @@ func _on_body_entered(body: Node2D) -> void:
 	elif not visible:
 		print("DEBUG: Note is not visible; cannot be collected.")
 		
+	if body.is_in_group("Player") and not is_powerup_active:
+		apply_powerup(body)
+		queue_free()
+		
 func apply_powerup(player: Node2D) -> void:
-	if player is Player and not is_powerup_active:
+	
+	if player is Player:
 		player.has_charge_powerip = true
 		player.JUMP_VELOCITY = -760.0
-		powerup_timer.start(powerup_duration)
-		is_powerup_active = true
-		print("DEBUG: Powerup effect applied! Timer started with duration %.2f seconds." % powerup_duration)
-
+	
+		if game_manager:
+			game_manager.activate_player_powerup(5.0)
+		else:
+			print("ERROR: GameManager not found!")
+		
+		queue_free()
+		
+func _on_powerup_timer_timeout() -> void:
+	if is_powerup_active:
+		var player = get_tree().get_current_scene().get_node("Player")
+		if player:
+			player.has_charge_powerip = false
+			player.JUMP_VELOCITY = -560.0
+			
+		is_powerup_active = false
+		print("DEBUG: Power-up expired. Player reset to default settings.")
 func apply_powerup_effect():
 	print("DEBUG: Power-up effect applied")
 	
@@ -105,6 +118,6 @@ func reset_to_default():
 		powerup_timer.stop()
 		var player = get_tree().get_current_scene().get_node("Player")
 		if player:
-			player.has_charge_powerup = false
+			player.has_charge_powerip = false
 			player.JUMP_VELOCITY = -560.0
 		print("DEBUG: Powerup expired. Player reset to default settings.")

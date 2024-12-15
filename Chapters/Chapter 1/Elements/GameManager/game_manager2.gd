@@ -16,7 +16,17 @@ signal note_collected(index: int)
 var charge_level = 0
 var max_charge = 5
 
+var is_powerup_active: bool = false
+var powerup_time_left: float = 0.0
 
+func _process(delta: float) -> void:
+	if is_powerup_active:
+		powerup_time_left -= delta
+		if powerup_time_left <= 0:
+			reset_player_powerup()
+		else:
+			print("DEBUG: Power-up time remaining: %.2f seconds" % powerup_time_left)
+			
 
 
 func decrease_health():
@@ -47,12 +57,22 @@ func add_note():
 	else:
 		print("Error: clue_system is not assigned!")
 		
-func increase_charge():
-	if charge_level < max_charge:
-		charge_level += 1
-		print("Charge increased to: ", charge_level)
-	else:
-		print("Charge is at maximum!")
+func activate_player_powerup(duration: float) -> void:
+	is_powerup_active = true
+	powerup_time_left = duration
+	print("DEBUG: Power-up activated! Duration: %.2f seconds" % duration)
+		
+func reset_player_powerup():
+	if is_powerup_active:
+		is_powerup_active = false
+		powerup_time_left = 0.0
+		print("DEBUG: Power-up expired. Resetting player to default settings.")
+		
+		var player = get_tree().get_current_scene().get_node("Player")
+		if player:
+			player.has_charge_powerip = false
+			player.JUMP_VELOCITY = -560.0
+			print("DEBUG: Player power-up reset complete.")
 
 
 	
