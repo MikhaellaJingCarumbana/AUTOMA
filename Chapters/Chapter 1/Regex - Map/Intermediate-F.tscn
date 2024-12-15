@@ -6770,6 +6770,9 @@ visible = false
 
 [node name="Powerup_Choose" parent="UI" instance=ExtResource("20_hq8r3")]
 
+[node name="PauseMenu" parent="UI/Powerup_Choose" index="0"]
+visible = false
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
@@ -6843,6 +6846,7 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [connection signal="body_entered" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_exited"]
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
 
 [editable path="Clues"]
 [editable path="Clues2"]

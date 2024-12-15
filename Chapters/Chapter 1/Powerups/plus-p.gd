@@ -79,16 +79,12 @@ func _on_enemy_freed() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	print("DEBUG: Body entered Note area:", body.name)
 	if visible and body.is_in_group("Player"):
-		print("DEBUG: Player collected the + powerup!")
-		emit_signal("powerup_collected")
-		apply_powerup(body)
+		print("DEBUG: Power-up collected by player.")
+		game_manager.activate_powerup_menu()
 		queue_free()
 	elif not visible:
 		print("DEBUG: Note is not visible; cannot be collected.")
 		
-	if body.is_in_group("Player") and not is_powerup_active:
-		apply_powerup(body)
-		queue_free()
 		
 func apply_powerup(player: Node2D) -> void:
 	
@@ -104,6 +100,7 @@ func _on_powerup_timer_timeout() -> void:
 			
 		is_powerup_active = false
 		print("DEBUG: Power-up expired. Player reset to default settings.")
+
 func apply_powerup_effect():
 	print("DEBUG: Power-up effect applied")
 	

@@ -53,7 +53,7 @@ theme_override_constants/separation = 50
 custom_minimum_size = Vector2(350, 528)
 layout_mode = 2
 
-[node name="JumpButton2" parent="PauseMenu/HBoxContainer" instance=ExtResource("3_s0qhp")]
+[node name="SpeedButton" parent="PauseMenu/HBoxContainer" instance=ExtResource("3_s0qhp")]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 
@@ -90,3 +90,5 @@ theme_override_font_sizes/font_size = 30
 text = "Choose your power-up! Select between Jump to leap higher or Speed to move faster. This power-up works like the + in regular expressions: it activates one ability, but you can keep enhancing it with more actions to make it stronger — just like a+ adds more 'a's to a string, your chosen ability gets better with each use!"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[connection signal="pressed" from="PauseMenu/HBoxContainer/SpeedButton" to="." method="_on_speed_button_pressed"]

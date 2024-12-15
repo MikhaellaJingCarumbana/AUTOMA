@@ -17,6 +17,7 @@ var movable = true
 var is_dead = false
 var has_charge_powerip = false
 var jump_boost_timer: Timer
+var powerup_duration: float = 3.0
 
 var jump_count = 0
 var max_jumps = 4
@@ -33,13 +34,36 @@ func jump_slide(x):
 	velocity.x = x
 	
 func boost_jump():
-	JUMP_VELOCITY -= 200
-	print("DEBUG: Jump boosted temporarily!")
-	jump_boost_timer.start(5)
+	if not has_charge_powerip:
+		has_charge_powerip = true
+		JUMP_VELOCITY -= 200
+		print("DEBUG: Jump boost activated!")
+		
+		var jump_boost_timer = Timer.new()
+		jump_boost_timer.one_shot = true
+		jump_boost_timer.wait_time = powerup_duration
+		jump_boost_timer.timeout.connect(_reset_jump_boost)
+		add_child(jump_boost_timer)
+		jump_boost_timer.start()
+		
 	
 func _reset_jump_boost():
+	has_charge_powerip = false
 	JUMP_VELOCITY += 200
 	print("DEBUG: Jump boost reset.")
+	
+func boost_speed():
+	if not speed_boost_active:
+		speed_boost_active = true
+		SPEED += 100
+		print("DEBUG: Speed boost activated!")
+		
+		var speed_boost_timer = Timer.new()
+		speed_boost_timer.one_shot = true
+		speed_boost_timer.wait_time = powerup_duration
+		speed_boost_timer.timeout.connect(_reset_speed_boost)
+		add_child(speed_boost_timer)
+		speed_boost_timer.start()
 	
 func _ready():
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
@@ -145,11 +169,15 @@ func jump_boost():
 	if not has_charge_powerip:
 		boost_jump()
 
+func speed_boost():
+	if not has_charge_powerip:
+		boost_speed()
+		
+
 func _reset_speed_boost():
-	if speed_boost_active:
-		SPEED = original_speed
-		speed_boost_active = false
-		print("DEBUG: Speed boost reset. Current speed: %f" % SPEED)
+	speed_boost_active = false
+	SPEED = original_speed
+	print("DEBUG: Speed boost reset.")
 		
 		
 func _reset_powerup():

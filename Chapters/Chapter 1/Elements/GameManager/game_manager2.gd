@@ -3,8 +3,10 @@ extends Node
 @export var hearts: Array[Node]
 @onready var note_system: Control = $"../UI/Note System/CarouselSelection"
 @onready var clue_system: Control = $"../UI/Clue_System2/CarouselSelection"
-@onready var powerup_choose: ColorRect = $"../UI/Powerup_Choose/PauseMenu"
+@onready var powerup_choose: Node = $"../UI/Powerup_Choose"
 @onready var player: Player = $"../Player"
+@onready var pause_menu: ColorRect = $"../UI/Powerup_Choose/PauseMenu"
+
 
 
 
@@ -28,7 +30,7 @@ func _ready() -> void:
 	
 func _on_powerup_collected() -> void:
 	print("DEBUG: Powerup collected!")
-	powerup_choose.show()
+	pause_menu.show()
 
 func _process(delta: float) -> void:
 	if is_powerup_active:
@@ -94,7 +96,20 @@ func _apply_powerup(powerup_type: String) -> void:
 		_:
 			print("DEBUG: Unknown powerup type: %s" % powerup_type)
 			
-	powerup_choose.hide()
+	pause_menu.hide()
 	print("DEBUG: UI hidden after selection!")
+	
+func activate_powerup_menu():
+	powerup_choose.show_powerup_menu()
+	powerup_choose.connect("powerup_selected", _on_powerup_selected)
+	
+func _on_powerup_selected(powerup_type: String) -> void:
+	powerup_choose.disconnect("powerup_selected", _on_powerup_selected)
+	match powerup_type:
+		"jump":
+			player.boost_jump()
+		"speed":
+			player.boost_speed()
+	print("DEBUG: Power-up applied: %s" % powerup_type)
 
 	
