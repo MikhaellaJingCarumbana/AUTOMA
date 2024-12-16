@@ -96,11 +96,13 @@ func _on_powerup_timer_timeout() -> void:
 	var player = get_tree().get_current_scene().get_node("Player")
 	if player and player.has_infinite_projectiles:
 		player.has_infinite_projectiles = false
+		is_powerup_active = false
 		print("DEBUG: Infinite projectiles effect expired.")
 
 func apply_powerup_effect(player: Node2D):
 	if not player.has_infinite_projectiles:
 		player.has_infinite_projectiles = true
 		print("DEBUG: Infinite projectiles activated.")
-		powerup_timer.start(powerup_duration)
+		powerup_timer.wait_time = powerup_duration
+		powerup_timer.start()
 		

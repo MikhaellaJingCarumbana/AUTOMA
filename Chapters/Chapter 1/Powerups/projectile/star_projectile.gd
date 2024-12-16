@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var speed: float = 400
 @export var lifespan: float = 5.0
-@export var damage: int = 10
+@export var damage: int = 40
 
 func initialize(direction: Vector2):
 	velocity = direction * speed

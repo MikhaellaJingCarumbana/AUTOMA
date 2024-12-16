@@ -121,6 +121,8 @@ func _on_area_2d_body_entered(body):
 				
 func take_damage(amount: int):
 	health -= amount
+	var anim_sprite = %AnimatedSprite2D
+	anim_sprite.play("hurt")
 	print("DEBUG: Enemy took damage. Current health: ", health)
 	if health <= 0:
 		handle_death()

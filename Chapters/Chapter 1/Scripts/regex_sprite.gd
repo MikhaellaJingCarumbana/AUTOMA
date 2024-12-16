@@ -24,13 +24,24 @@ var max_jumps = 4
 var has_infinite_projectiles: bool = false
 
 @export var projectile_scene: PackedScene
+@export var shoot_cooldown: float = 0.0
 var is_infinite_projectiles_active = false
 var powerup_timer: Timer
 
+var shoot_timer = 0.0
+
+
+
 
 func _process(delta):
+	if shoot_timer > 0:
+		shoot_timer -= delta
+		
 	if Input.is_action_just_pressed("shoot"):
 		shoot_projectile()
+		shoot_timer = shoot_cooldown
+	else:
+		print("DEBUG: Can't shoot! No power-up active.")
 		
 func jump():
 	if is_on_floor():
@@ -94,14 +105,17 @@ func _ready():
 	powerup_timer.timeout.connect(_on_powerup_timeout)
 	add_child(powerup_timer)
 	
-func shoot_projectile():
+	shoot_timer = 0.0
 	
-	if has_infinite_projectiles and projectile_scene:
+func shoot_projectile() -> void:
+	
+	if projectile_scene:
 		var projectile = projectile_scene.instantiate()
 		get_parent().add_child(projectile)
 		projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0)
 		var direction = Vector2.LEFT if is_facing_left else Vector2.RIGHT
 		projectile.initialize(direction)
+		print("DEBUG: Projectile shot!")
 		
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
