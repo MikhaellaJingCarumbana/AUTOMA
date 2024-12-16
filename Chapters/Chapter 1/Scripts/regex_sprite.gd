@@ -26,23 +26,45 @@ var has_infinite_projectiles: bool = false
 @export var projectile_scene: PackedScene
 @export var shoot_cooldown: float = 0.0
 var is_infinite_projectiles_active = false
-var powerup_timer: Timer
+var projectile_timer: Timer
 
 var shoot_timer = 0.0
+var prev_projectile_powerup_state: bool = false
 
 
-
+func _ready():
+	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
+	update_interactions()
+	Global.playerBody = self
+	jump_boost_timer = Timer.new()
+	jump_boost_timer.one_shot = true
+	add_child(jump_boost_timer)
+	jump_boost_timer.timeout.connect(_reset_speed_boost)
+	jump_boost_timer.timeout.connect(_reset_jump_boost)
+	
+	projectile_timer = Timer.new()
+	projectile_timer.one_shot = true
+	add_child(projectile_timer)
+	projectile_timer.timeout.connect(_reset_projectile)
+	
 
 func _process(delta):
 	if shoot_timer > 0:
 		shoot_timer -= delta
 		
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and is_infinite_projectiles_active:
 		shoot_projectile()
 		shoot_timer = shoot_cooldown
-	else:
-		print("DEBUG: Can't shoot! No power-up active.")
+	elif Input.is_action_just_pressed("shoot"):
+		print("Can't shoot! No powerup projectile")
 		
+	if is_infinite_projectiles_active != prev_projectile_powerup_state:
+		if is_infinite_projectiles_active:
+			print("Infinite projectiles active. Timer countdown: %.2f seconds" % projectile_timer.get_time_left())
+		else:
+			print("No Active powerup")
+		prev_projectile_powerup_state = is_infinite_projectiles_active
+
 func jump():
 	if is_on_floor():
 		jump_count += 1
@@ -90,23 +112,17 @@ func boost_speed():
 		add_child(speed_boost_timer)
 		speed_boost_timer.start()
 	
-func _ready():
-	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
-	update_interactions()
-	Global.playerBody = self
-	jump_boost_timer = Timer.new()
-	jump_boost_timer.one_shot = true
-	add_child(jump_boost_timer)
-	jump_boost_timer.timeout.connect(_reset_speed_boost)
-	jump_boost_timer.timeout.connect(_reset_jump_boost)
+
 	
-	powerup_timer = Timer.new()
-	powerup_timer.one_shot = true
-	powerup_timer.timeout.connect(_on_powerup_timeout)
-	add_child(powerup_timer)
 	
-	shoot_timer = 0.0
+func _reset_projectile():
+	if not projectile_timer.is_stopped():
+		projectile_timer.stop()
 	
+	is_infinite_projectiles_active = false
+	
+	print("DEBUG: Projectile reset. Infinite projectiles disabled.")
+		
 func shoot_projectile() -> void:
 	
 	if projectile_scene:
@@ -115,7 +131,11 @@ func shoot_projectile() -> void:
 		projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0)
 		var direction = Vector2.LEFT if is_facing_left else Vector2.RIGHT
 		projectile.initialize(direction)
-		print("DEBUG: Projectile shot!")
+		
+	if is_infinite_projectiles_active:
+		print("Projectile shot with powerup!")
+	else:
+		print("Projectile shot without powerup")
 		
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
@@ -169,11 +189,11 @@ func _physics_process(delta):
 		
 func activate_infinite_projectiles():
 	is_infinite_projectiles_active = true
-	powerup_timer.start(powerup_duration)
-	print("DEBUG: * Powerup activated! Infinite projectiles enabled.")
+	projectile_timer.start(powerup_duration)
+	print("DEBUG: Power-up activated. Infinite projectiles enabled for %.2f seconds" % powerup_duration)
 	
 func _on_powerup_timeout():
-	is_infinite_projectiles_active = false
+	_reset_projectile()
 	print("DEBUG: * Powerup expired! Infinite projectiles disabled.")
 	
 func _can_shoot_normal():

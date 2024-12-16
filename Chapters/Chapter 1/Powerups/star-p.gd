@@ -55,6 +55,8 @@ func _process(delta: float) -> void:
 	if is_powerup_active:
 		print("DEBUG: Timer running. Time left: %.2f seconds" % powerup_timer.get_time_left())
 		
+		if powerup_timer.get_time_left() <= 0:
+			_on_powerup_timer_timeout()
 		
 func make_visible_at_enemy_position() -> void:
 	print("DEBUG: Making note visible at enemy position.")
@@ -79,10 +81,13 @@ func _on_enemy_freed() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	print("DEBUG: Body entered powerup area:", body.name)
 	if visible and body.is_in_group("Player"):
-		print("DEBUG: Power-up collected by player.")
-		apply_powerup_effect(body)
-		game_manager.emit_signal("powerup_collected", powerup_type)
-		queue_free()
+		if not is_powerup_active:
+			is_powerup_active = true
+			body.is_infinite_projectiles_active = true
+			powerup_timer.wait_time = powerup_duration
+			powerup_timer.start()
+			print("DEBUG: Infinite projectiles activated for %.2f seconds." % powerup_duration)
+			queue_free()
 	elif not visible:
 		print("DEBUG: Note is not visible; cannot be collected.")
 		
@@ -94,14 +99,14 @@ func apply_powerup(player: Node2D) -> void:
 		
 func _on_powerup_timer_timeout() -> void:
 	var player = get_tree().get_current_scene().get_node("Player")
-	if player and player.has_infinite_projectiles:
-		player.has_infinite_projectiles = false
+	if player and player.is_infinite_projectiles_active:
+		player.is_infinite_projectiles_active = false
 		is_powerup_active = false
 		print("DEBUG: Infinite projectiles effect expired.")
 
 func apply_powerup_effect(player: Node2D):
-	if not player.has_infinite_projectiles:
-		player.has_infinite_projectiles = true
+	if not player.is_infinite_projectiles_active:
+		player.is_infinite_projectiles_active = true
 		print("DEBUG: Infinite projectiles activated.")
 		powerup_timer.wait_time = powerup_duration
 		powerup_timer.start()

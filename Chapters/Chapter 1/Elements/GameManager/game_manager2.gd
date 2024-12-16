@@ -35,6 +35,8 @@ func _on_powerup_collected() -> void:
 func _process(delta: float) -> void:
 	if is_powerup_active:
 		powerup_time_left -= delta
+		print("DEBUG: GameManager Power-up Time Remaining: %.2f seconds" % powerup_time_left)
+
 		if powerup_time_left <= 0:
 			reset_player_powerup()
 		else:
@@ -86,6 +88,10 @@ func reset_player_powerup():
 			player.has_charge_powerip = false
 			player.JUMP_VELOCITY = -560.0
 			print("DEBUG: Player power-up reset complete.")
+		
+		if player:
+			player.has_infinite_projectiles = false
+			print("DEBUG: Player power-up reset to default.")
 
 func _apply_powerup(powerup_type: String) -> void:
 	match powerup_type:
