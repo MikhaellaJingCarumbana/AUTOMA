@@ -6779,7 +6779,10 @@ visible = false
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(891, 246)
+position = Vector2(310, 245)
+
+[node name="Skull14" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(726, 244)
 
 [node name="Skull2" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(94, 566)

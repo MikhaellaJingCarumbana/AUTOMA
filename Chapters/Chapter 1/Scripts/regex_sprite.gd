@@ -28,6 +28,10 @@ var is_infinite_projectiles_active = false
 var powerup_timer: Timer
 
 
+func _process(delta):
+	if Input.is_action_just_pressed("shoot"):
+		shoot_projectile()
+		
 func jump():
 	if is_on_floor():
 		jump_count += 1
@@ -91,21 +95,13 @@ func _ready():
 	add_child(powerup_timer)
 	
 func shoot_projectile():
-	if projectile_scene == null:
-		print("ERROR: Projectile scene not set!")
-		return
-		
-	var projectile = projectile_scene.instantiate()
 	
-	projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0)
-	
-	var direction = Vector2.LEFT if is_facing_left else Vector2.RIGHT
-	if projectile.has_method("initialize"):
+	if has_infinite_projectiles and projectile_scene:
+		var projectile = projectile_scene.instantiate()
+		get_parent().add_child(projectile)
+		projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0)
+		var direction = Vector2.LEFT if is_facing_left else Vector2.RIGHT
 		projectile.initialize(direction)
-		
-	get_tree().current_scene.add_child(projectile)
-	
-	print("DEBUG: Projectile shot!")
 		
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
@@ -156,9 +152,6 @@ func _physics_process(delta):
 	if is_on_floor():
 		jump_count = 0
 		
-	if Input.is_action_just_pressed("shoot"):
-		if is_infinite_projectiles_active or _can_shoot_normal():
-			shoot_projectile()
 		
 func activate_infinite_projectiles():
 	is_infinite_projectiles_active = true

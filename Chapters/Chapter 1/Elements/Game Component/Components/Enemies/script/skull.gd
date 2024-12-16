@@ -121,6 +121,7 @@ func _on_area_2d_body_entered(body):
 				
 func take_damage(amount: int):
 	health -= amount
+	print("DEBUG: Enemy took damage. Current health: ", health)
 	if health <= 0:
 		handle_death()
 				
