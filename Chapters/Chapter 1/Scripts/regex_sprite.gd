@@ -22,6 +22,10 @@ var powerup_duration: float = 3.0
 var jump_count = 0
 var max_jumps = 4
 
+@onready var projectile_scene = preload("res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn")
+var is_infinite_projectiles_active = false
+var powerup_timer: Timer
+
 
 func jump():
 	if is_on_floor():
@@ -74,6 +78,19 @@ func _ready():
 	add_child(jump_boost_timer)
 	jump_boost_timer.timeout.connect(_reset_speed_boost)
 	jump_boost_timer.timeout.connect(_reset_jump_boost)
+	
+	powerup_timer = Timer.new()
+	powerup_timer.one_shot = true
+	powerup_timer.timeout.connect(_on_powerup_timeout)
+	add_child(powerup_timer)
+	
+func shoot_projectile():
+	var projectile = projectile_scene.instantiate()
+	projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0) 
+	projectile.velocity = Vector2(-400 if is_facing_left else 400,0)
+	get_parent().add_child(projectile)
+	print("DEBUG: Projectile shot!")
+	
 		
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
@@ -123,7 +140,22 @@ func _physics_process(delta):
 	#reset jump count when on the floor
 	if is_on_floor():
 		jump_count = 0
+		
+	if Input.is_action_just_pressed("shoot"):
+		if is_infinite_projectiles_active or _can_shoot_normal():
+			shoot_projectile()
+		
+func activate_infinite_projectiles():
+	is_infinite_projectiles_active = true
+	powerup_timer.start(powerup_duration)
+	print("DEBUG: * Powerup activated! Infinite projectiles enabled.")
 	
+func _on_powerup_timeout():
+	is_infinite_projectiles_active = false
+	print("DEBUG: * Powerup expired! Infinite projectiles disabled.")
+	
+func _can_shoot_normal():
+	return
 	
 func play_death_animation():
 	is_dead = true

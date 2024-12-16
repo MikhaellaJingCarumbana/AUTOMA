@@ -112,4 +112,7 @@ func _on_powerup_selected(powerup_type: String) -> void:
 			player.boost_speed()
 	print("DEBUG: Power-up applied: %s" % powerup_type)
 
-	
+func _on_star_powerup_collected(powerup_type: String) -> void:
+	if powerup_type == "infinite projectiles":
+		player.activate_infinite_projectiles()
+		print("DEBUG: * Powerup collected! Infinite projectiles enabled.")

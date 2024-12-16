@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://ct6u7brjt3as2"]
+
+[ext_resource type="Texture2D" uid="uid://t2reqfqtkp3s" path="res://Chapters/Chapter 1/Powerups/asset/Fire Effect and Bullet 16x16.png" id="1_gbrdx"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.gd" id="1_hupk7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqetg"]
+atlas = ExtResource("1_gbrdx")
+region = Rect2(304, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xbrs"]
+atlas = ExtResource("1_gbrdx")
+region = Rect2(320, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5do2w"]
+atlas = ExtResource("1_gbrdx")
+region = Rect2(336, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qo1w"]
+atlas = ExtResource("1_gbrdx")
+region = Rect2(352, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rkho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqetg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xbrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5do2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qo1w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5w12"]
+radius = 13.0
+
+[node name="StarProjectile" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_hupk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.3125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_6rkho")
+frame_progress = 0.781855
+speed_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c5w12")
+
+[node name="PowerupTimer" type="Timer" parent="."]
