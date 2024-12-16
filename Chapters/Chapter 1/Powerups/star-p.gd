@@ -39,7 +39,6 @@ func _ready() -> void:
 
 func _on_powerup_collected():
 	if not is_powerup_active:
-		apply_powerup_effect()
 		powerup_timer.wait_time = 10.0
 		powerup_timer.start()
 		is_powerup_active = true
@@ -78,10 +77,11 @@ func _on_enemy_freed() -> void:
 		print("ERROR: Enemy reference lost before being freed")
 	
 func _on_body_entered(body: Node2D) -> void:
-	print("DEBUG: Body entered Note area:", body.name)
+	print("DEBUG: Body entered powerup area:", body.name)
 	if visible and body.is_in_group("Player"):
 		print("DEBUG: Power-up collected by player.")
-		game_manager.activate_powerup_menu()
+		apply_powerup_effect(body)
+		game_manager.emit_signal("powerup_collected", powerup_type)
 		queue_free()
 	elif not visible:
 		print("DEBUG: Note is not visible; cannot be collected.")
@@ -93,24 +93,14 @@ func apply_powerup(player: Node2D) -> void:
 		is_powerup_active = true
 		
 func _on_powerup_timer_timeout() -> void:
-	if is_powerup_active:
-		var player = get_tree().get_current_scene().get_node("Player")
-		if player:
-			player.has_charge_powerip = false
-			player.JUMP_VELOCITY = -560.0
-			
-		is_powerup_active = false
-		print("DEBUG: Power-up expired. Player reset to default settings.")
+	var player = get_tree().get_current_scene().get_node("Player")
+	if player and player.has_infinite_projectiles:
+		player.has_infinite_projectiles = false
+		print("DEBUG: Infinite projectiles effect expired.")
 
-func apply_powerup_effect():
-	print("DEBUG: Power-up effect applied")
-	
-func reset_to_default():
-	if is_powerup_active:
-		is_powerup_active = false
-		powerup_timer.stop()
-		var player = get_tree().get_current_scene().get_node("Player")
-		if player:
-			player.has_charge_powerip = false
-			player.JUMP_VELOCITY = -560.0
-		print("DEBUG: Powerup expired. Player reset to default settings.")
+func apply_powerup_effect(player: Node2D):
+	if not player.has_infinite_projectiles:
+		player.has_infinite_projectiles = true
+		print("DEBUG: Infinite projectiles activated.")
+		powerup_timer.start(powerup_duration)
+		

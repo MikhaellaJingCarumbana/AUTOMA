@@ -21,6 +21,7 @@ var powerup_duration: float = 3.0
 
 var jump_count = 0
 var max_jumps = 4
+var has_infinite_projectiles: bool = false
 
 @onready var projectile_scene = preload("res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn")
 var is_infinite_projectiles_active = false
@@ -90,6 +91,11 @@ func shoot_projectile():
 	projectile.velocity = Vector2(-400 if is_facing_left else 400,0)
 	get_parent().add_child(projectile)
 	print("DEBUG: Projectile shot!")
+	
+	if has_infinite_projectiles:
+		print("DEBUG: Firing infinite projectiles!")
+	else:
+		print("DEBUG: Firing standard projectile.")
 	
 		
 func _on_spawn(position: Vector2, direction: String):
