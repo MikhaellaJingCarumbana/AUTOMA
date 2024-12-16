@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpwtui6ho2dvt"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/plus-p.gd" id="1_mppjt"]
-[ext_resource type="Texture2D" uid="uid://bhyec1u2w6xog" path="res://Art/48x48/arrow_01d.png" id="2_q1xs3"]
+[ext_resource type="Texture2D" uid="uid://bfuirldseio0x" path="res://Chapters/Chapter 1/Powerups/asset/Copy of Thr.png" id="2_n3u4k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b0uil"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_q1xs3")
+"texture": ExtResource("2_n3u4k")
 }],
 "loop": true,
 "name": &"default",
@@ -15,13 +15,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvey0"]
-radius = 5.0
+radius = 8.06226
 
 [node name="Plus" type="Area2D"]
 script = ExtResource("1_mppjt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.146159, 0.146159)
+position = Vector2(2.38419e-07, -2.38419e-07)
+scale = Vector2(0.0295398, 0.0295398)
 sprite_frames = SubResource("SpriteFrames_b0uil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
