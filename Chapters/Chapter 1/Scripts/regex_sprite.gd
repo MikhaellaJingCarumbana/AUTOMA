@@ -23,7 +23,7 @@ var jump_count = 0
 var max_jumps = 4
 var has_infinite_projectiles: bool = false
 
-@onready var projectile_scene = preload("res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn")
+@export var projectile_scene: PackedScene
 var is_infinite_projectiles_active = false
 var powerup_timer: Timer
 
@@ -34,6 +34,11 @@ func jump():
 		velocity.y = JUMP_VELOCITY
 		print("DEBUG: Jump executed. Jump count: %d, Velocity: %f" % [jump_count, velocity.y])
 	
+	
+func _input(event):
+	if event.is_action_pressed("shoot"):
+		shoot_projectile()
+		
 func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
 	velocity.x = x
@@ -86,17 +91,21 @@ func _ready():
 	add_child(powerup_timer)
 	
 func shoot_projectile():
+	if projectile_scene == null:
+		print("ERROR: Projectile scene not set!")
+		return
+		
 	var projectile = projectile_scene.instantiate()
-	projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0) 
-	projectile.velocity = Vector2(-400 if is_facing_left else 400,0)
-	get_parent().add_child(projectile)
+	
+	projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0)
+	
+	var direction = Vector2.LEFT if is_facing_left else Vector2.RIGHT
+	if projectile.has_method("initialize"):
+		projectile.initialize(direction)
+		
+	get_tree().current_scene.add_child(projectile)
+	
 	print("DEBUG: Projectile shot!")
-	
-	if has_infinite_projectiles:
-		print("DEBUG: Firing infinite projectiles!")
-	else:
-		print("DEBUG: Firing standard projectile.")
-	
 		
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position

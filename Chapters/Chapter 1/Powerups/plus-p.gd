@@ -4,7 +4,6 @@ extends Area2D
 @export var powerup_duration: float = 3.0 
 @export var float_amplitude: float = 5.0
 @export var float_speed: float = 4.0
-@export var jump_boost: int = -200
 
 
 @onready var powerup_timer: Timer = $PowerupTimer

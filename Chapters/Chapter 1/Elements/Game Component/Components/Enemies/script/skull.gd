@@ -119,5 +119,9 @@ func _on_area_2d_body_entered(body):
 			else:
 				body.jump_slide(-500)
 				
+func take_damage(amount: int):
+	health -= amount
+	if health <= 0:
+		handle_death()
 				
 	#github streak saver hahaha

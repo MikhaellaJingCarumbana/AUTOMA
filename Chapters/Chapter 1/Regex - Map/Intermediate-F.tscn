@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=46 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
+[ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6631,6 +6632,7 @@ interact_value = "working???"
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(213, 241)
+projectile_scene = ExtResource("27_v5qjy")
 
 [node name="Camera2D" parent="Player" index="2"]
 physics_interpolation_mode = 1
@@ -6824,10 +6826,6 @@ parent_enemy = NodePath("../Skull2")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-powerup_duration = 3.0
-float_amplitude = 5.0
-float_speed = 4.0
-jump_boost = -200
 parent_enemy = NodePath("../Skull")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
@@ -6835,6 +6833,8 @@ unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [node name="CheckpointManager" parent="." instance=ExtResource("13_iqdbx")]
+
+[node name="StarProjectile" parent="." instance=ExtResource("27_v5qjy")]
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
@@ -6871,3 +6871,4 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="Enemies/Star"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
+[editable path="StarProjectile"]
