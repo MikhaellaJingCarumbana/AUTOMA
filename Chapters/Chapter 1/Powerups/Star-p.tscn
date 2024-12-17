@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://c162a7t7d151x"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/star-p.gd" id="1_o5772"]
-[ext_resource type="Texture2D" uid="uid://bvdsl182ensyo" path="res://Chapters/Chapter 1/Powerups/asset/Copy of Thr (2).png" id="2_f0sno"]
+[ext_resource type="Texture2D" uid="uid://qmvggs6ba74i" path="res://Chapters/Chapter 1/Powerups/asset/star.png" id="2_u3675"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b0uil"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f0sno")
+"texture": ExtResource("2_u3675")
 }],
 "loop": true,
 "name": &"default",

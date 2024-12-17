@@ -1,38 +1,29 @@
 [gd_scene load_steps=9 format=3 uid="uid://ct6u7brjt3as2"]
 
-[ext_resource type="Texture2D" uid="uid://t2reqfqtkp3s" path="res://Chapters/Chapter 1/Powerups/asset/Fire Effect and Bullet 16x16.png" id="1_gbrdx"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.gd" id="1_hupk7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqetg"]
-atlas = ExtResource("1_gbrdx")
-region = Rect2(304, 112, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xbrs"]
-atlas = ExtResource("1_gbrdx")
-region = Rect2(320, 112, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5do2w"]
-atlas = ExtResource("1_gbrdx")
-region = Rect2(336, 112, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qo1w"]
-atlas = ExtResource("1_gbrdx")
-region = Rect2(352, 112, 16, 16)
+[ext_resource type="Texture2D" uid="uid://c57r2rf4lsqhj" path="res://Chapters/Chapter 1/Powerups/asset/FB00_nyknck/FB001.png" id="2_3elv4"]
+[ext_resource type="Texture2D" uid="uid://dt11q47kprr5d" path="res://Chapters/Chapter 1/Powerups/asset/FB00_nyknck/FB002.png" id="3_en46q"]
+[ext_resource type="Texture2D" uid="uid://b87wncoy756o8" path="res://Chapters/Chapter 1/Powerups/asset/FB00_nyknck/FB003.png" id="4_bd1ig"]
+[ext_resource type="Texture2D" uid="uid://dh2w15mcvmb8q" path="res://Chapters/Chapter 1/Powerups/asset/FB00_nyknck/FB004.png" id="5_1r0ul"]
+[ext_resource type="Texture2D" uid="uid://bqe7b18wvqd6g" path="res://Chapters/Chapter 1/Powerups/asset/FB00_nyknck/FB005.png" id="6_tqsht"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6rkho"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jqetg")
+"texture": ExtResource("2_3elv4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4xbrs")
+"texture": ExtResource("3_en46q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5do2w")
+"texture": ExtResource("4_bd1ig")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2qo1w")
+"texture": ExtResource("5_1r0ul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tqsht")
 }],
 "loop": true,
 "name": &"default",
@@ -40,16 +31,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5w12"]
-radius = 13.0
+radius = 7.0
 
 [node name="StarProjectile" type="CharacterBody2D" groups=["Player"]]
 motion_mode = 1
 script = ExtResource("1_hupk7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.3125, 1.3125)
+position = Vector2(-7, 1)
+scale = Vector2(0.640625, 0.640625)
 sprite_frames = SubResource("SpriteFrames_6rkho")
-frame_progress = 0.781855
+frame_progress = 0.975454
 speed_scale = 3.0
 
 [node name="PowerupTimer" type="Timer" parent="."]
