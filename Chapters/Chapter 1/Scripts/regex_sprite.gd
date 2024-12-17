@@ -45,7 +45,7 @@ func _ready():
 	projectile_timer = Timer.new()
 	projectile_timer.one_shot = true
 	add_child(projectile_timer)
-	projectile_timer.timeout.connect(_reset_projectile)
+	projectile_timer.timeout.connect(deactivate_projectile_powerup)
 	
 
 func _process(delta):
@@ -73,7 +73,7 @@ func jump():
 	
 	
 func _input(event):
-	if event.is_action_pressed("shoot"):
+	if event.is_action_pressed("shoot") and is_infinite_projectiles_active:
 		shoot_projectile()
 		
 func jump_slide(x):
@@ -112,16 +112,6 @@ func boost_speed():
 		add_child(speed_boost_timer)
 		speed_boost_timer.start()
 	
-
-	
-	
-func _reset_projectile():
-	if not projectile_timer.is_stopped():
-		projectile_timer.stop()
-	
-	is_infinite_projectiles_active = false
-	
-	print("DEBUG: Projectile reset. Infinite projectiles disabled.")
 		
 func shoot_projectile() -> void:
 	
@@ -130,8 +120,9 @@ func shoot_projectile() -> void:
 		get_parent().add_child(projectile)
 		projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0)
 		var direction = Vector2.LEFT if is_facing_left else Vector2.RIGHT
-		projectile.initialize(direction)
-		
+		projectile.initialize(direction, SPEED)
+		print("DEBUG: Projectile shot!")
+	
 	if is_infinite_projectiles_active:
 		print("Projectile shot with powerup!")
 	else:
@@ -187,13 +178,8 @@ func _physics_process(delta):
 		jump_count = 0
 		
 		
-func activate_infinite_projectiles():
-	is_infinite_projectiles_active = true
-	projectile_timer.start(powerup_duration)
-	print("DEBUG: Power-up activated. Infinite projectiles enabled for %.2f seconds" % powerup_duration)
-	
 func _on_powerup_timeout():
-	_reset_projectile()
+	deactivate_projectile_powerup()
 	print("DEBUG: * Powerup expired! Infinite projectiles disabled.")
 	
 func _can_shoot_normal():
@@ -259,3 +245,22 @@ func _reset_powerup():
 	max_jumps = 1
 	JUMP_VELOCITY = -560.0
 	print("DEBUG: Powerup expired. Jump reset.")
+
+func start_timer():
+	projectile_timer.wait_time = powerup_duration
+	projectile_timer.start()
+	
+func get_timer_time_left() -> float:
+	return projectile_timer.get_time_left()
+	
+
+	
+func activate_projectile_powerup_powerup() -> void:
+	if not is_infinite_projectiles_active:
+		is_infinite_projectiles_active = true
+		projectile_timer.start(powerup_duration)
+		print("DEBUG: Infinite projectiles activated for %.2f seconds" % powerup_duration)
+		
+func deactivate_projectile_powerup() -> void:
+	is_infinite_projectiles_active = false
+	print("DEBUG: Infinite projectiles deactivated.")
