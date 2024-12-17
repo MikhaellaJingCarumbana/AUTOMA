@@ -66,10 +66,10 @@ func _process(delta):
 		prev_projectile_powerup_state = is_infinite_projectiles_active
 
 func jump():
-	if is_on_floor():
-		jump_count += 1
+	if jump_count < max_jumps:
 		velocity.y = JUMP_VELOCITY
-		print("DEBUG: Jump executed. Jump count: %d, Velocity: %f" % [jump_count, velocity.y])
+		jump_count += 1
+		print("Jump count: %d" % jump_count)
 	
 	
 func _input(event):
@@ -85,15 +85,8 @@ func boost_jump():
 		has_charge_powerip = true
 		JUMP_VELOCITY -= 200
 		print("DEBUG: Jump boost activated!")
+		jump_boost_timer.start(powerup_duration)
 		
-		var jump_boost_timer = Timer.new()
-		jump_boost_timer.one_shot = true
-		jump_boost_timer.wait_time = powerup_duration
-		jump_boost_timer.timeout.connect(_reset_jump_boost)
-		add_child(jump_boost_timer)
-		jump_boost_timer.start()
-		
-	
 func _reset_jump_boost():
 	has_charge_powerip = false
 	JUMP_VELOCITY += 200
@@ -104,14 +97,7 @@ func boost_speed():
 		speed_boost_active = true
 		SPEED += 100
 		print("DEBUG: Speed boost activated!")
-		
-		var speed_boost_timer = Timer.new()
-		speed_boost_timer.one_shot = true
-		speed_boost_timer.wait_time = powerup_duration
-		speed_boost_timer.timeout.connect(_reset_speed_boost)
-		add_child(speed_boost_timer)
-		speed_boost_timer.start()
-	
+		jump_boost_timer.start(powerup_duration)
 		
 func shoot_projectile() -> void:
 	
@@ -120,7 +106,7 @@ func shoot_projectile() -> void:
 		get_parent().add_child(projectile)
 		projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0)
 		var direction = Vector2.LEFT if is_facing_left else Vector2.RIGHT
-		projectile.initialize(direction, SPEED)
+		projectile.initialize(direction)
 		print("DEBUG: Projectile shot!")
 	
 	if is_infinite_projectiles_active:
@@ -264,3 +250,9 @@ func activate_projectile_powerup_powerup() -> void:
 func deactivate_projectile_powerup() -> void:
 	is_infinite_projectiles_active = false
 	print("DEBUG: Infinite projectiles deactivated.")
+
+
+func _on_star_powerup_collected(player: Node2D):
+	print("Powerup collected signal received")
+	is_infinite_projectiles_active = true
+	projectile_timer.start(powerup_duration)

@@ -17,6 +17,7 @@ var base_y_position: float = 0.0
 var time_elapsed: float = 0.0
 var is_floating: bool = false
 var is_powerup_active: bool = false
+var is_infinite_projectiles_active: bool = false
 
 signal powerup_collected(player: Node2D)
 
@@ -35,17 +36,19 @@ func _ready() -> void:
 	else:
 		print("ERROR: parent_enemy is not set or invalid.")
 		
+	if get_tree().get_current_scene().has_node("Player"):
+		var player = get_tree().get_current_scene().get_node("Player")
+		self.connect("powerup_collected", player._on_star_powerup_collected)
+	else:
+		print("DEBUG: Player node not found for signal connection!")
 	#start the timer for demonstration
 
-func _on_powerup_collected(player: Node2D):
-	if not is_powerup_active:
-		is_powerup_active = true
+func _on_powerup_collected(body: Node2D):
+	if body is Player:
+		emit_signal("powerup_collected")
+		queue_free()
+		print("DEBUG: Powerup projectile collected by the player")
 		
-	if player.has_method("start_timer"):
-		player.start_timer(powerup_duration)
-	else:
-		print("ERROR: Player does not have a start_timer method!")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_floating:
 		time_elapsed += delta
@@ -84,12 +87,14 @@ func _on_enemy_freed() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	print("DEBUG: Body entered powerup area:", body.name)
-	if visible and body.is_in_group("Player") and not is_powerup_active:
+	if visible and body.is_in_group("Player") and not is_infinite_projectiles_active:
 			is_powerup_active = true
-			emit_signal("powerup_collected")
+			is_infinite_projectiles_active = true
+			emit_signal("powerup_collected", body)
 			queue_free()
+			print("DEBUG: Powerup projectile collected!")
 	elif not visible:
-		print("DEBUG: Note is not visible; cannot be collected.")
+		print("DEBUG: Powerup is not visible; cannot be collected.")
 		
 		
 func apply_powerup(player: Node2D) -> void:
