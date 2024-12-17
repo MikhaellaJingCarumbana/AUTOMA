@@ -17,7 +17,7 @@ var movable = true
 var is_dead = false
 var has_charge_powerip = false
 var jump_boost_timer: Timer
-var powerup_duration: float = 5.0
+var powerup_duration: float = 10.0
 
 var jump_count = 0
 var max_jumps = 4
