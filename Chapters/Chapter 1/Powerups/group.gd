@@ -112,7 +112,11 @@ func _on_powerup_timer_timeout() -> void:
 		print("ERROR: Player does not have an end_powerup method!")
 
 func apply_powerup_effect(player: Node2D):
-	if not player.is_infinite_projectiles_active:
-		player.is_infinite_projectiles_active = true
-		print("DEBUG: Infinite projectiles activated.")
+	var groups = game_manager.enemy_groups
+	for enemy_type in groups:
+		for enemy in groups[enemy_type]:
+			if enemy and not enemy.dead:
+				enemy.take_damage(50)
+				print("Enemy group takes damage")
+	print("DEBUG: Applied powerup effect to grouped enemies.")
 		

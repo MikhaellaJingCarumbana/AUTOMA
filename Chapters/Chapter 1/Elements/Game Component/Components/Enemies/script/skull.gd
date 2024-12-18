@@ -33,9 +33,15 @@ var player_in_area = false
 
 @export var hover_height: float = 10.0
 
+var group_id = -1 #default is not grouped
+var grouped = false #if enemy if part of a group
+
 
 func _ready():
 	position.y -= hover_height
+	
+	if game_manager.has_method("add_enemy_to_group"):
+		game_manager.add_enemy_to_group("Skull", self)
 	
 func _process(delta):
 	float_time += delta
@@ -74,8 +80,14 @@ func handle_death():
 		print("DEBUG: Note made visible and collidable at position: ", note.global_position)
 	else:
 		print("DEBUG: No note node found under the same parent as enemy.")
+		
+	if game_manager.has_method("remove_enemy_from_group"):
+		game_manager.remove_enemy_from_group("Skull", self)
+		
 	self.queue_free()
 	print("Enemy has been freed")
+	
+	
 
 func move(delta):
 	if !dead:
@@ -120,6 +132,13 @@ func _on_area_2d_body_entered(body):
 				body.jump_slide(-500)
 				
 func take_damage(amount: int):
+	if game_manager.has_method("enemy_gorups") and game_manager.enemy_groups.has("Skull"):
+		for enemy in game_manager.enemy_groups["Skull"]:
+			if enemy and not enemy.dead:
+				enemy.apply_damage(amount)
+		
+		
+func apply_damage(amount: int):
 	health -= amount
 	var anim_sprite = %AnimatedSprite2D
 	anim_sprite.play("hurt")

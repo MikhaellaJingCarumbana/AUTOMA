@@ -260,3 +260,13 @@ func _on_star_powerup_collected(player: Node2D):
 	print("Powerup collected signal received")
 	is_infinite_projectiles_active = true
 	projectile_timer.start(powerup_duration)
+	
+	
+func attack_enemy(enemy: SkullEnemy, damage: int):
+	if game_manager.has_method("enemy_groups") and game_manager.enemy_groups.has("Skull"):
+		for grouped_enemy in game_manager.enemy_groups["Skull"]:
+			if grouped_enemy and not grouped_enemy.dead:
+				grouped_enemy.take_damage(damage)
+				
+	else:
+		enemy.take_damage(damage)
