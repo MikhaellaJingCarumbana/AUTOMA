@@ -104,9 +104,13 @@ func shoot_projectile() -> void:
 	if projectile_scene:
 		var projectile = projectile_scene.instantiate()
 		get_parent().add_child(projectile)
+		
 		projectile.position = global_position + Vector2(-20 if is_facing_left else 20,0)
 		var direction = Vector2.LEFT if is_facing_left else Vector2.RIGHT
-		projectile.initialize(direction)
+		
+		if projectile.has_method("initialize"):
+			projectile.initialize(direction)
+			
 		print("DEBUG: Projectile shot!")
 	
 	if is_infinite_projectiles_active:
