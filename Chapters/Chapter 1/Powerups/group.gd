@@ -5,6 +5,7 @@ extends Area2D
 @export var float_amplitude: float = 5.0
 @export var float_speed: float = 4.0
 @export var jump_boost: int = -200
+@export var max_group_size: int = 3
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -17,7 +18,6 @@ var base_y_position: float = 0.0
 var time_elapsed: float = 0.0
 var is_floating: bool = false
 var is_powerup_active: bool = false
-var is_infinite_projectiles_active: bool = false
 
 signal powerup_collected(player: Node2D)
 
@@ -36,12 +36,40 @@ func _ready() -> void:
 	else:
 		print("ERROR: parent_enemy is not set or invalid.")
 		
-	if get_tree().get_current_scene().has_node("Player"):
-		var player = get_tree().get_current_scene().get_node("Player")
-		self.connect("powerup_collected", player._on_star_powerup_collected)
-	else:
-		print("DEBUG: Player node not found for signal connection!")
+	var powerup_timer = Timer.new()
+	powerup_timer.name = "PowerupTimer"
+	powerup_timer.one_shot = true
+	powerup_timer.wait_time = powerup_duration
+	add_child(powerup_timer)
+	powerup_timer.connect("timeout", _on_powerup_timer_timeout)
 	#start the timer for demonstration
+	
+func activate_powerup():
+	if not is_powerup_active:
+		is_powerup_active = true
+		print("Power-up activated!")
+		
+		enable_group_powerup_effects()
+		
+		var timer = $PowerupTimer
+		if timer:
+			timer.start()
+			
+func disable_powerup():
+	if is_powerup_active:
+		is_powerup_active = false
+		print("Power-up deactivated!")
+		
+
+func _on_powerup_timer_timeout():
+	disable_powerup()
+	
+func enable_group_powerup_effects():
+	print("Enabling group power-up effects...")
+	
+func disable_group_powerup_effects():
+	pass
+	
 
 func _on_powerup_collected(body: Node2D):
 	if body is Player:
@@ -62,8 +90,7 @@ func _process(delta: float) -> void:
 			var time_left = player.get_timer_time_left()
 			if time_left > 0:
 				print("DEBUG: Timer running. Time left: %.2f seconds" % time_left)
-			else:
-				_on_powerup_timer_timeout()
+			
 		
 func make_visible_at_enemy_position() -> void:
 	print("DEBUG: Making note visible at enemy position.")
@@ -87,29 +114,14 @@ func _on_enemy_freed() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	print("DEBUG: Body entered powerup area:", body.name)
-	if visible and body.is_in_group("Player") and not is_infinite_projectiles_active:
+	if visible and body.is_in_group("Player"):
 			is_powerup_active = true
-			is_infinite_projectiles_active = true
 			emit_signal("powerup_collected", body)
 			queue_free()
 			print("DEBUG: Powerup projectile collected!")
 	elif not visible:
 		print("DEBUG: Powerup is not visible; cannot be collected.")
 		
-		
-func apply_powerup(player: Node2D) -> void:
-	
-	if not is_powerup_active:
-		is_powerup_active = true
-		
-func _on_powerup_timer_timeout() -> void:
-	var player = get_tree().get_current_scene().get_node("Player")
-	if player and player.has_method("end_powerup"):
-		player.end_powerup()
-		is_powerup_active = false
-		print("DEBUG: Power-up effect expired.")
-	else:
-		print("ERROR: Player does not have an end_powerup method!")
 
 func apply_powerup_effect(player: Node2D):
 	var groups = game_manager.enemy_groups
@@ -119,4 +131,29 @@ func apply_powerup_effect(player: Node2D):
 				enemy.take_damage(50)
 				print("Enemy group takes damage")
 	print("DEBUG: Applied powerup effect to grouped enemies.")
-		
+	
+	
+func group_enemies(player: Node2D) -> void:
+	var grouped_enemies = []
+	var player_position = player.global_position
+
+	for enemy_type in game_manager.enemy_groups:
+		for enemy in game_manager.enemy_groups[enemy_type]:
+			if enemy and not enemy.dead:
+				var distance = player_position.distance_to(enemy.global_position)
+				if distance < 200 and enemy.grouped == false:
+					grouped_enemies.append(enemy)
+					enemy.grouped = true
+					print("DEBUG: Added enemy to group:", enemy.name)
+					
+					if group_enemies.size() >= max_group_size:
+						break
+	
+	if grouped_enemies.size() > 1:
+		for enemy in group_enemies():
+			enemy.group_id = game_manager.get_new_group_id()
+			print("DEBUG: Enemy grouped with ID:", enemy.group_id)
+		print("DEBUG: Grouped enemies:", grouped_enemies)
+	else:
+		print("DEBUG: Not enough enemies nearby to form a group.")
+							

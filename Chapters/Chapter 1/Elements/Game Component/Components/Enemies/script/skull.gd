@@ -3,6 +3,9 @@ class_name SkullEnemy
 
 @onready var game_manager: Node = %GameManager
 @export var note_scene: PackedScene
+@export var enemy_type: String = "Skull"
+var group_id: int = -1
+var grouped: bool = false
 
 const speed = 30 
 var is_cyclops_chase: bool = true
@@ -33,8 +36,6 @@ var player_in_area = false
 
 @export var hover_height: float = 10.0
 
-var group_id = -1 #default is not grouped
-var grouped = false #if enemy if part of a group
 
 
 func _ready():
@@ -42,6 +43,7 @@ func _ready():
 	
 	if game_manager.has_method("add_enemy_to_group"):
 		game_manager.add_enemy_to_group("Skull", self)
+	print("DEBUG: Enemy added to group manager.")
 	
 func _process(delta):
 	float_time += delta
@@ -82,7 +84,7 @@ func handle_death():
 		print("DEBUG: No note node found under the same parent as enemy.")
 		
 	if game_manager.has_method("remove_enemy_from_group"):
-		game_manager.remove_enemy_from_group("Skull", self)
+		game_manager.remove_enemy_from_group(enemy_type, self)
 		
 	self.queue_free()
 	print("Enemy has been freed")
@@ -132,18 +134,13 @@ func _on_area_2d_body_entered(body):
 				body.jump_slide(-500)
 				
 func take_damage(amount: int):
-	if game_manager.has_method("enemy_gorups") and game_manager.enemy_groups.has("Skull"):
-		for enemy in game_manager.enemy_groups["Skull"]:
-			if enemy and not enemy.dead:
-				enemy.apply_damage(amount)
-		
-		
-func apply_damage(amount: int):
 	health -= amount
 	var anim_sprite = %AnimatedSprite2D
 	anim_sprite.play("hurt")
 	print("DEBUG: Enemy took damage. Current health: ", health)
 	if health <= 0:
 		handle_death()
+		
+
 				
 	#github streak saver hahaha

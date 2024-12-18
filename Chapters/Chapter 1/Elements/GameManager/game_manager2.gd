@@ -7,7 +7,8 @@ extends Node
 @onready var player: Player = $"../Player"
 @onready var pause_menu: ColorRect = $"../UI/Powerup_Choose/PauseMenu"
 
-var enemy_groups: Dictionary = {}
+var enemy_groups = {}
+var group_counter = 0
 
 var points = 0
 var lives = 5
@@ -125,16 +126,15 @@ func _on_star_powerup_collected(powerup_type: String) -> void:
 func add_enemy_to_group(enemy_type: String, enemy: Node) -> void:
 	if not enemy_groups.has(enemy_type):
 		enemy_groups[enemy_type] = []
-	if enemy_groups[enemy_type].size() < 3:
-		enemy_groups[enemy_type].append(enemy)
-	else:
-		print("DEBUG: Group size limit reached for enemy type:", enemy_type)
+	
 		
 func remove_enemy_from_group(enemy_type: String, enemy: Node) -> void:
-	if enemy_groups.has(enemy_type) and enemy in enemy_groups[enemy_type]:
+	if enemy_groups.has(enemy_type):
 		enemy_groups[enemy_type].erase(enemy)
-		if enemy_groups[enemy_type].is_empty():
-			enemy_groups.erase(enemy_type)
+		
+func get_new_group_id() -> int:
+	group_counter += 1
+	return group_counter
 		
 		
 

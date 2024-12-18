@@ -19,6 +19,12 @@ radius = 8.06226
 
 [node name="Group" type="Area2D"]
 script = ExtResource("1_vvotu")
+powerup_type = null
+powerup_duration = null
+float_amplitude = null
+float_speed = null
+jump_boost = null
+parent_enemy = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.38419e-07, -2.38419e-07)
