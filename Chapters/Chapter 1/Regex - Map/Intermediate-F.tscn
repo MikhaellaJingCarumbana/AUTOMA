@@ -6833,11 +6833,6 @@ powerup_type = "infinite projectiles"
 parent_enemy = NodePath("../Skull2")
 
 [node name="Group" parent="Enemies" instance=ExtResource("26_kkwfd")]
-powerup_type = null
-powerup_duration = null
-float_amplitude = null
-float_speed = null
-jump_boost = null
 parent_enemy = NodePath("../Skull")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]

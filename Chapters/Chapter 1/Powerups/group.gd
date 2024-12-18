@@ -54,12 +54,15 @@ func activate_powerup():
 		var timer = $PowerupTimer
 		if timer:
 			timer.start()
+		else:
+			print("ERROR: PowerupTimer not found!")
 			
 func disable_powerup():
 	if is_powerup_active:
 		is_powerup_active = false
 		print("Power-up deactivated!")
 		
+		disable_group_powerup_effects()
 
 func _on_powerup_timer_timeout():
 	disable_powerup()
@@ -67,9 +70,21 @@ func _on_powerup_timer_timeout():
 func enable_group_powerup_effects():
 	print("Enabling group power-up effects...")
 	
+	var groups = game_manager.enemy_groups
+	for enemy_type in groups:
+		for enemy in groups[enemy_type]:
+			if enemy and not enemy.dead:
+				enemy.take_damage(50)
+				print("DEBUG: Enemy damaged:", enemy.name)
+	
 func disable_group_powerup_effects():
 	pass
 	
+	var groups = game_manager.enemy_groups
+	for enemy_type in groups:
+		for enemy in groups[enemy_type]:
+			if enemy and not enemy.dead:
+				enemy.revert_state()
 
 func _on_powerup_collected(body: Node2D):
 	if body is Player:
@@ -124,36 +139,25 @@ func _on_body_entered(body: Node2D) -> void:
 		
 
 func apply_powerup_effect(player: Node2D):
-	var groups = game_manager.enemy_groups
-	for enemy_type in groups:
-		for enemy in groups[enemy_type]:
-			if enemy and not enemy.dead:
-				enemy.take_damage(50)
-				print("Enemy group takes damage")
-	print("DEBUG: Applied powerup effect to grouped enemies.")
-	
-	
-func group_enemies(player: Node2D) -> void:
 	var grouped_enemies = []
 	var player_position = player.global_position
-
+	var groups = game_manager.enemy_groups
 	for enemy_type in game_manager.enemy_groups:
 		for enemy in game_manager.enemy_groups[enemy_type]:
 			if enemy and not enemy.dead:
 				var distance = player_position.distance_to(enemy.global_position)
-				if distance < 200 and enemy.grouped == false:
+				if distance < 200 and not enemy.grouped:
 					grouped_enemies.append(enemy)
 					enemy.grouped = true
 					print("DEBUG: Added enemy to group:", enemy.name)
 					
-					if group_enemies.size() >= max_group_size:
+					if grouped_enemies.size() >= max_group_size:
 						break
 	
 	if grouped_enemies.size() > 1:
-		for enemy in group_enemies():
+		for enemy in grouped_enemies:
 			enemy.group_id = game_manager.get_new_group_id()
 			print("DEBUG: Enemy grouped with ID:", enemy.group_id)
-		print("DEBUG: Grouped enemies:", grouped_enemies)
 	else:
 		print("DEBUG: Not enough enemies nearby to form a group.")
-							
+	
