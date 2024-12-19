@@ -123,20 +123,25 @@ func _on_star_powerup_collected(powerup_type: String) -> void:
 		player.activate_infinite_projectiles()
 		print("DEBUG: * Powerup collected! Infinite projectiles enabled.")
 		
-func add_enemy_to_group(enemy_type: String, enemy: Node) -> void:
+func add_enemy_to_group(enemy_type: String, enemy: SkullEnemy) -> void:
 	if not enemy_groups.has(enemy_type):
 		enemy_groups[enemy_type] = []
-	if enemy_groups[enemy_type].size() < 3:
-		enemy_groups[enemy_type].append(enemy)
-		enemy.group_id = enemy_groups[enemy_type].size() -1
-		print("Enemy added to group:", enemy_type, enemy)
+	enemy.group_id = group_counter
+	enemy_groups[enemy_type].append(enemy)
+	
+	for grouped_enemy in enemy_groups[enemy_type]:
+		grouped_enemy.set_grouped_visuals(true)
+		
+	print("DEBUG: Enemy added to group manager.")
 	
 		
 func remove_enemy_from_group(enemy_type: String, enemy: Node) -> void:
-	if enemy_groups.has(enemy_type) and enemy in enemy_groups[enemy_type]:
+	if enemy_groups.has(enemy_type):
 		enemy_groups[enemy_type].erase(enemy)
-		enemy.group_id = -1
-		print("Enemy removed from group:", enemy_type, enemy)
+		enemy.set_grouped_visuals(false)
+		
+		if enemy_groups[enemy_type].size() == 0:
+			group_counter += 1
 
 func apply_damage_to_group(enemy_type: String, group_id: int, damage: int):
 	if enemy_groups.has(enemy_type):

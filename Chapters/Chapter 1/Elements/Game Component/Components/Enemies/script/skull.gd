@@ -151,9 +151,10 @@ func set_grouped_visuals(grouped: bool):
 	var anim_sprite = %AnimatedSprite2D
 	if grouped:
 		anim_sprite.modulate = Color(1, 0.5, 0.5)
+		print("DEBUG: Enemy is now grouped. Color changed to red.")
 	else:
 		anim_sprite.modulate = Color(1,1,1)
-	
+		print("DEBUG: Enemy is now grouped. Color changed to red.")
 		
 
 				
