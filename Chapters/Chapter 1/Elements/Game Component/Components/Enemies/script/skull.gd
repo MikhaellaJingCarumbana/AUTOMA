@@ -141,6 +141,20 @@ func take_damage(amount: int):
 	if health <= 0:
 		handle_death()
 		
+	if group_id >= 0 and game_manager.has_method("apply_damage_to_group"):
+		game_manager.apply_damage_to_group(enemy_type, group_id, amount)
+		
+	if health <= 0:
+		handle_death()
+		
+func set_grouped_visuals(grouped: bool):
+	var anim_sprite = %AnimatedSprite2D
+	if grouped:
+		anim_sprite.modulate = Color(1, 0.5, 0.5)
+	else:
+		anim_sprite.modulate = Color(1,1,1)
+	
+		
 
 				
 	#github streak saver hahaha

@@ -126,16 +126,25 @@ func _on_star_powerup_collected(powerup_type: String) -> void:
 func add_enemy_to_group(enemy_type: String, enemy: Node) -> void:
 	if not enemy_groups.has(enemy_type):
 		enemy_groups[enemy_type] = []
+	if enemy_groups[enemy_type].size() < 3:
+		enemy_groups[enemy_type].append(enemy)
+		enemy.group_id = enemy_groups[enemy_type].size() -1
+		print("Enemy added to group:", enemy_type, enemy)
 	
 		
 func remove_enemy_from_group(enemy_type: String, enemy: Node) -> void:
-	if enemy_groups.has(enemy_type):
+	if enemy_groups.has(enemy_type) and enemy in enemy_groups[enemy_type]:
 		enemy_groups[enemy_type].erase(enemy)
-		
-func get_new_group_id() -> int:
-	group_counter += 1
-	return group_counter
-		
+		enemy.group_id = -1
+		print("Enemy removed from group:", enemy_type, enemy)
+
+func apply_damage_to_group(enemy_type: String, group_id: int, damage: int):
+	if enemy_groups.has(enemy_type):
+		for enemy in enemy_groups[enemy_type]:
+			if enemy.group_id == group_id:
+				enemy.take_damage(damage)
+
+
 		
 
 	

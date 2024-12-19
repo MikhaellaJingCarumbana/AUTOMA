@@ -31,6 +31,8 @@ var projectile_timer: Timer
 var shoot_timer = 0.0
 var prev_projectile_powerup_state: bool = false
 
+@export var grouping_range: float =200.0
+
 
 func _ready():
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
@@ -270,3 +272,26 @@ func attack_enemy(enemy: SkullEnemy, damage: int):
 				
 	else:
 		enemy.take_damage(damage)
+
+func activate_grouping_powerup():
+	var nearby_enemies = []
+	for enemy_type in game_manager.enemy_groups.keys():
+		for enemy in game_manager.enemy_groups[enemy_type]:
+			if position.distance_to(enemy.position) <= grouping_range and not enemy.grouped:
+				nearby_enemies.append(enemy)
+				
+	nearby_enemies.sort_custom(_compare_distance)
+	
+	var grouped_count = min(nearby_enemies.size(), 3)
+	
+	for i in range(grouped_count):
+		var enemy = nearby_enemies[i]
+		enemy.grouped = true
+		if game_manager.has_method("add_enemy_to_group"):
+			game_manager.add_enemy_to_group(enemy.enemy_type, enemy)
+	print("DEBUG: Grouping powerup activated.")
+	
+func _compare_distance(a, b):
+	var dist_a = position.distance_to(a.position)
+	var dist_b = position.distance_to(b.position)
+	return dist_a < dist_b

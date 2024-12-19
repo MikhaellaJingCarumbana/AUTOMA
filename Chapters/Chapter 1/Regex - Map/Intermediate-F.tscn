@@ -6780,7 +6780,16 @@ visible = false
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(310, 245)
+position = Vector2(256, 246)
+
+[node name="Skull15" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(721, 242)
+
+[node name="Skull16" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(783, 243)
+
+[node name="Skull17" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(839, 242)
 
 [node name="Skull14" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(886, 243)
@@ -6877,6 +6886,7 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="UI/Powerup_Choose"]
 [editable path="Enemies/Plus"]
 [editable path="Enemies/Star"]
+[editable path="Enemies/Group"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]

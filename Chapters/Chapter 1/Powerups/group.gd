@@ -160,4 +160,9 @@ func apply_powerup_effect(player: Node2D):
 			print("DEBUG: Enemy grouped with ID:", enemy.group_id)
 	else:
 		print("DEBUG: Not enough enemies nearby to form a group.")
+		
+func _on_area_entered(area):
+	if area.name == "Player":
+		area.activate_grouping_powerup()
+		queue_free()
 	
