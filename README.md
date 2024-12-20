@@ -49,3 +49,10 @@ Special thanks: [Arnaud](https://github.com/arnaudvergnet), [AnidemDex](https://
 
 ## License
 This project is licensed under the terms of the [MIT license](https://github.com/dialogic-godot/dialogic/blob/main/LICENSE).
+
+
+
+
+## Link
+Visit: https://jingbeifong.itch.io/automa
+Password: automa
