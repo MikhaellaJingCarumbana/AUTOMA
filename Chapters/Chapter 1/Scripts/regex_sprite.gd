@@ -33,6 +33,7 @@ var prev_projectile_powerup_state: bool = false
 
 @export var grouping_range: float =200.0
 var grouped_enemies: Array = []
+var is_grouping_enabled: bool = false
 
 
 func _ready():

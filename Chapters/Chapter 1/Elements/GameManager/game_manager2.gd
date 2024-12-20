@@ -158,6 +158,7 @@ func kill_group(group_id: int):
 	
 	player.grouped_enemies.clear()
 	print("DEBUG: Group cleared.")
+	
 
 
 		

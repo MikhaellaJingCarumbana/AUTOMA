@@ -70,10 +70,33 @@ func _on_powerup_timer_timeout():
 func enable_group_powerup_effects():
 	print("Enabling group power-up effects...")
 	
-	for enemy_type in game_manager.enemy_groups:
-		for group_id in game_manager.enemy_groups[enemy_type]:
-			game_manager.apply_damage_to_group(enemy_type, group_id, 40)
 	
+	
+
+func apply_grouping_logic():
+	var grouped_enemies = []
+	var player = get_tree().get_current_scene().get_node("Player")
+	if not player:
+		return
+		
+	var player_position = player.global_position
+	for enemy_type in game_manager.enemy_groups:
+		if enemy and not enemy.dead:
+			var distance = player_position.distance_to(enemy.global_position)
+			if distance < 200 and not enemy.append(enemy):
+				enemy.grouped = true
+				print("DEBUG: Added enemy to group:", enemy.name)
+				
+				if grouped_enemies.size() >= max_group_size:
+					break
+					
+	if grouped_enemies.size() > 1:
+		for enemy in grouped_enemies:
+			enemy.group_id = game_manager.get_new_group_id()
+			print("DEBUG: Enemy grouped with ID:", enemy.group_id)
+	else:
+		print("DEBUG: Not enough enemies nearby to form a group.")
+				
 func disable_group_powerup_effects():
 	pass
 	
@@ -87,7 +110,7 @@ func _on_powerup_collected(body: Node2D):
 	if body is Player:
 		emit_signal("powerup_collected")
 		queue_free()
-		print("DEBUG: Powerup projectile collected by the player")
+		print("DEBUG: Grouping enabled after power-up collection.")
 		
 func _process(delta: float) -> void:
 	if is_floating:
@@ -162,4 +185,15 @@ func _on_area_entered(area):
 	if area.name == "Player":
 		area.activate_grouping_powerup()
 		queue_free()
-	
+
+func collect_group_powerup():
+	if not is_powerup_active:
+		is_powerup_active = true
+		print("Group powerup collected!")
+		enable_group_powerup_effects()
+		
+		var timer = $PowerupTimer
+		if timer:
+			timer.start()
+		else:
+			print("Group Timer not found")
