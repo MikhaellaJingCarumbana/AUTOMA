@@ -138,14 +138,15 @@ func take_damage(amount: int):
 	var anim_sprite = %AnimatedSprite2D
 	anim_sprite.play("hurt")
 	print("DEBUG: Enemy took damage. Current health: ", health)
-	if health <= 0:
-		handle_death()
-		
+	
 	if group_id >= 0 and game_manager.has_method("apply_damage_to_group"):
 		game_manager.apply_damage_to_group(enemy_type, group_id, amount)
-		
+	print("DEBUG: Enemy took damage. Current health: ", health)
+	
 	if health <= 0:
 		handle_death()
+		
+	
 		
 func set_grouped_visuals(grouped: bool):
 	var anim_sprite = %AnimatedSprite2D

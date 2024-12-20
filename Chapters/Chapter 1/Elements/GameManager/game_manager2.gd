@@ -7,8 +7,8 @@ extends Node
 @onready var player: Player = $"../Player"
 @onready var pause_menu: ColorRect = $"../UI/Powerup_Choose/PauseMenu"
 
-var enemy_groups = {}
-var group_counter = 0
+var enemy_groups: Dictionary = {}
+var group_counter: int = 0
 
 var points = 0
 var lives = 5
@@ -123,31 +123,32 @@ func _on_star_powerup_collected(powerup_type: String) -> void:
 		player.activate_infinite_projectiles()
 		print("DEBUG: * Powerup collected! Infinite projectiles enabled.")
 		
-func add_enemy_to_group(enemy_type: String, enemy: SkullEnemy) -> void:
+func add_enemy_to_group(enemy_type: String, enemy: Node) -> void:
 	if not enemy_groups.has(enemy_type):
 		enemy_groups[enemy_type] = []
-	enemy.group_id = group_counter
-	enemy_groups[enemy_type].append(enemy)
 	
-	for grouped_enemy in enemy_groups[enemy_type]:
-		grouped_enemy.set_grouped_visuals(true)
-		
-	print("DEBUG: Enemy added to group manager.")
-	
+	if enemy_groups[enemy_type].size() < 3:
+		enemy.group_id = enemy_groups[enemy_type].size()
+		enemy_groups[enemy_type].append(enemy)
+		enemy.grouped = true
+		enemy.set_grouped_visuals(true)
+		print("DEBUG: Enemy added to group. Group size: ", enemy_groups[enemy_type].size())
+	else:
+		print("DEBUG: Group is full. Enemy not added.")
 		
 func remove_enemy_from_group(enemy_type: String, enemy: Node) -> void:
 	if enemy_groups.has(enemy_type):
 		enemy_groups[enemy_type].erase(enemy)
+		enemy.grouped = false
 		enemy.set_grouped_visuals(false)
-		
-		if enemy_groups[enemy_type].size() == 0:
-			group_counter += 1
+		print("DEBUG: Enemy removed from group.")
 
 func apply_damage_to_group(enemy_type: String, group_id: int, damage: int):
-	if enemy_groups.has(enemy_type):
-		for enemy in enemy_groups[enemy_type]:
-			if enemy.group_id == group_id:
+	if enemy_groups.has(enemy_type) and enemy_groups[enemy_type].has(group_id):
+		for enemy in enemy_groups[enemy_type][group_id]:
+			if enemy and not enemy.dead:
 				enemy.take_damage(damage)
+			print("DEBUG: Applied damage to group ", group_id)
 
 
 		

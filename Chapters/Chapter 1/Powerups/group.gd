@@ -70,12 +70,9 @@ func _on_powerup_timer_timeout():
 func enable_group_powerup_effects():
 	print("Enabling group power-up effects...")
 	
-	var groups = game_manager.enemy_groups
-	for enemy_type in groups:
-		for enemy in groups[enemy_type]:
-			if enemy and not enemy.dead:
-				enemy.take_damage(50)
-				print("DEBUG: Enemy damaged:", enemy.name)
+	for enemy_type in game_manager.enemy_groups:
+		for group_id in game_manager.enemy_groups[enemy_type]:
+			game_manager.apply_damage_to_group(enemy_type, group_id, 40)
 	
 func disable_group_powerup_effects():
 	pass
