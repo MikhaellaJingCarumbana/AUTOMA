@@ -32,6 +32,7 @@ var shoot_timer = 0.0
 var prev_projectile_powerup_state: bool = false
 
 @export var grouping_range: float =200.0
+var grouped_enemies: Array = []
 
 
 func _ready():
@@ -48,6 +49,8 @@ func _ready():
 	projectile_timer.one_shot = true
 	add_child(projectile_timer)
 	projectile_timer.timeout.connect(deactivate_projectile_powerup)
+	
+	$Group.connect("area_entered",_on_group_area_entered)
 	
 
 func _process(delta):
@@ -295,3 +298,18 @@ func _compare_distance(a, b):
 	var dist_a = position.distance_to(a.position)
 	var dist_b = position.distance_to(b.position)
 	return dist_a < dist_b
+
+
+func _on_group_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemies") and grouped_enemies.size() < 3:
+		if not area.grouped:
+			grouped_enemies.append(area)
+			area.set_grouped_visuals(true)
+			print("DEBUG: Enemy grouped: ", area.name)
+		
+		if grouped_enemies.size() == 3:
+			for enemy in grouped_enemies:
+				enemy.group_id = grouped_enemies.hash()
+			print("DEBUG: Grouping complete. Group ID: ", grouped_enemies.hash())
+			print("Group full. No more grouping until current group is cleared.")
+			return

@@ -4,7 +4,7 @@ class_name SkullEnemy
 @onready var game_manager: Node = %GameManager
 @export var note_scene: PackedScene
 @export var enemy_type: String = "Skull"
-var group_id: int = -1
+var group_id = null
 var grouped: bool = false
 
 const speed = 30 
@@ -83,8 +83,10 @@ func handle_death():
 	else:
 		print("DEBUG: No note node found under the same parent as enemy.")
 		
-	if game_manager.has_method("remove_enemy_from_group"):
-		game_manager.remove_enemy_from_group(enemy_type, self)
+	if grouped and game_manager.has_method("kill_group"):
+		game_manager.kill_group(group_id)
+	else:
+		queue_free()
 		
 	self.queue_free()
 	print("Enemy has been freed")
@@ -148,14 +150,12 @@ func take_damage(amount: int):
 		
 	
 		
-func set_grouped_visuals(grouped: bool):
-	var anim_sprite = %AnimatedSprite2D
+func set_grouped_visuals(grouped_status: bool):
+	grouped = grouped_status
 	if grouped:
-		anim_sprite.modulate = Color(1, 0.5, 0.5)
-		print("DEBUG: Enemy is now grouped. Color changed to red.")
+		%AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
 	else:
-		anim_sprite.modulate = Color(1,1,1)
-		print("DEBUG: Enemy is now grouped. Color changed to red.")
+		%AnimatedSprite2D.modulate = Color(1,1,1)
 		
 
 				

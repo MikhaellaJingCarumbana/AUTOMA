@@ -149,6 +149,15 @@ func apply_damage_to_group(enemy_type: String, group_id: int, damage: int):
 			if enemy and not enemy.dead:
 				enemy.take_damage(damage)
 			print("DEBUG: Applied damage to group ", group_id)
+			
+func kill_group(group_id: int):
+	for enemy in get_tree().get_nodes_in_group("Enemies"):
+		if enemy.group_id == group_id:
+			print("DEBUG: Killing grouped enemy: ", enemy.name)
+			enemy.queue_free()
+	
+	player.grouped_enemies.clear()
+	print("DEBUG: Group cleared.")
 
 
 		
