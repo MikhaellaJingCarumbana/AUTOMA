@@ -31,9 +31,13 @@ var projectile_timer: Timer
 var shoot_timer = 0.0
 var prev_projectile_powerup_state: bool = false
 
-@export var grouping_range: float =200.0
-var grouped_enemies: Array = []
 var is_grouping_enabled: bool = false
+
+@onready var group: Area2D = $Group
+@export var grouping_range: float = 200.0
+@export var max_group_size: int = 3
+var grouped_enemies: Array = []
+
 
 
 func _ready():
@@ -81,6 +85,9 @@ func jump():
 func _input(event):
 	if event.is_action_pressed("shoot") and is_infinite_projectiles_active:
 		shoot_projectile()
+		
+	if event.is_action_pressed("group_attack") and grouped_enemies:
+		deal_group_damage(80)
 		
 func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
@@ -302,15 +309,33 @@ func _compare_distance(a, b):
 
 
 func _on_group_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Enemies") and grouped_enemies.size() < 3:
-		if not area.grouped:
+	if area.is_in_group("enemies"):
+		if not grouped_enemies.has(area):
 			grouped_enemies.append(area)
-			area.set_grouped_visuals(true)
-			print("DEBUG: Enemy grouped: ", area.name)
+			_apply_visual_change(area)
+			print("Enemy added to group. Current group size: %d" % grouped_enemies.size())
+
+func _on_group_area_exited(area: Area2D) -> void:
+	if area.is_in_group("enemies") and grouped_enemies.has(area):
+		grouped_enemies.erase(area)
+		_remove_visual_change(area)
+		print("Enemy removed from group. Current group size: %d" % grouped_enemies.size())
+	
+func _apply_visual_change(enemy: Node):
+	if enemy.has_node("AnimatedSprite2D"):
+		var sprite = enemy.get_node("AnimatedSprite2D")
+		sprite.modulate = Color(1, 0.5, 0.5)
 		
-		if grouped_enemies.size() == 3:
-			for enemy in grouped_enemies:
-				enemy.group_id = grouped_enemies.hash()
-			print("DEBUG: Grouping complete. Group ID: ", grouped_enemies.hash())
-			print("Group full. No more grouping until current group is cleared.")
-			return
+func _remove_visual_change(enemy: Node):
+	if enemy.has_node("AnimatedSprite2D"):
+		var sprite = enemy.get_node("AnimatedSprite2D")
+		sprite.modulate = Color(1, 1, 1)
+		
+func deal_group_damage(damage: int):
+	for enemy in grouped_enemies:
+		if enemy.has_method("take_damage"):
+			enemy.take_damage(damage)
+		else:
+			print("Enemy does not have the take_damage method")
+		grouped_enemies.clear()
+		print("Group damage dealt. Group cleared.")

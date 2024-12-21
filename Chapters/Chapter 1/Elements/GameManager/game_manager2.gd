@@ -160,7 +160,6 @@ func kill_group(group_id: int):
 	print("DEBUG: Group cleared.")
 	
 
-
 		
 
 	

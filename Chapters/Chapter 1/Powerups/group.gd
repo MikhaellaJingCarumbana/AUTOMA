@@ -70,8 +70,6 @@ func _on_powerup_timer_timeout():
 func enable_group_powerup_effects():
 	print("Enabling group power-up effects...")
 	
-	
-	
 
 func apply_grouping_logic():
 	var grouped_enemies = []
@@ -153,7 +151,7 @@ func _on_body_entered(body: Node2D) -> void:
 			is_powerup_active = true
 			emit_signal("powerup_collected", body)
 			queue_free()
-			print("DEBUG: Powerup projectile collected!")
+			print("Group Projectile collected!!")
 	elif not visible:
 		print("DEBUG: Powerup is not visible; cannot be collected.")
 		
