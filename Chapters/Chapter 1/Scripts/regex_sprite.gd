@@ -332,10 +332,20 @@ func _remove_visual_change(enemy: Node):
 		sprite.modulate = Color(1, 1, 1)
 		
 func deal_group_damage(damage: int):
+	if not is_grouping_enabled:
+		print("ERROR: Grouping is not enabled.")
+		return
+		
 	for enemy in grouped_enemies:
-		if enemy.has_method("take_damage"):
-			enemy.take_damage(damage)
-		else:
-			print("Enemy does not have the take_damage method")
-		grouped_enemies.clear()
-		print("Group damage dealt. Group cleared.")
+		if enemy and not enemy.dead:
+			enemy.apply_damage(damage)
+			print("DEBUG: Dealt %d damage to %s" % [damage, enemy.name])
+			
+	grouped_enemies.clear()
+	is_grouping_enabled = false
+	print("DEBUG: Group attack completed. Grouping disabled.")
+	
+func reset_grouping():
+	is_grouping_enabled =false
+	grouped_enemies.clear()
+	print("DEBUG: Grouping reset.")

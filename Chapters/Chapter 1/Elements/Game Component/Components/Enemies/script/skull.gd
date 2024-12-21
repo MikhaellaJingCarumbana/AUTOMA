@@ -3,7 +3,7 @@ class_name SkullEnemy
 
 @onready var game_manager: Node = %GameManager
 @export var note_scene: PackedScene
-@export var enemy_type: String = "Skull"
+@export var group_type: String = "Skull"
 var group_id = null
 var grouped: bool = false
 
@@ -84,7 +84,7 @@ func handle_death():
 		print("DEBUG: No note node found under the same parent as enemy.")
 		
 	if grouped and game_manager.has_method("kill_group"):
-		game_manager.kill_group(group_id)
+		game_manager.kill_group(group_type)
 	else:
 		queue_free()
 		
@@ -142,7 +142,7 @@ func take_damage(amount: int):
 	print("DEBUG: Enemy took damage. Current health: ", health)
 	
 	if group_id >= 0 and game_manager.has_method("apply_damage_to_group"):
-		game_manager.apply_damage_to_group(enemy_type, group_id, amount)
+		game_manager.apply_damage_to_group(group_type, group_id, amount)
 	print("DEBUG: Enemy took damage. Current health: ", health)
 	
 	if health <= 0:

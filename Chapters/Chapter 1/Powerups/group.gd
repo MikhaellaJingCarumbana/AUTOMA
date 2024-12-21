@@ -62,7 +62,6 @@ func disable_powerup():
 		is_powerup_active = false
 		print("Power-up deactivated!")
 		
-		disable_group_powerup_effects()
 
 func _on_powerup_timer_timeout():
 	disable_powerup()
@@ -72,37 +71,34 @@ func enable_group_powerup_effects():
 	
 
 func apply_grouping_logic():
-	var grouped_enemies = []
 	var player = get_tree().get_current_scene().get_node("Player")
 	if not player:
+		print("ERROR: Player not found.")
 		return
 		
+	player.is_grouping_enabled = true
+	var grouped_enemies = []
 	var player_position = player.global_position
+	
+	if not game_manager.enemy_groups:
+		print("ERROR: game_manager.enemy_groups is invalid.")
+		return
+		
 	for enemy_type in game_manager.enemy_groups:
-		if enemy and not enemy.dead:
-			var distance = player_position.distance_to(enemy.global_position)
-			if distance < 200 and not enemy.append(enemy):
-				enemy.grouped = true
-				print("DEBUG: Added enemy to group:", enemy.name)
-				
-				if grouped_enemies.size() >= max_group_size:
-					break
+		for enemy in game_manager.enemy_groups[enemy_type]:
+			if enemy and not enemy.dead:
+				var distance = player_position.distance_to(enemy.global_position)
+				if distance < player.grouping_range and len(grouped_enemies) < max_group_size:
+					grouped_enemies.append(enemy)
+					enemy.grouped = true
+					print("DEBUG: Added enemy to group:", enemy.name)
 					
-	if grouped_enemies.size() > 1:
+	if len(grouped_enemies) > 1:
 		for enemy in grouped_enemies:
 			enemy.group_id = game_manager.get_new_group_id()
 			print("DEBUG: Enemy grouped with ID:", enemy.group_id)
 	else:
 		print("DEBUG: Not enough enemies nearby to form a group.")
-				
-func disable_group_powerup_effects():
-	pass
-	
-	var groups = game_manager.enemy_groups
-	for enemy_type in groups:
-		for enemy in groups[enemy_type]:
-			if enemy and not enemy.dead:
-				enemy.revert_state()
 
 func _on_powerup_collected(body: Node2D):
 	if body is Player:
@@ -149,6 +145,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print("DEBUG: Body entered powerup area:", body.name)
 	if visible and body.is_in_group("Player"):
 			is_powerup_active = true
+			body.is_grouping_enabled = true
 			emit_signal("powerup_collected", body)
 			queue_free()
 			print("Group Projectile collected!!")
