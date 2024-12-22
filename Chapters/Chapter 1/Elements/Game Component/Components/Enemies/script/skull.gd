@@ -36,7 +36,7 @@ var player_in_area = false
 
 @export var hover_height: float = 10.0
 
-
+signal died(group_id: int)
 
 func _ready():
 	position.y -= hover_height
@@ -85,6 +85,7 @@ func handle_death():
 		
 	if grouped and game_manager.has_method("kill_group"):
 		game_manager.kill_group(group_type, group_id)
+		emit_signal("died", group_id)
 	else:
 		queue_free()
 		

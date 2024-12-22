@@ -188,8 +188,9 @@ radius = 8.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_a08na"]
 radius = 28.1603
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dewkc"]
-size = Vector2(317, 52)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svqck"]
+radius = 179.5
+height = 359.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2hvlw")
@@ -242,7 +243,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component/Group"]
 position = Vector2(-1.5, -8)
-shape = SubResource("RectangleShape2D_dewkc")
+shape = SubResource("CapsuleShape2D_svqck")
 debug_color = Color(1, 0.000281276, 0.0838801, 0.42)
 
 [connection signal="area_entered" from="Interaction Component/InteractionArea" to="." method="_on_interaction_area_area_entered"]

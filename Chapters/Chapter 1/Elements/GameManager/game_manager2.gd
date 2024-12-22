@@ -148,8 +148,14 @@ func add_enemy_to_group(group_type: String, enemy: Node) -> void:
 		group_counter += 1
 		enemy.set_grouped_visuals(true)
 		print("ENEMY ADDED TO THE GROUP. GROUP SIZE: ", group.size())
+		
+		enemy.connect("died", _on_enemy_died)
 	else:
 		print("GROUP IS FULL!!!!")
+		
+func _on_enemy_died(group_type: String, group_id: int) -> void:
+	print("ENEMY IN GROUP %d DIED. KILLING THE GROUP. " % group_id)
+	kill_group(group_type, group_id)
 		
 func remove_enemy_from_group(group_type: String, enemy: Node) -> void:
 	if enemy_groups.has(group_type):
