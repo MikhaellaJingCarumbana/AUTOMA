@@ -6,7 +6,8 @@ extends Node
 @onready var powerup_choose: Node = $"../UI/Powerup_Choose"
 @onready var player: Player = $"../Player"
 @onready var pause_menu: ColorRect = $"../UI/Powerup_Choose/PauseMenu"
-@onready var player_area: CollisionShape2D = $"../Player/Group/CollisionShape2D"
+@onready var player_area: Area2D = $"../Player/Interaction Component/Group"
+
 
 var enemy_groups: Dictionary = {}
 var group_counter: int = 0
@@ -174,19 +175,14 @@ func kill_group(group_type: String) -> void:
 			
 		replace_group(group_type)
 func replace_group(group_type: String) -> void:
-	var ungrouped_enemies = []
-	for enemy in get_tree().get_nodes_in_group("Enemies"):
-		if not enemy.has("group_id"):
-			ungrouped_enemies.append(enemy)
-		else:
-			print("ENEMY ALREADY IN A GROUP WITH ID: ", enemy.get("group_id"))
-			
+	var ungrouped_enemies = player.grouped_enemies
 	if ungrouped_enemies.size() > 0:
 		for i in range(min(3, ungrouped_enemies.size())):
 			add_enemy_to_group(group_type, ungrouped_enemies[i])
-		print("New Group Formed!!! with %d enemies" % ungrouped_enemies.size())
+		print("NEW GROUP FORMED WITH %d enemies." % min(3, ungrouped_enemies.size()))
+	
 	else:
-		print("NO UNGROUPED ENEMIES")
+		print("NO UNGROUPED ENEMIES TO FORM A NEW GROUP")
 			
 	
 

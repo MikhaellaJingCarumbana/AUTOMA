@@ -55,7 +55,7 @@ func _ready():
 	add_child(projectile_timer)
 	projectile_timer.timeout.connect(deactivate_projectile_powerup)
 	
-	$Group.connect("area_entered",_on_group_area_entered)
+	$"Interaction Component/Group".connect("area_entered",_on_group_area_entered)
 	
 
 func _process(delta):
@@ -309,18 +309,26 @@ func _compare_distance(a, b):
 
 
 func _on_group_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemies"):
-		if not grouped_enemies.has(area):
+	if area.is_in_group("Enemies"):
+		if area not in grouped_enemies:
 			grouped_enemies.append(area)
 			_apply_visual_change(area)
-			print("Enemy added to group. Current group size: %d" % grouped_enemies.size())
-
+			print("ENEMY HAS ENTERED RANGE. CURRENT GROUPED ENEMIES: %d" % grouped_enemies.size())
+			
+		if is_grouping_enabled:
+			attempt_group_formation()
+			
 func _on_group_area_exited(area: Area2D) -> void:
-	if area.is_in_group("enemies") and grouped_enemies.has(area):
+	if area in grouped_enemies:
 		grouped_enemies.erase(area)
-		_remove_visual_change(area)
-		print("Enemy removed from group. Current group size: %d" % grouped_enemies.size())
-	
+		print("ENEMY EXITED RANGE. REMAINING GROUPED ENEMIES: %d" %grouped_enemies.size())
+		
+func attempt_group_formation() -> void:
+	if grouped_enemies.size() >= max_group_size:
+		var group_candidates = grouped_enemies.slice(0, max_group_size)
+		game_manager.add_enemy_to_group("default", group_candidates)
+		grouped_enemies = grouped_enemies.slice(max_group_size)
+		print("NEW GROUPED FORMED WITH %d enemies. REMAINING UNGROUPED: %d" % [max_group_size, grouped_enemies.size()])
 func _apply_visual_change(enemy: Node):
 	if enemy.has_node("AnimatedSprite2D"):
 		var sprite = enemy.get_node("AnimatedSprite2D")

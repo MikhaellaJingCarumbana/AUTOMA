@@ -242,7 +242,7 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rrr10"]
 radius = 9.0
 
-[node name="Skull" type="CharacterBody2D"]
+[node name="Skull" type="CharacterBody2D" groups=["Enemies"]]
 texture_filter = 1
 script = ExtResource("1_u6ei2")
 

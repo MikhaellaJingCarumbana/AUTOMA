@@ -148,7 +148,7 @@ func _on_body_entered(body: Node2D) -> void:
 			body.is_grouping_enabled = true
 			emit_signal("powerup_collected", body)
 			queue_free()
-			print("Group Projectile collected!!")
+			print("Group Powerup collected!!")
 	elif not visible:
 		print("DEBUG: Powerup is not visible; cannot be collected.")
 		

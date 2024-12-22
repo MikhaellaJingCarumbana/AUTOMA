@@ -156,8 +156,6 @@ func set_grouped_visuals(grouped_status: bool):
 	grouped = grouped_status
 	if grouped:
 		%AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
-	else:
-		%AnimatedSprite2D.modulate = Color(1,1,1)
 		
 
 				
