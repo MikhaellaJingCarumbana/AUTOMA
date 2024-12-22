@@ -25,6 +25,10 @@ var max_charge = 5
 
 var is_powerup_active: bool = false
 var powerup_time_left: float = 0.0
+var max_group_size = 3
+var current_group_id = 1
+var grouped_enemies = []
+
 
 
 func _ready() -> void:
@@ -155,7 +159,7 @@ func add_enemy_to_group(group_type: String, enemy: Node) -> void:
 		
 func _on_enemy_died(group_type: String, group_id: int) -> void:
 	print("ENEMY IN GROUP %d DIED. KILLING THE GROUP. " % group_id)
-	kill_group(group_type, group_id)
+	kill_group(group_id)
 		
 func remove_enemy_from_group(group_type: String, enemy: Node) -> void:
 	if enemy_groups.has(group_type):
@@ -171,26 +175,15 @@ func apply_damage_to_group(group_type: String, group_id: int, damage: int):
 				enemy.take_damage(damage)
 			print("DAMAGE APPLIED")
 			
-func kill_group(group_type: String, group_id: int) -> void:
-	if not enemy_groups.has(group_type):
-		print("GROUP TYPE '%s' DOES NOT EXIST. NO ACTION TAKEN." % group_type)
-		return
-	
-	var group = enemy_groups[group_type]
-	if group.is_empty():
-		print("GROUP TYPE '%s' IS ALREADY EMPTY. NO ACTION TAKEN." % group_type)
-		return
-	
-	for enemy in group:
-		if is_instance_valid(enemy) and enemy.group_id == group_id:
+func kill_group(group_id: int) -> void:
+	for enemy in grouped_enemies:
+		if enemy.group_id == group_id:
+			print("KILLING GROUPED ENEMY:", enemy.name)
 			enemy.queue_free()
-	
-	enemy_groups[group_type] = group.filter(func(enemy):
-		return is_instance_valid(enemy) and enemy.group_id != group_id
-		)
-	print("CLEARED GROUP ID: ", group_id)
-	
-	replace_group(group_type)
+			
+		grouped_enemies.clear()
+		current_group_id += 1
+		print("GROUP CLEARED. READY TO FORM NEW GROUP")
 		
 func replace_group(group_type: String) -> void:
 	if not player or not player.grouped_enemies:
@@ -207,7 +200,26 @@ func replace_group(group_type: String) -> void:
 	else:
 		print("NO UNGROUPED ENEMIES TO FORM A NEW GROUP")
 			
+func group_enemies(enemies_in_range: Array):
+	if grouped_enemies.size() >= max_group_size:
+		print("GROUP IS ALREADY FULL")
+		return
+		
+	for enemy in enemies_in_range:
+		if not enemy.group_id and grouped_enemies.size() < max_group_size:
+			enemy.group_id = current_group_id
+			grouped_enemies.append(enemy)
+			print("ENEMY ADDED TO GROUP: ", enemy.name)
 	
+	if grouped_enemies.size() == max_group_size:
+		print("GROUP FORMED WITH ID:", current_group_id)
+		
+func on_enemy_killed(enemy):
+	if enemy.group_id > 0:
+		print("ENEMY KILLED IN GROUP: ", enemy.group_id)
+		kill_group(enemy.group_id)
+		
+
 
 		
 
