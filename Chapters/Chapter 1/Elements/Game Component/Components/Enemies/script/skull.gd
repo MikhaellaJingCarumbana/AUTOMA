@@ -88,6 +88,8 @@ func handle_death():
 	else:
 		queue_free()
 		
+	group_id = null
+	grouped = false
 	self.queue_free()
 	print("Enemy has been freed")
 	

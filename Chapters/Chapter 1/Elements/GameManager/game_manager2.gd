@@ -171,17 +171,20 @@ func kill_group(group_type: String) -> void:
 			enemy.queue_free()
 		enemy_groups[group_type].clear()
 		print("GROUP CLEARED")
-
+			
+		replace_group(group_type)
 func replace_group(group_type: String) -> void:
 	var ungrouped_enemies = []
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		if not enemy.has("group_id"):
 			ungrouped_enemies.append(enemy)
+		else:
+			print("ENEMY ALREADY IN A GROUP WITH ID: ", enemy.get("group_id"))
 			
-	if ungrouped_enemies:
+	if ungrouped_enemies.size() > 0:
 		for i in range(min(3, ungrouped_enemies.size())):
 			add_enemy_to_group(group_type, ungrouped_enemies[i])
-		print("New Group Formed!!!.")
+		print("New Group Formed!!! with %d enemies" % ungrouped_enemies.size())
 	else:
 		print("NO UNGROUPED ENEMIES")
 			
