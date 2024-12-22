@@ -165,22 +165,39 @@ func apply_damage_to_group(group_type: String, group_id: int, damage: int):
 				enemy.take_damage(damage)
 			print("DAMAGE APPLIED")
 			
-func kill_group(group_type: String) -> void:
-	if enemy_groups.has(group_type):
-		var group = enemy_groups[group_type]
-		for enemy in group:
+func kill_group(group_type: String, group_id: int) -> void:
+	if not enemy_groups.has(group_type):
+		print("GROUP TYPE '%s' DOES NOT EXIST. NO ACTION TAKEN." % group_type)
+		return
+	
+	var group = enemy_groups[group_type]
+	if group.is_empty():
+		print("GROUP TYPE '%s' IS ALREADY EMPTY. NO ACTION TAKEN." % group_type)
+		return
+	
+	for enemy in group:
+		if is_instance_valid(enemy) and enemy.group_id == group_id:
 			enemy.queue_free()
-		enemy_groups[group_type].clear()
-		print("GROUP CLEARED")
-			
-		replace_group(group_type)
+	
+	enemy_groups[group_type] = group.filter(func(enemy):
+		return is_instance_valid(enemy) and enemy.group_id != group_id
+		)
+	print("CLEARED GROUP ID: ", group_id)
+	
+	replace_group(group_type)
+		
 func replace_group(group_type: String) -> void:
-	var ungrouped_enemies = player.grouped_enemies
+	if not player or not player.grouped_enemies:
+		print("NO PLAYER OR GROUPED ENEMIES TO REPLACE")
+		return
+		
+	var ungrouped_enemies = player.grouped_enemies.filter(func(enemy):
+		return is_instance_valid(enemy) and not enemy.is_grouped()
+		)
 	if ungrouped_enemies.size() > 0:
 		for i in range(min(3, ungrouped_enemies.size())):
 			add_enemy_to_group(group_type, ungrouped_enemies[i])
-		print("NEW GROUP FORMED WITH %d enemies." % min(3, ungrouped_enemies.size()))
-	
+		print("NEW GROUP FORMED WITH %d enemies" % min(3, ungrouped_enemies.size()))
 	else:
 		print("NO UNGROUPED ENEMIES TO FORM A NEW GROUP")
 			

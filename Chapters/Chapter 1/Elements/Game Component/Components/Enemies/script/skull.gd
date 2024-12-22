@@ -84,7 +84,7 @@ func handle_death():
 		print("DEBUG: No note node found under the same parent as enemy.")
 		
 	if grouped and game_manager.has_method("kill_group"):
-		game_manager.kill_group(group_type)
+		game_manager.kill_group(group_type, group_id)
 	else:
 		queue_free()
 		
