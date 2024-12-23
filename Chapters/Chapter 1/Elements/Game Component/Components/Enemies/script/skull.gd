@@ -36,7 +36,7 @@ var player_in_area = false
 
 @export var hover_height: float = 10.0
 
-signal killed
+signal died(group_id: int)
 
 func _ready():
 	position.y -= hover_height
@@ -84,8 +84,8 @@ func handle_death():
 		print("DEBUG: No note node found under the same parent as enemy.")
 		
 	if grouped and game_manager.has_method("kill_group"):
-		game_manager.kill_group(group_id)
-		emit_signal("killed")
+		game_manager.kill_group(group_type, group_id)
+		emit_signal("died", group_id)
 	else:
 		queue_free()
 		
