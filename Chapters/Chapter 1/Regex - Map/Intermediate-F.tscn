@@ -6833,6 +6833,12 @@ parent_enemy = NodePath("../Skull9")
 [node name="Hearts" parent="Enemies" instance=ExtResource("26_spiw6")]
 parent_enemy = NodePath("../Skull")
 
+[node name="Hearts2" parent="Enemies" instance=ExtResource("26_spiw6")]
+parent_enemy = NodePath("../Skull15")
+
+[node name="AnimatedSprite2D" parent="Enemies/Hearts2" index="0"]
+frame_progress = 0.879936
+
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
@@ -6881,6 +6887,7 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="Enemies/Star2"]
 [editable path="Enemies/Star3"]
 [editable path="Enemies/Hearts"]
+[editable path="Enemies/Hearts2"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]
