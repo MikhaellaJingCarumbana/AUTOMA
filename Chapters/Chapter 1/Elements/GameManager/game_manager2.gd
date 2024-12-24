@@ -30,6 +30,13 @@ var powerup_time_left: float = 0.0
 func _ready() -> void:
 	powerup_choose.connect("powerup_selected", _apply_powerup)
 	
+	for i in range(hearts.size()):
+		if i < lives:
+			hearts[i].show()
+		else:
+			hearts[i].hide()
+	print("HEARTS INITIALIZED. VISIBLE HEARTS: ", lives)
+	
 func _on_powerup_collected() -> void:
 	print("DEBUG: Powerup collected!")
 	pause_menu.show()
@@ -55,8 +62,21 @@ func decrease_health():
 			hearts[h].hide()
 	if (lives == 0):
 		get_node("../UI/DeathScreen").game_over()
-	
 		
+func increase_health():
+	print("CURRENT LIVES BEFORE INCREMENT: ", lives)
+	if lives < hearts.size():
+		lives += 1
+		print("LIVES INCREASED! CURRENT LIVES: ", lives)
+		for h in range(hearts.size()):
+			if h < lives:
+				hearts[h].show()
+			else:
+				hearts[h].hide()
+	else:
+		print("MAX HEALTH REACHEDDD!!!!")
+				
+			
 func add_clue():
 	clues_collected += 1
 	if clue_system:

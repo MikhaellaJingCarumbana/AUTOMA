@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=47 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
+[ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="26_spiw6"]
 [ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
@@ -6829,6 +6830,9 @@ parent_enemy = NodePath("../Skull5")
 powerup_type = "infinite projectiles"
 parent_enemy = NodePath("../Skull9")
 
+[node name="Hearts" parent="Enemies" instance=ExtResource("26_spiw6")]
+parent_enemy = NodePath("../Skull")
+
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
@@ -6876,6 +6880,7 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="Enemies/Star"]
 [editable path="Enemies/Star2"]
 [editable path="Enemies/Star3"]
+[editable path="Enemies/Hearts"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]

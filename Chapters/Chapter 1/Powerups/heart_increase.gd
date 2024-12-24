@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var powerup_type: String = "health"
+@export var powerup_type: String = ""
 @export var powerup_duration: float = 3.0 
 @export var float_amplitude: float = 5.0
 @export var float_speed: float = 4.0
@@ -36,18 +36,17 @@ func _ready() -> void:
 	else:
 		print("ERROR: parent_enemy is not set or invalid.")
 		
-	if get_tree().get_current_scene().has_node("Player"):
-		var player = get_tree().get_current_scene().get_node("Player")
-		self.connect("powerup_collected", player._on_star_powerup_collected)
+	if game_manager:
+		self.connect("powerup_collected", game_manager._on_powerup_collected)
 	else:
-		print("DEBUG: Player node not found for signal connection!")
+		print("Game manager node not found!")
 	#start the timer for demonstration
 
 func _on_powerup_collected(body: Node2D):
 	if body is Player:
 		emit_signal("powerup_collected")
 		queue_free()
-		print("Hearts collected!")
+		print("Heart collected!")
 		
 func _process(delta: float) -> void:
 	if is_floating:
@@ -86,11 +85,13 @@ func _on_enemy_freed() -> void:
 		print("ERROR: Enemy reference lost before being freed")
 	
 func _on_body_entered(body: Node2D) -> void:
+	
 	if visible and body.is_in_group("Player"):
 			print("DEBUG: Body entered powerup area:", body.name)
 			game_manager.increase_health()
 			emit_signal("powerup_collected", body)
 			queue_free()
+			print("Hearts collected")
 	elif not visible:
 		print("DEBUG: Powerup is not visible; cannot be collected.")
 		
