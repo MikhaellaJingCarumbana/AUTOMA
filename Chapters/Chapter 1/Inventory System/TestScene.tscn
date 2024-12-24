@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv5xhod7maha1"]
+
+[ext_resource type="PackedScene" uid="uid://dnygv217r3r7a" path="res://Chapters/Chapter 1/Inventory System/Slot.tscn" id="1_eyq5x"]
+[ext_resource type="PackedScene" uid="uid://tu8h76agw1wy" path="res://Chapters/Chapter 1/Inventory System/passive_slot.tscn" id="2_5cufl"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_seo4s"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_846sy"]
+
+[node name="TestScene" type="Node"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inventory" type="GridContainer" parent="UI"]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 81.0
+offset_right = 496.0
+offset_bottom = 131.0
+columns = 4
+
+[node name="Slot" parent="UI/Inventory" instance=ExtResource("1_eyq5x")]
+layout_mode = 2
+
+[node name="Slot2" parent="UI/Inventory" instance=ExtResource("1_eyq5x")]
+layout_mode = 2
+
+[node name="TextureRect" parent="UI/Inventory/Slot2" index="0"]
+texture = SubResource("PlaceholderTexture2D_seo4s")
+slot_type = 1
+STS = 2
+
+[node name="Slot3" parent="UI/Inventory" instance=ExtResource("1_eyq5x")]
+layout_mode = 2
+
+[node name="TextureRect" parent="UI/Inventory/Slot3" index="0"]
+texture = SubResource("PlaceholderTexture2D_846sy")
+slot_type = 3
+STS = 4
+
+[node name="Slot4" parent="UI/Inventory" instance=ExtResource("1_eyq5x")]
+layout_mode = 2
+
+[node name="Character" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PassiveSlot" parent="UI/Character" instance=ExtResource("2_5cufl")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 77.0
+offset_right = 108.0
+offset_bottom = 185.0
+slot_type = 1
+
+[node name="PassiveSlot2" parent="UI/Character" instance=ExtResource("2_5cufl")]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 195.0
+offset_right = 110.0
+offset_bottom = 303.0
+slot_type = 2
+
+[node name="PassiveSlot3" parent="UI/Character" instance=ExtResource("2_5cufl")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 318.0
+offset_right = 111.0
+offset_bottom = 426.0
+slot_type = 3
+
+[editable path="UI/Inventory/Slot"]
+[editable path="UI/Inventory/Slot2"]
+[editable path="UI/Inventory/Slot3"]

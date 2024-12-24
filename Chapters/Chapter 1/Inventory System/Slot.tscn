@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnygv217r3r7a"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/slot.gd" id="1_who2e"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/stats.gd" id="2_j0h8p"]
+
+[node name="Slot" type="PanelContainer"]
+anchors_preset = -1
+offset_left = 1.0
+offset_right = 104.0
+offset_bottom = 108.0
+size_flags_horizontal = 2
+script = ExtResource("1_who2e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("2_j0h8p")
+
+[node name="debug" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "0
+"
