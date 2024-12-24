@@ -6839,7 +6839,7 @@ parent_enemy = NodePath("../Skull2")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-parent_enemy = NodePath("../Skull2")
+parent_enemy = NodePath("../Skull")
 
 [node name="Group" parent="Enemies" instance=ExtResource("26_kkwfd")]
 parent_enemy = NodePath("../Skull")

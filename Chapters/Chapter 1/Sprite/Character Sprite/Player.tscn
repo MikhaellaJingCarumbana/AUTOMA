@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=30 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="Texture2D" uid="uid://svy24eqpwx5u" path="res://Chapters/Chapter 1/Sprite/Red Hooded/AnimationSheet_Character.png" id="2_lk2dd"]
@@ -188,10 +188,6 @@ radius = 8.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_a08na"]
 radius = 28.1603
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svqck"]
-radius = 179.5
-height = 359.0
-
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2hvlw")
 
@@ -239,14 +235,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Group" type="Area2D" parent="Interaction Component"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component/Group"]
-position = Vector2(-1.5, -8)
-shape = SubResource("CapsuleShape2D_svqck")
-debug_color = Color(1, 0.000281276, 0.0838801, 0.42)
-
 [connection signal="area_entered" from="Interaction Component/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Interaction Component/InteractionArea" to="." method="_on_interaction_area_area_exited"]
-[connection signal="area_entered" from="Interaction Component/Group" to="." method="_on_group_area_entered"]
-[connection signal="area_exited" from="Interaction Component/Group" to="." method="_on_group_area_exited"]

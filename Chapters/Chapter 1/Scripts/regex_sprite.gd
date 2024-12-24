@@ -54,9 +54,7 @@ func _ready():
 	projectile_timer.one_shot = true
 	add_child(projectile_timer)
 	projectile_timer.timeout.connect(deactivate_projectile_powerup)
-	
-	$"Interaction Component/Group".connect("area_entered",_on_group_area_entered)
-	
+		
 
 func _process(delta):
 	if shoot_timer > 0:

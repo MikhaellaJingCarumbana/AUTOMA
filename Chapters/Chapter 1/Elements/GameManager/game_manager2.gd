@@ -29,8 +29,6 @@ var powerup_time_left: float = 0.0
 
 func _ready() -> void:
 	powerup_choose.connect("powerup_selected", _apply_powerup)
-	player_area.connect("body_entered", _on_body_entered)
-	player_area.connect("body_exited", _on_body_exited)
 	
 func _on_powerup_collected() -> void:
 	print("DEBUG: Powerup collected!")
@@ -46,17 +44,8 @@ func _process(delta: float) -> void:
 		else:
 			print("DEBUG: Power-up time remaining: %.2f seconds" % powerup_time_left)
 			
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Enemies"):
-		add_enemy_to_group("default", body)
-		body.set_modulate(Color(1,0,0))
-		print("ENEMY ADDED TO THE GROUP!!!")
 
-func _on_body_exited(body: Node) -> void:
-	if body.is_in_group("Enemies"):
-		remove_enemy_from_group("default", body)
-		body.set_modulate(Color(1,1,1))
-		print("ENEMY REMOVED FROM THE GROUP!!!!!")
+
 
 func decrease_health():
 	lives -= 1
@@ -137,77 +126,9 @@ func _on_star_powerup_collected(powerup_type: String) -> void:
 		player.activate_infinite_projectiles()
 		print("DEBUG: * Powerup collected! Infinite projectiles enabled.")
 		
-func add_enemy_to_group(group_type: String, enemy: Node) -> void:
-	if not enemy_groups.has(group_type):
-		enemy_groups[group_type] = []
-		
-	var group = enemy_groups[group_type]
-	if group.size() < 3:
-		group.append(enemy)
-		enemy.set("group_id", group_counter)
-		group_counter += 1
-		enemy.set_grouped_visuals(true)
-		print("ENEMY ADDED TO THE GROUP. GROUP SIZE: ", group.size())
-		
-		enemy.connect("died", _on_enemy_died)
-	else:
-		print("GROUP IS FULL!!!!")
-		
-func _on_enemy_died(group_type: String, group_id: int) -> void:
-	print("ENEMY IN GROUP %d DIED. KILLING THE GROUP. " % group_id)
-	kill_group(group_type, group_id)
-		
-func remove_enemy_from_group(group_type: String, enemy: Node) -> void:
-	if enemy_groups.has(group_type):
-		enemy_groups[group_type].erase(enemy)
-		enemy.set_grouped_visuals(false)
-		print("ENEMY REMOVED FROM THE GROUP!!")
 
-func apply_damage_to_group(group_type: String, group_id: int, damage: int):
-	if enemy_groups.has(group_type):
-		var group = enemy_groups[group_type]
-		for enemy in group:
-			if enemy and not enemy.dead:
-				enemy.take_damage(damage)
-			print("DAMAGE APPLIED")
-			
-func kill_group(group_type: String, group_id: int) -> void:
-	if not enemy_groups.has(group_type):
-		print("GROUP TYPE '%s' DOES NOT EXIST. NO ACTION TAKEN." % group_type)
-		return
-	
-	var group = enemy_groups[group_type]
-	if group.is_empty():
-		print("GROUP TYPE '%s' IS ALREADY EMPTY. NO ACTION TAKEN." % group_type)
-		return
-	
-	for enemy in group:
-		if is_instance_valid(enemy) and enemy.group_id == group_id:
-			enemy.queue_free()
-	
-	enemy_groups[group_type] = group.filter(func(enemy):
-		return is_instance_valid(enemy) and enemy.group_id != group_id
-		)
-	print("CLEARED GROUP ID: ", group_id)
-	
-	replace_group(group_type)
-		
-func replace_group(group_type: String) -> void:
-	if not player or not player.grouped_enemies:
-		print("NO PLAYER OR GROUPED ENEMIES TO REPLACE")
-		return
-		
-	var ungrouped_enemies = player.grouped_enemies.filter(func(enemy):
-		return is_instance_valid(enemy) and not enemy.is_grouped()
-		)
-	if ungrouped_enemies.size() > 0:
-		for i in range(min(3, ungrouped_enemies.size())):
-			add_enemy_to_group(group_type, ungrouped_enemies[i])
-		print("NEW GROUP FORMED WITH %d enemies" % min(3, ungrouped_enemies.size()))
-	else:
-		print("NO UNGROUPED ENEMIES TO FORM A NEW GROUP")
-			
-	
+
+
 
 		
 

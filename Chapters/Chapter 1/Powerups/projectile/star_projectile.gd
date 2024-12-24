@@ -8,6 +8,11 @@ extends CharacterBody2D
 func initialize(direction: Vector2):
 	velocity = direction * speed
 	
+	if direction == Vector2.LEFT:
+		scale.x = -abs(scale.x)
+	else:
+		scale.x = abs(scale.x)
+	
 func _process(delta):
 	position += velocity * delta
 	
@@ -19,6 +24,7 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	animated_sprite_2d.play("default")
 	position += velocity * delta
+	
 	if position.x < 0 or position.x > 800:
 		queue_free()
 
