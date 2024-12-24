@@ -83,10 +83,7 @@ func jump():
 func _input(event):
 	if event.is_action_pressed("shoot") and is_infinite_projectiles_active:
 		shoot_projectile()
-		
-	if event.is_action_pressed("group_attack") and grouped_enemies:
-		deal_group_damage(80)
-		
+	
 func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
 	velocity.x = x
@@ -269,85 +266,7 @@ func _on_star_powerup_collected(player: Node2D):
 	projectile_timer.start(powerup_duration)
 	
 	
-func attack_enemy(enemy: SkullEnemy, damage: int):
-	if game_manager.has_method("enemy_groups") and game_manager.enemy_groups.has("Skull"):
-		for grouped_enemy in game_manager.enemy_groups["Skull"]:
-			if grouped_enemy and not grouped_enemy.dead:
-				grouped_enemy.take_damage(damage)
-				
-	else:
-		enemy.take_damage(damage)
-
-func activate_grouping_powerup():
-	var nearby_enemies = []
-	for enemy_type in game_manager.enemy_groups.keys():
-		for enemy in game_manager.enemy_groups[enemy_type]:
-			if position.distance_to(enemy.position) <= grouping_range and not enemy.grouped:
-				nearby_enemies.append(enemy)
-				
-	nearby_enemies.sort_custom(_compare_distance)
-	
-	var grouped_count = min(nearby_enemies.size(), 3)
-	
-	for i in range(grouped_count):
-		var enemy = nearby_enemies[i]
-		enemy.grouped = true
-		if game_manager.has_method("add_enemy_to_group"):
-			game_manager.add_enemy_to_group(enemy.enemy_type, enemy)
-	print("DEBUG: Grouping powerup activated.")
-	
 func _compare_distance(a, b):
 	var dist_a = position.distance_to(a.position)
 	var dist_b = position.distance_to(b.position)
 	return dist_a < dist_b
-
-
-func _on_group_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Enemies"):
-		if area not in grouped_enemies:
-			grouped_enemies.append(area)
-			_apply_visual_change(area)
-			print("ENEMY HAS ENTERED RANGE. CURRENT GROUPED ENEMIES: %d" % grouped_enemies.size())
-			
-		if is_grouping_enabled:
-			attempt_group_formation()
-			
-func _on_group_area_exited(area: Area2D) -> void:
-	if area in grouped_enemies:
-		grouped_enemies.erase(area)
-		print("ENEMY EXITED RANGE. REMAINING GROUPED ENEMIES: %d" %grouped_enemies.size())
-		
-func attempt_group_formation() -> void:
-	if grouped_enemies.size() >= max_group_size:
-		var group_candidates = grouped_enemies.slice(0, max_group_size)
-		game_manager.add_enemy_to_group("default", group_candidates)
-		grouped_enemies = grouped_enemies.slice(max_group_size)
-		print("NEW GROUPED FORMED WITH %d enemies. REMAINING UNGROUPED: %d" % [max_group_size, grouped_enemies.size()])
-func _apply_visual_change(enemy: Node):
-	if enemy.has_node("AnimatedSprite2D"):
-		var sprite = enemy.get_node("AnimatedSprite2D")
-		sprite.modulate = Color(1, 0.5, 0.5)
-		
-func _remove_visual_change(enemy: Node):
-	if enemy.has_node("AnimatedSprite2D"):
-		var sprite = enemy.get_node("AnimatedSprite2D")
-		sprite.modulate = Color(1, 1, 1)
-		
-func deal_group_damage(damage: int):
-	if not is_grouping_enabled:
-		print("ERROR: Grouping is not enabled.")
-		return
-		
-	for enemy in grouped_enemies:
-		if enemy and not enemy.dead:
-			enemy.apply_damage(damage)
-			print("DEBUG: Dealt %d damage to %s" % [damage, enemy.name])
-			
-	grouped_enemies.clear()
-	is_grouping_enabled = false
-	print("DEBUG: Group attack completed. Grouping disabled.")
-	
-func reset_grouping():
-	is_grouping_enabled =false
-	grouped_enemies.clear()
-	print("DEBUG: Grouping reset.")

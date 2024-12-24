@@ -41,9 +41,6 @@ signal died(group_id: int)
 func _ready():
 	position.y -= hover_height
 	
-	if game_manager.has_method("add_enemy_to_group"):
-		game_manager.add_enemy_to_group("Skull", self)
-	print("DEBUG: Enemy added to group manager.")
 	
 func _process(delta):
 	float_time += delta
@@ -150,11 +147,3 @@ func take_damage(amount: int):
 		
 	
 		
-func set_grouped_visuals(grouped_status: bool):
-	grouped = grouped_status
-	if grouped:
-		%AnimatedSprite2D.modulate = Color(1, 0.5, 0.5)
-		
-
-				
-	#github streak saver hahaha

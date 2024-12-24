@@ -45,8 +45,6 @@ func _process(delta: float) -> void:
 			print("DEBUG: Power-up time remaining: %.2f seconds" % powerup_time_left)
 			
 
-
-
 func decrease_health():
 	lives -= 1
 	print(lives)
