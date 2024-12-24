@@ -6583,41 +6583,17 @@ layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
 [node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(506, 146)
+position = Vector2(819, 530)
 parent_chest = NodePath("../BlueChest")
 
 [node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(526, 498)
-parent_chest = NodePath("../BlueChest2")
+position = Vector2(252, 801)
+parent_chest = NodePath("../BlueChest5")
 
 [node name="BlueChest" parent="." instance=ExtResource("16_xt7s8")]
-position = Vector2(518, 145)
+position = Vector2(831, 529)
 
 [node name="InteractArea2" parent="BlueChest" instance=ExtResource("9_8op8n")]
-interact_label = "open chest"
-interact_type = "open_chest"
-interact_value = "working???"
-
-[node name="BlueChest2" parent="." instance=ExtResource("16_xt7s8")]
-position = Vector2(537, 497)
-
-[node name="InteractArea2" parent="BlueChest2" instance=ExtResource("9_8op8n")]
-interact_label = "open chest"
-interact_type = "open_chest"
-interact_value = "working???"
-
-[node name="BlueChest3" parent="." instance=ExtResource("16_xt7s8")]
-position = Vector2(818, 529)
-
-[node name="InteractArea2" parent="BlueChest3" instance=ExtResource("9_8op8n")]
-interact_label = "open chest"
-interact_type = "open_chest"
-interact_value = "working???"
-
-[node name="BlueChest4" parent="." instance=ExtResource("16_xt7s8")]
-position = Vector2(163, 561)
-
-[node name="InteractArea2" parent="BlueChest4" instance=ExtResource("9_8op8n")]
 interact_label = "open chest"
 interact_type = "open_chest"
 interact_value = "working???"
@@ -6781,17 +6757,11 @@ visible = false
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(256, 246)
 
-[node name="Skull15" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(721, 242)
-
-[node name="Skull16" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(783, 243)
-
-[node name="Skull17" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(839, 242)
-
 [node name="Skull14" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(886, 243)
+position = Vector2(872, 245)
+
+[node name="Skull15" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(724, 245)
 
 [node name="Skull2" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(94, 566)
@@ -6833,12 +6803,31 @@ position = Vector2(538, 663)
 position = Vector2(2, 6)
 parent_enemy = NodePath("../Skull2")
 
+[node name="Note2" parent="Enemies" instance=ExtResource("10_kl4pt")]
+position = Vector2(2, 6)
+parent_enemy = NodePath("../Skull14")
+
+[node name="Note3" parent="Enemies" instance=ExtResource("10_kl4pt")]
+position = Vector2(2, 6)
+parent_enemy = NodePath("../Skull10")
+
 [node name="Plus" parent="Enemies" instance=ExtResource("22_fd4b0")]
-parent_enemy = NodePath("../Skull2")
+parent_enemy = NodePath("../Skull15")
+
+[node name="Plus2" parent="Enemies" instance=ExtResource("22_fd4b0")]
+parent_enemy = NodePath("../Skull6")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-parent_enemy = NodePath("../Skull")
+parent_enemy = NodePath("../Skull2")
+
+[node name="Star2" parent="Enemies" instance=ExtResource("24_wlico")]
+powerup_type = "infinite projectiles"
+parent_enemy = NodePath("../Skull5")
+
+[node name="Star3" parent="Enemies" instance=ExtResource("24_wlico")]
+powerup_type = "infinite projectiles"
+parent_enemy = NodePath("../Skull9")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
 unique_name_in_owner = true
@@ -6869,6 +6858,8 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
 [connection signal="powerup_collected" from="Enemies/Star" to="Player" method="_on_star_powerup_collected"]
+[connection signal="powerup_collected" from="Enemies/Star2" to="Player" method="_on_star_powerup_collected"]
+[connection signal="powerup_collected" from="Enemies/Star3" to="Player" method="_on_star_powerup_collected"]
 
 [editable path="Clues"]
 [editable path="Clues2"]
@@ -6881,7 +6872,10 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [editable path="UI/Note System"]
 [editable path="UI/Powerup_Choose"]
 [editable path="Enemies/Plus"]
+[editable path="Enemies/Plus2"]
 [editable path="Enemies/Star"]
+[editable path="Enemies/Star2"]
+[editable path="Enemies/Star3"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]
