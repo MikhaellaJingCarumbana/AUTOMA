@@ -1,7 +1,7 @@
 extends PanelContainer
 class_name Slot
 
-@onready var texture_rect: TextureRect = $TextureRect
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export_enum("NONE: 0", "HEAD:1", "BODY:2", "LEG:3", "ACTIVE:4") var slot_type: int
 
@@ -11,20 +11,20 @@ var filled: bool = false
 func _get_drag_data(at_position: Vector2) -> Variant:
 	set_drag_preview(get_preview())
 	
-	return texture_rect
+	return animated_sprite_2d
 	
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return data is TextureRect
+	return data is AnimatedSprite2D
 	
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	var temp = texture_rect.property
-	texture_rect.property = data.property
+	var temp = animated_sprite_2d.property
+	animated_sprite_2d.property = data.property
 	data.property = temp
 
 func get_preview():
-	var preview_texture = TextureRect.new()
+	var preview_texture = animated_sprite_2d.new()
 	
-	preview_texture.texture = texture_rect.texture
+	preview_texture.texture = animated_sprite_2d.texture
 	preview_texture.expand_mode = 1
 	preview_texture.size = Vector2(30, 30)
 	
@@ -34,10 +34,10 @@ func get_preview():
 	return preview
 
 func get_STS():
-	return texture_rect.STS
+	return animated_sprite_2d.STS
 	
 func set_property(data):
-	texture_rect.property = data
+	animated_sprite_2d.property = data
 	
 	if data["TEXTURE"] == null:
 		filled = false

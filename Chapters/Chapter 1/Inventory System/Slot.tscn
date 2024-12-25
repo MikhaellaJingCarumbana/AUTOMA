@@ -10,6 +10,8 @@ offset_bottom = 108.0
 size_flags_horizontal = 2
 script = ExtResource("1_who2e")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2

@@ -4,5 +4,4 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/passive_slot.gd" id="2_61ajs"]
 
 [node name="PassiveSlot" instance=ExtResource("1_an1vl")]
-anchors_preset = 0
 script = ExtResource("2_61ajs")
