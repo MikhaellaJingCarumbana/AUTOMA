@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=49 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -23,12 +23,13 @@
 [ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="18_ca3xp"]
 [ext_resource type="PackedScene" uid="uid://cofswi7j1xxfg" path="res://Chapters/Chapter 1/UI Components/Notes2.tscn" id="19_0u2xi"]
 [ext_resource type="PackedScene" uid="uid://bfj36amncwg2m" path="res://Chapters/Chapter 1/UI Components/Powerup UI/powerup_plus.tscn" id="20_hq8r3"]
+[ext_resource type="PackedScene" uid="uid://dv5xhod7maha1" path="res://Chapters/Chapter 1/Inventory System/TestScene.tscn" id="22_625t8"]
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="26_spiw6"]
 [ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
-[ext_resource type="PackedScene" uid="uid://d3b0mrkvw4lya" path="res://Chapters/Chapter 1/Inventory System/Collectible/Crystal.tscn" id="29_pkev8"]
+[ext_resource type="PackedScene" uid="uid://ch1m2jx0fg2ia" path="res://Chapters/Chapter 1/Inventory System/Collectible/AbstractItem.tscn" id="28_1tftc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6617,6 +6618,10 @@ physics_interpolation_mode = 1
 position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
+limit_left = -1
+limit_top = 6
+limit_right = 1023
+limit_bottom = 1087
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(213, 241)
@@ -6750,10 +6755,12 @@ visible = false
 [node name="PauseMenu" parent="UI/Powerup_Choose" index="0"]
 visible = false
 
+[node name="TestScene" parent="UI" instance=ExtResource("22_625t8")]
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(256, 246)
+position = Vector2(565, 372)
 
 [node name="Skull14" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(872, 245)
@@ -6844,8 +6851,9 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 
 [node name="StarProjectile" parent="." instance=ExtResource("27_v5qjy")]
 
-[node name="Crystal" parent="." instance=ExtResource("29_pkev8")]
-position = Vector2(350, 212)
+[node name="AbstractItem" parent="." instance=ExtResource("28_1tftc")]
+position = Vector2(324, 240)
+ID = "1"
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
@@ -6881,6 +6889,10 @@ position = Vector2(350, 212)
 [editable path="UI/Clue_System2"]
 [editable path="UI/Note System"]
 [editable path="UI/Powerup_Choose"]
+[editable path="UI/TestScene"]
+[editable path="UI/TestScene/UI/Inventory/Slot"]
+[editable path="UI/TestScene/UI/Inventory/Slot2"]
+[editable path="UI/TestScene/UI/Inventory/Slot3"]
 [editable path="Enemies/Plus"]
 [editable path="Enemies/Plus2"]
 [editable path="Enemies/Star"]

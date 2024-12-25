@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpwwxftpvhdm7"]
+[gd_scene load_steps=3 format=3 uid="uid://ch1m2jx0fg2ia"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/Collectible/abstract_item.gd" id="1_672q6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_speqs"]
-radius = 65.0692
+[sub_resource type="CircleShape2D" id="CircleShape2D_opnsh"]
+radius = 13.3417
 
-[node name="AbstractItem" type="AnimatedSprite2D"]
+[node name="AbstractItem" type="Sprite2D"]
 script = ExtResource("1_672q6")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_speqs")
+shape = SubResource("CircleShape2D_opnsh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_body_entered"]

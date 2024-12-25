@@ -1,17 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv5xhod7maha1"]
+[gd_scene load_steps=6 format=3 uid="uid://dv5xhod7maha1"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/inventory.gd" id="1_0uwbc"]
 [ext_resource type="PackedScene" uid="uid://dnygv217r3r7a" path="res://Chapters/Chapter 1/Inventory System/Slot.tscn" id="1_eyq5x"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/ui.gd" id="1_inyjg"]
 [ext_resource type="PackedScene" uid="uid://tu8h76agw1wy" path="res://Chapters/Chapter 1/Inventory System/passive_slot.tscn" id="2_5cufl"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/character.gd" id="2_8rh3l"]
 
 [node name="TestScene" type="Node"]
 
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_inyjg")
 
 [node name="Inventory" type="GridContainer" parent="UI"]
 layout_mode = 0
