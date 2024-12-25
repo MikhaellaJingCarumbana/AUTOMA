@@ -8,5 +8,5 @@ func _ready() -> void:
 
 
 func _on_body_entered(area: Area2D) -> void:
-	get_parent().find_child("Inventory").add_item(ID)
-	queue_free()
+	var inventory = get_tree().root.get_node("UI/TestScene/UI/Inventory")
+	

@@ -26,10 +26,10 @@
 [ext_resource type="PackedScene" uid="uid://dv5xhod7maha1" path="res://Chapters/Chapter 1/Inventory System/TestScene.tscn" id="22_625t8"]
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
+[ext_resource type="PackedScene" uid="uid://ch1m2jx0fg2ia" path="res://Chapters/Chapter 1/Inventory System/Collectible/AbstractItem.tscn" id="23_v60hc"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="26_spiw6"]
 [ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
-[ext_resource type="PackedScene" uid="uid://ch1m2jx0fg2ia" path="res://Chapters/Chapter 1/Inventory System/Collectible/AbstractItem.tscn" id="28_1tftc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6851,9 +6851,8 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 
 [node name="StarProjectile" parent="." instance=ExtResource("27_v5qjy")]
 
-[node name="AbstractItem" parent="." instance=ExtResource("28_1tftc")]
-position = Vector2(324, 240)
-ID = "1"
+[node name="AbstractItem" parent="." instance=ExtResource("23_v60hc")]
+position = Vector2(339, 240)
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
