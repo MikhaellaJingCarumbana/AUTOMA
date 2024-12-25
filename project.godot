@@ -23,8 +23,8 @@ NavigationManager="*res://Scripts/Navigation_manager.gd"
 TransitionScreen="*res://Chapters/Chapter 1/Elements/Game Component/Components/transition_screen.tscn"
 CardEvents="*res://Chapters/Chapter 2/OldTestFolder/global/card_events.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 ItemData="*res://Autoload/database.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 

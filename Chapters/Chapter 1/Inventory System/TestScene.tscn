@@ -71,6 +71,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="STS" type="Label" parent="UI/STS"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 

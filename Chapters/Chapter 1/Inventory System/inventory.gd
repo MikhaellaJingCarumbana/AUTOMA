@@ -3,6 +3,7 @@ extends GridContainer
 
 func _ready() -> void:
 	add_item()
+	add_item("1")
 
 func add_item(ID = "0"):
 	var item_texture = load("res://Art/Database png/" + ItemData.get_texture(ID))
@@ -12,5 +13,10 @@ func add_item(ID = "0"):
 	var item_data = { "TEXTURE" : item_texture,
 					"STS" : item_STS,
 					"SLOT_TYPE" : item_slot_type}
-
-	get_child(0).set_property(item_data)
+	
+	var index = 0
+	for i in get_children():
+		if i.filled == false:
+			index = i.get_index()
+			break
+	get_child(index).set_property(item_data)

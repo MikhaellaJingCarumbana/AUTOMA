@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/stats.gd" id="2_j0h8p"]
 
 [node name="Slot" type="PanelContainer"]
-anchors_preset = -1
 offset_left = 1.0
 offset_right = 104.0
 offset_bottom = 108.0

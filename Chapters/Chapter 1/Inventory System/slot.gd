@@ -5,6 +5,9 @@ class_name Slot
 
 @export_enum("NONE: 0", "HEAD:1", "BODY:2", "LEG:3", "ACTIVE:4") var slot_type: int
 
+var filled: bool = false
+
+
 func _get_drag_data(at_position: Vector2) -> Variant:
 	set_drag_preview(get_preview())
 	
@@ -35,3 +38,8 @@ func get_STS():
 	
 func set_property(data):
 	texture_rect.property = data
+	
+	if data["TEXTURE"] == null:
+		filled = false
+	else:
+		filled = true
