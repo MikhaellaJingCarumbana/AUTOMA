@@ -29,3 +29,9 @@ func get_preview():
 	preview.add_child(preview_texture)
 	
 	return preview
+
+func get_STS():
+	return texture_rect.STS
+	
+func set_property(data):
+	texture_rect.property = data
