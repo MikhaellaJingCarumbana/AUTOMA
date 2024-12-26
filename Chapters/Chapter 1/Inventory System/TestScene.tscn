@@ -1,83 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv5xhod7maha1"]
+[gd_scene load_steps=3 format=3 uid="uid://dv5xhod7maha1"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/inventory.gd" id="1_0uwbc"]
-[ext_resource type="PackedScene" uid="uid://dnygv217r3r7a" path="res://Chapters/Chapter 1/Inventory System/Slot.tscn" id="1_eyq5x"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/ui.gd" id="1_inyjg"]
-[ext_resource type="PackedScene" uid="uid://tu8h76agw1wy" path="res://Chapters/Chapter 1/Inventory System/passive_slot.tscn" id="2_5cufl"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/character.gd" id="2_8rh3l"]
+[ext_resource type="PackedScene" uid="uid://ckelhedglhhgd" path="res://Chapters/Chapter 1/Inventory System/Inventory_UI.tscn" id="1_dfbom"]
+[ext_resource type="PackedScene" uid="uid://ch1m2jx0fg2ia" path="res://Chapters/Chapter 1/Inventory System/Collectible/AbstractItem.tscn" id="6_eh1fv"]
 
 [node name="TestScene" type="Node"]
 
-[node name="UI" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_inyjg")
+[node name="UI" parent="." instance=ExtResource("1_dfbom")]
+visible = true
+size_flags_horizontal = 4
 
-[node name="Inventory" type="GridContainer" parent="UI"]
-layout_mode = 0
-offset_left = 284.0
-offset_top = 81.0
-offset_right = 496.0
-offset_bottom = 131.0
-columns = 4
-script = ExtResource("1_0uwbc")
-
-[node name="Slot" parent="UI/Inventory" instance=ExtResource("1_eyq5x")]
-layout_mode = 2
-
-[node name="Slot2" parent="UI/Inventory" instance=ExtResource("1_eyq5x")]
-layout_mode = 2
-
-[node name="Slot3" parent="UI/Inventory" instance=ExtResource("1_eyq5x")]
-layout_mode = 2
-
-[node name="Slot4" parent="UI/Inventory" instance=ExtResource("1_eyq5x")]
-layout_mode = 2
-
-[node name="Character" type="Control" parent="UI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_8rh3l")
-
-[node name="PassiveSlot" parent="UI/Character" instance=ExtResource("2_5cufl")]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 77.0
-offset_right = 108.0
-offset_bottom = 185.0
-slot_type = 1
-
-[node name="PassiveSlot2" parent="UI/Character" instance=ExtResource("2_5cufl")]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 195.0
-offset_right = 110.0
-offset_bottom = 303.0
-slot_type = 2
-
-[node name="PassiveSlot3" parent="UI/Character" instance=ExtResource("2_5cufl")]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 318.0
-offset_right = 111.0
-offset_bottom = 426.0
-slot_type = 3
-
-[node name="STS" type="Label" parent="UI"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="STS" type="Label" parent="UI/STS"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[editable path="UI/Inventory/Slot"]
-[editable path="UI/Inventory/Slot2"]
-[editable path="UI/Inventory/Slot3"]
+[node name="AbstractItem" parent="." instance=ExtResource("6_eh1fv")]
+position = Vector2(621, 296)
+ID = "1"

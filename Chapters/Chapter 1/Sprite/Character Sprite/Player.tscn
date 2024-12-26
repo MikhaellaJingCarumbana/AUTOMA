@@ -189,6 +189,7 @@ radius = 8.5
 radius = 28.1603
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 3
 script = ExtResource("1_2hvlw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

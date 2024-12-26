@@ -41,6 +41,8 @@ var grouped_enemies: Array = []
 
 
 func _ready():
+	add_to_group("Player")
+	
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
 	update_interactions()
 	Global.playerBody = self
@@ -55,7 +57,9 @@ func _ready():
 	add_child(projectile_timer)
 	projectile_timer.timeout.connect(deactivate_projectile_powerup)
 		
-
+func is_player() -> bool:
+	return true
+	
 func _process(delta):
 	if shoot_timer > 0:
 		shoot_timer -= delta

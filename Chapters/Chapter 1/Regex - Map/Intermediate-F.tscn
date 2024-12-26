@@ -6609,6 +6609,10 @@ interact_label = "open chest"
 interact_type = "open_chest"
 interact_value = "working???"
 
+[node name="AbstractItem" parent="." instance=ExtResource("23_v60hc")]
+position = Vector2(322, 241)
+ID = "1"
+
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(213, 241)
 projectile_scene = ExtResource("27_v5qjy")
@@ -6757,6 +6761,9 @@ visible = false
 
 [node name="TestScene" parent="UI" instance=ExtResource("22_625t8")]
 
+[node name="UI" parent="UI/TestScene" index="0"]
+visible = false
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
@@ -6851,9 +6858,6 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 
 [node name="StarProjectile" parent="." instance=ExtResource("27_v5qjy")]
 
-[node name="AbstractItem" parent="." instance=ExtResource("23_v60hc")]
-position = Vector2(339, 240)
-
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
 [connection signal="body_entered" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_entered"]
@@ -6889,6 +6893,7 @@ position = Vector2(339, 240)
 [editable path="UI/Note System"]
 [editable path="UI/Powerup_Choose"]
 [editable path="UI/TestScene"]
+[editable path="UI/TestScene/UI"]
 [editable path="UI/TestScene/UI/Inventory/Slot"]
 [editable path="UI/TestScene/UI/Inventory/Slot2"]
 [editable path="UI/TestScene/UI/Inventory/Slot3"]
