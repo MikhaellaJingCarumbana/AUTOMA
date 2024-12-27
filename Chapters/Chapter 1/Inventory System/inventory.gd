@@ -20,3 +20,6 @@ func add_item(ID = "0"):
 			index = i.get_index()
 			break
 	get_child(index).set_property(item_data)
+	
+	
+	#Streaksaver again ahahaha

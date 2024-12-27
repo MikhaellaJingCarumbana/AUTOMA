@@ -24,8 +24,8 @@ TransitionScreen="*res://Chapters/Chapter 1/Elements/Game Component/Components/t
 CardEvents="*res://Chapters/Chapter 2/OldTestFolder/global/card_events.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 ItemData="*res://Autoload/database.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 InventoryManager="*res://Chapters/Chapter 1/Inventory System/inventory_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
