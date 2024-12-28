@@ -2,6 +2,8 @@ extends PanelContainer
 class_name Slot
 
 @onready var texture_rect: TextureRect = $TextureRect
+@onready var container: Container = $Container
+
 
 
 @export_enum("NONE: 0", "HEAD:1", "BODY:2", "LEG:3", "ACTIVE:4") var slot_type: int
@@ -44,3 +46,7 @@ func set_property(data):
 		filled = false
 	else:
 		filled = true
+
+func set_animated_sprite(animated_sprite: Node):
+	container.add_child(animated_sprite)
+	filled = true

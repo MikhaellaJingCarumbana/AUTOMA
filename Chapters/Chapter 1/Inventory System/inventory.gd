@@ -21,5 +21,10 @@ func add_item(ID = "0"):
 			break
 	get_child(index).set_property(item_data)
 	
+func add_to_slot(animated_sprite_instance: Node):
+	for slot in get_children():
+		if not slot.filled:
+			slot.set_animated_sprite(animated_sprite_instance)
+			break
 	
 	#Streaksaver again ahahaha

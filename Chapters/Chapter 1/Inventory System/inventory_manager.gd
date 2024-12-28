@@ -1,14 +1,20 @@
 extends Node
 
-signal item_added(item_id)
+static var inventory: Node = null
 
-var inventory_node: Node = null
 
-func register_inventory(inventory: Node) -> void:
-	inventory_node = inventory
+static func register_inventory(inventory_node: Node):
+	inventory = inventory_node
 	
-func add_item(id: String) -> void:
-	if inventory_node:
-		inventory_node.add_item(id)
+
+	
+static func add_item(item_id: String):
+	var item_scene = load("res://Chapters/Chapter 1/Inventory System/Collectible/Crystal.tscn")
+	var instance = item_scene.instantiate()
+	
+	instance.get_node("AnimatedSprite2D").play("Default")
+	
+	if inventory:
+		inventory.add_to_slot(instance)
 	else:
-		print("No inventory registered!")
+		print("No inventory connected")

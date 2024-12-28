@@ -26,10 +26,10 @@
 [ext_resource type="PackedScene" uid="uid://dv5xhod7maha1" path="res://Chapters/Chapter 1/Inventory System/TestScene.tscn" id="22_625t8"]
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
-[ext_resource type="PackedScene" uid="uid://ch1m2jx0fg2ia" path="res://Chapters/Chapter 1/Inventory System/Collectible/AbstractItem.tscn" id="23_v60hc"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="26_spiw6"]
 [ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
+[ext_resource type="PackedScene" uid="uid://c2yoic0d2il2d" path="res://Chapters/Chapter 1/Inventory System/Collectible/Crystal.tscn" id="30_sq58t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6609,10 +6609,6 @@ interact_label = "open chest"
 interact_type = "open_chest"
 interact_value = "working???"
 
-[node name="AbstractItem" parent="." instance=ExtResource("23_v60hc")]
-position = Vector2(322, 241)
-ID = "1"
-
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(213, 241)
 projectile_scene = ExtResource("27_v5qjy")
@@ -6769,6 +6765,9 @@ visible = false
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(565, 372)
 
+[node name="Skull16" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(323, 239)
+
 [node name="Skull14" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(872, 245)
 
@@ -6857,6 +6856,10 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [node name="CheckpointManager" parent="." instance=ExtResource("13_iqdbx")]
 
 [node name="StarProjectile" parent="." instance=ExtResource("27_v5qjy")]
+
+[node name="Crystal" parent="." instance=ExtResource("30_sq58t")]
+position = Vector2(-1, 2)
+parent_enemy = NodePath("../Enemies/Skull16")
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]

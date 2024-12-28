@@ -26,3 +26,6 @@ theme_override_font_sizes/font_size = 50
 text = " 0
 "
 autowrap_mode = 3
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 2
