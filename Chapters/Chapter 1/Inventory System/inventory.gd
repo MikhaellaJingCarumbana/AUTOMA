@@ -4,7 +4,6 @@ extends GridContainer
 func _ready() -> void:
 	InventoryManager.register_inventory(self)
 	
-	
 func add_item(ID = "0"):
 	var item_texture = load("res://Art/Database png/" + ItemData.get_texture(ID))
 	var item_slot_type = ItemData.get_slot_type(ID)

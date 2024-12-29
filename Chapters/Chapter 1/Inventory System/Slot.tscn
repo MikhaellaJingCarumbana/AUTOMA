@@ -10,8 +10,6 @@ offset_bottom = 457.0
 size_flags_horizontal = 2
 script = ExtResource("1_who2e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -22,7 +20,6 @@ script = ExtResource("2_j0h8p")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 50
 text = " 0
 "
 autowrap_mode = 3
