@@ -5,7 +5,7 @@ extends Area2D
 @export var float_amplitude: float = 5.0
 @export var float_speed: float = 4.0
 @export var jump_boost: int = -200
-@export var item_id: String = "cyrstal_01"
+@export var item_id: String = "1"
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

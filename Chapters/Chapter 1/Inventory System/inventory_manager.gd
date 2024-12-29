@@ -8,13 +8,9 @@ static func register_inventory(inventory_node: Node):
 	
 
 	
-static func add_item(item_id: String):
-	var item_scene = load("res://Chapters/Chapter 1/Inventory System/Collectible/Crystal.tscn")
-	var instance = item_scene.instantiate()
-	
-	instance.get_node("AnimatedSprite2D").play("Default")
-	
+func add_item(item_id: String):
 	if inventory:
-		inventory.add_to_slot(instance)
+		inventory.add_item(item_id)
 	else:
 		print("No inventory connected")
+	
