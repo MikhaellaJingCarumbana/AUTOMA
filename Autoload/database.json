@@ -1,7 +1,13 @@
 {
-	"items": {
-		"crystal": {
-			"scale": [2.0, 2.0]
-		}
+	"0" : {
+		"texture" : "Coin.png",
+		"slot_type" : 2,
+		"STS" : 0
+	},
+	
+	"1" : {
+		"texture" : "crystal.png",
+		"slot_type" : 1,
+		"STS" : 0
 	}
 }
