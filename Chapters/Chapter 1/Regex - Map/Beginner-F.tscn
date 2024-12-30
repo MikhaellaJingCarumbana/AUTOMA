@@ -1,15 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=27 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
 [ext_resource type="Texture2D" uid="uid://imatk76rwuj4" path="res://Art/Dungeon Vibes Tilesets/Props 2.png" id="3_rl510"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="4_p7kio"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="5_e65jt"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/tutorial_text.gd" id="5_mddia"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_hkbon"]
 [ext_resource type="PackedScene" uid="uid://cmsalwq5xoat6" path="res://Chapters/Chapter 1/Sprite/Props animated/doors/Portaldoor.tscn" id="7_klmk2"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_l14n2"]
 [ext_resource type="PackedScene" uid="uid://cwsjbvfsg8dm4" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Brown chest.tscn" id="8_dbcjb"]
+[ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="9_3fogp"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_td7nl"]
 [ext_resource type="PackedScene" uid="uid://nuh3a8lcx5d6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="12_7hj65"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="16_lwju0"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="17_f6l53"]
 [ext_resource type="PackedScene" uid="uid://duu4qwnplk6q4" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note.tscn" id="18_yd2h7"]
-[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="19_00ec5"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
@@ -6383,61 +6382,6 @@ sources/1 = SubResource("TileSetAtlasSource_blvni")
 sources/2 = SubResource("TileSetAtlasSource_8d486")
 sources/3 = SubResource("TileSetAtlasSource_akphm")
 
-[sub_resource type="Animation" id="Animation_f8nby"]
-resource_name = "Text"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.866667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_l1y0l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_unjfb"]
-resource_name = "exit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.733333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2d0jd"]
-_data = {
-"RESET": SubResource("Animation_l1y0l"),
-"Text": SubResource("Animation_f8nby"),
-"exit": SubResource("Animation_unjfb")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6b3l"]
-size = Vector2(227, 114)
-
 [sub_resource type="Resource" id="Resource_8h68n"]
 script = ExtResource("7_l14n2")
 duration = 0.5
@@ -6547,36 +6491,29 @@ scale = Vector2(0.695312, 0.644531)
 interact_type = "open_door_code"
 door_code_path = NodePath("..")
 
-[node name="TutorialText" type="Node" parent="."]
-script = ExtResource("5_mddia")
+[node name="TutorialText" parent="." instance=ExtResource("9_3fogp")]
 
-[node name="Label" type="Label" parent="TutorialText"]
-modulate = Color(0.762404, 0.762404, 0.762404, 1)
-offset_left = 375.0
-offset_top = 94.0
-offset_right = 14775.0
-offset_bottom = 6563.0
-scale = Vector2(0.005, 0.005)
-theme_override_fonts/font = ExtResource("19_00ec5")
-theme_override_font_sizes/font_size = 1700
-text = "Notes will be scattered throughout the dungeon. Collect these notes by opening chests!"
-autowrap_mode = 3
+[node name="Label" parent="TutorialText" index="0"]
+offset_right = 16775.0
+text = "Clues will be scattered throughout the dungeon. Open chests by pressing \"E\""
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TutorialText"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_2d0jd")
-}
-playback_auto_capture = false
+[node name="TutorialText2" parent="." instance=ExtResource("9_3fogp")]
 
-[node name="Area2D" type="Area2D" parent="TutorialText"]
+[node name="Label" parent="TutorialText2" index="0"]
+offset_left = 678.0
+offset_top = 38.0
+offset_right = 22278.0
+offset_bottom = 6507.0
+text = "Monsters drop notes when killed. You can view these notes by pressing the note button and you can view clues by pressing \"C\""
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialText/Area2D"]
-position = Vector2(334.5, 73)
-shape = SubResource("RectangleShape2D_u6b3l")
-debug_color = Color(0.154801, 0.644949, 0, 0.42)
+[node name="CollisionShape2D" parent="TutorialText2/Area2D" index="0"]
+position = Vector2(785.25, 79)
 
 [node name="Player" parent="." instance=ExtResource("5_e65jt")]
 light_mask = 4
@@ -6674,9 +6611,6 @@ parent_enemy = NodePath("../Skull7")
 [node name="Note3" parent="Enemies" instance=ExtResource("18_yd2h7")]
 parent_enemy = NodePath("../Skull10")
 
-[connection signal="body_entered" from="TutorialText/Area2D" to="TutorialText" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="TutorialText/Area2D" to="TutorialText" method="_on_area_2d_body_exited"]
-[connection signal="body_exited" from="camera_bounds" to="TutorialText" method="_on_camera_bounds_body_exited"]
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 
 [editable path="Clues"]
@@ -6686,6 +6620,8 @@ parent_enemy = NodePath("../Skull10")
 [editable path="Clues5"]
 [editable path="Brownchest"]
 [editable path="Portaldoor"]
+[editable path="TutorialText"]
+[editable path="TutorialText2"]
 [editable path="Player"]
 [editable path="death_zone"]
 [editable path="UI"]
