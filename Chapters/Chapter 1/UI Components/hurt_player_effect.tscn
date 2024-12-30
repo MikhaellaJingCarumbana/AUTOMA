@@ -9,7 +9,7 @@ script = ExtResource("1_yc7as")
 [node name="PlayerHurt" parent="." instance=ExtResource("1_iure1")]
 
 [node name="Sprite2D" parent="PlayerHurt" index="0"]
-position = Vector2(1047.96, 400.624)
+position = Vector2(665, 569)
 scale = Vector2(12.0081, 12.0081)
 
 [editable path="PlayerHurt"]
