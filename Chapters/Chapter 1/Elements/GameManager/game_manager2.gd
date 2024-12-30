@@ -7,6 +7,7 @@ extends Node
 @onready var player: Player = $"../Player"
 @onready var pause_menu: ColorRect = $"../UI/Powerup_Choose/PauseMenu"
 @onready var player_area: Area2D = $"../Player/Interaction Component/Group"
+@onready var hurt_player_effect: CanvasLayer = $"../HurtPlayerEffect"
 
 
 var enemy_groups: Dictionary = {}
@@ -54,6 +55,7 @@ func _process(delta: float) -> void:
 
 func decrease_health():
 	lives -= 1
+	hurt_player_effect.show_hurt_effect()
 	print(lives)
 	for h in 5:
 		if (h < lives):
