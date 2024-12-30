@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=51 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -26,10 +26,12 @@
 [ext_resource type="PackedScene" uid="uid://dv5xhod7maha1" path="res://Chapters/Chapter 1/Inventory System/TestScene.tscn" id="22_625t8"]
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="23_oqfdx"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="26_spiw6"]
 [ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
 [ext_resource type="PackedScene" uid="uid://c2yoic0d2il2d" path="res://Chapters/Chapter 1/Inventory System/Collectible/Crystal.tscn" id="30_sq58t"]
+[ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6760,6 +6762,27 @@ visible = false
 [node name="UI" parent="UI/TestScene" index="0"]
 visible = false
 
+[node name="debug" parent="UI/TestScene/UI/Inventory/Slot" index="2"]
+theme_override_fonts/font = ExtResource("23_oqfdx")
+
+[node name="debug" parent="UI/TestScene/UI/Inventory/Slot2" index="2"]
+theme_override_fonts/font = ExtResource("23_oqfdx")
+
+[node name="debug" parent="UI/TestScene/UI/Inventory/Slot3" index="2"]
+theme_override_fonts/font = ExtResource("23_oqfdx")
+
+[node name="debug" parent="UI/TestScene/UI/Inventory/Slot4" index="2"]
+theme_override_fonts/font = ExtResource("23_oqfdx")
+
+[node name="debug" parent="UI/TestScene/UI/Inventory/Slot5" index="2"]
+theme_override_fonts/font = ExtResource("23_oqfdx")
+
+[node name="debug" parent="UI/TestScene/UI/Inventory/Slot6" index="2"]
+theme_override_fonts/font = ExtResource("23_oqfdx")
+
+[node name="debug" parent="UI/TestScene/UI/Inventory/Slot7" index="2"]
+theme_override_fonts/font = ExtResource("23_oqfdx")
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
@@ -6767,6 +6790,12 @@ position = Vector2(565, 372)
 
 [node name="Skull16" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(323, 239)
+
+[node name="Skull17" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(359, 238)
+
+[node name="Skull18" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(284, 238)
 
 [node name="Skull14" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(872, 245)
@@ -6860,6 +6889,13 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [node name="Crystal" parent="." instance=ExtResource("30_sq58t")]
 position = Vector2(-1, 2)
 parent_enemy = NodePath("../Enemies/Skull16")
+
+[node name="Crystal2" parent="." instance=ExtResource("30_sq58t")]
+position = Vector2(-1, 2)
+parent_enemy = NodePath("../Enemies/Skull17")
+
+[node name="Coin" parent="." instance=ExtResource("31_bcqml")]
+parent_enemy = NodePath("../Enemies/Skull18")
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
