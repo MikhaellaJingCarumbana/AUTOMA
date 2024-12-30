@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dja6w0kqc7gyq"]
+
+[ext_resource type="PackedScene" uid="uid://r0d3c1gmq34k" path="res://Chapters/Chapter 1/UI Components/Player_Hurt.tscn" id="1_iure1"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.gd" id="1_yc7as"]
+
+[node name="HurtPlayerEffect" type="CanvasLayer"]
+script = ExtResource("1_yc7as")
+
+[node name="PlayerHurt" parent="." instance=ExtResource("1_iure1")]
+
+[node name="Sprite2D" parent="PlayerHurt" index="0"]
+position = Vector2(1047.96, 400.624)
+scale = Vector2(12.0081, 12.0081)
+
+[editable path="PlayerHurt"]

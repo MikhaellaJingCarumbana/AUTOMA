@@ -3,6 +3,7 @@ extends Node
 @export var hearts: Array[Node]
 @onready var note_system: Control = $"../UI/Note System/CarouselSelection"
 @onready var clue_system: Control = $"../UI/Clue_System/CarouselSelection"
+@onready var hurt_player_effect: CanvasLayer = $"../HurtPlayerEffect"
 
 
 
@@ -18,6 +19,7 @@ signal note_collected(index: int)
 
 func decrease_health():
 	lives -= 1
+	hurt_player_effect.show_hurt_effect()
 	print(lives)
 	for h in 5:
 		if (h < lives):
