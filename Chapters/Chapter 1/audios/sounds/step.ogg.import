@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5ks2ic8s2urp"
+path="res://.godot/imported/step.ogg-438fdb89dd01f950a29e3ba2734d1f7d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/step.ogg"
+dest_files=["res://.godot/imported/step.ogg-438fdb89dd01f950a29e3ba2734d1f7d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
