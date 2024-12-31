@@ -103,7 +103,7 @@ func _on_area_2d_body_entered(body):
 		var y_delta = position.y - body.position.y
 		var x_delta = body.position.x - position.x
 		print(y_delta)
-		if(y_delta > 14):
+		if(y_delta > 7):
 			print("Destroy enemy")
 			handle_death()
 			body.jump()

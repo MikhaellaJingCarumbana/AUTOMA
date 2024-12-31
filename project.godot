@@ -35,6 +35,7 @@ directories/dch_directory={
 "Sprite": "res://Characters/Sprite.dch"
 }
 directories/dtl_directory={
+"Door": "res://Chapters/Chapter 1/Dialogic Timelines/Door.dtl",
 "Intro": "res://Chapters/Chapter 1/Dialogic Timelines/Intro.dtl",
 "Tests/timeline": "res://Tests/timeline.dtl",
 "timeline": "res://timeline.dtl"
