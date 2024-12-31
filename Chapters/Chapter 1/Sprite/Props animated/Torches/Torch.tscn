@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://d6ihvblbeii8"]
+
+[ext_resource type="Texture2D" uid="uid://delgdlwi7uax4" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Torch Animated.png" id="1_5vvgd"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/torch.gd" id="1_qw38t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4lhi"]
+atlas = ExtResource("1_5vvgd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jjut"]
+atlas = ExtResource("1_5vvgd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbgdc"]
+atlas = ExtResource("1_5vvgd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upa4u"]
+atlas = ExtResource("1_5vvgd")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut65v"]
+atlas = ExtResource("1_5vvgd")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxca8"]
+atlas = ExtResource("1_5vvgd")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdyyo"]
+atlas = ExtResource("1_5vvgd")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpoeg"]
+atlas = ExtResource("1_5vvgd")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qf1mx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4lhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jjut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbgdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upa4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut65v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxca8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdyyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpoeg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_ydm0t"]
+colors = PackedColorArray(1, 0.803922, 0.00392157, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7i4mv"]
+gradient = SubResource("Gradient_ydm0t")
+fill = 1
+fill_from = Vector2(0.478632, 0.474359)
+fill_to = Vector2(0.837607, 0.153846)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_th1mn"]
+radius = 5.0
+
+[node name="Torch" type="CharacterBody2D"]
+script = ExtResource("1_qw38t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.546875, 0.546875)
+sprite_frames = SubResource("SpriteFrames_qf1mx")
+frame = 3
+frame_progress = 0.2182
+speed_scale = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.76563, 1.76563)
+color = Color(1, 0.909804, 0.00392157, 1)
+texture = SubResource("GradientTexture2D_7i4mv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("CapsuleShape2D_th1mn")

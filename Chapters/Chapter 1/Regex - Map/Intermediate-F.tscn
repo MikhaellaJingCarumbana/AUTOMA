@@ -6616,15 +6616,20 @@ interact_value = "working???"
 position = Vector2(213, 241)
 projectile_scene = ExtResource("27_v5qjy")
 
+[node name="AnimatedSprite2D" parent="Player" index="1"]
+position = Vector2(0, 0)
+scale = Vector2(1, 1)
+animation = &"Death"
+speed_scale = 1.5
+
+[node name="CollisionShape2D" parent="Player" index="2"]
+position = Vector2(-2, 2)
+
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
 position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = -1
-limit_top = 6
-limit_right = 1023
-limit_bottom = 1087
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(213, 241)
