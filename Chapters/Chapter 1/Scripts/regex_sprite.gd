@@ -38,6 +38,14 @@ var is_grouping_enabled: bool = false
 @export var max_group_size: int = 3
 var grouped_enemies: Array = []
 
+@export var sfx_jump: AudioStream
+@export var sfx_footsteps: AudioStream
+@onready var sfx_player: AudioStreamPlayer2D = %sfx_player
+
+var footsteps_fram: Array = [2, 4, 6, 8]
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
 
 
 func _ready():
@@ -78,10 +86,7 @@ func _process(delta):
 		prev_projectile_powerup_state = is_infinite_projectiles_active
 
 func jump():
-	if jump_count < max_jumps:
 		velocity.y = JUMP_VELOCITY
-		jump_count += 1
-		print("Jump count: %d" % jump_count)
 	
 	
 func _input(event):
@@ -154,6 +159,8 @@ func _physics_process(delta):
 	# Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			jump()
+			load_sfx(sfx_jump)
+			sfx_player.play()
 
 	# Get the input direction and handle movement/deceleration
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -187,6 +194,9 @@ func _can_shoot_normal():
 func play_death_animation():
 	is_dead = true
 	sprite_2d.play("Death")
+	
+func hurt():
+	sprite_2d.play("Hurt")
 		
 
 func _on_interaction_area_area_entered(area):
@@ -275,3 +285,15 @@ func _compare_distance(a, b):
 	var dist_a = position.distance_to(a.position)
 	var dist_b = position.distance_to(b.position)
 	return dist_a < dist_b
+
+func load_sfx(sfx_to_load):
+	if %sfx_player.stream != sfx_to_load:
+		%sfx_player.stop()
+		%sfx_player.stream = sfx_to_load
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if sprite.animation == "Idle": return
+	if sprite.animation == "Jump": return
+	load_sfx(sfx_footsteps)
+	if sprite.frame in footsteps_fram: sfx_player.play()

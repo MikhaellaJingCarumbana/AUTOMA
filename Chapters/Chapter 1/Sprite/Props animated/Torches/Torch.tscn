@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d6ihvblbeii8"]
+[gd_scene load_steps=16 format=3 uid="uid://d6ihvblbeii8"]
 
 [ext_resource type="Texture2D" uid="uid://delgdlwi7uax4" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Torch Animated.png" id="1_5vvgd"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/torch.gd" id="1_qw38t"]
+[ext_resource type="AudioStream" uid="uid://irn2hetcdgd6" path="res://Chapters/Chapter 1/audios/sounds/fire.mp3" id="2_061wl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4lhi"]
 atlas = ExtResource("1_5vvgd")
@@ -81,6 +82,7 @@ radius = 5.0
 
 [node name="Torch" type="CharacterBody2D"]
 script = ExtResource("1_qw38t")
+torch = ExtResource("2_061wl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.546875, 0.546875)
@@ -101,3 +103,9 @@ texture_scale = 1.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -1)
 shape = SubResource("CapsuleShape2D_th1mn")
+
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = -5.0
+autoplay = true
+max_distance = 200.0

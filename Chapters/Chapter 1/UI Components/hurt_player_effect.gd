@@ -5,13 +5,16 @@ extends CanvasLayer
 @onready var color_rect: ColorRect = $PlayerHurt/ColorRect
 @onready var animation_player: AnimationPlayer = $PlayerHurt/AnimationPlayer
 
+@export var hurt: AudioStream
+
 var _is_active: bool = false
+@onready var sfx_play: AudioStreamPlayer2D = %sfx_play
 
 func show_hurt_effect():
 	if color_rect.visible:
 		color_rect.modulate.a = 1.0
 		animation_player.stop()
-		animation_player.play("blood")
+		animation_player.play("blood")		
 	else:
 		color_rect.visible = true
 		color_rect.modulate = Color(1, 0, 0, 1.0)  # Fully visible red
@@ -24,3 +27,8 @@ func fade_out():
 		color_rect.modulate.a -= fade_speed * get_process_delta_time()
 		await get_tree().process_frame
 	color_rect.visible = false
+	
+func load_sfx(sfx_to_load):
+	if %sfx_player.stream != sfx_to_load:
+		%sfx_player.stop()
+		%sfx_player.stream = sfx_to_load

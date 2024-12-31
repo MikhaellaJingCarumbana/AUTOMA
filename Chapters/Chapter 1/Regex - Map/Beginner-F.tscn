@@ -6461,44 +6461,6 @@ layer_6/tile_data = PackedInt32Array(3932200, 6291459, 20, 3997736, 6291459, 21,
 layer_7/name = "infront of props"
 layer_7/tile_data = PackedInt32Array(1376275, 262145, 34, 1376276, 327681, 34, 2228262, 131073, 26, 2293798, 131073, 27, 2228263, 196609, 26, 2293799, 196609, 27, 2228251, 131073, 26, 2293787, 131073, 27, 2228252, 196609, 26, 2293788, 196609, 27, 1769516, 655361, 7, 1769517, 655361, 7, 1769518, 655361, 7, 1769519, 655361, 7, 2818069, 655361, 7, 2818070, 655361, 7, 2752534, 655361, 7, 2752533, 655361, 7, 3997754, 655361, 7, 3997753, 655361, 7, 4063289, 655361, 7, 4063290, 655361, 7, 4063291, 655361, 7, 4063288, 655361, 7, 4128824, 655361, 7, 4128823, 655361, 7, 4128825, 655361, 7, 4128822, 655361, 7, 4194358, 655361, 7, 4194359, 655361, 7, 4194360, 655361, 7, 4194357, 655361, 7, 3670074, 655361, 7, 3670075, 655361, 7, 3735611, 655361, 7, 3735610, 655361, 7, 3735609, 655361, 7, 3342394, 655361, 7, 3407930, 655361, 7, 3407931, 655361, 7, 3407932, 655361, 7, 3407929, 655361, 7, 3342393, 655361, 7, 3080247, 655361, 7, 3080248, 655361, 7, 3145784, 655361, 7, 3145783, 655361, 7, 2818106, 655361, 7, 2818107, 655361, 7, 2818108, 655361, 7, 2752564, 655361, 7, 2752565, 655361, 7, 2687029, 655361, 7, 2359353, 655361, 7, 2424889, 655361, 7, 2424890, 655361, 7, 2424891, 655361, 7, 2424888, 655361, 7, 2490424, 655361, 7, 2687030, 655361, 7, 2752566, 655361, 7, 2687031, 655361, 7, 2752567, 655361, 7, 2752568, 655361, 7, 2752569, 655361, 7, 2752570, 655361, 7, 2687032, 655361, 7, 2687033, 655361, 7, 2818098, 655361, 7, 2818099, 655361, 7, 2818100, 655361, 7, 2818101, 655361, 7, 1376313, 655361, 7, 1441849, 655361, 7, 1441848, 655361, 7, 1441850, 655361, 7, 2031672, 655361, 7, 2031673, 655361, 7, 2097210, 655361, 7, 2097209, 655361, 7, 2097208, 655361, 7, 2490423, 655361, 7, 1703994, 655361, 7, 1703993, 655361, 7, 1441851, 655361, 7, 2490425, 655361, 7, 2818109, 655361, 7, 2818102, 655361, 7, 2818103, 655361, 7, 2818104, 655361, 7, 2818105, 655361, 7, 2818097, 655361, 7, 2752563, 655361, 7, 2752571, 655361, 7, 3604487, 655361, 7, 3604488, 655361, 7, 3604489, 655361, 7, 3604490, 655361, 7, 3473420, 655361, 7, 3473421, 655361, 7, 3473422, 655361, 7, 3473423, 655361, 7, 3473424, 655361, 7, 3342354, 655361, 7, 3342355, 655361, 7, 3342356, 655361, 7, 3342357, 655361, 7, 3342358, 655361, 7, 3276818, 655361, 7, 3276819, 655361, 7, 3276820, 655361, 7, 3276821, 655361, 7, 3276822, 655361, 7, 3145750, 655361, 7, 3145749, 655361, 7, 3211285, 655361, 7, 3211286, 655361, 7, 3211287, 655361, 7, 3211288, 655361, 7, 3211289, 655361, 7, 1900573, 655361, 7, 1900574, 655361, 7, 1900575, 655361, 7, 1900576, 655361, 7, 1900577, 655361, 7, 1900578, 655361, 7, 1900579, 655361, 7, 1900580, 655361, 7, 1966108, 655361, 7, 1900569, 655361, 7, 1900568, 655361, 7, 1966104, 655361, 7, 1966105, 655361, 7, 917531, 655361, 7, 983066, 655361, 7, 983067, 655361, 7, 983065, 655361, 7)
 
-[node name="Torches" type="Node" parent="."]
-
-[node name="Torch" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(432, 80)
-
-[node name="Torch2" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(897, 81)
-
-[node name="Torch3" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(186, 323)
-
-[node name="Torch4" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(673, 222)
-
-[node name="Torch5" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(690, 479)
-
-[node name="Torch6" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(260, 563)
-
-[node name="Torch7" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(176, 563)
-
-[node name="Torch8" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(43, 900)
-
-[node name="Torch9" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(534, 846)
-
-[node name="Torch10" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(749, 846)
-
-[node name="Torch11" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(671, 1007)
-
-[node name="Torch12" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(771, 1007)
-
 [node name="TutorialManager" type="Node" parent="."]
 
 [node name="TutorialText" parent="TutorialManager" instance=ExtResource("9_3fogp")]
@@ -6655,16 +6617,54 @@ speed_scale = 1.5
 
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
-position = Vector2(2, 0)
+position = Vector2(3, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = -3
-limit_top = -3
-limit_right = 1023
-limit_bottom = 1071
+limit_left = -2
+limit_top = -100
+limit_right = 1024
+limit_bottom = 974
+
+[node name="Torches" type="Node" parent="."]
+
+[node name="Torch" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(432, 80)
+
+[node name="Torch2" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(897, 81)
+
+[node name="Torch3" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(192, 230)
+
+[node name="Torch4" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(673, 222)
+
+[node name="Torch5" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(690, 479)
+
+[node name="Torch6" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(260, 563)
+
+[node name="Torch7" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(176, 563)
+
+[node name="Torch8" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(43, 900)
+
+[node name="Torch9" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(534, 846)
+
+[node name="Torch10" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(749, 846)
+
+[node name="Torch11" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(671, 1007)
+
+[node name="Torch12" parent="Torches" instance=ExtResource("23_2s1nl")]
+position = Vector2(771, 1007)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(189, 111)
+position = Vector2(190, 111)
 script = ExtResource("6_hkbon")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -6678,7 +6678,7 @@ limit_target = NodePath("../camera_bounds/CollisionShape2D")
 position = Vector2(-20, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
-position = Vector2(530, 550)
+position = Vector2(531, 453)
 shape = SubResource("RectangleShape2D_4y4kd")
 disabled = true
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://irn2hetcdgd6"
+path="res://.godot/imported/fire.mp3-42736b5007e63ddaf0d7ab8205e28f13.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/fire.mp3"
+dest_files=["res://.godot/imported/fire.mp3-42736b5007e63ddaf0d7ab8205e28f13.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

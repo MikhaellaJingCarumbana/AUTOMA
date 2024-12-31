@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dja6w0kqc7gyq"]
+[gd_scene load_steps=4 format=3 uid="uid://dja6w0kqc7gyq"]
 
 [ext_resource type="PackedScene" uid="uid://r0d3c1gmq34k" path="res://Chapters/Chapter 1/UI Components/Player_Hurt.tscn" id="1_iure1"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.gd" id="1_yc7as"]
+[ext_resource type="AudioStream" uid="uid://m3rpgjhi6tpy" path="res://Chapters/Chapter 1/audios/sounds/splat.mp3" id="2_ulk32"]
 
 [node name="HurtPlayerEffect" type="CanvasLayer"]
 script = ExtResource("1_yc7as")
+hurt = ExtResource("2_ulk32")
 
 [node name="PlayerHurt" parent="." instance=ExtResource("1_iure1")]
 

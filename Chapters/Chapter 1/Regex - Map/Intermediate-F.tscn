@@ -6630,10 +6630,6 @@ physics_interpolation_mode = 1
 position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = -1
-limit_top = 6
-limit_right = 1023
-limit_bottom = 1087
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(213, 241)
