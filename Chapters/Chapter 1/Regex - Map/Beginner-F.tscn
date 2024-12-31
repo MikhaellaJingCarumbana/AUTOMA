@@ -6616,21 +6616,13 @@ disabled = true
 [node name="PauseMenu" parent="UI/DoorCode" index="0"]
 visible = false
 
-[node name="Control" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Dialogic" type="Node" parent="UI"]
 script = ExtResource("21_hkdo2")
 
 [node name="Area2D" type="Area2D" parent="UI/Dialogic"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Dialogic/Area2D"]
-position = Vector2(184, 75)
+position = Vector2(189, 75)
 shape = SubResource("RectangleShape2D_6ll5r")
 debug_color = Color(0.91386, 0.289445, 0.0784393, 0.42)
 

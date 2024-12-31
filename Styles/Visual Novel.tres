@@ -14,10 +14,10 @@
 [sub_resource type="Resource" id="Resource_2ebyg"]
 script = ExtResource("2_v8wv6")
 overrides = {
-"canvas_layer": "2.0",
-"global_bg_color": "Color(0.234375, 0.234375, 0.234375, 0.9)",
+"global_bg_color": "Color(0.835938, 0.697325, 0.411438, 1)",
 "global_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
-"global_font_size": "30.0"
+"global_font_color": "Color(0.317647, 0.176471, 0.0823529, 1)",
+"global_font_size": "35.0"
 }
 
 [sub_resource type="Resource" id="Resource_v0sim"]
@@ -38,6 +38,7 @@ overrides = {
 "bold_italics_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
 "italics_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
 "normal_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
+"text_custom_color": "Color(0.317647, 0.176471, 0.0823529, 1)",
 "text_size": "20.0",
 "text_use_global_color": "false",
 "text_use_global_font": "false"
@@ -51,7 +52,14 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_m3yt4"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("6_abbrg")
-overrides = {}
+overrides = {
+"extra_alignment": "1",
+"extra_custom_color": "Color(0.317647, 0.176471, 0.0823529, 1)",
+"text_alignment": "1",
+"text_custom_color": "Color(0.317647, 0.176471, 0.0823529, 1)",
+"title_alignment": "1",
+"title_custom_color": "Color(0.317647, 0.176471, 0.0823529, 1)"
+}
 
 [sub_resource type="Resource" id="Resource_essic"]
 script = ExtResource("2_v8wv6")
@@ -85,4 +93,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("2_v8wv6")]([])
-metadata/_latest_layer = ""
+metadata/_latest_layer = "11"
