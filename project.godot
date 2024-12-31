@@ -29,9 +29,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
-layout/style_list=["res://Styles/NovelStylewithImage.tres", "res://Styles/Visual Novel.tres"]
+directories/dch_directory={
+"Adventurer": "res://Tests/Adventurer.dch",
+"Eleanor_NPC": "res://Characters/Eleanor_NPC.dch"
+}
+directories/dtl_directory={
+"Intro": "res://Chapters/Chapter 1/Dialogic Timelines/Intro.dtl",
+"Tests/timeline": "res://Tests/timeline.dtl",
+"timeline": "res://timeline.dtl"
+}
+layout/style_list=["res://Styles/NovelStylewithImage.tres", "res://Styles/Visual Novel.tres", "res://Tests/Bubble.tres"]
 layout/default_style="res://Styles/NovelStylewithImage.tres"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -51,6 +58,10 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 variables={}
 glossary/default_case_sensitive=true
+extensions_folder="res://addons/dialogic_additions"
+text/advance_delay=0.1
+audio/max_channels=4.0
+animations/cross_fade_default_length=0.5
 
 [display]
 

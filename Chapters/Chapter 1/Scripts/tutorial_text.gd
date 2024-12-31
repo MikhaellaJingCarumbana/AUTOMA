@@ -27,3 +27,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		print("Player exited. Resetting tracker.")
 		has_entered = false
 		%AnimationPlayer.play("exit")
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=34 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://duu4qwnplk6q4" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note.tscn" id="18_yd2h7"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="20_25tw7"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/Dialogue_Start.gd" id="21_hkdo2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6404,6 +6405,9 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y4kd"]
 size = Vector2(1026, 1074)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ll5r"]
+size = Vector2(48, 145)
+
 [node name="Beginner-f" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6612,6 +6616,24 @@ disabled = true
 [node name="PauseMenu" parent="UI/DoorCode" index="0"]
 visible = false
 
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dialogic" type="Node" parent="UI"]
+script = ExtResource("21_hkdo2")
+
+[node name="Area2D" type="Area2D" parent="UI/Dialogic"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Dialogic/Area2D"]
+position = Vector2(184, 75)
+shape = SubResource("RectangleShape2D_6ll5r")
+debug_color = Color(0.91386, 0.289445, 0.0784393, 0.42)
+
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
@@ -6672,6 +6694,7 @@ visible = false
 color = Color(0.140604, 0.002717, 0.00606566, 0.286275)
 
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
+[connection signal="body_entered" from="UI/Dialogic/Area2D" to="UI/Dialogic" method="_on_area_2d_body_entered"]
 
 [editable path="TutorialManager/TutorialText"]
 [editable path="TutorialManager/TutorialText2"]

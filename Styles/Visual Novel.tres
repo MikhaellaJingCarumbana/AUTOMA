@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://b6vts43diyadw"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=20 format=3 uid="uid://b6vts43diyadw"]
 
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="1_5mi1p"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_v8wv6"]
@@ -11,42 +11,59 @@
 [ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="9_v6ivm"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_4rq13"]
 
-[sub_resource type="Resource" id="Resource_g2mp5"]
+[sub_resource type="Resource" id="Resource_2ebyg"]
+script = ExtResource("2_v8wv6")
+overrides = {
+"canvas_layer": "2.0",
+"global_bg_color": "Color(0.234375, 0.234375, 0.234375, 0.9)",
+"global_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
+"global_font_size": "30.0"
+}
+
+[sub_resource type="Resource" id="Resource_v0sim"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("1_5mi1p")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_hpr2m"]
+[sub_resource type="Resource" id="Resource_r6bq0"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("3_iggc4")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_u608p"]
+[sub_resource type="Resource" id="Resource_ykgdf"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("4_c5rbt")
-overrides = {}
+overrides = {
+"bold_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
+"bold_italics_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
+"italics_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
+"normal_font": "\"res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf\"",
+"text_size": "20.0",
+"text_use_global_color": "false",
+"text_use_global_font": "false"
+}
 
-[sub_resource type="Resource" id="Resource_kr516"]
+[sub_resource type="Resource" id="Resource_6knov"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("5_8oc15")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_r2ygv"]
+[sub_resource type="Resource" id="Resource_m3yt4"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("6_abbrg")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_ya1am"]
+[sub_resource type="Resource" id="Resource_essic"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("7_sac7y")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_c626y"]
+[sub_resource type="Resource" id="Resource_pstp2"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("8_beoyi")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_vmf5x"]
+[sub_resource type="Resource" id="Resource_tcwj0"]
 script = ExtResource("2_v8wv6")
 scene = ExtResource("9_v6ivm")
 overrides = {}
@@ -54,6 +71,18 @@ overrides = {}
 [resource]
 script = ExtResource("10_4rq13")
 name = "Visual Novel"
+layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16", "17"])
+layer_info = {
+"": SubResource("Resource_2ebyg"),
+"10": SubResource("Resource_v0sim"),
+"11": SubResource("Resource_r6bq0"),
+"12": SubResource("Resource_ykgdf"),
+"13": SubResource("Resource_6knov"),
+"14": SubResource("Resource_m3yt4"),
+"15": SubResource("Resource_essic"),
+"16": SubResource("Resource_pstp2"),
+"17": SubResource("Resource_tcwj0")
+}
 base_overrides = {}
-layers = Array[ExtResource("2_v8wv6")]([SubResource("Resource_g2mp5"), SubResource("Resource_hpr2m"), SubResource("Resource_u608p"), SubResource("Resource_kr516"), SubResource("Resource_r2ygv"), SubResource("Resource_ya1am"), SubResource("Resource_c626y"), SubResource("Resource_vmf5x")])
-metadata/_latest_layer = -1
+layers = Array[ExtResource("2_v8wv6")]([])
+metadata/_latest_layer = ""
