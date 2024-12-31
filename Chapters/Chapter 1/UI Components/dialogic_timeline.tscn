@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3kp8he7s4tcq"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/Dialogue_Start.gd" id="1_iju77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ll5r"]
+size = Vector2(37, 145)
+
+[node name="Dialogic" type="Node"]
+script = ExtResource("1_iju77")
+timeline_file = "Intro"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(189, 75)
+shape = SubResource("RectangleShape2D_6ll5r")
+debug_color = Color(0.91386, 0.289445, 0.0784393, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

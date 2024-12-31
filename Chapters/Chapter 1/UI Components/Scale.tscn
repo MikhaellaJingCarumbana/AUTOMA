@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmbejgmvoie7"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system.gd" id="1_prfrq"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="3_irjj8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
+shader = ExtResource("3_irjj8")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 3.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.498039, 0.792157, 0.945098, 0.807843)
+shader_parameter/colour_2 = Color(0.145098, 0.368627, 0.466667, 0.807843)
+shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 0.807843)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.2
+shader_parameter/pixel_filter = 700.0
+
+[node name="Clue_System" type="Node"]
+script = ExtResource("1_prfrq")
+
+[node name="PauseMenu" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_aq6tb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.164706, 0.207843, 1)
