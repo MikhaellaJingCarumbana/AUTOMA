@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="13_yy40w"]
 [ext_resource type="PackedScene" uid="uid://cgx5rm0prmpo1" path="res://Chapters/Chapter 1/UI Components/DoorCode.tscn" id="14_voc4h"]
 [ext_resource type="PackedScene" uid="uid://bh2gfnypjwyx6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/cyclops.tscn" id="16_lwju0"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/UI Components/dialogic_timeline.tscn" id="16_q3mjn"]
+[ext_resource type="PackedScene" uid="uid://eq8ppfbfjv8v" path="res://Chapters/Chapter 1/UI Components/dialogic_timeline.tscn" id="16_q3mjn"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="17_f6l53"]
 [ext_resource type="PackedScene" uid="uid://duu4qwnplk6q4" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note.tscn" id="18_yd2h7"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="20_25tw7"]
@@ -6691,8 +6691,6 @@ disabled = true
 [node name="PauseMenu" parent="UI/DoorCode" index="0"]
 visible = false
 
-[node name="Dialogic" parent="UI" instance=ExtResource("16_q3mjn")]
-
 [node name="Dialogic2" type="Node" parent="UI"]
 script = ExtResource("21_hkdo2")
 timeline_file = "Door"
@@ -6703,6 +6701,12 @@ timeline_file = "Door"
 position = Vector2(822.5, 987)
 shape = SubResource("RectangleShape2D_fcec2")
 debug_color = Color(0.91386, 0.289445, 0.0784393, 0.42)
+
+[node name="Dialogic" parent="UI" instance=ExtResource("16_q3mjn")]
+timeline_file = "chests"
+
+[node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
+position = Vector2(347, 72)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("13_bhq4s")]
 unique_name_in_owner = true

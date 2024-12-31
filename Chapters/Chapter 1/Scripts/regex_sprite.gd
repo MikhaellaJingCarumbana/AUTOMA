@@ -171,6 +171,7 @@ func _physics_process(delta):
 	if game_manager.lives == 0 and not is_dead:
 		play_death_animation()
 		
+		
 	#reset jump count when on the floor
 	if is_on_floor():
 		jump_count = 0
