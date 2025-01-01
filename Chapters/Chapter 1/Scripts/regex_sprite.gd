@@ -106,7 +106,7 @@ func boost_jump():
 		
 func _reset_jump_boost():
 	has_charge_powerip = false
-	JUMP_VELOCITY += 200
+	JUMP_VELOCITY = -560.0
 	print("DEBUG: Jump boost reset.")
 	
 func boost_speed():

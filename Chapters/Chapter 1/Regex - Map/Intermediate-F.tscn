@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=54 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
+[ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6615,6 +6616,7 @@ interact_value = "working???"
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(135, 248)
+projectile_scene = ExtResource("27_v5qjy")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(191, 248)
@@ -6781,13 +6783,13 @@ theme_override_fonts/font = ExtResource("23_oqfdx")
 position = Vector2(565, 372)
 
 [node name="Skull16" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(323, 239)
+position = Vector2(242, 236)
 
 [node name="Skull17" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(359, 238)
+position = Vector2(825, 242)
 
 [node name="Skull18" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(284, 238)
+position = Vector2(772, 244)
 
 [node name="Skull14" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(872, 245)
@@ -6851,7 +6853,7 @@ parent_enemy = NodePath("../Skull6")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-parent_enemy = NodePath("../Skull2")
+parent_enemy = NodePath("../Skull16")
 
 [node name="Star2" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
@@ -6898,6 +6900,65 @@ visible = false
 color = Color(0.139929, 0.206559, 0.229867, 0.933333)
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("34_ot2tf")]
+
+[node name="Light" type="Node" parent="."]
+
+[node name="Torch" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(358, 190)
+
+[node name="Torch2" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(649, 193)
+
+[node name="Torch3" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(308, 466)
+
+[node name="Torch4" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(117, 511)
+
+[node name="Torch5" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(360, 607)
+
+[node name="Torch6" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(663, 497)
+
+[node name="Torch7" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(827, 494)
+
+[node name="Torch8" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(533, 608)
+
+[node name="Torch9" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(366, 733)
+
+[node name="Torch10" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(218, 784)
+
+[node name="Torch11" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(647, 762)
+
+[node name="Torch12" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(736, 646)
+
+[node name="Torch13" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(907, 651)
+
+[node name="Torch14" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(923, 852)
+
+[node name="Torch15" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(773, 900)
+
+[node name="Torch16" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(617, 916)
+
+[node name="Torch17" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(493, 971)
+
+[node name="Torch18" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(378, 1002)
+
+[node name="Torch19" parent="Light" instance=ExtResource("35_apfom")]
+position = Vector2(752, 1013)
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
