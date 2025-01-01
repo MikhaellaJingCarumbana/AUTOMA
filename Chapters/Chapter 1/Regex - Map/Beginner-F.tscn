@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/Dialogue_Start.gd" id="21_hkdo2"]
 [ext_resource type="PackedScene" uid="uid://d6ihvblbeii8" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Torch.tscn" id="23_2s1nl"]
-[ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/music/grimyth - Dungeon XI.ogg" id="24_rat3r"]
+[ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="24_den0v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6779,10 +6779,7 @@ color = Color(0.140604, 0.002717, 0.00606566, 0.286275)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.40717, 0.542611, 0.589864, 0.933333)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("24_rat3r")
-volume_db = -10.0
-autoplay = true
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("24_den0v")]
 
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="body_entered" from="UI/Dialogic2/Area2D" to="UI/Dialogic2" method="_on_area_2d_body_entered"]

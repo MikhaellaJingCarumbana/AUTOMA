@@ -1,7 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://1qohgqlv5m1j"]
+[gd_scene load_steps=40 format=3 uid="uid://1qohgqlv5m1j"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/skull.gd" id="1_u6ei2"]
+[ext_resource type="AudioStream" uid="uid://efb0w1yr064j" path="res://Chapters/Chapter 1/audios/sounds/strong-blow-98195.mp3" id="2_n0nlh"]
 [ext_resource type="Texture2D" uid="uid://bsqcfyfhyj5s7" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Enemy_008_B.png" id="3_p0mlo"]
+[ext_resource type="AudioStream" uid="uid://8uewg3n3kygm" path="res://Chapters/Chapter 1/audios/sounds/creepy-moan-87456.mp3" id="4_yqpnx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijpwu"]
 atlas = ExtResource("3_p0mlo")
@@ -240,21 +242,30 @@ animations = [{
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rrr10"]
-radius = 9.0
+
+[sub_resource type="Gradient" id="Gradient_em5na"]
+colors = PackedColorArray(0, 0.831373, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x3nx2"]
+gradient = SubResource("Gradient_em5na")
+fill = 1
+fill_from = Vector2(0.5, 0.465812)
+fill_to = Vector2(0.871795, 0.123932)
 
 [node name="Skull" type="CharacterBody2D" groups=["Enemies"]]
 texture_filter = 1
 script = ExtResource("1_u6ei2")
+death_sound = ExtResource("2_n0nlh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_hx42s")
-animation = &"death"
+animation = &"walk"
+frame_progress = 0.463231
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_gf0iy")
 
 [node name="DirectionTimer" type="Timer" parent="."]
@@ -268,6 +279,24 @@ shape = SubResource("CircleShape2D_rrr10")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 3)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(1.42188, 1.42188)
+color = Color(0.176699, 0.682919, 1, 1)
+energy = 0.8
+range_z_min = -1026
+range_z_max = 1500
+texture = SubResource("GradientTexture2D_x3nx2")
+
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = 1.0
+
+[node name="whisper" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yqpnx")
+volume_db = -15.0
+max_distance = 200.0
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

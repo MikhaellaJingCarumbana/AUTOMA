@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn7dgj86a3s78"]
+
+[ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/music/grimyth - Dungeon XI.ogg" id="1_3cyc5"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_3cyc5")
+volume_db = -10.0
+autoplay = true

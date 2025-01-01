@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhd3d0sbsd3te"]
+[gd_scene load_steps=13 format=3 uid="uid://bhd3d0sbsd3te"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system2.gd" id="1_67f4r"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/carousel_selection (level2).gd" id="2_iolt0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c8d3knqj8qlif" path="res://Art/Regular Expression Clues No.2/edited/9.png" id="5_2j2ne"]
 [ext_resource type="Texture2D" uid="uid://jy7b6wkffwcm" path="res://Art/Regular Expression Clues No.2/edited/10.png" id="6_e3458"]
 [ext_resource type="Texture2D" uid="uid://c55x116lwo2j7" path="res://Art/Lucid V1.2/PNG/Flat/16/Left-Arrow.png" id="10_4ki34"]
+[ext_resource type="AudioStream" uid="uid://dpi318o8ricgx" path="res://Chapters/Chapter 1/audios/sounds/crumple-03-40747.mp3" id="10_vd54b"]
 [ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="11_5olcj"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="12_u17ri"]
 
@@ -219,6 +220,9 @@ theme_override_font_sizes/font_size = 40
 text = "The Clue System holds cards with hints to unlock the next level. 
 Decipher each clue's description to progress!"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_vd54b")
 
 [connection signal="pressed" from="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/Previous" to="CarouselSelection" method="_on_previous_pressed"]
 [connection signal="pressed" from="CarouselSelection/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2/Next" to="CarouselSelection" method="_on_next_pressed"]

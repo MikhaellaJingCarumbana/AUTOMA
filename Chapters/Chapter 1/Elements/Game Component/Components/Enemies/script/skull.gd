@@ -33,12 +33,18 @@ var float_time: float = 0.0
 
 var player: CharacterBody2D
 var player_in_area = false
+@export var death_sound: AudioStream
+@onready var sfx_player: AudioStreamPlayer2D = %sfx_player
+@onready var whisper: AudioStreamPlayer2D = $whisper
+
+
 
 @export var hover_height: float = 10.0
 
 signal died(group_id: int)
 
 func _ready():
+	whisper.play()
 	position.y -= hover_height
 	
 	
@@ -65,8 +71,6 @@ func handle_animation():
 			taking_damage = false
 		elif dead and is_roaming:
 			is_roaming = false
-			anim_sprite.play("death")
-			await get_tree().create_timer(1,0).timeout
 			handle_death()
 			
 func handle_death():
@@ -80,14 +84,9 @@ func handle_death():
 	else:
 		print("DEBUG: No note node found under the same parent as enemy.")
 		
-	if grouped and game_manager.has_method("kill_group"):
-		game_manager.kill_group(group_type, group_id)
-		emit_signal("died", group_id)
-	else:
-		queue_free()
-		
-	group_id = null
-	grouped = false
+	load_sfx(death_sound)
+	sfx_player.play()
+	await get_tree().create_timer(0.3).timeout
 	self.queue_free()
 	print("Enemy has been freed")
 	
@@ -145,5 +144,10 @@ func take_damage(amount: int):
 	if health <= 0:
 		handle_death()
 		
+func load_sfx(sfx_to_load):
+	if %sfx_player.stream != sfx_to_load:
+		%sfx_player.stop()
+		%sfx_player.stream = sfx_to_load
+				
 	
 		

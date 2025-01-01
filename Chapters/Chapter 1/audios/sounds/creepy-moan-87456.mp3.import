@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8uewg3n3kygm"
+path="res://.godot/imported/creepy-moan-87456.mp3-9b5382478ef9e4caf732c6f8141b8e21.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/creepy-moan-87456.mp3"
+dest_files=["res://.godot/imported/creepy-moan-87456.mp3-9b5382478ef9e4caf732c6f8141b8e21.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
