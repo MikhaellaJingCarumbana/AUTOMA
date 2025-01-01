@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmsalwq5xoat6"]
+[gd_scene load_steps=15 format=3 uid="uid://cmsalwq5xoat6"]
 
 [ext_resource type="Texture2D" uid="uid://bhgj4bibo7ik3" path="res://Chapters/Chapter 1/Sprite/Props animated/doors/spr_portal_strip8.png" id="1_hxmpp"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/doors/portaldoor.gd" id="2_dbegi"]
 [ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="3_8vxir"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="4_g0n6l"]
+[ext_resource type="AudioStream" uid="uid://b7xcxv52vxba5" path="res://Chapters/Chapter 1/audios/sounds/distant-glow-189361.mp3" id="5_gp23p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_leqla"]
 atlas = ExtResource("1_hxmpp")
@@ -83,3 +84,9 @@ scale = Vector2(-2.00193, 2.73072)
 [node name="InteractArea" parent="." instance=ExtResource("4_g0n6l")]
 scale = Vector2(3.72, 3.64)
 interact_label = "Press E to interact with door"
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gp23p")
+volume_db = -10.0
+autoplay = true
+max_distance = 300.0

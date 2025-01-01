@@ -14,4 +14,6 @@ shape = SubResource("RectangleShape2D_onc5s")
 
 [node name="Spawn" type="Marker2D" parent="."]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

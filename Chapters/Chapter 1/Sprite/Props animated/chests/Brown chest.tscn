@@ -1,8 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://cwsjbvfsg8dm4"]
+[gd_scene load_steps=32 format=3 uid="uid://cwsjbvfsg8dm4"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/scripts/chest.gd" id="1_p86rj"]
 [ext_resource type="Texture2D" uid="uid://c40rutawxyo01" path="res://Art/Objects/Chests.png" id="2_k3vdo"]
+[ext_resource type="AudioStream" uid="uid://bp0t2m5ucci8" path="res://Chapters/Chapter 1/audios/sounds/chest-slam-85122.mp3" id="2_lpt6v"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="3_fdf6o"]
+[ext_resource type="AudioStream" uid="uid://cx2xwjkaowq46" path="res://Chapters/Chapter 1/audios/sounds/dorm-door-opening-6038.mp3" id="4_lp3wl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8b5b1"]
 atlas = ExtResource("2_k3vdo")
@@ -199,6 +201,8 @@ animations = [{
 
 [node name="BrownChest" type="CharacterBody2D"]
 script = ExtResource("1_p86rj")
+close = ExtResource("2_lpt6v")
+open = ExtResource("4_lp3wl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -211,3 +215,7 @@ speed_scale = 3.0
 [node name="InteractArea" parent="." instance=ExtResource("3_fdf6o")]
 scale = Vector2(2.35167, 2.33633)
 collision_layer = 0
+
+[node name="sfx_chest" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.0
+max_distance = 100.0

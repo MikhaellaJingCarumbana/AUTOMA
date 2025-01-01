@@ -4,6 +4,10 @@ extends CharacterBody2D
 @onready var clues: Area2D = $"../Clues"
 var is_chest_open = false  # Track if the chest is open or closed
 @onready var collision_shape_2d: CollisionShape2D = $"../Clues/CollisionShape2D"
+@onready var sfx_chest: AudioStreamPlayer2D = $sfx_chest
+
+@export var close: AudioStream
+@export var open: AudioStream
 
 func _ready():
 	sprite_2d.play("Idle")  # Start with the chest closed
@@ -20,6 +24,8 @@ func open_chest():
 	if is_chest_open:
 		# If the chest is open, play the close animation
 		if sprite_2d.sprite_frames.has_animation("Close"):
+			load_sfx(close)
+			sfx_chest.play()
 			sprite_2d.play("Close")  # Play the closing animation
 		is_chest_open = false  # Update the state to closed
 		
@@ -30,6 +36,8 @@ func open_chest():
 	else:
 		# If the chest is closed, play the open animation
 		if sprite_2d.sprite_frames.has_animation("Open"):
+			load_sfx(open)
+			sfx_chest.play()
 			sprite_2d.play("Open")  # Play the opening animation
 		is_chest_open = true  # Update the state to open
 		
@@ -43,3 +51,8 @@ func is_open() -> bool:
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
+
+func load_sfx(sfx_to_load):
+	if $sfx_chest.stream != sfx_to_load:
+		$sfx_chest.stop()
+		$sfx_chest.stream = sfx_to_load

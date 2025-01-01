@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7xcxv52vxba5"
+path="res://.godot/imported/distant-glow-189361.mp3-de6c7a48bcc15cc35a0c1eb4a32e9380.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/distant-glow-189361.mp3"
+dest_files=["res://.godot/imported/distant-glow-189361.mp3-de6c7a48bcc15cc35a0c1eb4a32e9380.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=44 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/Dialogue_Start.gd" id="21_hkdo2"]
 [ext_resource type="PackedScene" uid="uid://d6ihvblbeii8" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Torch.tscn" id="23_2s1nl"]
+[ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/grimyth - Dungeon XI.ogg" id="24_rat3r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6621,9 +6622,9 @@ position = Vector2(3, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
 limit_left = -2
-limit_top = -100
+limit_top = -2
 limit_right = 1024
-limit_bottom = 974
+limit_bottom = 1072
 
 [node name="Torches" type="Node" parent="."]
 
@@ -6658,10 +6659,10 @@ position = Vector2(534, 846)
 position = Vector2(749, 846)
 
 [node name="Torch11" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(671, 1007)
+position = Vector2(671, 982)
 
 [node name="Torch12" parent="Torches" instance=ExtResource("23_2s1nl")]
-position = Vector2(771, 1007)
+position = Vector2(771, 982)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(190, 111)
@@ -6675,7 +6676,7 @@ tween_on_load = false
 limit_target = NodePath("../camera_bounds/CollisionShape2D")
 
 [node name="camera_bounds" type="Area2D" parent="."]
-position = Vector2(-20, -16)
+position = Vector2(-20, 82)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera_bounds"]
 position = Vector2(531, 453)
@@ -6769,6 +6770,11 @@ color = Color(0.140604, 0.002717, 0.00606566, 0.286275)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.40717, 0.542611, 0.589864, 0.933333)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_rat3r")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="body_entered" from="UI/Dialogic2/Area2D" to="UI/Dialogic2" method="_on_area_2d_body_entered"]

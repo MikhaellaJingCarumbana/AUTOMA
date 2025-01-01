@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp0t2m5ucci8"
+path="res://.godot/imported/chest-slam-85122.mp3-4130a84bf09d7fc75420e15b79120ba6.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/chest-slam-85122.mp3"
+dest_files=["res://.godot/imported/chest-slam-85122.mp3-4130a84bf09d7fc75420e15b79120ba6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
