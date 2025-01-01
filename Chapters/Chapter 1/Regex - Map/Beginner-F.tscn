@@ -6773,7 +6773,7 @@ color = Color(0.40717, 0.542611, 0.589864, 0.933333)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_rat3r")
-volume_db = -15.0
+volume_db = -10.0
 autoplay = true
 
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
