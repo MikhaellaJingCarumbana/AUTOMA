@@ -6615,6 +6615,9 @@ door_code_path = NodePath("..")
 light_mask = 4
 visibility_layer = 4
 position = Vector2(187, 111)
+shoot_cooldown = 0.0
+grouping_range = 200.0
+max_group_size = 3
 sfx_jump = SubResource("Resource_vpi5y")
 sfx_footsteps = SubResource("Resource_we6ik")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=63 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="AudioStream" uid="uid://jktu0iu0tvd4" path="res://Chapters/Chapter 1/audios/sounds/jump.wav" id="2_1ctjh"]
@@ -45,7 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://bym541eo0pkxp" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - run8.png" id="24_q1egu"]
 [ext_resource type="Texture2D" uid="uid://b4wb46x7vtmtu" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - run9.png" id="25_xfnfl"]
 [ext_resource type="Texture2D" uid="uid://cemc2jfrgnufi" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - run10.png" id="26_w82tb"]
-[ext_resource type="PackedScene" uid="uid://cletvkulx0bvt" path="res://gpu_particles_2d.tscn" id="46_ndjuc"]
+[ext_resource type="Texture2D" uid="uid://besfefu64ffwe" path="res://Chapters/Chapter 1/Powerups/asset/loops/burning_loop_2.png" id="46_ubf6g"]
 
 [sub_resource type="Gradient" id="Gradient_emrkt"]
 colors = PackedColorArray(0.99782, 0.787054, 0.547628, 1, 0, 0, 0, 1)
@@ -211,13 +211,78 @@ height = 18.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_a08na"]
 radius = 21.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_drlg6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho4wd"]
+atlas = ExtResource("46_ubf6g")
+region = Rect2(0, 0, 20, 24)
 
-[sub_resource type="Environment" id="Environment_6vw5d"]
-glow_enabled = true
-glow_intensity = 3.51
-glow_strength = 2.0
-glow_blend_mode = 0
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj5od"]
+atlas = ExtResource("46_ubf6g")
+region = Rect2(20, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljpnh"]
+atlas = ExtResource("46_ubf6g")
+region = Rect2(40, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqq1b"]
+atlas = ExtResource("46_ubf6g")
+region = Rect2(60, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p8ya"]
+atlas = ExtResource("46_ubf6g")
+region = Rect2(80, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3wjr"]
+atlas = ExtResource("46_ubf6g")
+region = Rect2(100, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6nxt"]
+atlas = ExtResource("46_ubf6g")
+region = Rect2(120, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxg2f"]
+atlas = ExtResource("46_ubf6g")
+region = Rect2(140, 0, 20, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_drlg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho4wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj5od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljpnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqq1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p8ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3wjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6nxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxg2f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_vwscx"]
+colors = PackedColorArray(0.780392, 0.231373, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_crlc7"]
+gradient = SubResource("Gradient_vwscx")
+fill = 1
+fill_from = Vector2(0.508547, 0.457265)
+fill_to = Vector2(0.871795, 0.149573)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
@@ -243,6 +308,7 @@ animation = &"Run"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_hegce")
 
@@ -263,6 +329,7 @@ collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component/InteractionArea"]
+visible = false
 shape = SubResource("CircleShape2D_a08na")
 
 [node name="InteractLabel" type="Label" parent="Interaction Component/InteractionArea"]
@@ -282,16 +349,24 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 bus = &"sfx"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.717647)
+self_modulate = Color(1, 1, 1, 0.666667)
+position = Vector2(-0.499999, -15.775)
+scale = Vector2(1.15, 1.98125)
 sprite_frames = SubResource("SpriteFrames_drlg6")
-frame_progress = 0.819
+frame_progress = 0.460326
 speed_scale = 3.0
 
-[node name="GPUParticles2D" parent="." instance=ExtResource("46_ndjuc")]
-emitting = false
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6vw5d")
+[node name="Fire_light" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(2.45313, 2.45313)
+color = Color(0.780392, 0.231373, 1, 1)
+energy = 0.5
+range_z_max = 1035
+texture = SubResource("GradientTexture2D_crlc7")
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="area_entered" from="Interaction Component/InteractionArea" to="." method="_on_interaction_area_area_entered"]

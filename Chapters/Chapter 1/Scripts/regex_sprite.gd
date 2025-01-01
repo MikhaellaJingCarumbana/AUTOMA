@@ -44,7 +44,8 @@ var grouped_enemies: Array = []
 
 var footsteps_fram: Array = [2, 4, 6, 8]
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var particle: GPUParticles2D = $GPUParticles2D
+@onready var fire: AnimatedSprite2D = $Fire
+@onready var fire_light: PointLight2D = $Fire_light
 
 
 
@@ -52,6 +53,9 @@ var footsteps_fram: Array = [2, 4, 6, 8]
 
 func _ready():
 	add_to_group("Player")
+	fire.play("default")
+	fire.visible = false
+	fire_light.visible = false
 	
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
 	update_interactions()
@@ -274,13 +278,15 @@ func activate_projectile_powerup_powerup() -> void:
 		
 func deactivate_projectile_powerup() -> void:
 	is_infinite_projectiles_active = false
-	particle.emitting = false
+	fire.visible = false
+	fire_light.visible = false
 	print("DEBUG: Infinite projectiles deactivated.")
 
 
 func _on_star_powerup_collected(player: Node2D):
 	print("Powerup collected signal received")
-	particle.emitting = true
+	fire.visible = true
+	fire_light.visible = true
 	is_infinite_projectiles_active = true
 	projectile_timer.start(powerup_duration)
 	
