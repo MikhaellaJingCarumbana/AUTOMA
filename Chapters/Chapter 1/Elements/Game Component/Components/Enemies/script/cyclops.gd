@@ -6,6 +6,7 @@ class_name CyclopsEnemy
 
 const speed = 30 
 var is_cyclops_chase: bool = true
+@onready var sprite: AnimatedSprite2D = %AnimatedSprite2D
 
 
 #health
@@ -28,8 +29,15 @@ var is_roaming: bool = true
 var player: CharacterBody2D
 var player_in_area = false
 
+@export var death: AudioStream
+@onready var anim: AnimatedSprite2D = %AnimatedSprite2D
+
+@onready var sfx_player: AudioStreamPlayer2D = %sfx_player
+@onready var moaning: AudioStreamPlayer2D = $moaning
+
 
 func _ready():
+	moaning.play()
 	print("DEBUG: game_manager assigned? ", game_manager != null)
 
 func _process(delta):
@@ -45,6 +53,7 @@ func _process(delta):
 func handle_animation():
 	var anim_sprite = %AnimatedSprite2D
 	if !dead and !taking_damage and !is_dealing_damage:
+		
 		anim_sprite.play("walk")
 		if dir.x == -1:
 			anim_sprite.flip_h = true
@@ -55,8 +64,8 @@ func handle_animation():
 			await get_tree().create_timer(1.0).timeout
 			taking_damage = false
 		elif dead and is_roaming:
+			
 			is_roaming = false
-			anim_sprite.play("death")
 			await get_tree().create_timer(1,0).timeout
 			handle_death()
 			
@@ -70,8 +79,13 @@ func handle_death():
 		print("DEBUG: Note made visible and collidable at position: ", note.global_position)
 	else:
 		print("DEBUG: No note node found under the same parent as enemy.")
+	
+	load_sfx(death)	
+	sfx_player.play()
+	anim.play("death")
+	await get_tree().create_timer(0.3).timeout
 	self.queue_free()
-	print("Enemy has been freed")
+	print("Enemy has been freed.")
 
 func move(delta):
 	if !dead:
@@ -114,3 +128,11 @@ func _on_area_2d_body_entered(body):
 				body.jump_slide(500)
 			else:
 				body.jump_slide(-500)
+
+func load_sfx(sfx_to_load):
+	if %sfx_player.stream != sfx_to_load:
+		%sfx_player.stop()
+		%sfx_player.stream = sfx_to_load
+				
+				
+		

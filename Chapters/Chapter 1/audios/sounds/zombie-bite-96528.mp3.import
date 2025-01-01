@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqf6r6eyo06vc"
+path="res://.godot/imported/zombie-bite-96528.mp3-2bd5d1c4fac75a338d8c6a6c0547122b.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/zombie-bite-96528.mp3"
+dest_files=["res://.godot/imported/zombie-bite-96528.mp3-2bd5d1c4fac75a338d8c6a6c0547122b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,7 +4,7 @@
 resource_name = "Amplify"
 
 [resource]
-bus/0/volume_db = 0.662756
+bus/0/volume_db = -2.3125
 bus/1/name = &"sfx"
 bus/1/solo = false
 bus/1/mute = false

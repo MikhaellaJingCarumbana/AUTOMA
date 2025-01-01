@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://bh2gfnypjwyx6"]
+[gd_scene load_steps=39 format=3 uid="uid://bh2gfnypjwyx6"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/cyclops.gd" id="1_4jjch"]
+[ext_resource type="AudioStream" uid="uid://m3rpgjhi6tpy" path="res://Chapters/Chapter 1/audios/sounds/splat.mp3" id="2_0mhs0"]
 [ext_resource type="AudioStream" uid="uid://b166owilexktq" path="res://Chapters/Chapter 1/audios/sounds/enemy.mp3" id="2_ifeny"]
 [ext_resource type="Texture2D" uid="uid://d2h6inklxgkgo" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/Cyclops/Enemy_004_A.png" id="2_qwscw"]
 [ext_resource type="AudioStream" uid="uid://b2wrofroxf20l" path="res://Chapters/Chapter 1/audios/sounds/zombie-moan-44932.ogg" id="4_euvx7"]
@@ -254,7 +255,7 @@ unique_name_in_owner = true
 scale = Vector2(0.9, 0.5)
 sprite_frames = SubResource("SpriteFrames_hx42s")
 animation = &"walk"
-frame_progress = 0.628386
+frame_progress = 0.0661925
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -273,12 +274,14 @@ shape = SubResource("RectangleShape2D_hlg1d")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 3)
 
-[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+[node name="death" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-volume_db = -5.0
-max_distance = 300.0
+stream = ExtResource("2_0mhs0")
+volume_db = -10.0
+max_distance = 200.0
 
-[node name="moaning" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_player2" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("4_euvx7")
 volume_db = -10.0
 max_distance = 200.0
