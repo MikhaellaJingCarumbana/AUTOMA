@@ -6559,7 +6559,7 @@ position = Vector2(353, 113)
 [node name="InteractArea2" parent="Brownchest" instance=ExtResource("9_td7nl")]
 scale = Vector2(2.05263, 2.2069)
 collision_mask = 4
-interact_label = "Open Chest"
+interact_label = ""
 interact_type = "open_chest"
 interact_value = "It's working"
 
@@ -6569,7 +6569,7 @@ position = Vector2(726, 256)
 [node name="InteractArea2" parent="Brownchest2" instance=ExtResource("9_td7nl")]
 scale = Vector2(2.05263, 2.2069)
 collision_mask = 4
-interact_label = "Open Chest"
+interact_label = ""
 interact_type = "open_chest"
 interact_value = "It's working"
 
@@ -6579,7 +6579,7 @@ position = Vector2(739, 512)
 [node name="InteractArea2" parent="Brownchest3" instance=ExtResource("9_td7nl")]
 scale = Vector2(2.05263, 2.2069)
 collision_mask = 4
-interact_label = "Open Chest"
+interact_label = ""
 interact_type = "open_chest"
 interact_value = "It's working"
 
@@ -6589,7 +6589,7 @@ position = Vector2(641, 864)
 [node name="InteractArea2" parent="Brownchest4" instance=ExtResource("9_td7nl")]
 scale = Vector2(2.05263, 2.2069)
 collision_mask = 4
-interact_label = "Open Chest"
+interact_label = ""
 interact_type = "open_chest"
 interact_value = "It's working"
 
@@ -6599,7 +6599,7 @@ position = Vector2(262, 913)
 [node name="InteractArea2" parent="Brownchest5" instance=ExtResource("9_td7nl")]
 scale = Vector2(2.05263, 2.2069)
 collision_mask = 4
-interact_label = "Open Chest"
+interact_label = ""
 interact_type = "open_chest"
 interact_value = "It's working"
 

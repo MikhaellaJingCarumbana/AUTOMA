@@ -59,6 +59,8 @@ func _on_body_entered(body: Node2D) -> void:
 	print("DEBUG: Body entered Note area:", body.name)
 	if visible and body.is_in_group("Player"):
 		print("DEBUG: Player collected the note.")
+		$AudioStreamPlayer2D.play()
+		await get_tree().create_timer(0.2).timeout
 		queue_free()
 		game_manager.add_note()
 	elif not visible:
