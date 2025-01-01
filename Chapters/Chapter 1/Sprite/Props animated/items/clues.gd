@@ -23,6 +23,9 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and chest and chest.has_method("is_open") and chest.call("is_open"):
+		$AudioStreamPlayer2D.play()
+		await get_tree().create_timer(0.2).timeout
 		queue_free()
 		game_manager.add_clue()
 		print("Clue added")
+		

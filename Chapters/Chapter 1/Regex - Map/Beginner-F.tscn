@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=46 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
@@ -6428,6 +6428,12 @@ size = Vector2(706, 118)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2g7vt"]
 size = Vector2(296, 118)
 
+[sub_resource type="Resource" id="Resource_vpi5y"]
+metadata/__load_path__ = "res://Chapters/Chapter 1/audios/sounds/jump.wav"
+
+[sub_resource type="Resource" id="Resource_we6ik"]
+metadata/__load_path__ = "res://Chapters/Chapter 1/audios/sounds/step.ogg"
+
 [sub_resource type="Resource" id="Resource_8h68n"]
 script = ExtResource("7_l14n2")
 duration = 0.5
@@ -6609,6 +6615,8 @@ door_code_path = NodePath("..")
 light_mask = 4
 visibility_layer = 4
 position = Vector2(187, 111)
+sfx_jump = SubResource("Resource_vpi5y")
+sfx_footsteps = SubResource("Resource_we6ik")
 
 [node name="AnimatedSprite2D" parent="Player" index="1"]
 position = Vector2(0, 0)

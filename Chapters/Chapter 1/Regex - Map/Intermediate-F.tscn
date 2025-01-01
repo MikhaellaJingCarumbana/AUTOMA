@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=54 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -6535,6 +6535,12 @@ sources/3 = SubResource("TileSetAtlasSource_8hfya")
 sources/4 = SubResource("TileSetAtlasSource_16fmk")
 sources/5 = SubResource("TileSetAtlasSource_jmam0")
 
+[sub_resource type="Resource" id="Resource_vpi5y"]
+metadata/__load_path__ = "res://Chapters/Chapter 1/audios/sounds/jump.wav"
+
+[sub_resource type="Resource" id="Resource_we6ik"]
+metadata/__load_path__ = "res://Chapters/Chapter 1/audios/sounds/step.ogg"
+
 [sub_resource type="Resource" id="Resource_dyqua"]
 script = ExtResource("9_t2u1d")
 duration = 1.0
@@ -6615,6 +6621,8 @@ interact_value = "working???"
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(213, 241)
 projectile_scene = ExtResource("27_v5qjy")
+sfx_jump = SubResource("Resource_vpi5y")
+sfx_footsteps = SubResource("Resource_we6ik")
 
 [node name="AnimatedSprite2D" parent="Player" index="1"]
 position = Vector2(0, 0)
@@ -6630,10 +6638,6 @@ physics_interpolation_mode = 1
 position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = -1
-limit_top = 6
-limit_right = 1023
-limit_bottom = 1087
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(213, 241)

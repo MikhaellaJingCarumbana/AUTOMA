@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ds6fo88jwjc2n"
+path="res://.godot/imported/book-closing-48311.mp3-3bb585e21491814b26f977d488255047.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/book-closing-48311.mp3"
+dest_files=["res://.godot/imported/book-closing-48311.mp3-3bb585e21491814b26f977d488255047.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

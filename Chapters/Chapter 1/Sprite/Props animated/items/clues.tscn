@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://demhtg7h654xh"]
+[gd_scene load_steps=6 format=3 uid="uid://demhtg7h654xh"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.gd" id="1_0bexh"]
 [ext_resource type="Texture2D" uid="uid://dc3peu0fdh63u" path="res://Art/48x48/scroll_01b.png" id="2_rsp5q"]
+[ext_resource type="AudioStream" uid="uid://dpi318o8ricgx" path="res://Chapters/Chapter 1/audios/sounds/crumple-03-40747.mp3" id="3_hfxbr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b0uil"]
 animations = [{
@@ -27,5 +28,8 @@ sprite_frames = SubResource("SpriteFrames_b0uil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gvey0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hfxbr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
