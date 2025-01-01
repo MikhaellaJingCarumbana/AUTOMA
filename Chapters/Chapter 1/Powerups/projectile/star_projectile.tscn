@@ -41,8 +41,8 @@ script = ExtResource("1_hupk7")
 position = Vector2(-7, 1)
 scale = Vector2(0.640625, 0.640625)
 sprite_frames = SubResource("SpriteFrames_6rkho")
-frame_progress = 0.975454
-speed_scale = 3.0
+frame_progress = 0.1546
+speed_scale = 5.0
 
 [node name="PowerupTimer" type="Timer" parent="."]
 

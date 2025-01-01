@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var lifespan: float = 5.0
 @export var damage: int = 40
 
+func _ready() -> void:
+	animated_sprite_2d.play("default")
+	
 func initialize(direction: Vector2):
 	velocity = direction * speed
 	
@@ -22,7 +25,7 @@ func _process(delta):
 		
 	
 func _physics_process(delta: float) -> void:
-	animated_sprite_2d.play("default")
+	
 	position += velocity * delta
 	
 	if position.x < 0 or position.x > 800:

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://d33djrxrbllc"]
+
+[node name="Particle" type="Node2D"]

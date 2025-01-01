@@ -6780,10 +6780,10 @@ theme_override_fonts/font = ExtResource("23_oqfdx")
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(565, 372)
+position = Vector2(209, 245)
 
 [node name="Skull16" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(242, 236)
+position = Vector2(509, 142)
 
 [node name="Skull17" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(825, 242)

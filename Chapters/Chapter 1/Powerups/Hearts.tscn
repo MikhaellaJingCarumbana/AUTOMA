@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://d2dipjwiuqsmn"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/Crystal.gd" id="1_jqddx"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/heart_increase.gd" id="1_cxhqx"]
 [ext_resource type="Texture2D" uid="uid://dnnoelyrddepy" path="res://Chapters/Chapter 1/Powerups/asset/Spritesheet.png" id="2_7og4c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vaxv"]
@@ -85,7 +85,7 @@ animations = [{
 radius = 8.06226
 
 [node name="Hearts" type="Area2D"]
-script = ExtResource("1_jqddx")
+script = ExtResource("1_cxhqx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8.47033e-22, 8.47033e-22)

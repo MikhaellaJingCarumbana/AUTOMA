@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=52 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="AudioStream" uid="uid://jktu0iu0tvd4" path="res://Chapters/Chapter 1/audios/sounds/jump.wav" id="2_1ctjh"]
@@ -210,6 +210,8 @@ height = 18.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_a08na"]
 radius = 21.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_drlg6"]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
 script = ExtResource("1_2hvlw")
@@ -272,6 +274,11 @@ metadata/_edit_use_anchors_ = true
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 bus = &"sfx"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_drlg6")
+frame_progress = 0.819
+speed_scale = 3.0
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="area_entered" from="Interaction Component/InteractionArea" to="." method="_on_interaction_area_area_entered"]
