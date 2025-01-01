@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/Dialogue_Start.gd" id="21_hkdo2"]
 [ext_resource type="PackedScene" uid="uid://d6ihvblbeii8" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Torch.tscn" id="23_2s1nl"]
-[ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/grimyth - Dungeon XI.ogg" id="24_rat3r"]
+[ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/music/grimyth - Dungeon XI.ogg" id="24_rat3r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
