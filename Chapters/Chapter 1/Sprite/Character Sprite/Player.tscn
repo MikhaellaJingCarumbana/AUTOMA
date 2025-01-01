@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=54 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="AudioStream" uid="uid://jktu0iu0tvd4" path="res://Chapters/Chapter 1/audios/sounds/jump.wav" id="2_1ctjh"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://bym541eo0pkxp" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - run8.png" id="24_q1egu"]
 [ext_resource type="Texture2D" uid="uid://b4wb46x7vtmtu" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - run9.png" id="25_xfnfl"]
 [ext_resource type="Texture2D" uid="uid://cemc2jfrgnufi" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - run10.png" id="26_w82tb"]
+[ext_resource type="PackedScene" uid="uid://cletvkulx0bvt" path="res://gpu_particles_2d.tscn" id="46_ndjuc"]
 
 [sub_resource type="Gradient" id="Gradient_emrkt"]
 colors = PackedColorArray(0.99782, 0.787054, 0.547628, 1, 0, 0, 0, 1)
@@ -212,6 +213,12 @@ radius = 21.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drlg6"]
 
+[sub_resource type="Environment" id="Environment_6vw5d"]
+glow_enabled = true
+glow_intensity = 3.51
+glow_strength = 2.0
+glow_blend_mode = 0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
 script = ExtResource("1_2hvlw")
@@ -279,6 +286,12 @@ bus = &"sfx"
 sprite_frames = SubResource("SpriteFrames_drlg6")
 frame_progress = 0.819
 speed_scale = 3.0
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("46_ndjuc")]
+emitting = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6vw5d")
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="area_entered" from="Interaction Component/InteractionArea" to="." method="_on_interaction_area_area_entered"]

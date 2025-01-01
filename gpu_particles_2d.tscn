@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cletvkulx0bvt"]
+
+[ext_resource type="Texture2D" uid="uid://cupg2wrq8h8fs" path="res://Chapters/Chapter 1/Powerups/particle/Eletric A-Sheet.png" id="1_4sadu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cptl2"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5uibj"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 7.86
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.5
+anim_speed_min = 3.25
+anim_speed_max = 4.15
+anim_offset_max = 0.0905
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_cptl2")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_5uibj")
+texture = ExtResource("1_4sadu")

@@ -44,6 +44,8 @@ var grouped_enemies: Array = []
 
 var footsteps_fram: Array = [2, 4, 6, 8]
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var particle: GPUParticles2D = $GPUParticles2D
+
 
 
 
@@ -272,11 +274,13 @@ func activate_projectile_powerup_powerup() -> void:
 		
 func deactivate_projectile_powerup() -> void:
 	is_infinite_projectiles_active = false
+	particle.emitting = false
 	print("DEBUG: Infinite projectiles deactivated.")
 
 
 func _on_star_powerup_collected(player: Node2D):
 	print("Powerup collected signal received")
+	particle.emitting = true
 	is_infinite_projectiles_active = true
 	projectile_timer.start(powerup_duration)
 	

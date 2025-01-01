@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=55 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -6573,6 +6573,13 @@ size = Vector2(254.321, 28.8894)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhqhu"]
 size = Vector2(211.282, 9.28545)
 
+[sub_resource type="Environment" id="Environment_fc41l"]
+glow_enabled = true
+glow_intensity = 2.97
+glow_strength = 2.0
+glow_blend_mode = 0
+glow_hdr_scale = 0.0
+
 [node name="Intermediate-f" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6853,7 +6860,7 @@ parent_enemy = NodePath("../Skull6")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-parent_enemy = NodePath("../Skull16")
+parent_enemy = NodePath("../Skull")
 
 [node name="Star2" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
@@ -6959,6 +6966,9 @@ position = Vector2(378, 1002)
 
 [node name="Torch19" parent="Light" instance=ExtResource("35_apfom")]
 position = Vector2(752, 1013)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fc41l")
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
