@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b003tqh84v4ei"
+path="res://.godot/imported/power-up-type-1-230548.mp3-243f34912eed6194983a01cbbf81c6e4.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/Powerups/asset/loops/power-up-type-1-230548.mp3"
+dest_files=["res://.godot/imported/power-up-type-1-230548.mp3-243f34912eed6194983a01cbbf81c6e4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

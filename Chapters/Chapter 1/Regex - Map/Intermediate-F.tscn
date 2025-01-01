@@ -6853,14 +6853,13 @@ position = Vector2(2, 6)
 parent_enemy = NodePath("../Skull10")
 
 [node name="Plus" parent="Enemies" instance=ExtResource("22_fd4b0")]
-parent_enemy = NodePath("../Skull15")
+parent_enemy = NodePath("../Skull")
 
 [node name="Plus2" parent="Enemies" instance=ExtResource("22_fd4b0")]
 parent_enemy = NodePath("../Skull6")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-parent_enemy = NodePath("../Skull")
 
 [node name="Star2" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
@@ -6871,7 +6870,6 @@ powerup_type = "infinite projectiles"
 parent_enemy = NodePath("../Skull9")
 
 [node name="Hearts" parent="Enemies" instance=ExtResource("26_spiw6")]
-parent_enemy = NodePath("../Skull")
 
 [node name="Hearts2" parent="Enemies" instance=ExtResource("26_spiw6")]
 parent_enemy = NodePath("../Skull15")

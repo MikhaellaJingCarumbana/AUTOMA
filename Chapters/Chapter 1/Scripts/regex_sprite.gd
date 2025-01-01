@@ -41,11 +41,15 @@ var grouped_enemies: Array = []
 @export var sfx_jump: AudioStream
 @export var sfx_footsteps: AudioStream
 @onready var sfx_player: AudioStreamPlayer2D = %sfx_player
+@export var powerup: AudioStream
+@export var powerdown: AudioStream
 
 var footsteps_fram: Array = [2, 4, 6, 8]
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fire: AnimatedSprite2D = $Fire
 @onready var fire_light: PointLight2D = $Fire_light
+@onready var white_light: PointLight2D = $white_light
+@onready var white: AnimatedSprite2D = $white
 
 
 
@@ -56,6 +60,10 @@ func _ready():
 	fire.play("default")
 	fire.visible = false
 	fire_light.visible = false
+	
+	white.play("white")
+	white.visible = false
+	white_light.visible = false
 	
 	NavigationManager.on_triggr_player_spawn.connect(_on_spawn)
 	update_interactions()
@@ -105,18 +113,24 @@ func jump_slide(x):
 	
 func boost_jump():
 	if not has_charge_powerip:
+		white.visible = true
+		white_light.visible = true
 		has_charge_powerip = true
 		JUMP_VELOCITY -= 200
 		print("DEBUG: Jump boost activated!")
 		jump_boost_timer.start(powerup_duration)
 		
 func _reset_jump_boost():
+	white.visible = false
+	white_light.visible = false
 	has_charge_powerip = false
 	JUMP_VELOCITY = -560.0
 	print("DEBUG: Jump boost reset.")
 	
 func boost_speed():
 	if not speed_boost_active:
+		white.visible = true
+		white_light.visible = true
 		speed_boost_active = true
 		SPEED += 100
 		print("DEBUG: Speed boost activated!")
@@ -250,6 +264,8 @@ func speed_boost():
 		
 
 func _reset_speed_boost():
+	white.visible = false
+	white_light.visible = false
 	speed_boost_active = false
 	SPEED = original_speed
 	print("DEBUG: Speed boost reset.")
@@ -277,6 +293,8 @@ func activate_projectile_powerup_powerup() -> void:
 		print("DEBUG: Infinite projectiles activated for %.2f seconds" % powerup_duration)
 		
 func deactivate_projectile_powerup() -> void:
+	load_sfx(powerdown)
+	sfx_player.play()
 	is_infinite_projectiles_active = false
 	fire.visible = false
 	fire_light.visible = false
@@ -285,6 +303,8 @@ func deactivate_projectile_powerup() -> void:
 
 func _on_star_powerup_collected(player: Node2D):
 	print("Powerup collected signal received")
+	load_sfx(powerup)
+	sfx_player.play()
 	fire.visible = true
 	fire_light.visible = true
 	is_infinite_projectiles_active = true

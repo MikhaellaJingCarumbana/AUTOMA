@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=74 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="AudioStream" uid="uid://jktu0iu0tvd4" path="res://Chapters/Chapter 1/audios/sounds/jump.wav" id="2_1ctjh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://pw3m8r16bxm0" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle2.png" id="4_ngheg"]
 [ext_resource type="Texture2D" uid="uid://dqs0lh2lfjobb" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - death3.png" id="4_rx4d4"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="4_y6k7y"]
+[ext_resource type="AudioStream" uid="uid://c8x65lqw7x74h" path="res://Chapters/Chapter 1/audios/sounds/turning-down-power-48657 (1).mp3" id="5_ebbie"]
 [ext_resource type="Texture2D" uid="uid://cdshs2ig4gysb" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle3.png" id="5_fhx81"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_ousdc"]
 [ext_resource type="Texture2D" uid="uid://boskddohwhck8" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - death4.png" id="5_x6doi"]
@@ -46,6 +47,8 @@
 [ext_resource type="Texture2D" uid="uid://b4wb46x7vtmtu" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - run9.png" id="25_xfnfl"]
 [ext_resource type="Texture2D" uid="uid://cemc2jfrgnufi" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - run10.png" id="26_w82tb"]
 [ext_resource type="Texture2D" uid="uid://besfefu64ffwe" path="res://Chapters/Chapter 1/Powerups/asset/loops/burning_loop_2.png" id="46_ubf6g"]
+[ext_resource type="AudioStream" uid="uid://b7nhr7jjncenh" path="res://Chapters/Chapter 1/audios/sounds/power_up.wav" id="47_401kx"]
+[ext_resource type="Texture2D" uid="uid://bv2885wfcj0lu" path="res://Chapters/Chapter 1/Powerups/white/burning_loop_1.png" id="49_dmrin"]
 
 [sub_resource type="Gradient" id="Gradient_emrkt"]
 colors = PackedColorArray(0.99782, 0.787054, 0.547628, 1, 0, 0, 0, 1)
@@ -243,6 +246,38 @@ region = Rect2(120, 0, 20, 24)
 atlas = ExtResource("46_ubf6g")
 region = Rect2(140, 0, 20, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_venh5"]
+atlas = ExtResource("49_dmrin")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7yu0"]
+atlas = ExtResource("49_dmrin")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lixf"]
+atlas = ExtResource("49_dmrin")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3bkm"]
+atlas = ExtResource("49_dmrin")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioijq"]
+atlas = ExtResource("49_dmrin")
+region = Rect2(96, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dydk2"]
+atlas = ExtResource("49_dmrin")
+region = Rect2(120, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddkn4"]
+atlas = ExtResource("49_dmrin")
+region = Rect2(144, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n6g6"]
+atlas = ExtResource("49_dmrin")
+region = Rect2(168, 0, 24, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_drlg6"]
 animations = [{
 "frames": [{
@@ -273,6 +308,35 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_venh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7yu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lixf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3bkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioijq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dydk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddkn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n6g6")
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_vwscx"]
@@ -289,6 +353,8 @@ collision_layer = 3
 script = ExtResource("1_2hvlw")
 sfx_jump = ExtResource("2_1ctjh")
 sfx_footsteps = ExtResource("3_pynya")
+powerup = ExtResource("47_401kx")
+powerdown = ExtResource("5_ebbie")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(2.27539, 2.27539)
@@ -353,10 +419,20 @@ bus = &"sfx"
 visible = false
 modulate = Color(1, 1, 1, 0.717647)
 self_modulate = Color(1, 1, 1, 0.666667)
-position = Vector2(-0.499999, -15.775)
-scale = Vector2(1.15, 1.98125)
+position = Vector2(-0.5, -13)
+scale = Vector2(0.95, 1.70234)
 sprite_frames = SubResource("SpriteFrames_drlg6")
-frame_progress = 0.460326
+speed_scale = 3.0
+
+[node name="white" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.717647)
+self_modulate = Color(1, 1, 1, 0.666667)
+position = Vector2(-0.5, -9)
+scale = Vector2(0.708333, 1.0625)
+sprite_frames = SubResource("SpriteFrames_drlg6")
+animation = &"white"
+frame_progress = 0.92756
 speed_scale = 3.0
 
 [node name="Fire_light" type="PointLight2D" parent="."]
@@ -364,6 +440,15 @@ visible = false
 position = Vector2(9.53674e-07, 9.53674e-07)
 scale = Vector2(2.45313, 2.45313)
 color = Color(0.780392, 0.231373, 1, 1)
+energy = 0.5
+range_z_max = 1035
+texture = SubResource("GradientTexture2D_crlc7")
+
+[node name="white_light" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(2.45313, 2.45313)
+color = Color(0.993571, 0.982146, 1, 1)
 energy = 0.5
 range_z_max = 1035
 texture = SubResource("GradientTexture2D_crlc7")
