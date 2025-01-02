@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b53sidrsp0cr"]
+[gd_scene load_steps=21 format=3 uid="uid://b53sidrsp0cr"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.gd" id="1_vokdq"]
 [ext_resource type="Texture2D" uid="uid://bsts7bqwlitu0" path="res://Chapters/Chapter 1/Powerups/Collectible/asstes/coin_large/frame0000.png" id="2_cjjup"]
@@ -15,6 +15,16 @@
 [ext_resource type="Texture2D" uid="uid://ttcsia47vlm6" path="res://Chapters/Chapter 1/Powerups/Collectible/asstes/coin_large/frame0011.png" id="13_08pcm"]
 [ext_resource type="Texture2D" uid="uid://den88xymxtfvc" path="res://Chapters/Chapter 1/Powerups/Collectible/asstes/coin_large/frame0012.png" id="14_kr0ch"]
 [ext_resource type="Texture2D" uid="uid://b73ciwynj7uwi" path="res://Chapters/Chapter 1/Powerups/Collectible/asstes/coin_large/frame0013.png" id="15_rqkgm"]
+[ext_resource type="AudioStream" uid="uid://cavn4ysypr5a3" path="res://Chapters/Chapter 1/audios/sounds/coin.wav" id="16_l5the"]
+
+[sub_resource type="Gradient" id="Gradient_us8p1"]
+colors = PackedColorArray(1, 0.901961, 0.454902, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0n3np"]
+gradient = SubResource("Gradient_us8p1")
+fill = 1
+fill_from = Vector2(0.491453, 0.487179)
+fill_to = Vector2(0.876068, 0.132479)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b0uil"]
 animations = [{
@@ -72,6 +82,10 @@ radius = 7.0
 [node name="Coin" type="Area2D"]
 script = ExtResource("1_vokdq")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.8
+texture = SubResource("GradientTexture2D_0n3np")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.38419e-07, 2.38419e-07)
 scale = Vector2(0.356474, 0.356474)
@@ -84,5 +98,10 @@ shape = SubResource("CircleShape2D_gvey0")
 
 [node name="PowerupTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_l5the")
+volume_db = -15.0
+max_distance = 200.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

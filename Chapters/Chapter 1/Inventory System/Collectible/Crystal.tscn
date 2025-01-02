@@ -1,7 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://c2yoic0d2il2d"]
+[gd_scene load_steps=32 format=3 uid="uid://c2yoic0d2il2d"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/Crystal.gd" id="1_cgjtq"]
 [ext_resource type="Texture2D" uid="uid://bwgicnvd1l2k2" path="res://Chapters/Chapter 1/Powerups/Collectible/asstes/free_crystal_dark_frakassets/crystal_dark_64x64_24f_20d_normal.png" id="2_1845g"]
+[ext_resource type="AudioStream" uid="uid://cavn4ysypr5a3" path="res://Chapters/Chapter 1/audios/sounds/coin.wav" id="3_3yvu0"]
+
+[sub_resource type="Gradient" id="Gradient_uw7wg"]
+colors = PackedColorArray(0.705882, 0.384314, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s3aqb"]
+gradient = SubResource("Gradient_uw7wg")
+fill = 1
+fill_from = Vector2(0.495726, 0.448718)
+fill_to = Vector2(0.897436, 0.123932)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cq4na"]
 atlas = ExtResource("2_1845g")
@@ -185,6 +195,12 @@ radius = 9.48683
 [node name="Crystal" type="Area2D"]
 script = ExtResource("1_cgjtq")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.796875, 0.796875)
+energy = 0.8
+texture = SubResource("GradientTexture2D_s3aqb")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.266086, 0.266086)
 sprite_frames = SubResource("SpriteFrames_b0uil")
@@ -192,9 +208,15 @@ frame_progress = 0.806567
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_gvey0")
 
 [node name="PowerupTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3yvu0")
+volume_db = -15.0
+max_distance = 200.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

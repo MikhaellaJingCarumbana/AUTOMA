@@ -19,7 +19,11 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_pi2ag"]
 script = ExtResource("2_hxc6f")
 scene = ExtResource("4_mlnsb")
-overrides = {}
+overrides = {
+"box_modulate": "Color(0.566406, 0.566406, 0.566406, 1)",
+"box_modulate_by_character_color": "true",
+"text_color": "Color(0.171875, 0.171875, 0.171875, 1)"
+}
 
 [resource]
 script = ExtResource("5_gyyjk")

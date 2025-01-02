@@ -89,6 +89,8 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if visible and body.is_in_group("Player"):
 			print("Collected:", item_id)
+			$AudioStreamPlayer2D.play()
+			await get_tree().create_timer(0.2).timeout
 			InventoryManager.add_item(item_id)
 			queue_free()
 	elif not visible:

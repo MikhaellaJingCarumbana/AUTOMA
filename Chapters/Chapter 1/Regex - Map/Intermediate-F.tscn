@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="23_oqfdx"]
+[ext_resource type="PackedScene" uid="uid://eq8ppfbfjv8v" path="res://Chapters/Chapter 1/UI Components/dialogic_timeline.tscn" id="24_vdn58"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="26_spiw6"]
 [ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
@@ -34,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
-[ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
+[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6573,13 +6574,6 @@ size = Vector2(254.321, 28.8894)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhqhu"]
 size = Vector2(211.282, 9.28545)
 
-[sub_resource type="Environment" id="Environment_fc41l"]
-glow_enabled = true
-glow_intensity = 2.97
-glow_strength = 2.0
-glow_blend_mode = 0
-glow_hdr_scale = 0.0
-
 [node name="Intermediate-f" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6624,6 +6618,16 @@ interact_value = "working???"
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(135, 248)
 projectile_scene = ExtResource("27_v5qjy")
+
+[node name="Camera2D" parent="Player" index="3"]
+physics_interpolation_mode = 1
+position = Vector2(56, 0)
+scale = Vector2(1, 1)
+zoom = Vector2(5, 7)
+limit_left = -1
+limit_top = 6
+limit_right = 1023
+limit_bottom = 1087
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(191, 248)
@@ -6784,25 +6788,16 @@ theme_override_fonts/font = ExtResource("23_oqfdx")
 [node name="debug" parent="UI/TestScene/UI/Inventory/Slot7" index="2"]
 theme_override_fonts/font = ExtResource("23_oqfdx")
 
+[node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
+timeline_file = "Wisps"
+
+[node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
+position = Vector2(356, 199)
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(209, 245)
-
-[node name="Skull16" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(509, 142)
-
-[node name="Skull17" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(825, 242)
-
-[node name="Skull18" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(772, 244)
-
-[node name="Skull14" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(872, 245)
-
-[node name="Skull15" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(724, 245)
 
 [node name="Skull2" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(94, 566)
@@ -6846,33 +6841,27 @@ parent_enemy = NodePath("../Skull2")
 
 [node name="Note2" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
-parent_enemy = NodePath("../Skull14")
 
 [node name="Note3" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
 parent_enemy = NodePath("../Skull10")
 
 [node name="Plus" parent="Enemies" instance=ExtResource("22_fd4b0")]
-parent_enemy = NodePath("../Skull")
 
 [node name="Plus2" parent="Enemies" instance=ExtResource("22_fd4b0")]
-parent_enemy = NodePath("../Skull6")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
 
 [node name="Star2" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-parent_enemy = NodePath("../Skull5")
 
 [node name="Star3" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-parent_enemy = NodePath("../Skull9")
 
 [node name="Hearts" parent="Enemies" instance=ExtResource("26_spiw6")]
 
 [node name="Hearts2" parent="Enemies" instance=ExtResource("26_spiw6")]
-parent_enemy = NodePath("../Skull15")
 
 [node name="AnimatedSprite2D" parent="Enemies/Hearts2" index="0"]
 frame_progress = 0.879936
@@ -6887,14 +6876,12 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 
 [node name="Crystal" parent="." instance=ExtResource("30_sq58t")]
 position = Vector2(-1, 2)
-parent_enemy = NodePath("../Enemies/Skull16")
 
 [node name="Crystal2" parent="." instance=ExtResource("30_sq58t")]
 position = Vector2(-1, 2)
-parent_enemy = NodePath("../Enemies/Skull17")
 
 [node name="Coin" parent="." instance=ExtResource("31_bcqml")]
-parent_enemy = NodePath("../Enemies/Skull18")
+parent_enemy = NodePath("../Enemies/Skull")
 
 [node name="HurtPlayerEffect" parent="." instance=ExtResource("33_vxk4d")]
 
@@ -6965,9 +6952,6 @@ position = Vector2(378, 1002)
 [node name="Torch19" parent="Light" instance=ExtResource("35_apfom")]
 position = Vector2(752, 1013)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_fc41l")
-
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
 [connection signal="body_entered" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_entered"]
@@ -6991,6 +6975,7 @@ environment = SubResource("Environment_fc41l")
 
 [editable path="Clues"]
 [editable path="Clues2"]
+[editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
 [editable path="UI/PauseGame"]
@@ -7007,6 +6992,7 @@ environment = SubResource("Environment_fc41l")
 [editable path="UI/TestScene/UI/Inventory/Slot5"]
 [editable path="UI/TestScene/UI/Inventory/Slot6"]
 [editable path="UI/TestScene/UI/Inventory/Slot7"]
+[editable path="UI/Dialogic"]
 [editable path="Enemies/Plus"]
 [editable path="Enemies/Plus2"]
 [editable path="Enemies/Star"]
