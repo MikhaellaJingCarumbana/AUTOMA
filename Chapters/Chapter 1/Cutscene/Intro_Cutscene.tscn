@@ -1,12 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://cttu1epijbegv"]
+[gd_scene load_steps=16 format=3 uid="uid://cttu1epijbegv"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/intro_cutscene.gd" id="1_goiph"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_mwd41"]
 [ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="2_3n5jv"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_av81a"]
-[ext_resource type="Texture2D" uid="uid://cyfkp2yn4075c" path="res://Chapters/Chapter 1/Powerups/Collectible/asstes/free_crystal_dark_frakassets/crystal_dark_64x64_24f_20d_no_border.png" id="4_tuypn"]
 [ext_resource type="FontFile" uid="uid://dexd0d2xxu57p" path="res://Fonts/ds-runenglish-2-font/DsRunenglish2-nR5O.ttf" id="4_utvx1"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/animated_sprite_2d.gd" id="5_8477s"]
 [ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/music/grimyth - Dungeon XI.ogg" id="8_s2kc8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nuj8p"]
@@ -36,6 +34,16 @@ shader = ExtResource("2_3n5jv")
 shader_parameter/height = 3.0
 shader_parameter/frequency = 25.0
 shader_parameter/speed = 3.0
+
+[sub_resource type="Gradient" id="Gradient_8fk1y"]
+offsets = PackedFloat32Array(0.13, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wr06n"]
+gradient = SubResource("Gradient_8fk1y")
+fill = 1
+fill_from = Vector2(0.5, 0.478632)
+fill_to = Vector2(0.837607, 0.0940171)
 
 [sub_resource type="Animation" id="Animation_p5uyu"]
 resource_name = "1"
@@ -67,23 +75,23 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/AnimatedSprite2D:modulate")
+tracks/2/path = NodePath("CanvasLayer/4:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(20.0333, 22, 45.3333, 46),
+"times": PackedFloat32Array(23.1333, 24.5, 27.3667, 28.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/4:modulate")
+tracks/3/path = NodePath("CanvasLayer/5:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(23.1333, 24.5, 27.3667, 28.4),
+"times": PackedFloat32Array(30.1333, 32, 36.0333, 37.0667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
@@ -91,111 +99,80 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/PointLight2D:modulate")
+tracks/4/path = NodePath("CanvasLayer/6:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(20.0333, 22.0333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/5:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(30.1333, 32, 36.0333, 37.0667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/6:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(39.0333, 40, 44, 45.0333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/ColorRect2:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ColorRect2:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(15.6667),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("CanvasLayer/ColorRect2:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/ColorRect2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 17, 19.2667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("CanvasLayer/ColorRect2:show_behind_parent")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/ColorRect2:show_behind_parent")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(17),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(-3.16667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("CanvasLayer/7:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/7:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(46.0667, 46.7667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1)]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("CanvasLayer/AnimatedSprite2D:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(20.7333),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(959, 551)]
-}
+
+[sub_resource type="Animation" id="Animation_1uo35"]
+resource_name = "Crystal"
+length = 0.7
+loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_wa543"]
 length = 0.001
@@ -226,19 +203,19 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/AnimatedSprite2D:modulate")
+tracks/2/path = NodePath("CanvasLayer/4:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(0.94902, 0.94902, 0.94902, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/4:modulate")
+tracks/3/path = NodePath("CanvasLayer/5:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -250,116 +227,75 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/PointLight2D:modulate")
+tracks/4/path = NodePath("CanvasLayer/6:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(0.94902, 0.94902, 0.94902, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/5:modulate")
+tracks/5/path = NodePath("CanvasLayer/ColorRect2:self_modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/6:modulate")
+tracks/6/path = NodePath("CanvasLayer/ColorRect2:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/ColorRect2:self_modulate")
+tracks/7/path = NodePath("CanvasLayer/ColorRect2:show_behind_parent")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("CanvasLayer/ColorRect2:modulate")
+tracks/8/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("CanvasLayer/ColorRect2:show_behind_parent")
+tracks/9/path = NodePath("CanvasLayer/7:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("CanvasLayer/7:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.94902, 0.94902, 0.94902, 0)]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("CanvasLayer/AnimatedSprite2D:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(959, 551)]
-}
-
-[sub_resource type="Animation" id="Animation_1uo35"]
-resource_name = "Crystal"
-length = 1.2
-loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jidkc"]
 _data = {
@@ -367,192 +303,6 @@ _data = {
 "Crystal": SubResource("Animation_1uo35"),
 "RESET": SubResource("Animation_wa543")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_puanq"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p3gx5"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_alja7"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1y48s"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_amk3t"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_14u60"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0i1rv"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmvm5"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_or8ty"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(512, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0y8x"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(576, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yhnhc"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(640, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ro4p5"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(704, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ola5"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(768, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1yhfy"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(832, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x5wl8"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(896, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_guwfj"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(960, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q7876"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(1024, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kcww7"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(1088, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eiomi"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(1152, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j1n1l"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(1216, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3gaf"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(1280, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nmov"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(1344, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ilt5x"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(1408, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2q3w"]
-atlas = ExtResource("4_tuypn")
-region = Rect2(1472, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d60js"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_puanq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p3gx5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_alja7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1y48s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_amk3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_14u60")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0i1rv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cmvm5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_or8ty")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h0y8x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yhnhc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ro4p5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ola5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1yhfy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x5wl8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_guwfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q7876")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kcww7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eiomi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j1n1l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q3gaf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8nmov")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ilt5x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f2q3w")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Gradient" id="Gradient_8fk1y"]
-offsets = PackedFloat32Array(0.13, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wr06n"]
-gradient = SubResource("Gradient_8fk1y")
-fill = 1
-fill_from = Vector2(0.5, 0.478632)
-fill_to = Vector2(0.837607, 0.0940171)
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_goiph")
@@ -734,24 +484,9 @@ vertical_alignment = 1
 offset_right = 9.0
 offset_bottom = 63.0
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="CanvasLayer"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_jidkc")
-}
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(959, 551)
-scale = Vector2(3.25, 3.25)
-sprite_frames = SubResource("SpriteFrames_d60js")
-frame_progress = 0.171754
-speed_scale = 3.0
-script = ExtResource("5_8477s")
-
 [node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(959, 325)
+position = Vector2(973, 373)
 scale = Vector2(12, 9.82857)
 color = Color(0.580392, 0.0784314, 0.643137, 1)
 energy = 2.92
@@ -766,4 +501,3 @@ libraries = {
 stream = ExtResource("8_s2kc8")
 volume_db = 1.0
 autoplay = true
-stream_paused = true
