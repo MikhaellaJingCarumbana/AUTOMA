@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cyd52m0kr135o"]
+[gd_scene load_steps=75 format=3 uid="uid://cyd52m0kr135o"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/regex_sprite.gd" id="1_2hvlw"]
 [ext_resource type="AudioStream" uid="uid://jktu0iu0tvd4" path="res://Chapters/Chapter 1/audios/sounds/jump.wav" id="2_1ctjh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cdshs2ig4gysb" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle3.png" id="5_fhx81"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_ousdc"]
 [ext_resource type="Texture2D" uid="uid://boskddohwhck8" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - death4.png" id="5_x6doi"]
+[ext_resource type="AudioStream" uid="uid://bgqf8kbh4w56l" path="res://Chapters/Chapter 1/audios/sounds/magic-spell-6005.mp3" id="6_peufu"]
 [ext_resource type="Texture2D" uid="uid://ditltods1gu2t" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - death5.png" id="6_q4u0n"]
 [ext_resource type="Texture2D" uid="uid://nvneopx0dew5" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle4.png" id="6_xvd71"]
 [ext_resource type="Texture2D" uid="uid://ch1qt7vm50o1h" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - jumpt1.png" id="7_f4xog"]
@@ -355,6 +356,7 @@ sfx_jump = ExtResource("2_1ctjh")
 sfx_footsteps = ExtResource("3_pynya")
 powerup = ExtResource("47_401kx")
 powerdown = ExtResource("5_ebbie")
+shoot = ExtResource("6_peufu")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(2.27539, 2.27539)
@@ -413,6 +415,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+volume_db = 1.0
 bus = &"sfx"
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]

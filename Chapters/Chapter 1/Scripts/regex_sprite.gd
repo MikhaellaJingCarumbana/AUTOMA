@@ -51,6 +51,8 @@ var footsteps_fram: Array = [2, 4, 6, 8]
 @onready var white_light: PointLight2D = $white_light
 @onready var white: AnimatedSprite2D = $white
 
+@export var shoot: AudioStream
+
 
 
 
@@ -88,6 +90,8 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("shoot") and is_infinite_projectiles_active:
 		shoot_projectile()
+		load_sfx(shoot)
+		sfx_player.play()
 		shoot_timer = shoot_cooldown
 	elif Input.is_action_just_pressed("shoot"):
 		print("Can't shoot! No powerup projectile")
