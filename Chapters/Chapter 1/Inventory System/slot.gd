@@ -15,8 +15,9 @@ signal filled_changed
 
 
 func _set_filled(value: bool) -> void:
-	filled = value
-	emit_signal("filled_changed")
+	if filled != value:
+		filled = value
+		emit_signal("filled_changed")
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	set_drag_preview(get_preview())
@@ -37,7 +38,7 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 		sts = 0
 		
 		
-	_set_filled(texture_rect.property != null)
+	_set_filled((sts > 0))
 
 func get_preview():
 	var preview_texture = TextureRect.new()
@@ -58,9 +59,9 @@ func set_property(data):
 	texture_rect.property = data
 	
 	if data["TEXTURE"] == null:
-		_set_filled(false)
+		filled = false
 	else:
-		_set_filled(true)
+		filled = true
 
 func set_animated_sprite(animated_sprite: Node):
 	container.add_child(animated_sprite)
