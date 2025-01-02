@@ -1,9 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1hqdm1l76v3a"]
+[gd_scene load_steps=12 format=3 uid="uid://b1hqdm1l76v3a"]
 
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/door_unlocked.gd" id="1_cx60o"]
 [ext_resource type="Texture2D" uid="uid://cud42pg6abkut" path="res://Chapters/Chapter 1/Cutscene/Shield-like Padlock - GREY - Spritesheet.png" id="1_ilho4"]
 [ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="2_vj62k"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_xxqkb"]
 [ext_resource type="FontFile" uid="uid://b3ugokhpe31j0" path="res://Fonts/norse-font/NorseBold-2Kge.otf" id="3_i7uwd"]
 [ext_resource type="AudioStream" uid="uid://blx6xjmthfvpn" path="res://Chapters/Chapter 1/Cutscene/key-twist-in-lock-47832.mp3" id="4_2rfy5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26ucy"]
+shader = ExtResource("2_xxqkb")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 1.0
+shader_parameter/spin_speed = 4.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.383084, 0.0217107, 0.0257163, 1)
+shader_parameter/colour_2 = Color(0.117647, 0.0509804, 0.0705882, 1)
+shader_parameter/colour_3 = Color(0.212184, 0.0321283, 0.049757, 1)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.8
+shader_parameter/pixel_filter = 700.0
 
 [sub_resource type="Animation" id="Animation_rs5hi"]
 resource_name = "unlock"
@@ -193,20 +211,21 @@ shader_parameter/frequency = 25.0
 shader_parameter/speed = 3.0
 
 [node name="DoorUnlocked" type="Node2D"]
+script = ExtResource("1_cx60o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_26ucy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0196078, 0.0666667, 0.0705882, 0.627451)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(985.731, 399)
+position = Vector2(1000, 399)
 scale = Vector2(15.7526, 15.7526)
 texture = ExtResource("1_ilho4")
 hframes = 13

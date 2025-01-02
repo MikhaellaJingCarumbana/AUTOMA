@@ -60,8 +60,6 @@ func next_question():
 		submit.show()
 	else:
 		question_label.text = "Door unlocked"
-		submit.hide()
-		get_tree().change_scene_to_file("res://Chapters/Chapter 1/Regex - Map/Intermediate-F.tscn")
 		
 
 func _on_submit_pressed() -> void:
@@ -74,6 +72,10 @@ func _on_submit_pressed() -> void:
 			is_correct = true
 			break
 			
-	await get_tree().create_timer(1).timeout
+	if is_correct:
+		get_tree().change_scene_to_file("res://Chapters/Chapter 1/Cutscene/Door_Unlocked.tscn")
+	else:
+		question_label.text = "Incorrect answer."
+	
 	next_question()
 	
