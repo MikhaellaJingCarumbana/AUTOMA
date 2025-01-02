@@ -51,7 +51,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_pressed_chapter1() -> void:
-	get_tree().change_scene_to_file("res://Chapters/Chapter 1/Regex - Map/Beginner-F.tscn")
+	get_tree().change_scene_to_file("res://Chapters/Chapter 1/Cutscene/Intro_Cutscene.tscn")
 
 
 func _on_pressed_chapter2() -> void:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0fny8wvh8is3"
+path="res://.godot/imported/a_dungeon_ambience_loop-79423.mp3-a07dc070eb4e04e9d64683f3bace266a.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/music/a_dungeon_ambience_loop-79423.mp3"
+dest_files=["res://.godot/imported/a_dungeon_ambience_loop-79423.mp3-a07dc070eb4e04e9d64683f3bace266a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
