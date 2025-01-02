@@ -24,5 +24,5 @@ func check_total_sts() -> void:
 	if total_sts == target_weight:
 		label.text = "correct!"
 	else:
-		label.text = "Wrong" 
+		label.text = "Total STS: %d, Target: %d" % [total_sts, target_weight]
 	
