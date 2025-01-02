@@ -1,0 +1,175 @@
+[gd_scene load_steps=12 format=3 uid="uid://bd0vy7ccnkl4n"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/chest_riddle.gd" id="1_q41b7"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_64hfg"]
+[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="3_7pgvg"]
+[ext_resource type="FontFile" uid="uid://dexd0d2xxu57p" path="res://Fonts/ds-runenglish-2-font/DsRunenglish2-nR5O.ttf" id="4_h3b64"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="5_b6lpp"]
+[ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="6_gxbla"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/scale.gd" id="7_43jr7"]
+[ext_resource type="PackedScene" uid="uid://dnygv217r3r7a" path="res://Chapters/Chapter 1/Inventory System/Slot.tscn" id="8_gi8hc"]
+[ext_resource type="PackedScene" uid="uid://ckelhedglhhgd" path="res://Chapters/Chapter 1/Inventory System/Inventory_UI.tscn" id="9_tp7xe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
+shader = ExtResource("2_64hfg")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 4.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.313726, 0.678431, 0.658824, 1)
+shader_parameter/colour_2 = Color(0.0313726, 0.105882, 0.109804, 1)
+shader_parameter/colour_3 = Color(0.207677, 0.503745, 0.60629, 1)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.9
+shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ucfga"]
+shader = ExtResource("3_7pgvg")
+shader_parameter/height = 3.0
+shader_parameter/frequency = 20.0
+shader_parameter/speed = 3.0
+
+[node name="Chest Puzzle" type="Node"]
+script = ExtResource("1_q41b7")
+
+[node name="PauseMenu" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_aq6tb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.164706, 0.207843, 1)
+
+[node name="Label" type="Label" parent="PauseMenu"]
+material = SubResource("ShaderMaterial_ucfga")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -810.0
+offset_top = -248.0
+offset_right = 810.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0313726, 1, 0.980392, 1)
+theme_override_colors/font_shadow_color = Color(1.02278e-07, 0.203559, 0.198752, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_h3b64")
+theme_override_font_sizes/font_size = 51
+text = "L = { w e {a,b} * / w starts with aa and ends with bb and contains baba as substring} 
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -804.0
+offset_top = -196.0
+offset_right = 804.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1.02278e-07, 0.203559, 0.198752, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_b6lpp")
+theme_override_font_sizes/font_size = 35
+text = "HINT: Open your inventory by hitting \"tab\", inside would be all the items you collected and their weight."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -804.0
+offset_top = -1015.0
+offset_right = 804.0
+offset_bottom = -929.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1.02278e-07, 0.203559, 0.198752, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_b6lpp")
+theme_override_font_sizes/font_size = 90
+text = "Unlock the Chest"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Back" type="Button" parent="PauseMenu"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.023
+anchor_top = 0.052
+anchor_right = 0.023
+anchor_bottom = 0.052
+offset_left = 97.84
+offset_top = -0.16
+offset_right = 161.84
+offset_bottom = 63.84
+scale = Vector2(1.5, 1.5)
+icon = ExtResource("6_gxbla")
+
+[node name="Scale" type="GridContainer" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 539.0
+offset_right = 1166.0
+offset_bottom = 654.0
+columns = 4
+script = ExtResource("7_43jr7")
+target_weight = 20
+
+[node name="Slot" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
+layout_mode = 2
+
+[node name="Slot2" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
+layout_mode = 2
+
+[node name="Slot3" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
+layout_mode = 2
+
+[node name="Slot4" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
+layout_mode = 2
+
+[node name="UI" parent="." instance=ExtResource("9_tp7xe")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="pressed" from="PauseMenu/Back" to="." method="_on_button_pressed"]
+
+[editable path="UI"]
+[editable path="UI/Inventory/Slot"]
+[editable path="UI/Inventory/Slot2"]
+[editable path="UI/Inventory/Slot3"]
+[editable path="UI/Inventory/Slot4"]

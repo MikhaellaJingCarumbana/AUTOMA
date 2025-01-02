@@ -1,8 +1,13 @@
 extends GridContainer
 
 
+
 func _ready() -> void:
 	InventoryManager.register_inventory(self)
+	add_item()
+	add_item()
+	add_item("1")
+	add_item("1")
 	
 	
 func add_item(ID = "0"):
@@ -26,5 +31,6 @@ func add_to_slot(animated_sprite_instance: Node):
 		if not slot.filled:
 			slot.set_animated_sprite(animated_sprite_instance)
 			break
-	
+			
+
 	#Streaksaver again ahahaha
