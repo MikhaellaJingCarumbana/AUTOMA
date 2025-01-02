@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=58 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
 [ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
+[ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="37_d2ayn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6574,6 +6575,12 @@ size = Vector2(254.321, 28.8894)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhqhu"]
 size = Vector2(211.282, 9.28545)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iovt1"]
+size = Vector2(110.75, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxew"]
+size = Vector2(292.75, 114)
+
 [node name="Intermediate-f" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6797,7 +6804,7 @@ position = Vector2(356, 199)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(209, 245)
+position = Vector2(915, 233)
 
 [node name="Skull2" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(94, 566)
@@ -6952,6 +6959,42 @@ position = Vector2(378, 1002)
 [node name="Torch19" parent="Light" instance=ExtResource("35_apfom")]
 position = Vector2(752, 1013)
 
+[node name="Tutorial Manager" type="Node" parent="."]
+
+[node name="TutorialText" parent="Tutorial Manager" instance=ExtResource("37_d2ayn")]
+
+[node name="Label" parent="Tutorial Manager/TutorialText" index="0"]
+offset_left = 94.0
+offset_top = 191.0
+offset_right = 19094.0
+offset_bottom = 6660.0
+text = "Enemies will drop coins and crystals, collect these. Press \"tab\" to open inventory."
+horizontal_alignment = 1
+vertical_alignment = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="CollisionShape2D" parent="Tutorial Manager/TutorialText/Area2D" index="0"]
+position = Vector2(118.25, 200)
+shape = SubResource("RectangleShape2D_iovt1")
+
+[node name="TutorialText2" parent="Tutorial Manager" instance=ExtResource("37_d2ayn")]
+
+[node name="Label" parent="Tutorial Manager/TutorialText2" index="0"]
+offset_left = 680.0
+offset_top = 182.0
+offset_right = 19680.0
+offset_bottom = 6651.0
+text = "Enemies will also drop powerups. To gain info about these, press \"i\""
+horizontal_alignment = 1
+vertical_alignment = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="CollisionShape2D" parent="Tutorial Manager/TutorialText2/Area2D" index="0"]
+position = Vector2(789.625, 199)
+shape = SubResource("RectangleShape2D_8oxew")
+
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
 [connection signal="body_entered" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_entered"]
@@ -7005,3 +7048,5 @@ position = Vector2(752, 1013)
 [editable path="StarProjectile"]
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
+[editable path="Tutorial Manager/TutorialText"]
+[editable path="Tutorial Manager/TutorialText2"]
