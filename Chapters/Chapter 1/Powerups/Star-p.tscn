@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c162a7t7d151x"]
+[gd_scene load_steps=7 format=3 uid="uid://c162a7t7d151x"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/star-p.gd" id="1_o5772"]
 [ext_resource type="Texture2D" uid="uid://qmvggs6ba74i" path="res://Chapters/Chapter 1/Powerups/asset/star.png" id="2_u3675"]
@@ -17,6 +17,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvey0"]
 radius = 8.06226
 
+[sub_resource type="Gradient" id="Gradient_gf15v"]
+colors = PackedColorArray(0.776471, 0.878431, 0.976471, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kwa7j"]
+gradient = SubResource("Gradient_gf15v")
+fill = 1
+fill_from = Vector2(0.5, 0.482906)
+fill_to = Vector2(0.863248, 0.106838)
+
 [node name="Star" type="Area2D"]
 script = ExtResource("1_o5772")
 
@@ -30,5 +39,8 @@ shape = SubResource("CircleShape2D_gvey0")
 
 [node name="PowerupTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_kwa7j")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

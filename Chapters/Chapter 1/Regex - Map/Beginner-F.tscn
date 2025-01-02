@@ -6614,7 +6614,7 @@ door_code_path = NodePath("..")
 [node name="Player" parent="." instance=ExtResource("5_e65jt")]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(883, 1001)
+position = Vector2(191, 122)
 sfx_jump = SubResource("Resource_vpi5y")
 sfx_footsteps = SubResource("Resource_we6ik")
 
@@ -6626,7 +6626,7 @@ speed_scale = 1.5
 
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
-position = Vector2(-51, -6)
+position = Vector2(0, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
 limit_left = -2
@@ -6673,7 +6673,7 @@ position = Vector2(671, 982)
 position = Vector2(771, 982)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(832, 994.857)
+position = Vector2(191, 122)
 script = ExtResource("6_hkbon")
 follow_mode = 5
 follow_target = NodePath("../Player")

@@ -6852,6 +6852,7 @@ parent_enemy = NodePath("../Skull10")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
+parent_enemy = NodePath("../Skull")
 
 [node name="Star2" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
@@ -6881,7 +6882,6 @@ position = Vector2(-1, 2)
 position = Vector2(-1, 2)
 
 [node name="Coin" parent="." instance=ExtResource("31_bcqml")]
-parent_enemy = NodePath("../Enemies/Skull")
 
 [node name="HurtPlayerEffect" parent="." instance=ExtResource("33_vxk4d")]
 
