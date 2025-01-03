@@ -6,6 +6,7 @@ extends Node
 @onready var answer_input: LineEdit = $PauseMenu/answer_input
 @onready var question_label: Label = $PauseMenu/Label
 
+
 var questions = []
 var current_question_index = -1
 var is_open = false

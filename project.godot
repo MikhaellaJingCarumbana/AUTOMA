@@ -37,6 +37,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "Door": "res://Chapters/Chapter 1/Dialogic Timelines/Door.dtl",
 "Intro": "res://Chapters/Chapter 1/Dialogic Timelines/Intro.dtl",
+"Mimic_reveal": "res://Chapters/Chapter 1/Dialogic Timelines/Mimic_reveal.dtl",
 "Tests/timeline": "res://Tests/timeline.dtl",
 "Wisps": "res://Chapters/Chapter 1/Dialogic Timelines/Wisps.dtl",
 "chests": "res://Chapters/Chapter 1/Dialogic Timelines/chests.dtl",

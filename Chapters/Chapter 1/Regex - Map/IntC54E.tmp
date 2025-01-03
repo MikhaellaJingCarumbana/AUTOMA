@@ -6778,7 +6778,6 @@ visible = false
 [node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="5" node_paths=PackedStringArray("game_manager", "player")]
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player/AnimatedSprite2D")
-timeline_file = "Mimic_reveal"
 
 [node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
 timeline_file = "Wisps"

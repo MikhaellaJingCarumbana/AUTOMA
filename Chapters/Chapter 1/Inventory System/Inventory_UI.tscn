@@ -23,7 +23,7 @@ offset_top = -170.0
 offset_right = 255.0
 grow_horizontal = 2
 grow_vertical = 0
-columns = 8
+columns = 6
 script = ExtResource("2_gnp5v")
 
 [node name="Slot" parent="Inventory" instance=ExtResource("3_8a3s0")]
@@ -44,17 +44,9 @@ layout_mode = 2
 [node name="Slot6" parent="Inventory" instance=ExtResource("3_8a3s0")]
 layout_mode = 2
 
-[node name="Slot7" parent="Inventory" instance=ExtResource("3_8a3s0")]
-layout_mode = 2
-
-[node name="Slot8" parent="Inventory" instance=ExtResource("3_8a3s0")]
-layout_mode = 2
-
 [editable path="Inventory/Slot"]
 [editable path="Inventory/Slot2"]
 [editable path="Inventory/Slot3"]
 [editable path="Inventory/Slot4"]
 [editable path="Inventory/Slot5"]
 [editable path="Inventory/Slot6"]
-[editable path="Inventory/Slot7"]
-[editable path="Inventory/Slot8"]

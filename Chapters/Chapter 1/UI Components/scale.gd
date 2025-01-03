@@ -5,6 +5,8 @@ class_name Scale
 @onready var label: Label = $"../Label"
 @onready var pause_menu: ColorRect = $".."
 @export var game_manager: Node
+@export var player: Node
+@export var timeline_file: String = ""
 
 
 var wrong_guess_count: int = 0
@@ -36,6 +38,8 @@ func check_total_sts() -> void:
 		await get_tree().create_timer(1.5).timeout
 		pause_menu.hide()
 		game_manager.decrease_health()
+		Dialogic.start(timeline_file)
+	
 		
 	
 		

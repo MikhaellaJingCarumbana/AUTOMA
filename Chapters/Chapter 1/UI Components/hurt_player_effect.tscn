@@ -14,4 +14,7 @@ hurt = ExtResource("2_ulk32")
 position = Vector2(665, 569)
 scale = Vector2(12.0081, 12.0081)
 
+[node name="ColorRect" parent="PlayerHurt" index="2"]
+color = Color(0.160784, 0.00392157, 0.00784314, 0.486275)
+
 [editable path="PlayerHurt"]
