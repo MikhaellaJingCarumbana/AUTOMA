@@ -8,7 +8,17 @@ extends Node
 
 var questions = []
 var current_question_index = -1
+var is_open = false
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("test_input"):
+		get_tree().paused
+		if is_open:
+			pause_menu.hide()
+			is_open = false
+		else:
+			pause_menu.show()
+			is_open = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

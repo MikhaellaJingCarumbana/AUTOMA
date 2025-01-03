@@ -8,6 +8,7 @@ extends Node
 @onready var pause_menu: ColorRect = $"../UI/Powerup_Choose/PauseMenu"
 @onready var player_area: Area2D = $"../Player/Interaction Component/Group"
 @onready var hurt_player_effect: CanvasLayer = $"../HurtPlayerEffect"
+@onready var anim: AnimatedSprite2D = $"../Player/AnimatedSprite2D"
 
 
 var enemy_groups: Dictionary = {}

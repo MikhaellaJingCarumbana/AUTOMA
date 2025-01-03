@@ -36,6 +36,7 @@ var player_in_area = false
 @export var death_sound: AudioStream
 @onready var sfx_player: AudioStreamPlayer2D = %sfx_player
 @onready var whisper: AudioStreamPlayer2D = $whisper
+@onready var anim: AnimatedSprite2D = %AnimatedSprite2D
 
 
 
@@ -124,10 +125,12 @@ func _on_area_2d_body_entered(body):
 		print(y_delta)
 		if(y_delta > 7):
 			print("Destroy enemy")
+			anim.play("deal_damage")
 			handle_death()
 			body.jump()
 		else:
 			print("Decrease player health")
+			anim.play("deal_damage")
 			game_manager.decrease_health()
 			if (x_delta > 0):
 				body.jump_slide(500)

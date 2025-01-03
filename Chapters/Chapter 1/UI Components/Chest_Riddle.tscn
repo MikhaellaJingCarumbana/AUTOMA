@@ -131,6 +131,16 @@ offset_bottom = 63.84
 scale = Vector2(1.5, 1.5)
 icon = ExtResource("6_gxbla")
 
+[node name="UI" parent="PauseMenu" instance=ExtResource("9_tp7xe")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Scale" type="GridContainer" parent="PauseMenu"]
 layout_mode = 0
 offset_left = 754.0
@@ -153,23 +163,14 @@ layout_mode = 2
 [node name="Slot4" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
 layout_mode = 2
 
-[node name="UI" parent="." instance=ExtResource("9_tp7xe")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [connection signal="pressed" from="PauseMenu/Back" to="." method="_on_button_pressed"]
 
-[editable path="UI"]
-[editable path="UI/Inventory/Slot"]
-[editable path="UI/Inventory/Slot2"]
-[editable path="UI/Inventory/Slot3"]
-[editable path="UI/Inventory/Slot4"]
+[editable path="PauseMenu/UI"]
+[editable path="PauseMenu/UI/Inventory/Slot"]
+[editable path="PauseMenu/UI/Inventory/Slot2"]
+[editable path="PauseMenu/UI/Inventory/Slot3"]
+[editable path="PauseMenu/UI/Inventory/Slot4"]
+[editable path="PauseMenu/UI/Inventory/Slot5"]
+[editable path="PauseMenu/UI/Inventory/Slot6"]
+[editable path="PauseMenu/UI/Inventory/Slot7"]
+[editable path="PauseMenu/UI/Inventory/Slot8"]

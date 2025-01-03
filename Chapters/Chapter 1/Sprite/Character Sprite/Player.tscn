@@ -116,7 +116,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_btqr6")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hurt",
 "speed": 5.0
 }, {
@@ -372,7 +372,7 @@ texture_repeat = 2
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(1.17969, 1.19211)
 sprite_frames = SubResource("SpriteFrames_klort")
-animation = &"Run"
+animation = &"Hurt"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

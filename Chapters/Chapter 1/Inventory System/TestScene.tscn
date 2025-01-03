@@ -14,13 +14,13 @@ size_flags_horizontal = 3
 offset_right = 277.0
 columns = 7
 
-[node name="Slot5" parent="UI/Inventory" index="4" instance=ExtResource("2_mf10o")]
+[node name="Slot9" parent="UI/Inventory" index="4" instance=ExtResource("2_mf10o")]
 layout_mode = 2
 
-[node name="Slot6" parent="UI/Inventory" index="5" instance=ExtResource("2_mf10o")]
+[node name="Slot10" parent="UI/Inventory" index="5" instance=ExtResource("2_mf10o")]
 layout_mode = 2
 
-[node name="Slot7" parent="UI/Inventory" index="6" instance=ExtResource("2_mf10o")]
+[node name="Slot11" parent="UI/Inventory" index="6" instance=ExtResource("2_mf10o")]
 layout_mode = 2
 
 [editable path="UI"]
@@ -31,3 +31,4 @@ layout_mode = 2
 [editable path="UI/Inventory/Slot5"]
 [editable path="UI/Inventory/Slot6"]
 [editable path="UI/Inventory/Slot7"]
+[editable path="UI/Inventory/Slot8"]

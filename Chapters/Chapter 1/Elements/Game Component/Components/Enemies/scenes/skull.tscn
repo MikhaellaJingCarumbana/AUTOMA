@@ -239,9 +239,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gf0iy"]
-radius = 7.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rrr10"]
+radius = 15.0
 
 [sub_resource type="Gradient" id="Gradient_em5na"]
 colors = PackedColorArray(0, 0.831373, 1, 1, 0, 0, 0, 1)
@@ -260,8 +261,7 @@ death_sound = ExtResource("2_n0nlh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_hx42s")
-animation = &"walk"
-frame_progress = 0.463231
+animation = &"deal_damage"
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

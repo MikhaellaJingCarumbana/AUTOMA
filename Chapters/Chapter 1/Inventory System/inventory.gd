@@ -5,7 +5,7 @@ extends GridContainer
 func _ready() -> void:
 	InventoryManager.register_inventory(self)
 	add_item()
-	add_item()
+	add_item("1")
 	
 	
 	
