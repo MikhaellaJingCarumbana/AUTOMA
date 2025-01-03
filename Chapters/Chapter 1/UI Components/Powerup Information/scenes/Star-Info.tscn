@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnw7ym2511mq5"]
+[gd_scene load_steps=18 format=3 uid="uid://1hd85ppgfl36"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/plus_info.gd" id="1_petbh"]
-[ext_resource type="Texture2D" uid="uid://c5doqtr72enev" path="res://Chapters/Chapter 1/UI Components/Powerup Information/assets/card-back.png" id="1_wqj05"]
-[ext_resource type="Texture2D" uid="uid://ccidytpsx6dro" path="res://Chapters/Chapter 1/UI Components/Powerup Information/assets/plus.png" id="2_f4q25"]
-[ext_resource type="Texture2D" uid="uid://7k7nady34l25" path="res://Chapters/Chapter 1/UI Components/Powerup Information/assets/star.png" id="3_vrtex"]
-[ext_resource type="AudioStream" uid="uid://dpi318o8ricgx" path="res://Chapters/Chapter 1/audios/sounds/crumple-03-40747.mp3" id="5_eubno"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/star_info.gd" id="1_6q2wa"]
+[ext_resource type="Texture2D" uid="uid://c5doqtr72enev" path="res://Chapters/Chapter 1/UI Components/Powerup Information/assets/card-back.png" id="2_yvhhw"]
+[ext_resource type="Texture2D" uid="uid://7k7nady34l25" path="res://Chapters/Chapter 1/UI Components/Powerup Information/assets/star.png" id="4_2b770"]
+[ext_resource type="AudioStream" uid="uid://dpi318o8ricgx" path="res://Chapters/Chapter 1/audios/sounds/crumple-03-40747.mp3" id="5_0ghi4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o46ex"]
 
@@ -26,10 +25,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f4q25")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_vrtex")
+"texture": ExtResource("4_2b770")
 }],
 "loop": false,
 "name": &"default",
@@ -58,7 +54,7 @@ tracks/1/path = NodePath("Card_back/Card:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0624501),
+"times": PackedFloat32Array(0, 0.0680012),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-1, 1]
@@ -91,7 +87,7 @@ tracks/1/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_egj01"]
+[sub_resource type="Animation" id="Animation_uj4sx"]
 resource_name = "Card_flip_2"
 length = 0.25
 tracks/0/type = "value"
@@ -113,7 +109,7 @@ tracks/1/path = NodePath("Card_back/Card:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0638378),
+"times": PackedFloat32Array(0, 0.0652256),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, -1]
@@ -122,20 +118,21 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pqtcn"]
 _data = {
 "Card_flip": SubResource("Animation_ob2rb"),
-"Card_flip_2": SubResource("Animation_egj01"),
+"Card_flip_2": SubResource("Animation_uj4sx"),
 "RESET": SubResource("Animation_dkmfh")
 }
 
-[node name="Plus-Info" type="Control"]
+[node name="Star_info" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-size_flags_horizontal = 0
-script = ExtResource("1_petbh")
+script = ExtResource("1_6q2wa")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 1.0
-offset_right = 593.0
-offset_bottom = 852.0
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 597.0
+offset_bottom = 853.0
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_o46ex")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7bu10")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jyrpc")
@@ -148,7 +145,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_qnxj7")
 [node name="Card_back" type="Sprite2D" parent="Button"]
 position = Vector2(291, 422.309)
 scale = Vector2(0.363697, 0.363697)
-texture = ExtResource("1_wqj05")
+texture = ExtResource("2_yvhhw")
 
 [node name="Card" type="AnimatedSprite2D" parent="Button/Card_back"]
 z_index = 1
@@ -161,7 +158,7 @@ libraries = {
 }
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_eubno")
+stream = ExtResource("5_0ghi4")
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

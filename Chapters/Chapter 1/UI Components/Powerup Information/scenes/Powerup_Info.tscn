@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://rkh8abgwi878"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/powerup_info.gd" id="1_cscd5"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_3f0pn"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_ojxgr"]
+[ext_resource type="PackedScene" uid="uid://dnw7ym2511mq5" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/Plus-Info.tscn" id="4_5xrqx"]
+[ext_resource type="PackedScene" uid="uid://1hd85ppgfl36" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/Star-Info.tscn" id="5_i68u6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
+shader = ExtResource("2_3f0pn")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 3.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.498039, 0.792157, 0.945098, 0.807843)
+shader_parameter/colour_2 = Color(0.145098, 0.368627, 0.466667, 0.807843)
+shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 0.807843)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.2
+shader_parameter/pixel_filter = 700.0
+
+[node name="Powerup_Info" type="Node"]
+script = ExtResource("1_cscd5")
+
+[node name="PauseMenu" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_aq6tb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.164706, 0.207843, 1)
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -377.0
+offset_top = 23.0
+offset_right = 373.0
+offset_bottom = 137.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ojxgr")
+theme_override_font_sizes/font_size = 100
+text = "PowerUp"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -551.0
+offset_top = -415.0
+offset_right = 623.0
+offset_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 600
+
+[node name="Plus-Info" parent="PauseMenu/HBoxContainer" instance=ExtResource("4_5xrqx")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" parent="PauseMenu/HBoxContainer/Plus-Info" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_right = 592.0
+
+[node name="Star_info" parent="PauseMenu/HBoxContainer" instance=ExtResource("5_i68u6")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -551.0
+offset_top = -114.0
+offset_right = 615.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ojxgr")
+theme_override_font_sizes/font_size = 40
+text = "Enemies drop powerups, these powerups last 10 seconds."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="PauseMenu/HBoxContainer/Plus-Info"]
+[editable path="PauseMenu/HBoxContainer/Star_info"]

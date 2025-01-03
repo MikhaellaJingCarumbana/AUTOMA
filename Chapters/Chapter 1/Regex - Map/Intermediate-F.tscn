@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=59 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="15_epllm"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="16_7kixp"]
 [ext_resource type="PackedScene" uid="uid://6oq7q4arwyqu" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Blue Chest.tscn" id="16_xt7s8"]
+[ext_resource type="PackedScene" uid="uid://rkh8abgwi878" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/Powerup_Info.tscn" id="17_pqsq3"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="17_v4ecl"]
 [ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="18_ca3xp"]
 [ext_resource type="PackedScene" uid="uid://cofswi7j1xxfg" path="res://Chapters/Chapter 1/UI Components/Notes2.tscn" id="19_0u2xi"]
@@ -6744,14 +6745,9 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
 [node name="Notes" parent="UI" instance=ExtResource("15_epllm")]
 
-[node name="PauseGame" parent="UI" instance=ExtResource("16_7kixp")]
+[node name="Powerup_Info" parent="UI" instance=ExtResource("17_pqsq3")]
 
-[node name="PauseMenu" parent="UI/PauseGame" index="0"]
-visible = false
-
-[node name="DeathScreen" parent="UI" instance=ExtResource("17_v4ecl")]
-
-[node name="PauseMenu" parent="UI/DeathScreen" index="0"]
+[node name="PauseMenu" parent="UI/Powerup_Info" index="0"]
 visible = false
 
 [node name="Clue_System2" parent="UI" instance=ExtResource("18_ca3xp")]
@@ -6800,6 +6796,16 @@ timeline_file = "Wisps"
 
 [node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
 position = Vector2(356, 199)
+
+[node name="DeathScreen" parent="UI" instance=ExtResource("17_v4ecl")]
+
+[node name="PauseMenu" parent="UI/DeathScreen" index="0"]
+visible = false
+
+[node name="PauseGame" parent="UI" instance=ExtResource("16_7kixp")]
+
+[node name="PauseMenu" parent="UI/PauseGame" index="0"]
+visible = false
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -7021,8 +7027,9 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
-[editable path="UI/PauseGame"]
-[editable path="UI/DeathScreen"]
+[editable path="UI/Powerup_Info"]
+[editable path="UI/Powerup_Info/PauseMenu/HBoxContainer/Plus-Info"]
+[editable path="UI/Powerup_Info/PauseMenu/HBoxContainer/Star_info"]
 [editable path="UI/Clue_System2"]
 [editable path="UI/Note System"]
 [editable path="UI/Powerup_Choose"]
@@ -7036,6 +7043,8 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="UI/TestScene/UI/Inventory/Slot6"]
 [editable path="UI/TestScene/UI/Inventory/Slot7"]
 [editable path="UI/Dialogic"]
+[editable path="UI/DeathScreen"]
+[editable path="UI/PauseGame"]
 [editable path="Enemies/Plus"]
 [editable path="Enemies/Plus2"]
 [editable path="Enemies/Star"]
