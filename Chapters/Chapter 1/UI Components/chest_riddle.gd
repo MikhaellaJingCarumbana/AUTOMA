@@ -11,29 +11,7 @@ var questions = []
 var current_question_index = -1
 var is_open = false
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("test_input"):
-		get_tree().paused
-		if is_open:
-			pause_menu.hide()
-			is_open = false
-		else:
-			pause_menu.show()
-			is_open = true
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func interact_door():
-	print("Interacting with the door code")
+func open_mimic():
+	print("mimic opened")
 	pause_menu.show()
-	
-
-func _on_button_pressed() -> void:
-	pause_menu.hide()
 	

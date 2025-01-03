@@ -6873,6 +6873,9 @@ frame_progress = 0.879936
 [node name="Mimic" parent="Enemies" instance=ExtResource("30_m58dl")]
 position = Vector2(266, 244)
 
+[node name="InteractArea" parent="Enemies/Mimic" index="2" node_paths=PackedStringArray("chest_puzzle")]
+chest_puzzle = NodePath("../../../UI/Chest Puzzle")
+
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
 unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
@@ -7044,6 +7047,8 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="Enemies/Star3"]
 [editable path="Enemies/Hearts"]
 [editable path="Enemies/Hearts2"]
+[editable path="Enemies/Mimic"]
+[editable path="Enemies/Mimic/InteractArea"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]

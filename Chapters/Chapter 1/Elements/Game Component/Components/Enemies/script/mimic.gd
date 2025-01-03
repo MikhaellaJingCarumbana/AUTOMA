@@ -10,8 +10,7 @@ var in_area: bool = false
 
 
 func _ready() -> void:
-	area_2d.connect("body_entered", _on_area_2d_body_entered)
-	area_2d.connect("body_exited", _on_area_2d_body_exited)
+	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

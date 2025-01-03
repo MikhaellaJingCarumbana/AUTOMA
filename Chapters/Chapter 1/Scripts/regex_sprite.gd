@@ -52,9 +52,7 @@ var footsteps_fram: Array = [2, 4, 6, 8]
 @onready var white: AnimatedSprite2D = $white
 
 @export var shoot: AudioStream
-
-
-
+@onready var chest_puzzle: Node = $"../UI/Chest Puzzle/PauseMenu"
 
 
 func _ready():
@@ -80,6 +78,8 @@ func _ready():
 	projectile_timer.one_shot = true
 	add_child(projectile_timer)
 	projectile_timer.timeout.connect(deactivate_projectile_powerup)
+	
+
 		
 func is_player() -> bool:
 	return true
@@ -251,6 +251,9 @@ func execute_interaction():
 				current_interaction.get_parent().open_chest()
 			"open_door_code":
 				current_interaction.interact()
+			"open_chest_riddle":
+				current_interaction.interact_mimic()
+			
 		print("Executing interaction: %s" % current_interaction.interact_type)
 			
 

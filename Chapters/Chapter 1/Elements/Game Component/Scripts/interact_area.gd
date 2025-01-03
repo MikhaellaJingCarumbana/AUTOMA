@@ -6,6 +6,7 @@ class_name Interactable extends Area2D
 @export var timeline_name = ""  # Add this line
 @export var door_code_path: NodePath
 @onready var door_code: Node = $"../../UI/DoorCode"
+@export var chest_puzzle: Node 
 
 signal interacted
 
@@ -14,3 +15,9 @@ func interact():
 		door_code.interact_door()
 	else:
 		print("Error: door_code node not found")
+		
+func interact_mimic():
+	if chest_puzzle:
+		chest_puzzle.open_mimic()
+	else:
+		print("Error: chest puzzle node not found")
