@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cymhm63n3suwp"]
+[gd_scene load_steps=20 format=3 uid="uid://cymhm63n3suwp"]
 
 [ext_resource type="Texture2D" uid="uid://b4wed7l7xhnpb" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/Mimic/Mimic_Idle_Hidden.png" id="1_jmt0c"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/mimic.gd" id="1_tcn13"]
 [ext_resource type="Texture2D" uid="uid://difgwvlb8ylo6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/Mimic/Mimic_Idle_Revealed.png" id="3_lwyng"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="3_n4qmc"]
+[ext_resource type="Texture2D" uid="uid://rngxqu1cjakm" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/Mimic/Mimic_Death.png" id="3_t7hqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4g0g"]
 atlas = ExtResource("1_jmt0c")
@@ -19,6 +20,22 @@ region = Rect2(216, 0, 108, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmyqb"]
 atlas = ExtResource("1_jmt0c")
+region = Rect2(324, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12ln8"]
+atlas = ExtResource("3_t7hqv")
+region = Rect2(0, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e51pj"]
+atlas = ExtResource("3_t7hqv")
+region = Rect2(108, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fudip"]
+atlas = ExtResource("3_t7hqv")
+region = Rect2(216, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o1eo"]
+atlas = ExtResource("3_t7hqv")
 region = Rect2(324, 0, 108, 108)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6vle"]
@@ -58,6 +75,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_12ln8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e51pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fudip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o1eo")
+}],
+"loop": false,
+"name": &"opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_r6vle")
 }, {
 "duration": 1.0,
@@ -80,12 +114,11 @@ animations = [{
 script = ExtResource("1_tcn13")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-2.38419e-07, -4.76837e-07)
 scale = Vector2(0.807408, 0.807407)
 sprite_frames = SubResource("SpriteFrames_7pm57")
-animation = &"reveal"
-autoplay = "idle"
-frame_progress = 0.236694
+animation = &"idle"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

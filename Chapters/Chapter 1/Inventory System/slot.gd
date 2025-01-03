@@ -58,11 +58,22 @@ func get_STS() -> int:
 func set_property(data):
 	texture_rect.property = data
 	
-	if data["TEXTURE"] == null:
-		filled = false
-	else:
+	if "TEXTURE" in data and data["TEXTURE"] != null:
 		filled = true
+	else:
+		filled = false
 
 func set_animated_sprite(animated_sprite: Node):
 	container.add_child(animated_sprite)
 	filled = true
+	
+func clear_slot():
+	texture_rect.texture = null
+	texture_rect.property = {}
+	sts = 0
+	_set_filled(false)
+	
+	container.queue_free()
+	
+	container = Container.new()
+	add_child(container)

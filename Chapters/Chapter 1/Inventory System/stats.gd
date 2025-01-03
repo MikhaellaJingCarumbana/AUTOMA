@@ -16,6 +16,9 @@ extends TextureRect
 	set(value):
 		property = value
 		
-		texture = property["TEXTURE"]
-		STS = property["STS"]
-		slot_type = property["SLOT_TYPE"]
+		if "TEXTURE" in property:
+			texture = property["TEXTURE"]
+		if "STS" in property:
+			STS = property["STS"]
+		if "SLOT_TYPE" in property:
+			slot_type = property["SLOT_TYPE"]
