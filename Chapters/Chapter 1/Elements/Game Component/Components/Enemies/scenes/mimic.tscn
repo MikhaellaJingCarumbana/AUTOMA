@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cymhm63n3suwp"]
+[gd_scene load_steps=15 format=3 uid="uid://cymhm63n3suwp"]
 
 [ext_resource type="Texture2D" uid="uid://b4wed7l7xhnpb" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/Mimic/Mimic_Idle_Hidden.png" id="1_jmt0c"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/mimic.gd" id="1_tcn13"]
+[ext_resource type="Texture2D" uid="uid://difgwvlb8ylo6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/Mimic/Mimic_Idle_Revealed.png" id="3_lwyng"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="3_n4qmc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4g0g"]
@@ -20,6 +21,22 @@ region = Rect2(216, 0, 108, 108)
 atlas = ExtResource("1_jmt0c")
 region = Rect2(324, 0, 108, 108)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6vle"]
+atlas = ExtResource("3_lwyng")
+region = Rect2(0, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elikj"]
+atlas = ExtResource("3_lwyng")
+region = Rect2(108, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi33o"]
+atlas = ExtResource("3_lwyng")
+region = Rect2(216, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnfgd"]
+atlas = ExtResource("3_lwyng")
+region = Rect2(324, 0, 108, 108)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7pm57"]
 animations = [{
 "frames": [{
@@ -36,7 +53,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_vmyqb")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6vle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elikj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi33o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnfgd")
+}],
+"loop": true,
+"name": &"reveal",
 "speed": 5.0
 }]
 
@@ -49,9 +83,10 @@ script = ExtResource("1_tcn13")
 position = Vector2(-2.38419e-07, -4.76837e-07)
 scale = Vector2(0.807408, 0.807407)
 sprite_frames = SubResource("SpriteFrames_7pm57")
-animation = &"new_animation"
-autoplay = "new_animation"
-frame_progress = 0.386128
+animation = &"reveal"
+autoplay = "idle"
+frame_progress = 0.236694
+speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)
