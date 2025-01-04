@@ -6782,7 +6782,7 @@ visible = false
 [node name="PauseMenu" parent="UI/Chest Puzzle" index="0"]
 visible = false
 
-[node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="5" node_paths=PackedStringArray("game_manager", "player", "mimic")]
+[node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic")]
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player/AnimatedSprite2D")
 timeline_file = "Mimic_reveal"
