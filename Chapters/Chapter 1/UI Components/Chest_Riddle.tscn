@@ -163,7 +163,7 @@ layout_mode = 2
 [node name="Slot4" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
 layout_mode = 2
 
-[connection signal="pressed" from="PauseMenu/Back" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Back" to="." method="_on_back_pressed"]
 
 [editable path="PauseMenu/UI"]
 [editable path="PauseMenu/UI/Inventory/Slot"]

@@ -58,7 +58,7 @@ func decrease_health():
 	lives -= 1
 	hurt_player_effect.show_hurt_effect()
 	print(lives)
-	for h in range(5):
+	for h in 5:
 		if (h < lives):
 			hearts[h].show()
 		else:

@@ -6623,6 +6623,12 @@ interact_label = "open chest"
 interact_type = "open_chest"
 interact_value = "working???"
 
+[node name="Mimic" parent="." instance=ExtResource("30_m58dl")]
+position = Vector2(266, 244)
+
+[node name="InteractArea" parent="Mimic" index="3" node_paths=PackedStringArray("chest_puzzle")]
+chest_puzzle = NodePath("../../UI/Chest Puzzle")
+
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(135, 248)
 projectile_scene = ExtResource("27_v5qjy")
@@ -6780,7 +6786,8 @@ visible = false
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player/AnimatedSprite2D")
 timeline_file = "Mimic_reveal"
-mimic = NodePath("../../../../Enemies/Mimic/AnimatedSprite2D")
+timeline_file2 = "Mimic_dead"
+mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
 
 [node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
 timeline_file = "Wisps"
@@ -6870,12 +6877,6 @@ powerup_type = "infinite projectiles"
 
 [node name="AnimatedSprite2D" parent="Enemies/Hearts2" index="0"]
 frame_progress = 0.879936
-
-[node name="Mimic" parent="Enemies" instance=ExtResource("30_m58dl")]
-position = Vector2(266, 244)
-
-[node name="InteractArea" parent="Enemies/Mimic" index="2" node_paths=PackedStringArray("chest_puzzle")]
-chest_puzzle = NodePath("../../../UI/Chest Puzzle")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
 unique_name_in_owner = true
@@ -7021,6 +7022,8 @@ shape = SubResource("RectangleShape2D_8oxew")
 
 [editable path="Clues"]
 [editable path="Clues2"]
+[editable path="Mimic"]
+[editable path="Mimic/InteractArea"]
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
@@ -7048,8 +7051,6 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="Enemies/Star3"]
 [editable path="Enemies/Hearts"]
 [editable path="Enemies/Hearts2"]
-[editable path="Enemies/Mimic"]
-[editable path="Enemies/Mimic/InteractArea"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]

@@ -7,6 +7,7 @@ class_name Scale
 @export var game_manager: Node
 @export var player: Node
 @export var timeline_file: String = ""
+@export var timeline_file2: String = ""
 @export var mimic: AnimatedSprite2D
 
 
@@ -42,9 +43,10 @@ func check_total_sts() -> void:
 			
 	if total_sts == target_weight:
 		label.text = "correct!"
-		wrong_guess_count = 0
+		await get_tree().create_timer(1.5).timeout
 		pause_menu.hide()
 		mimic.play("opened")
+		Dialogic.start(timeline_file2)
 	else:
 		label.text = "Wrong" 
 		await get_tree().create_timer(1.5).timeout
