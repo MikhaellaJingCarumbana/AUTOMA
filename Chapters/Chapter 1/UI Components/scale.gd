@@ -41,14 +41,18 @@ func check_total_sts() -> void:
 		if slot.filled:
 			total_sts += slot.get_STS()
 			
-			var item_id = slot.texture_rect.property.get("item_id", -1)
-			print("Slot Item ID: ", item_id, " | Expected Item ID: ", expected_item_id) # Debugging
+			var texture_rect = slot.get_node("TextureRect")
 			
-			if item_id != expected_item_id:
-				print("Item ID mismatch detected!")
-				is_item_id_valid = false
-				break
-	
+			if texture_rect and texture_rect.get_meta("property").has("item_id"):
+				var item_id = texture_rect.get_meta("property")["item_id"]
+				print("Slot Item ID: ", item_id, " | Expected Item ID: ", expected_item_id)  # Debugging
+				
+				if item_id != expected_item_id:
+					print("ITEM ID MISMATCH")
+					is_item_id_valid = false
+					break
+			else:
+				print("Item ID not found or TextureRect missing.")
 	await get_tree().create_timer(3).timeout
 	
 	if not is_item_id_valid:

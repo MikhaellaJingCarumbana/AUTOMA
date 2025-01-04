@@ -1,12 +1,12 @@
 {
 	"0" : {
-		"texture" : "Coin.png",
+		"texture" : "res://Art/Database png/Coin.png",
 		"slot_type" : 0,
 		"STS" : 10,
 	},
 	
 	"1" : {
-		"texture" : "crystal.png",
+		"texture" : "res://Art/Database png/Crystal.png",
 		"slot_type" : 0,
 		"STS" :20,
 	}
