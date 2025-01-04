@@ -18,6 +18,10 @@ grow_vertical = 2
 columns = 4
 script = ExtResource("1_3onhh")
 target_weight = 20
+timeline_file = null
+timeline_file2 = null
+logical_operator = null
+expected_item_id = null
 
 [node name="Slot" parent="." instance=ExtResource("2_3d2ex")]
 layout_mode = 2

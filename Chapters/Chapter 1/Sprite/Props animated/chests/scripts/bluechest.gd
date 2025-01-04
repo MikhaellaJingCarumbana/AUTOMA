@@ -9,7 +9,7 @@ func _ready():
 	sprite_2d.play("Idle")  # Start with the chest closed
 	if is_instance_valid(clues):
 		clues.hide()
-		collision_shape_2d.disabled = true
+		collision_shape_2d.disabled = false
 		
 		if clues.has_meta("parent_chest"):
 			clues.set_meta("parent_chest", self)

@@ -136,3 +136,6 @@ func _on_button_pressed() -> void:
 	print("button pressed")
 	confirm_slots()
 	
+func is_open():
+	return op
+	
