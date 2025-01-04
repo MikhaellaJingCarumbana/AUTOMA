@@ -133,7 +133,6 @@ frame_progress = 0.89185
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 3)
 shape = SubResource("RectangleShape2D_r1ecm")
 
@@ -145,8 +144,5 @@ texture = SubResource("GradientTexture2D_1dab0")
 [node name="InteractArea" parent="." instance=ExtResource("3_n4qmc")]
 interact_label = "Open Mimic"
 interact_type = "open_chest_riddle"
-
-[node name="CollisionShape2D" parent="InteractArea" index="0"]
-visible = false
 
 [editable path="InteractArea"]

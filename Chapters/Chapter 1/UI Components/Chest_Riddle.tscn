@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bd0vy7ccnkl4n"]
+[gd_scene load_steps=19 format=3 uid="uid://bd0vy7ccnkl4n"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/chest_riddle.gd" id="1_q41b7"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_64hfg"]
@@ -31,6 +31,25 @@ shader = ExtResource("3_7pgvg")
 shader_parameter/height = 3.0
 shader_parameter/frequency = 20.0
 shader_parameter/speed = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_428r6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23jol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihnej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox7mq"]
+bg_color = Color(0.152941, 0.254902, 0.317647, 0.603922)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itg4a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myoo7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1dq6"]
 
 [node name="Chest Puzzle" type="Node"]
 script = ExtResource("1_q41b7")
@@ -173,9 +192,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -206.0
-offset_top = 89.0
+offset_top = 25.0
 offset_right = 206.0
-offset_bottom = 204.0
+offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
@@ -194,7 +213,33 @@ layout_mode = 2
 [node name="Slot4" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
 layout_mode = 2
 
+[node name="Button" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = 146.0
+offset_right = 95.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.0313726, 1, 0.980392, 1)
+theme_override_fonts/font = ExtResource("5_b6lpp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_428r6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_23jol")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ihnej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ox7mq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_itg4a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_myoo7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h1dq6")
+text = "Check"
+
 [connection signal="pressed" from="PauseMenu/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="PauseMenu/Button" to="PauseMenu/Scale" method="_on_button_pressed"]
 
 [editable path="PauseMenu/UI"]
 [editable path="PauseMenu/UI/Inventory/Slot"]
