@@ -12,8 +12,10 @@ class_name Scale
 @export var logical_operator: String = "==" #default
 @export var expected_item_id: int = -1 #set in editor, base it on database.JSON
 @export var interactable_node : Node
+@onready var button: Button = $"../Button"
 
 
+var opened: bool = false
 var wrong_guess_count: int = 0
 const MAX_WRONG_ANSWERS: int = 3
 var is_ready_to_check: bool = false
@@ -92,7 +94,7 @@ func reset_question():
 		else:
 			print("Non-slot child detected: %s" % slot.name)
 		
-		label.text = "Try Again"
+			label.text = "Try Again"
 		
 func handle_wrong_answer():
 	
@@ -110,8 +112,11 @@ func handle_correct_answer():
 	await get_tree().create_timer(1.5).timeout
 	pause_menu.hide()
 	mimic.play("opened")
+	opened = true
 	
-	if interactable_node and interactable_node is Interactable:
-		interactable_node.disable()
+	if opened:
+		label.text = "This is the greed they talk about in the bible..."
+		button.hide()
+	
 	Dialogic.start(timeline_file2)
 			

@@ -5,13 +5,17 @@ extends Node
 @export var timeline_file: String = ""
 var has_played: bool = false
 var is_time_line_running: bool = false
+var player_interacted = false
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("Player entered area!")
 		Dialogic.start(timeline_file)
-
+		player_interacted = true
+	
+	if player_interacted:
+		timeline_file = ""
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player") and has_played:

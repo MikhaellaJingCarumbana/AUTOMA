@@ -6782,13 +6782,14 @@ visible = false
 [node name="PauseMenu" parent="UI/Chest Puzzle" index="0"]
 visible = false
 
-[node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic")]
+[node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player/AnimatedSprite2D")
 timeline_file = "Mimic_reveal"
 timeline_file2 = "Mimic_dead"
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
 expected_item_id = 1
+interactable_node = NodePath("../../../../Mimic/InteractArea")
 
 [node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
 timeline_file = "Wisps"
