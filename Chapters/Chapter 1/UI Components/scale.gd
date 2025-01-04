@@ -11,6 +11,19 @@ class_name Scale
 @export var mimic: AnimatedSprite2D
 @export var logical_operator: String = "==" #default
 @export var expected_item_id: int = -1 #set in editor, base it on database.JSON
+@export var items_database: Dictionary = {
+	"0" : {
+		"texture" : "Coin.png",
+		"slot_type" : 0,
+		"STS" : 10,
+	},
+	
+	"1" : {
+		"texture" : "crystal.png",
+		"slot_type" : 0,
+		"STS" :20,
+	}
+}
 
 var wrong_guess_count: int = 0
 const MAX_WRONG_ANSWERS: int = 3
@@ -36,29 +49,18 @@ func _process(delta: float) -> void:
 func check_total_sts() -> void:
 	var total_sts = 0
 	var is_item_id_valid = true
+	var all_items_are_coins = true
 	
 	for slot in get_children():
 		if slot.filled:
+			var item_id = slot.get
 			total_sts += slot.get_STS()
 			
-			var texture_rect = slot.get_node("TextureRect")
+			if slot.get_STS() != 10:
+				all_items_are_coins = false
 			
-			if texture_rect and texture_rect.get_meta("property").has("item_id"):
-				var item_id = texture_rect.get_meta("property")["item_id"]
-				print("Slot Item ID: ", item_id, " | Expected Item ID: ", expected_item_id)  # Debugging
-				
-				if item_id != expected_item_id:
-					print("ITEM ID MISMATCH")
-					is_item_id_valid = false
-					break
-			else:
-				print("Item ID not found or TextureRect missing.")
 	await get_tree().create_timer(3).timeout
 	
-	if not is_item_id_valid:
-		label.text = "items don't match"
-		handle_wrong_answer()
-		return
 		
 	var is_correct: bool = false	
 	match logical_operator:
@@ -79,7 +81,7 @@ func check_total_sts() -> void:
 			print("Invalid logical operator: %s" % logical_operator)
 			return
 			
-	if is_correct:
+	if is_correct and all_items_are_coins:
 		handle_correct_answer()
 	else:
 		handle_wrong_answer()

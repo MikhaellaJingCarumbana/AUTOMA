@@ -28,14 +28,16 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return data is TextureRect
 	
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	var temp_property = texture_rect.get_meta("property", {})
-	texture_rect.set_meta("property", get_meta("property", {}))
-	data.set_meta("property", temp_property)
+	var temp = texture_rect.property
+	texture_rect.property = data.property
+	data.property = temp
 	
-	if texture_rect.get_meta("property").has("STS"):
-		sts = texture_rect.get_meta("property")["STS"]
+	if texture_rect.property and texture_rect.property.has("STS"):
+		sts = texture_rect.property["STS"]
 	else:
 		sts = 0
+		
+		
 	_set_filled((sts > 0))
 
 func get_preview():
@@ -55,19 +57,12 @@ func get_STS() -> int:
 	
 	
 func set_property(data):
-	texture_rect.set_meta("property", data)
+	texture_rect.property = data
 	
-	if data.has("texture") and typeof(data["texture"]) == TYPE_STRING:
-		var texture = load(data["texture"])
-		if texture:
-			texture_rect.texture = texture
-			filled = true
-		else:
-			print("Error: Could not load texture from path: %s" % data["texture"])
-			clear_slot()
+	if "TEXTURE" in data and data["TEXTURE"] != null:
+		filled = true
 	else:
-		print("Error: Invalid or missing 'texture' in data: %s" % data)
-		clear_slot()
+		filled = false
 
 func set_animated_sprite(animated_sprite: Node):
 	container.add_child(animated_sprite)
