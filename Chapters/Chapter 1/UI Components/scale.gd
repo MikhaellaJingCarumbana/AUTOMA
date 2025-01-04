@@ -12,13 +12,18 @@ class_name Scale
 @export var logical_operator: String = "==" #default
 @export var expected_item_id: int = -1 #set in editor, base it on database.JSON
 @export var interactable_node : Node
+@onready var clues: Area2D = $Clues
+@onready var collision_shape_2d: CollisionShape2D = $Clues/CollisionShape2D
 @onready var button: Button = $"../Button"
+
 
 
 var opened: bool = false
 var wrong_guess_count: int = 0
 const MAX_WRONG_ANSWERS: int = 3
 var is_ready_to_check: bool = false
+
+signal correct_answer_handled
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,14 +35,17 @@ func _ready() -> void:
 		mimic.play("idle")
 	else:
 		print("mimic animationplayer not found")
+		
+	if is_instance_valid(clues):
+		clues.hide()
+		collision_shape_2d.disabled = true
 
 
 func _on_slot_changed() -> void:
 	is_ready_to_check = false
 	label.text = "Arrange the items and press check"
 	
-func _on_button_pressed() -> void:
-	confirm_slots()
+
 		
 func confirm_slots():
 	is_ready_to_check = true
@@ -59,7 +67,6 @@ func check_total_sts() -> void:
 			if slot.get_STS() != 10:
 				all_items_are_coins = false
 			
-	await get_tree().create_timer(1.5).timeout
 	
 	var is_correct: bool = false	
 	match logical_operator:
@@ -117,6 +124,15 @@ func handle_correct_answer():
 	if opened:
 		label.text = "This is the greed they talk about in the bible..."
 		button.hide()
+		
+		if is_instance_valid(clues):
+			clues.show()
+			collision_shape_2d.disabled = false
 	
+	emit_signal("correct_answer_handled")
 	Dialogic.start(timeline_file2)
-			
+
+func _on_button_pressed() -> void:
+	print("button pressed")
+	confirm_slots()
+	

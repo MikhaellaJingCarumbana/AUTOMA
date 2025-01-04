@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmbejgmvoie7"]
+[gd_scene load_steps=4 format=3 uid="uid://bpgr2cu0wnj8c"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/clue_system.gd" id="1_prfrq"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="3_irjj8"]

@@ -13,16 +13,6 @@
 
 [node name="Notes" parent="." instance=ExtResource("2_ho7p2")]
 
-[node name="PauseGame" parent="." instance=ExtResource("4_u7rdi")]
-
-[node name="PauseMenu" parent="PauseGame" index="0"]
-visible = false
-
-[node name="DeathScreen" parent="." instance=ExtResource("5_ykde3")]
-
-[node name="PauseMenu" parent="DeathScreen" index="0"]
-visible = false
-
 [node name="Clue_System" parent="." instance=ExtResource("6_5bana")]
 
 [node name="CarouselSelection" parent="Clue_System" index="0"]
@@ -33,7 +23,17 @@ visible = false
 [node name="CarouselSelection" parent="Note System" index="0"]
 visible = false
 
-[editable path="PauseGame"]
-[editable path="DeathScreen"]
+[node name="DeathScreen" parent="." instance=ExtResource("5_ykde3")]
+
+[node name="PauseMenu" parent="DeathScreen" index="0"]
+visible = false
+
+[node name="PauseGame" parent="." instance=ExtResource("4_u7rdi")]
+
+[node name="PauseMenu" parent="PauseGame" index="0"]
+visible = false
+
 [editable path="Clue_System"]
 [editable path="Note System"]
+[editable path="DeathScreen"]
+[editable path="PauseGame"]

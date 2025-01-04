@@ -6538,7 +6538,7 @@ position = Vector2(345, 114)
 parent_chest = NodePath("../Brownchest")
 
 [node name="Clues2" parent="." instance=ExtResource("20_argpt")]
-position = Vector2(718, 257)
+position = Vector2(718, 256)
 parent_chest = NodePath("../Brownchest2")
 
 [node name="Clues3" parent="." instance=ExtResource("20_argpt")]
@@ -6797,10 +6797,10 @@ color = Color(0.40717, 0.542611, 0.589864, 0.933333)
 [editable path="UI"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
-[editable path="UI/PauseGame"]
-[editable path="UI/DeathScreen"]
 [editable path="UI/Clue_System"]
 [editable path="UI/Note System"]
+[editable path="UI/DeathScreen"]
+[editable path="UI/PauseGame"]
 [editable path="UI/DoorCode"]
 [editable path="UI/Dialogic"]
 [editable path="Enemies/Skull"]

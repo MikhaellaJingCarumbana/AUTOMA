@@ -176,17 +176,14 @@ func _physics_process(delta):
 	sprite_2d.flip_h = is_facing_left
 	
 
-	# Add gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			jump()
 			load_sfx(sfx_jump)
 			sfx_player.play()
 
-	# Get the input direction and handle movement/deceleration
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction != 0:
 		velocity.x = direction * SPEED

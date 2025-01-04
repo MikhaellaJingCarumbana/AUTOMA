@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://4iutda755b11"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/scale.gd" id="1_3onhh"]
+[ext_resource type="PackedScene" uid="uid://dnygv217r3r7a" path="res://Chapters/Chapter 1/Inventory System/Slot.tscn" id="2_3d2ex"]
+
+[node name="Scale" type="GridContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 25.0
+offset_right = 206.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+script = ExtResource("1_3onhh")
+target_weight = 20
+
+[node name="Slot" parent="." instance=ExtResource("2_3d2ex")]
+layout_mode = 2
+
+[node name="Slot2" parent="." instance=ExtResource("2_3d2ex")]
+layout_mode = 2
+
+[node name="Slot3" parent="." instance=ExtResource("2_3d2ex")]
+layout_mode = 2
+
+[node name="Slot4" parent="." instance=ExtResource("2_3d2ex")]
+layout_mode = 2

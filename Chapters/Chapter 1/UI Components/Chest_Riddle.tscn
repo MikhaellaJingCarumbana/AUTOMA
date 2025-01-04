@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bd0vy7ccnkl4n"]
+[gd_scene load_steps=18 format=3 uid="uid://bd0vy7ccnkl4n"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/chest_riddle.gd" id="1_q41b7"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_64hfg"]
@@ -6,8 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dexd0d2xxu57p" path="res://Fonts/ds-runenglish-2-font/DsRunenglish2-nR5O.ttf" id="4_h3b64"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="5_b6lpp"]
 [ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="6_gxbla"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/scale.gd" id="7_43jr7"]
-[ext_resource type="PackedScene" uid="uid://dnygv217r3r7a" path="res://Chapters/Chapter 1/Inventory System/Slot.tscn" id="8_gi8hc"]
+[ext_resource type="PackedScene" uid="uid://4iutda755b11" path="res://Chapters/Chapter 1/Elements/Game Component/Components/scale.tscn" id="8_j45hs"]
 [ext_resource type="PackedScene" uid="uid://ckelhedglhhgd" path="res://Chapters/Chapter 1/Inventory System/Inventory_UI.tscn" id="9_tp7xe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
@@ -53,6 +52,7 @@ corner_radius_bottom_left = 20
 
 [node name="Chest Puzzle" type="Node"]
 script = ExtResource("1_q41b7")
+question = "COIN+"
 
 [node name="PauseMenu" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_aq6tb")
@@ -72,9 +72,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -699.0
-offset_top = -59.0
+offset_top = -97.0
 offset_right = 699.0
-offset_bottom = 60.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.0313726, 1, 0.980392, 1)
@@ -177,41 +177,18 @@ icon = ExtResource("6_gxbla")
 [node name="UI" parent="PauseMenu" instance=ExtResource("9_tp7xe")]
 layout_mode = 1
 anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
 offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Scale" type="GridContainer" parent="PauseMenu"]
+[node name="Scale" parent="PauseMenu" instance=ExtResource("8_j45hs")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -206.0
-offset_top = 25.0
-offset_right = 206.0
-offset_bottom = 140.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 4
-script = ExtResource("7_43jr7")
-target_weight = 20
-
-[node name="Slot" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
-layout_mode = 2
-
-[node name="Slot2" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
-layout_mode = 2
-
-[node name="Slot3" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
-layout_mode = 2
-
-[node name="Slot4" parent="PauseMenu/Scale" instance=ExtResource("8_gi8hc")]
-layout_mode = 2
+offset_top = 18.0
+offset_bottom = 133.0
 
 [node name="Button" type="Button" parent="PauseMenu"]
 layout_mode = 1
@@ -220,10 +197,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -97.0
-offset_top = 146.0
-offset_right = 95.0
-offset_bottom = 197.0
+offset_left = -50.0
+offset_top = 150.0
+offset_right = 50.0
+offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_hover_color = Color(0.0313726, 1, 0.980392, 1)
@@ -248,3 +225,4 @@ text = "Check"
 [editable path="PauseMenu/UI/Inventory/Slot4"]
 [editable path="PauseMenu/UI/Inventory/Slot5"]
 [editable path="PauseMenu/UI/Inventory/Slot6"]
+[editable path="PauseMenu/Scale"]

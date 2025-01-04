@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=60 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://6oq7q4arwyqu" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Blue Chest.tscn" id="16_xt7s8"]
 [ext_resource type="PackedScene" uid="uid://rkh8abgwi878" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/Powerup_Info.tscn" id="17_pqsq3"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="17_v4ecl"]
+[ext_resource type="PackedScene" uid="uid://ckelhedglhhgd" path="res://Chapters/Chapter 1/Inventory System/Inventory_UI.tscn" id="18_1xdqs"]
 [ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="18_ca3xp"]
 [ext_resource type="PackedScene" uid="uid://cofswi7j1xxfg" path="res://Chapters/Chapter 1/UI Components/Notes2.tscn" id="19_0u2xi"]
 [ext_resource type="PackedScene" uid="uid://bfj36amncwg2m" path="res://Chapters/Chapter 1/UI Components/Powerup UI/powerup_plus.tscn" id="20_hq8r3"]
@@ -6600,12 +6601,8 @@ layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
 [node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(819, 530)
-parent_chest = NodePath("../BlueChest")
-
-[node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(252, 801)
-parent_chest = NodePath("../BlueChest5")
+position = Vector2(265, 244)
+parent_chest = NodePath("../Mimic")
 
 [node name="BlueChest" parent="." instance=ExtResource("16_xt7s8")]
 position = Vector2(831, 529)
@@ -6626,7 +6623,7 @@ interact_value = "working???"
 [node name="Mimic" parent="." instance=ExtResource("30_m58dl")]
 position = Vector2(266, 244)
 
-[node name="InteractArea" parent="Mimic" index="3" node_paths=PackedStringArray("chest_puzzle")]
+[node name="InteractArea" parent="Mimic" index="2" node_paths=PackedStringArray("chest_puzzle")]
 chest_puzzle = NodePath("../../UI/Chest Puzzle")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
@@ -6757,6 +6754,8 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
 [node name="Notes" parent="UI" instance=ExtResource("15_epllm")]
 
+[node name="UI" parent="UI" instance=ExtResource("18_1xdqs")]
+
 [node name="Powerup_Info" parent="UI" instance=ExtResource("17_pqsq3")]
 
 [node name="PauseMenu" parent="UI/Powerup_Info" index="0"]
@@ -6784,11 +6783,8 @@ visible = false
 
 [node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
 game_manager = NodePath("../../../../GameManager")
-player = NodePath("../../../../Player/AnimatedSprite2D")
-timeline_file = "Mimic_reveal"
-timeline_file2 = "Mimic_dead"
+player = NodePath("../../../../Player")
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
-expected_item_id = 1
 interactable_node = NodePath("../../../../Mimic/InteractArea")
 
 [node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
@@ -7023,7 +7019,6 @@ shape = SubResource("RectangleShape2D_8oxew")
 [connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
 
 [editable path="Clues"]
-[editable path="Clues2"]
 [editable path="Mimic"]
 [editable path="Mimic/InteractArea"]
 [editable path="Player"]
@@ -7043,6 +7038,7 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot4"]
 [editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot5"]
 [editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot6"]
+[editable path="UI/Chest Puzzle/PauseMenu/Scale"]
 [editable path="UI/Dialogic"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
