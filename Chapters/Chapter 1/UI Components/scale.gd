@@ -10,6 +10,7 @@ class_name Scale
 @export var timeline_file2: String = ""
 @export var mimic: AnimatedSprite2D
 @export var logical_operator: String = "==" #default
+@export var expected_item_id: int = -1 #set in editor, base it on database.JSON
 
 var wrong_guess_count: int = 0
 const MAX_WRONG_ANSWERS: int = 3
@@ -34,13 +35,28 @@ func _process(delta: float) -> void:
 
 func check_total_sts() -> void:
 	var total_sts = 0
+	var is_item_id_valid = true
+	
 	for slot in get_children():
 		if slot.filled:
 			total_sts += slot.get_STS()
+			
+			var item_id = slot.texture_rect.property.get("item_id", -1)
+			print("Slot Item ID: ", item_id, " | Expected Item ID: ", expected_item_id) # Debugging
+			
+			if item_id != expected_item_id:
+				print("Item ID mismatch detected!")
+				is_item_id_valid = false
+				break
 	
 	await get_tree().create_timer(3).timeout
 	
-	var is_correct: bool = false
+	if not is_item_id_valid:
+		label.text = "items don't match"
+		handle_wrong_answer()
+		return
+		
+	var is_correct: bool = false	
 	match logical_operator:
 		"==":
 			is_correct = total_sts == target_weight
@@ -58,12 +74,14 @@ func check_total_sts() -> void:
 			label.text = "Invalid Operator"
 			print("Invalid logical operator: %s" % logical_operator)
 			return
-	
+			
 	if is_correct:
 		handle_correct_answer()
 	else:
 		handle_wrong_answer()
-		
+				
+			
+			
 func reset_question():
 	for slot in get_children():
 		if slot is Slot:

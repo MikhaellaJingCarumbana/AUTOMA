@@ -6788,6 +6788,7 @@ player = NodePath("../../../../Player/AnimatedSprite2D")
 timeline_file = "Mimic_reveal"
 timeline_file2 = "Mimic_dead"
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
+expected_item_id = 0
 
 [node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
 timeline_file = "Wisps"

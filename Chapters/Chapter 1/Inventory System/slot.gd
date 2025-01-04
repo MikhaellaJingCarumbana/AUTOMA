@@ -55,6 +55,7 @@ func get_preview():
 func get_STS() -> int:
 	return sts
 	
+	
 func set_property(data):
 	texture_rect.property = data
 	
