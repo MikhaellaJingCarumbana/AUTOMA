@@ -15,7 +15,7 @@ class_name Scale
 @onready var clues: Area2D = $Clues
 @onready var collision_shape_2d: CollisionShape2D = $Clues/CollisionShape2D
 @onready var button: Button = $"../Button"
-@export var item_weight: int = 10
+@export var item_weight: int
 
 
 
@@ -51,12 +51,11 @@ func _on_slot_changed() -> void:
 
 		
 func confirm_slots():
-
+	total_sts = 0
+	all_items_are_coins = true
 	for slot in get_children():
 		if slot.filled:
-			var item_id = slot.get
 			total_sts += slot.get_STS()
-			
 			if slot.get_STS() != item_weight:
 				all_items_are_coins = false
 			
@@ -66,19 +65,25 @@ func confirm_slots():
 		"==":
 			is_correct = total_sts == target_weight
 		">=":
-			is_correct = total_sts == target_weight
+			is_correct = total_sts >= target_weight
 		"<=":
-			is_correct = total_sts == target_weight
+			is_correct = total_sts <= target_weight
 		"<":
-			is_correct = total_sts == target_weight
+			is_correct = total_sts < target_weight
 		">":
-			is_correct = total_sts == target_weight
+			is_correct = total_sts > target_weight
 		"!=":
-			is_correct = total_sts == target_weight
+			is_correct = total_sts != target_weight
 		_:
 			label.text = "Invalid Operator"
 			print("Invalid logical operator: %s" % logical_operator)
 			return
+			
+	print("Total STS: ", total_sts)
+	print("Target Weight: ", target_weight)
+	print("Logical Operator: ", logical_operator)
+	print("item weight: ", item_weight)
+	print("%d %s %d" % [total_sts, logical_operator, target_weight])
 			
 	if is_correct and all_items_are_coins:
 		handle_correct_answer()
@@ -126,6 +131,8 @@ func handle_correct_answer():
 	
 	emit_signal("correct_answer_handled")
 	Dialogic.start(timeline_file2)
+	
+	return
 
 func _on_button_pressed() -> void:
 	print("button pressed")

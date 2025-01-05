@@ -6769,6 +6769,20 @@ visible = false
 [node name="PauseMenu" parent="UI/Powerup_Choose" index="0"]
 visible = false
 
+[node name="Chest Puzzle2" parent="UI" instance=ExtResource("26_3w3o8")]
+question = "CRYSTAL*"
+
+[node name="PauseMenu" parent="UI/Chest Puzzle2" index="0"]
+visible = false
+
+[node name="Scale" parent="UI/Chest Puzzle2/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
+game_manager = NodePath("../../../../GameManager")
+player = NodePath("../../../../Player")
+mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
+logical_operator = ">="
+interactable_node = NodePath("../../../../Mimic2/InteractArea")
+item_weight = 20
+
 [node name="Chest Puzzle" parent="UI" instance=ExtResource("26_3w3o8")]
 
 [node name="PauseMenu" parent="UI/Chest Puzzle" index="0"]
@@ -6785,21 +6799,6 @@ timeline_file2 = "Mimic_dead"
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
 logical_operator = ">="
 interactable_node = NodePath("../../../../Mimic/InteractArea")
-
-[node name="Chest Puzzle2" parent="UI" instance=ExtResource("26_3w3o8")]
-question = "CRYSTAL*"
-
-[node name="PauseMenu" parent="UI/Chest Puzzle2" index="0"]
-visible = false
-
-[node name="Scale" parent="UI/Chest Puzzle2/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
-target_weight = 0
-game_manager = NodePath("../../../../GameManager")
-player = NodePath("../../../../Player")
-mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
-logical_operator = ">="
-interactable_node = NodePath("../../../../Mimic2/InteractArea")
-item_weight = 20
 
 [node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
 timeline_file = "Wisps"
@@ -7047,15 +7046,6 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="UI/Clue_System2"]
 [editable path="UI/Note System"]
 [editable path="UI/Powerup_Choose"]
-[editable path="UI/Chest Puzzle"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot2"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot3"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot4"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot5"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot6"]
-[editable path="UI/Chest Puzzle/PauseMenu/Scale"]
 [editable path="UI/Chest Puzzle2"]
 [editable path="UI/Chest Puzzle2/PauseMenu/UI"]
 [editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot"]
@@ -7065,6 +7055,15 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot5"]
 [editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot6"]
 [editable path="UI/Chest Puzzle2/PauseMenu/Scale"]
+[editable path="UI/Chest Puzzle"]
+[editable path="UI/Chest Puzzle/PauseMenu/UI"]
+[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot"]
+[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot2"]
+[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot3"]
+[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot4"]
+[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot5"]
+[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot6"]
+[editable path="UI/Chest Puzzle/PauseMenu/Scale"]
 [editable path="UI/Dialogic"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
