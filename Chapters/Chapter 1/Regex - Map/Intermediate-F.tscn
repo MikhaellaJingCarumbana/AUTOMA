@@ -6603,7 +6603,7 @@ position = Vector2(211, 243)
 parent_chest = NodePath("../UI/Chest Puzzle/PauseMenu/Scale")
 
 [node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(259, 245)
+position = Vector2(299, 241)
 parent_chest = NodePath("../UI/Chest Puzzle2/PauseMenu/Scale")
 
 [node name="Mimic" parent="." instance=ExtResource("30_m58dl")]
@@ -6613,7 +6613,7 @@ position = Vector2(212, 243)
 chest_puzzle = NodePath("../../UI/Chest Puzzle")
 
 [node name="Mimic2" parent="." instance=ExtResource("30_m58dl")]
-position = Vector2(259, 244)
+position = Vector2(299, 242)
 
 [node name="InteractArea" parent="Mimic2" index="2" node_paths=PackedStringArray("chest_puzzle")]
 chest_puzzle = NodePath("../../UI/Chest Puzzle2")
@@ -6747,7 +6747,6 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 [node name="Notes" parent="UI" instance=ExtResource("15_epllm")]
 
 [node name="UI" parent="UI" instance=ExtResource("18_1xdqs")]
-visible = false
 
 [node name="Powerup_Info" parent="UI" instance=ExtResource("17_pqsq3")]
 
@@ -7001,6 +7000,13 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
+[editable path="UI/UI"]
+[editable path="UI/UI/Inventory/Slot"]
+[editable path="UI/UI/Inventory/Slot2"]
+[editable path="UI/UI/Inventory/Slot3"]
+[editable path="UI/UI/Inventory/Slot4"]
+[editable path="UI/UI/Inventory/Slot5"]
+[editable path="UI/UI/Inventory/Slot6"]
 [editable path="UI/Powerup_Info"]
 [editable path="UI/Powerup_Info/PauseMenu/HBoxContainer/Plus-Info"]
 [editable path="UI/Powerup_Info/PauseMenu/HBoxContainer/Star_info"]
