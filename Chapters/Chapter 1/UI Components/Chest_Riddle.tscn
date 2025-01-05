@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bd0vy7ccnkl4n"]
+[gd_scene load_steps=17 format=3 uid="uid://bd0vy7ccnkl4n"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/chest_riddle.gd" id="1_q41b7"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_64hfg"]
@@ -7,7 +7,6 @@
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="5_b6lpp"]
 [ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="6_gxbla"]
 [ext_resource type="PackedScene" uid="uid://4iutda755b11" path="res://Chapters/Chapter 1/Elements/Game Component/Components/scale.tscn" id="8_j45hs"]
-[ext_resource type="PackedScene" uid="uid://ckelhedglhhgd" path="res://Chapters/Chapter 1/Inventory System/Inventory_UI.tscn" id="9_tp7xe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
 shader = ExtResource("2_64hfg")
@@ -174,25 +173,10 @@ offset_bottom = 63.84
 scale = Vector2(1.5, 1.5)
 icon = ExtResource("6_gxbla")
 
-[node name="UI" parent="PauseMenu" instance=ExtResource("9_tp7xe")]
-layout_mode = 1
-anchors_preset = 15
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-grow_vertical = 2
-
 [node name="Scale" parent="PauseMenu" instance=ExtResource("8_j45hs")]
 layout_mode = 1
 offset_top = 18.0
 offset_bottom = 133.0
-timeline_file = ""
-timeline_file2 = ""
-logical_operator = "=="
-expected_item_id = -1
 
 [node name="Button" type="Button" parent="PauseMenu"]
 layout_mode = 1
@@ -222,11 +206,4 @@ text = "Check"
 [connection signal="pressed" from="PauseMenu/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="PauseMenu/Button" to="PauseMenu/Scale" method="_on_button_pressed"]
 
-[editable path="PauseMenu/UI"]
-[editable path="PauseMenu/UI/Inventory/Slot"]
-[editable path="PauseMenu/UI/Inventory/Slot2"]
-[editable path="PauseMenu/UI/Inventory/Slot3"]
-[editable path="PauseMenu/UI/Inventory/Slot4"]
-[editable path="PauseMenu/UI/Inventory/Slot5"]
-[editable path="PauseMenu/UI/Inventory/Slot6"]
 [editable path="PauseMenu/Scale"]

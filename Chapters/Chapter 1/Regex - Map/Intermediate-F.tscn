@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="14_su5ms"]
 [ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="15_epllm"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="16_7kixp"]
-[ext_resource type="PackedScene" uid="uid://dv5xhod7maha1" path="res://Chapters/Chapter 1/Inventory System/TestScene.tscn" id="16_d5w6a"]
 [ext_resource type="PackedScene" uid="uid://rkh8abgwi878" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/Powerup_Info.tscn" id="17_pqsq3"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="17_v4ecl"]
+[ext_resource type="PackedScene" uid="uid://ckelhedglhhgd" path="res://Chapters/Chapter 1/Inventory System/Inventory_UI.tscn" id="18_1xdqs"]
 [ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="18_ca3xp"]
 [ext_resource type="PackedScene" uid="uid://cofswi7j1xxfg" path="res://Chapters/Chapter 1/UI Components/Notes2.tscn" id="19_0u2xi"]
 [ext_resource type="PackedScene" uid="uid://bfj36amncwg2m" path="res://Chapters/Chapter 1/UI Components/Powerup UI/powerup_plus.tscn" id="20_hq8r3"]
@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
+[ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 [ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="37_d2ayn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
@@ -6746,18 +6746,6 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
 [node name="Notes" parent="UI" instance=ExtResource("15_epllm")]
 
-[node name="TestScene" parent="UI" instance=ExtResource("16_d5w6a")]
-
-[node name="UI" parent="UI/TestScene" index="0"]
-anchors_preset = 8
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -968.0
-offset_top = -565.0
-offset_right = 968.0
-offset_bottom = 565.0
-grow_vertical = 2
-
 [node name="Powerup_Info" parent="UI" instance=ExtResource("17_pqsq3")]
 
 [node name="PauseMenu" parent="UI/Powerup_Info" index="0"]
@@ -6778,27 +6766,18 @@ visible = false
 [node name="PauseMenu" parent="UI/Powerup_Choose" index="0"]
 visible = false
 
-[node name="Chest Puzzle2" parent="UI" instance=ExtResource("26_3w3o8")]
-question = "CRYSTAL*"
+[node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
+timeline_file = "Wisps"
 
-[node name="PauseMenu" parent="UI/Chest Puzzle2" index="0"]
-visible = false
-
-[node name="Scale" parent="UI/Chest Puzzle2/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
-target_weight = 0
-game_manager = NodePath("../../../../GameManager")
-player = NodePath("../../../../Player")
-mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
-logical_operator = ">="
-interactable_node = NodePath("../../../../Mimic2/InteractArea")
-item_weight = 20
+[node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
+position = Vector2(819, 486)
 
 [node name="Chest Puzzle" parent="UI" instance=ExtResource("26_3w3o8")]
 
 [node name="PauseMenu" parent="UI/Chest Puzzle" index="0"]
 visible = false
 
-[node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
+[node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="5" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 timeline_file = "Mimic_reveal"
@@ -6807,11 +6786,20 @@ mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
 interactable_node = NodePath("../../../../Mimic/InteractArea")
 item_weight = 10
 
-[node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
-timeline_file = "Wisps"
+[node name="Chest Puzzle2" parent="UI" instance=ExtResource("26_3w3o8")]
+question = "CRYSTAL*"
 
-[node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
-position = Vector2(819, 486)
+[node name="PauseMenu" parent="UI/Chest Puzzle2" index="0"]
+visible = false
+
+[node name="Scale" parent="UI/Chest Puzzle2/PauseMenu" index="5" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
+target_weight = 0
+game_manager = NodePath("../../../../GameManager")
+player = NodePath("../../../../Player")
+mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
+logical_operator = ">="
+interactable_node = NodePath("../../../../Mimic2/InteractArea")
+item_weight = 20
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("17_v4ecl")]
 
@@ -6822,6 +6810,8 @@ visible = false
 
 [node name="PauseMenu" parent="UI/PauseGame" index="0"]
 visible = false
+
+[node name="UI" parent="UI" instance=ExtResource("18_1xdqs")]
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -6952,7 +6942,7 @@ offset_left = 94.0
 offset_top = 191.0
 offset_right = 19094.0
 offset_bottom = 6660.0
-text = "Enemies will drop coins and crystals, collect these. Press \"tab\" to open inventory."
+text = "Enemies will drop coins and crystals, collect these. "
 horizontal_alignment = 1
 vertical_alignment = 2
 visible_characters = 0
@@ -7009,39 +6999,17 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
-[editable path="UI/TestScene"]
-[editable path="UI/TestScene/UI"]
-[editable path="UI/TestScene/UI/Inventory/Slot"]
-[editable path="UI/TestScene/UI/Inventory/Slot2"]
-[editable path="UI/TestScene/UI/Inventory/Slot3"]
-[editable path="UI/TestScene/UI/Inventory/Slot4"]
-[editable path="UI/TestScene/UI/Inventory/Slot5"]
-[editable path="UI/TestScene/UI/Inventory/Slot6"]
 [editable path="UI/Powerup_Info"]
 [editable path="UI/Powerup_Info/PauseMenu/HBoxContainer/Plus-Info"]
 [editable path="UI/Powerup_Info/PauseMenu/HBoxContainer/Star_info"]
 [editable path="UI/Clue_System2"]
 [editable path="UI/Note System"]
 [editable path="UI/Powerup_Choose"]
-[editable path="UI/Chest Puzzle2"]
-[editable path="UI/Chest Puzzle2/PauseMenu/UI"]
-[editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot"]
-[editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot2"]
-[editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot3"]
-[editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot4"]
-[editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot5"]
-[editable path="UI/Chest Puzzle2/PauseMenu/UI/Inventory/Slot6"]
-[editable path="UI/Chest Puzzle2/PauseMenu/Scale"]
-[editable path="UI/Chest Puzzle"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot2"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot3"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot4"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot5"]
-[editable path="UI/Chest Puzzle/PauseMenu/UI/Inventory/Slot6"]
-[editable path="UI/Chest Puzzle/PauseMenu/Scale"]
 [editable path="UI/Dialogic"]
+[editable path="UI/Chest Puzzle"]
+[editable path="UI/Chest Puzzle/PauseMenu/Scale"]
+[editable path="UI/Chest Puzzle2"]
+[editable path="UI/Chest Puzzle2/PauseMenu/Scale"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
 [editable path="Enemies/Plus"]

@@ -10,7 +10,7 @@ var in_area: bool = false
 var is_open = false 
 @onready var clues: Area2D = $"../Clues"
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-
+var is_mimic_open = false
 
 func _ready() -> void:
 	var scale_node = get_node("PauseMenu/Scale")
