@@ -1,14 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1hqdm1l76v3a"]
+[gd_scene load_steps=12 format=3 uid="uid://c25lsi14swj0q"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/door_unlocked.gd" id="1_cx60o"]
-[ext_resource type="Texture2D" uid="uid://cud42pg6abkut" path="res://Chapters/Chapter 1/Cutscene/Shield-like Padlock - GREY - Spritesheet.png" id="1_ilho4"]
-[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="2_vj62k"]
-[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_xxqkb"]
-[ext_resource type="FontFile" uid="uid://b3ugokhpe31j0" path="res://Fonts/norse-font/NorseBold-2Kge.otf" id="3_i7uwd"]
-[ext_resource type="AudioStream" uid="uid://blx6xjmthfvpn" path="res://Chapters/Chapter 1/Cutscene/key-twist-in-lock-47832.mp3" id="4_2rfy5"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/door_unlocked.gd" id="1_d1nvs"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_pm50q"]
+[ext_resource type="Texture2D" uid="uid://cud42pg6abkut" path="res://Chapters/Chapter 1/Cutscene/Shield-like Padlock - GREY - Spritesheet.png" id="3_0b1w2"]
+[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="4_2vlhr"]
+[ext_resource type="FontFile" uid="uid://b3ugokhpe31j0" path="res://Fonts/norse-font/NorseBold-2Kge.otf" id="5_ssw13"]
+[ext_resource type="AudioStream" uid="uid://blx6xjmthfvpn" path="res://Chapters/Chapter 1/Cutscene/key-twist-in-lock-47832.mp3" id="6_yrm8e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_26ucy"]
-shader = ExtResource("2_xxqkb")
+shader = ExtResource("2_pm50q")
 shader_parameter/polar_coordinates = false
 shader_parameter/polar_center = Vector2(0.5, 0.5)
 shader_parameter/polar_zoom = 1.0
@@ -205,13 +205,13 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1w8th"]
-shader = ExtResource("2_vj62k")
+shader = ExtResource("4_2vlhr")
 shader_parameter/height = 2.0
 shader_parameter/frequency = 25.0
 shader_parameter/speed = 3.0
 
 [node name="DoorUnlocked" type="Node2D"]
-script = ExtResource("1_cx60o")
+script = ExtResource("1_d1nvs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -227,7 +227,7 @@ grow_vertical = 2
 modulate = Color(1, 1, 1, 0)
 position = Vector2(1000, 399)
 scale = Vector2(15.7526, 15.7526)
-texture = ExtResource("1_ilho4")
+texture = ExtResource("3_0b1w2")
 hframes = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
@@ -250,7 +250,7 @@ offset_bottom = 296.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.806143, 0.790134, 1)
-theme_override_fonts/font = ExtResource("3_i7uwd")
+theme_override_fonts/font = ExtResource("5_ssw13")
 theme_override_font_sizes/font_size = 150
 text = "Level  1"
 horizontal_alignment = 1
@@ -274,12 +274,12 @@ offset_bottom = 296.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.806143, 0.790134, 1)
-theme_override_fonts/font = ExtResource("3_i7uwd")
+theme_override_fonts/font = ExtResource("5_ssw13")
 theme_override_font_sizes/font_size = 150
 text = "Level  2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_2rfy5")
+stream = ExtResource("6_yrm8e")
 volume_db = 22.8
