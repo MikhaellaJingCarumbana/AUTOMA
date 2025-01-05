@@ -6812,6 +6812,7 @@ visible = false
 visible = false
 
 [node name="Inventory" parent="UI" instance=ExtResource("24_2mhf1")]
+visible = false
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -7012,6 +7013,13 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="UI/Chest Puzzle2/PauseMenu/Scale"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
+[editable path="UI/Inventory"]
+[editable path="UI/Inventory/Slot"]
+[editable path="UI/Inventory/Slot2"]
+[editable path="UI/Inventory/Slot3"]
+[editable path="UI/Inventory/Slot4"]
+[editable path="UI/Inventory/Slot5"]
+[editable path="UI/Inventory/Slot6"]
 [editable path="Enemies/Plus"]
 [editable path="Enemies/Plus2"]
 [editable path="Enemies/Star"]

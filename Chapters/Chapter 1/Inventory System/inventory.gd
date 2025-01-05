@@ -1,13 +1,22 @@
 extends GridContainer
 
 
+var is_open: bool = false
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Inventory"):
-		self.show()
+		if is_open:
+			self.hide()
+			is_open = false
+		else:
+			self.show()
+			is_open = true
+
 
 func _ready() -> void:
 	InventoryManager.register_inventory(self)
 	print("Inventory Registered")
+	
 	
 func add_item(ID = "0"):
 	var item_texture = load("res://Art/Database png/" + ItemData.get_texture(ID))
