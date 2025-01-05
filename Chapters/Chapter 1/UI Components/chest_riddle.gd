@@ -22,8 +22,3 @@ func open_mimic():
 func _on_back_pressed() -> void:
 	pause_menu.hide()
 	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		pause_menu.hide()
-		print("IT'S OPEEENNNNNNNN")
-	

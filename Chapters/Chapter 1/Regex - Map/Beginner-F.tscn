@@ -6607,7 +6607,7 @@ interact_value = "It's working"
 position = Vector2(721, 1000)
 scale = Vector2(0.695312, 0.644531)
 
-[node name="InteractArea" parent="Portaldoor" index="1"]
+[node name="InteractArea" parent="Portaldoor" index="2"]
 interact_type = "open_door_code"
 door_code_path = NodePath("..")
 
@@ -6696,6 +6696,8 @@ disabled = true
 [node name="UI" parent="." instance=ExtResource("13_yy40w")]
 
 [node name="DoorCode" parent="UI" instance=ExtResource("14_voc4h")]
+cutscene = "res://Chapters/Chapter 1/Cutscene/Door_Unlocked.tscn"
+door_dialogue = "Maybe try reading a scroll before you attempt again."
 
 [node name="PauseMenu" parent="UI/DoorCode" index="0"]
 visible = false
@@ -6792,6 +6794,8 @@ color = Color(0.40717, 0.542611, 0.589864, 0.933333)
 [editable path="Clues5"]
 [editable path="Brownchest"]
 [editable path="Portaldoor"]
+[editable path="Portaldoor/Door"]
+[editable path="Portaldoor/InteractArea"]
 [editable path="Player"]
 [editable path="death_zone"]
 [editable path="UI"]

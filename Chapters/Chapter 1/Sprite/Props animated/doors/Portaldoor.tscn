@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmsalwq5xoat6"]
+[gd_scene load_steps=17 format=3 uid="uid://cmsalwq5xoat6"]
 
 [ext_resource type="Texture2D" uid="uid://bhgj4bibo7ik3" path="res://Chapters/Chapter 1/Sprite/Props animated/doors/spr_portal_strip8.png" id="1_hxmpp"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/Props animated/doors/portaldoor.gd" id="2_dbegi"]
@@ -70,6 +70,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_kmpvh"]
+colors = PackedColorArray(0.741176, 0.0117647, 0.0235294, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xusjr"]
+gradient = SubResource("Gradient_kmpvh")
+fill = 1
+fill_from = Vector2(0.504274, 0.504274)
+fill_to = Vector2(0.867521, 0.145299)
+
 [node name="Portaldoor" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_4m1ui")
 animation = &"Idle"
@@ -77,16 +86,32 @@ frame_progress = 0.505003
 speed_scale = 2.0
 script = ExtResource("2_dbegi")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-0.999998, 1)
+scale = Vector2(3.94271, 3.94271)
+texture = SubResource("GradientTexture2D_xusjr")
+texture_scale = 1.2
+
 [node name="Door" parent="." instance=ExtResource("3_8vxir")]
 position = Vector2(-3, 0)
 scale = Vector2(-2.00193, 2.73072)
 
+[node name="CollisionShape2D" parent="Door" index="0"]
+visible = false
+scale = Vector2(1, 1)
+
 [node name="InteractArea" parent="." instance=ExtResource("4_g0n6l")]
 scale = Vector2(3.72, 3.64)
 interact_label = "Press E to interact with door"
+
+[node name="CollisionShape2D" parent="InteractArea" index="0"]
+visible = false
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_gp23p")
 volume_db = -10.0
 autoplay = true
 max_distance = 300.0
+
+[editable path="Door"]
+[editable path="InteractArea"]

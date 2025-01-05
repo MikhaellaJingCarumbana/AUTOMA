@@ -5,6 +5,10 @@ extends Node
 @onready var submit: Button = $PauseMenu/Submit
 @onready var answer_input: LineEdit = $PauseMenu/answer_input
 @onready var question_label: Label = $PauseMenu/Label
+@export var cutscene: String
+@onready var game_manager: Node = %GameManager
+@export var door_dialogue:String = ""
+@onready var dialog: Label = $PauseMenu/Dialog
 
 var questions = []
 var current_question_index = -1
@@ -13,7 +17,6 @@ var current_question_index = -1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_question()
-	next_question()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -49,18 +52,6 @@ func load_question() -> void:
 		print("Could not open file: " + json_file)
 
 		
-func next_question():
-	
-	current_question_index += 1
-	
-	if current_question_index < questions.size():
-		var question = questions[current_question_index]
-		question_label.text = question["question"]
-		answer_input.text = ""
-		submit.show()
-	else:
-		question_label.text = "Door unlocked"
-		
 
 func _on_submit_pressed() -> void:
 	var question = questions[current_question_index]
@@ -73,9 +64,12 @@ func _on_submit_pressed() -> void:
 			break
 			
 	if is_correct:
-		get_tree().change_scene_to_file("res://Chapters/Chapter 1/Cutscene/Door_Unlocked.tscn")
+		get_tree().change_scene_to_file(cutscene)
 	else:
-		question_label.text = "Incorrect answer."
+		dialog.text = door_dialogue
+		await get_tree().create_timer(0.5).timeout
+		pause_menu.hide()
+		game_manager.decrease_health()
+		
 	
-	next_question()
 	

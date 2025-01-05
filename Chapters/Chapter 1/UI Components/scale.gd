@@ -92,46 +92,44 @@ func confirm_slots():
 		handle_wrong_answer()
 				
 			
-func reset_question():
-	#for slot in get_children():
-	#	if slot is Slot:
-	#		slot.clear_slot()
-		#else:
-		#print("Non-slot child detected: %s" % slot.name)
-		label.text = "Try Again"
+
 		
 func handle_wrong_answer():
 	
 	label.text = "Incorrect"
-	await get_tree().create_timer(1.5).timeout
-	pause_menu.hide()
 	game_manager.decrease_health()
+	label.text = "Try Again"
 	mimic.play("reveal")
-	reset_question()
+	is_ready_to_check = false
+	
 	Dialogic.start(timeline_file)
 	
+	if pause_menu:
+		pause_menu.hide()
+		
 	
 func handle_correct_answer():
 	label.text = "Correct!"
 	await get_tree().create_timer(1.5).timeout
-	pause_menu.hide()
 	mimic.play("opened")
 	opened = true
 	print("MIMIC OPENEDDDDD")
+	
+	if pause_menu:
+		pause_menu.hide()
+	if is_instance_valid(clues):
+		clues.show()
+		collision_shape_2d.disabled = false
 	
 	if opened:
 		label.text = "This is the greed they talk about in the bible..."
 		button.hide()
 		print("Clue is now collectible")
-		
-		if is_instance_valid(clues):
-			clues.show()
-			collision_shape_2d.disabled = false
+
 	
 	emit_signal("correct_answer_handled")
 	Dialogic.start(timeline_file2)
 	
-	return
 
 func _on_button_pressed() -> void:
 	print("button pressed")
