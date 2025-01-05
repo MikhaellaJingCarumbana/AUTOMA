@@ -16,6 +16,8 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	InventoryManager.register_inventory(self)
 	print("Inventory Registered")
+	add_item()
+	add_item()
 	
 	
 func add_item(ID = "0"):

@@ -199,7 +199,7 @@ test_input={
 
 [physics]
 
-2d/default_gravity=2150.0
+2d/default_gravity=2200.0
 
 [rendering]
 
