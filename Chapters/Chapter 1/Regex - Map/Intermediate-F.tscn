@@ -6601,7 +6601,7 @@ layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
 [node name="Portaldoor" parent="." instance=ExtResource("7_52ehc")]
-position = Vector2(255, 1013)
+position = Vector2(283, 212)
 scale = Vector2(0.6875, 0.671875)
 
 [node name="CollisionShape2D" parent="Portaldoor/Door" index="0"]
@@ -6624,19 +6624,20 @@ position = Vector2(254, 803)
 parent_chest = NodePath("../Chest Puzzles/Chest Puzzle2/PauseMenu/Scale")
 
 [node name="Mimic" parent="." instance=ExtResource("30_m58dl")]
-position = Vector2(821, 532)
+position = Vector2(204, 244)
 
 [node name="InteractArea" parent="Mimic" index="2" node_paths=PackedStringArray("chest_puzzle")]
 chest_puzzle = NodePath("../../Chest Puzzles/Chest Puzzle")
 
 [node name="Mimic2" parent="." instance=ExtResource("30_m58dl")]
-position = Vector2(252, 803)
+position = Vector2(147, 244)
 
 [node name="InteractArea" parent="Mimic2" index="2" node_paths=PackedStringArray("chest_puzzle")]
 chest_puzzle = NodePath("../../Chest Puzzles/Chest Puzzle2")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
-position = Vector2(93, 247)
+visible = true
+position = Vector2(100, 248)
 projectile_scene = ExtResource("27_v5qjy")
 
 [node name="CollisionShape2D" parent="Player" index="2"]
@@ -6644,7 +6645,7 @@ visible = true
 
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
-position = Vector2(98, 0)
+position = Vector2(91, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
 limit_left = -1
@@ -6656,7 +6657,7 @@ limit_bottom = 1087
 visible = true
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(191, 247)
+position = Vector2(191, 248)
 script = ExtResource("8_d8o1v")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -6808,7 +6809,7 @@ visible = false
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(257, 237)
+position = Vector2(733, 527)
 
 [node name="Note" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)

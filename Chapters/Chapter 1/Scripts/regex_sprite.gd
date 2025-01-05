@@ -239,6 +239,7 @@ func update_interactions():
 func execute_interaction():
 	if all_interactions:
 		var current_interaction = all_interactions[0]
+		print("Processing interaction: %s" % current_interaction.interact_type)
 		match current_interaction.interact_type:
 			"print_text":
 				print(current_interaction.interact_value)
@@ -250,7 +251,7 @@ func execute_interaction():
 				current_interaction.interact()
 			"open_chest_riddle":
 				current_interaction.interact_mimic()
-			
+		
 		print("Executing interaction: %s" % current_interaction.interact_type)
 			
 
