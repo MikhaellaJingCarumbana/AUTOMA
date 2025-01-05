@@ -15,8 +15,6 @@ script = ExtResource("1_ql1kr")
 
 [node name="Inventory" parent="." instance=ExtResource("2_uiv53")]
 layout_mode = 1
-offset_left = -310.0
-offset_right = 310.0
 
 [editable path="Inventory"]
 [editable path="Inventory/Slot"]

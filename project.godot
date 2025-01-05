@@ -38,6 +38,7 @@ directories/dtl_directory={
 "Door": "res://Chapters/Chapter 1/Dialogic Timelines/Door.dtl",
 "Intro": "res://Chapters/Chapter 1/Dialogic Timelines/Intro.dtl",
 "Mimic_dead": "res://Chapters/Chapter 1/Dialogic Timelines/Mimic_dead.dtl",
+"Mimic_found": "res://Chapters/Chapter 1/Dialogic Timelines/Mimic_found.dtl",
 "Mimic_reveal": "res://Chapters/Chapter 1/Dialogic Timelines/Mimic_reveal.dtl",
 "Tests/timeline": "res://Tests/timeline.dtl",
 "Wisps": "res://Chapters/Chapter 1/Dialogic Timelines/Wisps.dtl",

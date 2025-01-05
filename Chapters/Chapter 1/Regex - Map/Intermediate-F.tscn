@@ -6772,6 +6772,12 @@ timeline_file = "Wisps"
 [node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
 position = Vector2(360, 199)
 
+[node name="Dialogic2" parent="UI" instance=ExtResource("24_vdn58")]
+timeline_file = "Mimic_found"
+
+[node name="CollisionShape2D" parent="UI/Dialogic2/Area2D" index="0"]
+position = Vector2(818, 487)
+
 [node name="Chest Puzzle" parent="UI" instance=ExtResource("26_3w3o8")]
 
 [node name="PauseMenu" parent="UI/Chest Puzzle" index="0"]
@@ -6785,6 +6791,7 @@ timeline_file2 = "Mimic_dead"
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
 interactable_node = NodePath("../../../../Mimic/InteractArea")
 item_weight = 10
+clue_hint = "One won't do..."
 
 [node name="Chest Puzzle2" parent="UI" instance=ExtResource("26_3w3o8")]
 question = "CRYSTAL*"
@@ -6800,6 +6807,7 @@ mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
 logical_operator = ">="
 interactable_node = NodePath("../../../../Mimic2/InteractArea")
 item_weight = 20
+clue_hint = "Anything goes"
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("17_v4ecl")]
 
@@ -7007,6 +7015,7 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="UI/Note System"]
 [editable path="UI/Powerup_Choose"]
 [editable path="UI/Dialogic"]
+[editable path="UI/Dialogic2"]
 [editable path="UI/Chest Puzzle"]
 [editable path="UI/Chest Puzzle/PauseMenu/Scale"]
 [editable path="UI/Chest Puzzle2"]

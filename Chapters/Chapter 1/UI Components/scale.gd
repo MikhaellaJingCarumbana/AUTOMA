@@ -16,7 +16,7 @@ class_name Scale
 @onready var collision_shape_2d: CollisionShape2D = $Clues/CollisionShape2D
 @onready var button: Button = $"../Button"
 @export var item_weight: int
-
+@export var clue_hint: String = ""
 
 
 var opened: bool = false
@@ -30,6 +30,7 @@ signal correct_answer_handled
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	label.text = clue_hint
 	for slot in get_children():
 		slot.connect("filled_changed", _on_slot_changed)
 		
