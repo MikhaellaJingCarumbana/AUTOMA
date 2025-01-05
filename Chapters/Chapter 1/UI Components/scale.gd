@@ -15,6 +15,7 @@ class_name Scale
 @onready var clues: Area2D = $Clues
 @onready var collision_shape_2d: CollisionShape2D = $Clues/CollisionShape2D
 @onready var button: Button = $"../Button"
+@export var item_weight: int = 10
 
 
 
@@ -56,7 +57,7 @@ func confirm_slots():
 			var item_id = slot.get
 			total_sts += slot.get_STS()
 			
-			if slot.get_STS() != 10:
+			if slot.get_STS() != item_weight:
 				all_items_are_coins = false
 			
 	
