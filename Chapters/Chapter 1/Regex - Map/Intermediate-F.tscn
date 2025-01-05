@@ -6607,9 +6607,10 @@ scale = Vector2(0.6875, 0.671875)
 [node name="CollisionShape2D" parent="Portaldoor/Door" index="0"]
 visible = true
 
-[node name="InteractArea" parent="Portaldoor" index="2"]
+[node name="InteractArea" parent="Portaldoor" index="2" node_paths=PackedStringArray("door_code")]
 interact_type = "open_door_code"
 door_code_path = NodePath("..")
+door_code = NodePath("../../Chest Puzzles/DoorCode")
 
 [node name="CollisionShape2D" parent="Portaldoor/InteractArea" index="0"]
 visible = true
@@ -6802,9 +6803,6 @@ visible = false
 [node name="PauseGame" parent="UI" instance=ExtResource("16_7kixp")]
 
 [node name="PauseMenu" parent="UI/PauseGame" index="0"]
-visible = false
-
-[node name="Inventory" parent="UI" instance=ExtResource("24_2mhf1")]
 visible = false
 
 [node name="Enemies" type="Node" parent="."]
@@ -7006,6 +7004,9 @@ visible = false
 
 [node name="Inventory" type="CanvasLayer" parent="."]
 
+[node name="Inventory" parent="Inventory" instance=ExtResource("24_2mhf1")]
+visible = false
+
 [node name="Pause and Death" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
@@ -7051,13 +7052,6 @@ visible = false
 [editable path="UI/Dialogic2"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
-[editable path="UI/Inventory"]
-[editable path="UI/Inventory/Slot"]
-[editable path="UI/Inventory/Slot2"]
-[editable path="UI/Inventory/Slot3"]
-[editable path="UI/Inventory/Slot4"]
-[editable path="UI/Inventory/Slot5"]
-[editable path="UI/Inventory/Slot6"]
 [editable path="Enemies/Plus"]
 [editable path="Enemies/Plus2"]
 [editable path="Enemies/Star"]
@@ -7077,3 +7071,10 @@ visible = false
 [editable path="Chest Puzzles/Chest Puzzle2"]
 [editable path="Chest Puzzles/Chest Puzzle2/PauseMenu/Scale"]
 [editable path="Chest Puzzles/DoorCode"]
+[editable path="Inventory/Inventory"]
+[editable path="Inventory/Inventory/Slot"]
+[editable path="Inventory/Inventory/Slot2"]
+[editable path="Inventory/Inventory/Slot3"]
+[editable path="Inventory/Inventory/Slot4"]
+[editable path="Inventory/Inventory/Slot5"]
+[editable path="Inventory/Inventory/Slot6"]

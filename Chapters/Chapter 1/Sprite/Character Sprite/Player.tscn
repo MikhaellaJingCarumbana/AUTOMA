@@ -350,6 +350,7 @@ fill_from = Vector2(0.508547, 0.457265)
 fill_to = Vector2(0.871795, 0.149573)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+visible = false
 collision_layer = 3
 script = ExtResource("1_2hvlw")
 sfx_jump = ExtResource("2_1ctjh")

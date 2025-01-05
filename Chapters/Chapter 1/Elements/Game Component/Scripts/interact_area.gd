@@ -5,7 +5,7 @@ class_name Interactable extends Area2D
 @export var interact_value = "none"
 @export var timeline_name = ""  # Add this line
 @export var door_code_path: NodePath
-@onready var door_code: Node = $"../../UI/DoorCode"
+@export var door_code: Node 
 @export var chest_puzzle: Node
 @export var is_interactable: bool = true
 
