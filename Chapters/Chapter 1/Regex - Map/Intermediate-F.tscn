@@ -6609,6 +6609,7 @@ visible = true
 
 [node name="InteractArea" parent="Portaldoor" index="2" node_paths=PackedStringArray("door_code")]
 interact_type = "open_door_code"
+interact_value = "opened door code"
 door_code_path = NodePath("..")
 door_code = NodePath("../../Chest Puzzles/DoorCode")
 
@@ -6627,12 +6628,14 @@ parent_chest = NodePath("../Chest Puzzles/Chest Puzzle2/PauseMenu/Scale")
 position = Vector2(204, 244)
 
 [node name="InteractArea" parent="Mimic" index="2" node_paths=PackedStringArray("chest_puzzle")]
+interact_value = "opened chest riddle2"
 chest_puzzle = NodePath("../../Chest Puzzles/Chest Puzzle")
 
 [node name="Mimic2" parent="." instance=ExtResource("30_m58dl")]
 position = Vector2(147, 244)
 
 [node name="InteractArea" parent="Mimic2" index="2" node_paths=PackedStringArray("chest_puzzle")]
+interact_value = "opened chest riddle 1"
 chest_puzzle = NodePath("../../Chest Puzzles/Chest Puzzle2")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]

@@ -247,11 +247,15 @@ func execute_interaction():
 				open_dialogic_timeline(current_interaction.timeline_name)
 			"open_chest":
 				current_interaction.get_parent().open_chest()
+				print("interacting with the chest, Player script")
 			"open_door_code":
 				current_interaction.interact()
+				print("interacting with the door code, Plyer script")
 			"open_chest_riddle":
 				current_interaction.interact_mimic()
-		
+				print("Interacting with the chest riddle, player script")
+			"open_chest_riddle2":
+				current_interaction.interact_mimic2()
 		print("Executing interaction: %s" % current_interaction.interact_type)
 			
 

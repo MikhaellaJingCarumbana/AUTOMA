@@ -18,6 +18,7 @@ func _ready() -> void:
 	print("Inventory Registered")
 	add_item()
 	add_item()
+	add_item("1")
 	
 	
 func add_item(ID = "0"):

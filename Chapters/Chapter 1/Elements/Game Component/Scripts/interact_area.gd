@@ -7,6 +7,7 @@ class_name Interactable extends Area2D
 @export var door_code_path: NodePath
 @export var door_code: Node 
 @export var chest_puzzle: Node
+@export var chest_puzzle2: Node
 @export var is_interactable: bool = true
 
 signal interacted
@@ -22,6 +23,12 @@ func interact_mimic():
 		chest_puzzle.open_mimic()
 	else:
 		print("Error: chest puzzle node not found")
+		
+func interact_mimic2():
+	if chest_puzzle2:
+		chest_puzzle2.open_mimic()
+	else:
+		print("Error: chest puzzle 2 node not found")
 		
 func disable():
 	is_interactable = false
