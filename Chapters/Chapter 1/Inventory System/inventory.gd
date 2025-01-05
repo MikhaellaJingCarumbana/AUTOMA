@@ -1,12 +1,13 @@
 extends GridContainer
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Inventory"):
+		self.show()
 
 func _ready() -> void:
 	InventoryManager.register_inventory(self)
-	
-	
-	
+	print("Inventory Registered")
 	
 func add_item(ID = "0"):
 	var item_texture = load("res://Art/Database png/" + ItemData.get_texture(ID))

@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="14_su5ms"]
 [ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="15_epllm"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="16_7kixp"]
+[ext_resource type="PackedScene" uid="uid://dv5xhod7maha1" path="res://Chapters/Chapter 1/Inventory System/TestScene.tscn" id="16_d5w6a"]
 [ext_resource type="PackedScene" uid="uid://rkh8abgwi878" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/Powerup_Info.tscn" id="17_pqsq3"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="17_v4ecl"]
-[ext_resource type="PackedScene" uid="uid://ckelhedglhhgd" path="res://Chapters/Chapter 1/Inventory System/Inventory_UI.tscn" id="18_1xdqs"]
 [ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="18_ca3xp"]
 [ext_resource type="PackedScene" uid="uid://cofswi7j1xxfg" path="res://Chapters/Chapter 1/UI Components/Notes2.tscn" id="19_0u2xi"]
 [ext_resource type="PackedScene" uid="uid://bfj36amncwg2m" path="res://Chapters/Chapter 1/UI Components/Powerup UI/powerup_plus.tscn" id="20_hq8r3"]
@@ -6746,7 +6746,17 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
 [node name="Notes" parent="UI" instance=ExtResource("15_epllm")]
 
-[node name="UI" parent="UI" instance=ExtResource("18_1xdqs")]
+[node name="TestScene" parent="UI" instance=ExtResource("16_d5w6a")]
+
+[node name="UI" parent="UI/TestScene" index="0"]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -968.0
+offset_top = -565.0
+offset_right = 968.0
+offset_bottom = 565.0
+grow_vertical = 2
 
 [node name="Powerup_Info" parent="UI" instance=ExtResource("17_pqsq3")]
 
@@ -6816,7 +6826,7 @@ visible = false
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(915, 233)
+position = Vector2(257, 237)
 
 [node name="Note" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
@@ -6863,7 +6873,6 @@ parent_enemy = NodePath("../Enemies/Skull")
 position = Vector2(-1, 2)
 
 [node name="Coin" parent="." instance=ExtResource("31_bcqml")]
-parent_enemy = NodePath("../Enemies/Skull")
 
 [node name="HurtPlayerEffect" parent="." instance=ExtResource("33_vxk4d")]
 
@@ -7000,13 +7009,14 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
-[editable path="UI/UI"]
-[editable path="UI/UI/Inventory/Slot"]
-[editable path="UI/UI/Inventory/Slot2"]
-[editable path="UI/UI/Inventory/Slot3"]
-[editable path="UI/UI/Inventory/Slot4"]
-[editable path="UI/UI/Inventory/Slot5"]
-[editable path="UI/UI/Inventory/Slot6"]
+[editable path="UI/TestScene"]
+[editable path="UI/TestScene/UI"]
+[editable path="UI/TestScene/UI/Inventory/Slot"]
+[editable path="UI/TestScene/UI/Inventory/Slot2"]
+[editable path="UI/TestScene/UI/Inventory/Slot3"]
+[editable path="UI/TestScene/UI/Inventory/Slot4"]
+[editable path="UI/TestScene/UI/Inventory/Slot5"]
+[editable path="UI/TestScene/UI/Inventory/Slot6"]
 [editable path="UI/Powerup_Info"]
 [editable path="UI/Powerup_Info/PauseMenu/HBoxContainer/Plus-Info"]
 [editable path="UI/Powerup_Info/PauseMenu/HBoxContainer/Star_info"]

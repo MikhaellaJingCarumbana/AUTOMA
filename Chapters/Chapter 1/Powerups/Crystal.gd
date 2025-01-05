@@ -6,6 +6,7 @@ extends Area2D
 @export var float_speed: float = 4.0
 @export var jump_boost: int = -200
 @export var item_id: String = "1"
+@onready var inventory: GridContainer = $"../UI/UI/Inventory"
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -90,9 +91,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if visible and body.is_in_group("Player"):
 			print("Collected:", item_id)
 			$AudioStreamPlayer2D.play()
-			await get_tree().create_timer(0.2).timeout
 			InventoryManager.add_item(item_id)
 			queue_free()
+			print("ITEMS ADDED")
 	elif not visible:
 		print("Collectible not visible")
 		

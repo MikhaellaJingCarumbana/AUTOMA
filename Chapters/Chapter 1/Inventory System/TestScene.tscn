@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv5xhod7maha1"]
+[gd_scene load_steps=2 format=3 uid="uid://dv5xhod7maha1"]
 
 [ext_resource type="PackedScene" uid="uid://ckelhedglhhgd" path="res://Chapters/Chapter 1/Inventory System/Inventory_UI.tscn" id="1_dfbom"]
-[ext_resource type="PackedScene" uid="uid://dnygv217r3r7a" path="res://Chapters/Chapter 1/Inventory System/Slot.tscn" id="2_mf10o"]
 
 [node name="TestScene" type="Node"]
 
@@ -13,15 +12,6 @@ size_flags_horizontal = 3
 [node name="Inventory" parent="UI" index="0"]
 offset_right = 277.0
 columns = 7
-
-[node name="Slot9" parent="UI/Inventory" index="4" instance=ExtResource("2_mf10o")]
-layout_mode = 2
-
-[node name="Slot10" parent="UI/Inventory" index="5" instance=ExtResource("2_mf10o")]
-layout_mode = 2
-
-[node name="Slot11" parent="UI/Inventory" index="6" instance=ExtResource("2_mf10o")]
-layout_mode = 2
 
 [editable path="UI"]
 [editable path="UI/Inventory/Slot"]
