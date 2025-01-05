@@ -22,6 +22,8 @@ var opened: bool = false
 var wrong_guess_count: int = 0
 const MAX_WRONG_ANSWERS: int = 3
 var is_ready_to_check: bool = false
+var total_sts: int = 0
+var all_items_are_coins: bool = true
 
 signal correct_answer_handled
 
@@ -48,17 +50,7 @@ func _on_slot_changed() -> void:
 
 		
 func confirm_slots():
-	is_ready_to_check = true
-	check_total_sts()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
-func check_total_sts() -> void:
-	var total_sts = 0
-	var is_item_id_valid = true
-	var all_items_are_coins = true
-	
 	for slot in get_children():
 		if slot.filled:
 			var item_id = slot.get
@@ -120,10 +112,12 @@ func handle_correct_answer():
 	pause_menu.hide()
 	mimic.play("opened")
 	opened = true
+	print("MIMIC OPENEDDDDD")
 	
 	if opened:
 		label.text = "This is the greed they talk about in the bible..."
 		button.hide()
+		print("Clue is now collectible")
 		
 		if is_instance_valid(clues):
 			clues.show()
@@ -136,6 +130,7 @@ func _on_button_pressed() -> void:
 	print("button pressed")
 	confirm_slots()
 	
-func is_open():
-	return op
+func is_open() -> bool:
+	print("Mimic is open called. State: ", opened)
+	return opened
 	

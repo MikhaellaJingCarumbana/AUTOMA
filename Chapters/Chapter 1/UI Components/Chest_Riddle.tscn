@@ -189,6 +189,10 @@ grow_vertical = 2
 layout_mode = 1
 offset_top = 18.0
 offset_bottom = 133.0
+timeline_file = ""
+timeline_file2 = ""
+logical_operator = "=="
+expected_item_id = -1
 
 [node name="Button" type="Button" parent="PauseMenu"]
 layout_mode = 1

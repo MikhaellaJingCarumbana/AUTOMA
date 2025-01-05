@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
-[ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
+[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 [ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="37_d2ayn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
@@ -6602,7 +6602,7 @@ layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 196
 
 [node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
 position = Vector2(266, 244)
-parent_chest = NodePath("../BlueChest")
+parent_chest = NodePath("../UI/Chest Puzzle/PauseMenu/Scale")
 
 [node name="BlueChest" parent="." instance=ExtResource("16_xt7s8")]
 position = Vector2(216, 241)
