@@ -6599,7 +6599,7 @@ layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
 [node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(819, 531)
+position = Vector2(211, 243)
 parent_chest = NodePath("../UI/Chest Puzzle/PauseMenu/Scale")
 
 [node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
@@ -6607,7 +6607,7 @@ position = Vector2(259, 245)
 parent_chest = NodePath("../UI/Chest Puzzle2/PauseMenu/Scale")
 
 [node name="Mimic" parent="." instance=ExtResource("30_m58dl")]
-position = Vector2(819, 532)
+position = Vector2(212, 243)
 
 [node name="InteractArea" parent="Mimic" index="2" node_paths=PackedStringArray("chest_puzzle")]
 chest_puzzle = NodePath("../../UI/Chest Puzzle")
@@ -6776,6 +6776,7 @@ question = "CRYSTAL*"
 visible = false
 
 [node name="Scale" parent="UI/Chest Puzzle2/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
+target_weight = 0
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
@@ -6788,17 +6789,14 @@ item_weight = 20
 [node name="PauseMenu" parent="UI/Chest Puzzle" index="0"]
 visible = false
 
-[node name="Inventory" parent="UI/Chest Puzzle/PauseMenu/UI" index="0"]
-visible = false
-
 [node name="Scale" parent="UI/Chest Puzzle/PauseMenu" index="6" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 timeline_file = "Mimic_reveal"
 timeline_file2 = "Mimic_dead"
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
-logical_operator = ">="
 interactable_node = NodePath("../../../../Mimic/InteractArea")
+item_weight = 10
 
 [node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
 timeline_file = "Wisps"
@@ -6821,52 +6819,14 @@ visible = false
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
 position = Vector2(915, 233)
 
-[node name="Skull2" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(94, 566)
-
-[node name="Skull3" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(720, 534)
-
-[node name="Skull4" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(910, 535)
-
-[node name="Skull5" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(655, 678)
-
-[node name="Skull6" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(692, 790)
-
-[node name="Skull7" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(517, 790)
-
-[node name="Skull8" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(925, 918)
-
-[node name="Skull9" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(682, 934)
-
-[node name="Skull10" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(825, 1041)
-
-[node name="Skull11" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(203, 1046)
-
-[node name="Skull12" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(312, 1046)
-
-[node name="Skull13" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(538, 663)
-
 [node name="Note" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
-parent_enemy = NodePath("../Skull2")
 
 [node name="Note2" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
 
 [node name="Note3" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
-parent_enemy = NodePath("../Skull10")
 
 [node name="Plus" parent="Enemies" instance=ExtResource("22_fd4b0")]
 
@@ -6874,7 +6834,6 @@ parent_enemy = NodePath("../Skull10")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-parent_enemy = NodePath("../Skull")
 
 [node name="Star2" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
@@ -6899,11 +6858,13 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 
 [node name="Crystal" parent="." instance=ExtResource("30_sq58t")]
 position = Vector2(-1, 2)
+parent_enemy = NodePath("../Enemies/Skull")
 
 [node name="Crystal2" parent="." instance=ExtResource("30_sq58t")]
 position = Vector2(-1, 2)
 
 [node name="Coin" parent="." instance=ExtResource("31_bcqml")]
+parent_enemy = NodePath("../Enemies/Skull")
 
 [node name="HurtPlayerEffect" parent="." instance=ExtResource("33_vxk4d")]
 

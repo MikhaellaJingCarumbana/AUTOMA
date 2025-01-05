@@ -78,3 +78,4 @@ func clear_slot():
 	
 	container = Container.new()
 	add_child(container)
+	

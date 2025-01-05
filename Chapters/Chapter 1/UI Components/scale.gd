@@ -91,14 +91,13 @@ func confirm_slots():
 		handle_wrong_answer()
 				
 			
-			
 func reset_question():
 	for slot in get_children():
 		if slot is Slot:
 			slot.clear_slot()
+			slot.clear_sts()
 		else:
 			print("Non-slot child detected: %s" % slot.name)
-		
 			label.text = "Try Again"
 		
 func handle_wrong_answer():
