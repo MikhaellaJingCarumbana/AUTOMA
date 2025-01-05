@@ -14,6 +14,7 @@ offset_right = 277.0
 columns = 7
 
 [editable path="UI"]
+[editable path="UI/Inventory"]
 [editable path="UI/Inventory/Slot"]
 [editable path="UI/Inventory/Slot2"]
 [editable path="UI/Inventory/Slot3"]
