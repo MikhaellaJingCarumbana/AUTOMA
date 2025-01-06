@@ -240,6 +240,10 @@ func execute_interaction():
 	if all_interactions:
 		var current_interaction = all_interactions[0]
 		print("Processing interaction: %s" % current_interaction.interact_type)
+		
+		for interaction in all_interactions:
+			if interaction != current_interaction:
+				interaction.disable()
 		match current_interaction.interact_type:
 			"print_text":
 				print(current_interaction.interact_value)
@@ -257,6 +261,7 @@ func execute_interaction():
 			"open_chest_riddle2":
 				current_interaction.interact_mimic2()
 		print("Executing interaction: %s" % current_interaction.interact_type)
+		current_interaction.enabled()
 			
 
 func open_dialogic_timeline(timeline_name):

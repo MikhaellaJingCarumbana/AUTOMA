@@ -6971,8 +6971,10 @@ shape = SubResource("RectangleShape2D_8oxew")
 
 [node name="PauseMenu" parent="Chest Puzzles/Chest Puzzle" index="0"]
 visible = false
+mouse_filter = 1
 
 [node name="Scale" parent="Chest Puzzles/Chest Puzzle/PauseMenu" index="4" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
+mouse_filter = 2
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 timeline_file = "Mimic_reveal"
@@ -6982,13 +6984,21 @@ interactable_node = NodePath("../../../../Mimic/InteractArea")
 item_weight = 10
 clue_hint = "One won't do..."
 
+[node name="Button" parent="Chest Puzzles/Chest Puzzle/PauseMenu" index="5"]
+mouse_filter = 2
+
+[node name="Back" parent="Chest Puzzles/Chest Puzzle/PauseMenu" index="6"]
+mouse_filter = 2
+
 [node name="Chest Puzzle2" parent="Chest Puzzles" instance=ExtResource("26_3w3o8")]
 question = "CRYSTAL*"
 
 [node name="PauseMenu" parent="Chest Puzzles/Chest Puzzle2" index="0"]
 visible = false
+mouse_filter = 1
 
 [node name="Scale" parent="Chest Puzzles/Chest Puzzle2/PauseMenu" index="4" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
+mouse_filter = 2
 target_weight = 0
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
@@ -7005,11 +7015,16 @@ door_dialogue = "One more misstep, and this door will become your tomb."
 
 [node name="PauseMenu" parent="Chest Puzzles/DoorCode" index="0"]
 visible = false
+mouse_filter = 1
+
+[node name="answer_input" parent="Chest Puzzles/DoorCode/PauseMenu" index="2"]
+mouse_filter = 2
 
 [node name="Inventory" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="Inventory" instance=ExtResource("24_2mhf1")]
 visible = false
+mouse_filter = 2
 
 [node name="Pause and Death" type="CanvasLayer" parent="."]
 
