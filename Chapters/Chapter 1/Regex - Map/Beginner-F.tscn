@@ -6607,11 +6607,13 @@ interact_value = "It's working"
 position = Vector2(721, 1000)
 scale = Vector2(0.695312, 0.644531)
 
-[node name="InteractArea" parent="Portaldoor" index="2"]
+[node name="InteractArea" parent="Portaldoor" index="2" node_paths=PackedStringArray("door_code")]
 interact_type = "open_door_code"
 door_code_path = NodePath("..")
+door_code = NodePath("../../UI/DoorCode")
 
 [node name="Player" parent="." instance=ExtResource("5_e65jt")]
+visible = true
 light_mask = 4
 visibility_layer = 4
 position = Vector2(191, 122)

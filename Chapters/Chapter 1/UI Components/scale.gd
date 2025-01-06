@@ -14,10 +14,8 @@ class_name Scale
 @export var interactable_node : Node
 @onready var clues: Area2D = $Clues
 @onready var collision_shape_2d: CollisionShape2D = $Clues/CollisionShape2D
-@onready var button: Button = $"../Button"
 @export var item_weight: int
 @export var clue_hint: String = ""
-
 
 var opened: bool = false
 var wrong_guess_count: int = 0
@@ -25,6 +23,10 @@ const MAX_WRONG_ANSWERS: int = 3
 var is_ready_to_check: bool = false
 var total_sts: int = 0
 var all_items_are_coins: bool = true
+@onready var button: Button = $"../UI/Button"
+@onready var back: Button = $"../UI/Back"
+
+
 
 signal correct_answer_handled
 
@@ -134,6 +136,10 @@ func handle_correct_answer():
 func _on_button_pressed() -> void:
 	print("button pressed")
 	confirm_slots()
+	
+func  _input(event: InputEvent) -> void:
+	if event.is_action_pressed("enter") and opened:
+		confirm_slots()
 	
 func is_open() -> bool:
 	print("Mimic is open called. State: ", opened)

@@ -16,5 +16,3 @@ func _process(delta: float) -> void:
 func check_ui_visibility() -> void:
 	if chest_puzzle.is_open() or chest_puzzle_2.is_open():
 		ui_2.hide()
-	else:
-		ui_2

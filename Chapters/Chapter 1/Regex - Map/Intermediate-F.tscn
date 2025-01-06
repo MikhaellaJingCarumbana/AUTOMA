@@ -6617,26 +6617,21 @@ door_code = NodePath("../../Chest Puzzles/DoorCode")
 visible = true
 
 [node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(821, 532)
-parent_chest = NodePath("../Chest Puzzles/Chest Puzzle/PauseMenu/Scale")
+position = Vector2(205, 245)
+parent_chest = NodePath("../Chest Puzzles/Chest Puzzle2/PauseMenu/Scale")
 
 [node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
 position = Vector2(254, 803)
 parent_chest = NodePath("../Chest Puzzles/Chest Puzzle2/PauseMenu/Scale")
 
-[node name="Mimic" parent="." instance=ExtResource("30_m58dl")]
+[node name="Mimic" parent="." node_paths=PackedStringArray("chest_quiz") instance=ExtResource("30_m58dl")]
 position = Vector2(204, 244)
+chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle2/PauseMenu")
 
-[node name="InteractArea" parent="Mimic" index="2" node_paths=PackedStringArray("chest_puzzle")]
-interact_value = "opened chest riddle2"
-chest_puzzle = NodePath("../../Chest Puzzles/Chest Puzzle")
-
-[node name="Mimic2" parent="." instance=ExtResource("30_m58dl")]
+[node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz") instance=ExtResource("30_m58dl")]
+visible = false
 position = Vector2(147, 244)
-
-[node name="InteractArea" parent="Mimic2" index="2" node_paths=PackedStringArray("chest_puzzle")]
-interact_value = "opened chest riddle 1"
-chest_puzzle = NodePath("../../Chest Puzzles/Chest Puzzle2")
+chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle/PauseMenu")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 visible = true
@@ -6648,19 +6643,19 @@ visible = true
 
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
-position = Vector2(91, 0)
+position = Vector2(102, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = -1
-limit_top = 6
-limit_right = 1023
-limit_bottom = 1087
+limit_left = 10
+limit_top = 7
+limit_right = 1034
+limit_bottom = 1088
 
 [node name="CollisionShape2D" parent="Player/Interaction Component/InteractionArea" index="0"]
 visible = true
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(191, 248)
+position = Vector2(202, 248)
 script = ExtResource("8_d8o1v")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -6672,7 +6667,7 @@ limit_target = NodePath("../Camera_bounds/CollisionShape2D")
 [node name="Camera_bounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bounds"]
-position = Vector2(511, 546.5)
+position = Vector2(522, 547)
 shape = SubResource("RectangleShape2D_rut0x")
 debug_color = Color(0.74902, 0.94902, 1, 0.196078)
 
@@ -6973,22 +6968,15 @@ shape = SubResource("RectangleShape2D_8oxew")
 visible = false
 mouse_filter = 1
 
-[node name="Scale" parent="Chest Puzzles/Chest Puzzle/PauseMenu" index="4" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
+[node name="Scale" parent="Chest Puzzles/Chest Puzzle/PauseMenu" index="4" node_paths=PackedStringArray("game_manager", "player", "mimic")]
 mouse_filter = 2
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 timeline_file = "Mimic_reveal"
 timeline_file2 = "Mimic_dead"
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
-interactable_node = NodePath("../../../../Mimic/InteractArea")
 item_weight = 10
 clue_hint = "One won't do..."
-
-[node name="Button" parent="Chest Puzzles/Chest Puzzle/PauseMenu" index="5"]
-mouse_filter = 2
-
-[node name="Back" parent="Chest Puzzles/Chest Puzzle/PauseMenu" index="6"]
-mouse_filter = 2
 
 [node name="Chest Puzzle2" parent="Chest Puzzles" instance=ExtResource("26_3w3o8")]
 question = "CRYSTAL*"
@@ -6997,14 +6985,13 @@ question = "CRYSTAL*"
 visible = false
 mouse_filter = 1
 
-[node name="Scale" parent="Chest Puzzles/Chest Puzzle2/PauseMenu" index="4" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node")]
+[node name="Scale" parent="Chest Puzzles/Chest Puzzle2/PauseMenu" index="4" node_paths=PackedStringArray("game_manager", "player", "mimic")]
 mouse_filter = 2
 target_weight = 0
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
-mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
+mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
 logical_operator = ">="
-interactable_node = NodePath("../../../../Mimic2/InteractArea")
 item_weight = 20
 clue_hint = "Anything goes"
 
@@ -7055,9 +7042,7 @@ mouse_filter = 2
 [editable path="Clues"]
 [editable path="Clues2"]
 [editable path="Mimic"]
-[editable path="Mimic/InteractArea"]
 [editable path="Mimic2"]
-[editable path="Mimic2/InteractArea"]
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]

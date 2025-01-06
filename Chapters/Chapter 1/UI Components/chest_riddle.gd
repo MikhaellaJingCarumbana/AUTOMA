@@ -7,6 +7,9 @@ extends Node
 @onready var question_label: Label = $PauseMenu/Label
 @export var question: String = ""
 @onready var question_q: Label = $PauseMenu/question
+@onready var button: Button = $PauseMenu/UI/Button
+@onready var back: Button = $PauseMenu/UI/Back
+
 
 var questions = []
 var current_question_index = -1
@@ -18,7 +21,11 @@ func _ready() -> void:
 func open_mimic():
 	print("mimic opened")
 	pause_menu.show()
+	button.show()
+	back.show()
 	
 func _on_back_pressed() -> void:
 	pause_menu.hide()
+	button.hide()
+	back.hide()
 	
