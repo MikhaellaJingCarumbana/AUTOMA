@@ -6947,15 +6947,13 @@ shape = SubResource("RectangleShape2D_8oxew")
 
 [node name="Chest Puzzles" parent="." instance=ExtResource("37_jrd7v")]
 
-[node name="Scale" parent="Chest Puzzles/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic")]
+[node name="Scale" parent="Chest Puzzles/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui")]
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
 item_weight = 10
 clue_hint = "one or more"
-
-[node name="UI" parent="Chest Puzzles/Chest Puzzle" index="1"]
-visible = false
+ui = NodePath("../../UI")
 
 [node name="Inventory" type="CanvasLayer" parent="."]
 

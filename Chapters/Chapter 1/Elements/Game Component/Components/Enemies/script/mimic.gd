@@ -52,12 +52,10 @@ func _input(event: InputEvent) -> void:
 func toggle_chest_quiz() -> void:
 	if is_open:
 		chest_quiz.hide()
-		UI.hide()
 		print("quiz open")
 		is_open = false
 	else:
 		chest_quiz.show()
-		UI.show()
 		is_open = true
 
 

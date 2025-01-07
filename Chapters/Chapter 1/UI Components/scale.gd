@@ -16,7 +16,7 @@ class_name Scale
 @export var clue_hint: String = ""
 @onready var pause_menu: Control = $".."
 @onready var label: Label = $"../PauseMenu/Label"
-@export var button: Node
+@export var ui: Node
 
 
 var button_presse: bool = false
@@ -27,6 +27,7 @@ var is_ready_to_check: bool = false
 var total_sts: int = 0
 var all_items_are_coins: bool = true
 var is_confirming: bool = false
+var button_should_close: bool = false
 
 
 
@@ -109,7 +110,6 @@ func handle_wrong_answer():
 	game_manager.decrease_health()
 	pause_menu.hide()
 	pause_menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
 	label.text = "Try Again"
 	mimic.play("reveal")
 	is_ready_to_check = false
@@ -121,6 +121,7 @@ func handle_correct_answer():
 	label.text = "Correct!"
 	await get_tree().create_timer(1.5).timeout
 	pause_menu.hide()
+	button_should_close = true
 	mimic.play("opened")
 	opened = true
 	print("MIMIC OPENEDDDDD")
@@ -132,8 +133,10 @@ func handle_correct_answer():
 		collision_shape_2d.disabled = false
 	
 	if opened:
+		ui.hide()
 		label.text = "This is the greed they talk about in the bible..."
 		print("Clue is now collectible")
+		
 
 	
 	emit_signal("correct_answer_handled")
@@ -150,3 +153,7 @@ func  _input(event: InputEvent) -> void:
 func is_open() -> bool:
 	print("Mimic is open called. State: ", opened)
 	return opened
+	
+func button_should_cloes():
+	print("Button should be closed. State: ", button_should_close)
+	return button_should_close

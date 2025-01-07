@@ -10,7 +10,7 @@ extends Node
 @onready var question_q: Label = $Control/PauseMenu/question
 @onready var ui: Control = $"../UI"
 @onready var scale: Scale = $Control/Scale
-@onready var button: Button = $"Chest Puzzles/Chest Puzzle/UI/Button"
+@onready var button: Button = $UI/Button
 
 
 var questions = []
@@ -19,6 +19,9 @@ var is_open = false
 
 func _ready() -> void:
 	question_q.text = question
+	
+	if scale.button_should_cloes():
+		button.hide()
 	
 func open_mimic():
 	print("mimic opened")
@@ -29,4 +32,6 @@ func _on_back_pressed() -> void:
 	
 func _on_button_pressed() -> void:
 	scale.confirm_slots()
+	
+
 	
