@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=58 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
 [ext_resource type="PackedScene" uid="uid://bd0vy7ccnkl4n" path="res://Chapters/Chapter 1/UI Components/Chest_Riddle.tscn" id="23_n4wct"]
 [ext_resource type="PackedScene" uid="uid://duwtec8hvsl3q" path="res://Chapters/Chapter 1/UI Components/Inventory/inventory.tscn" id="24_2mhf1"]
-[ext_resource type="PackedScene" uid="uid://eq8ppfbfjv8v" path="res://Chapters/Chapter 1/UI Components/dialogic_timeline.tscn" id="24_vdn58"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="26_spiw6"]
 [ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
@@ -6807,18 +6806,6 @@ process_priority = 1
 [node name="PauseMenu" parent="UI/Powerup_Choose" index="0"]
 visible = false
 
-[node name="Dialogic" parent="UI" instance=ExtResource("24_vdn58")]
-timeline_file = "Wisps"
-
-[node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
-position = Vector2(360, 199)
-
-[node name="Dialogic2" parent="UI" instance=ExtResource("24_vdn58")]
-timeline_file = "Mimic_found"
-
-[node name="CollisionShape2D" parent="UI/Dialogic2/Area2D" index="0"]
-position = Vector2(818, 487)
-
 [node name="DeathScreen" parent="UI" instance=ExtResource("17_v4ecl")]
 
 [node name="PauseMenu" parent="UI/DeathScreen" index="0"]
@@ -7063,8 +7050,6 @@ mouse_filter = 1
 [editable path="UI/Clue_System2"]
 [editable path="UI/Note System"]
 [editable path="UI/Powerup_Choose"]
-[editable path="UI/Dialogic"]
-[editable path="UI/Dialogic2"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
 [editable path="Enemies/Plus"]
