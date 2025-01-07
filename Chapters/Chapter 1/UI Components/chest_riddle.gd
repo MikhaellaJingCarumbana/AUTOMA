@@ -20,8 +20,7 @@ var is_open = false
 func _ready() -> void:
 	question_q.text = question
 	
-	if scale.button_should_cloes():
-		button.hide()
+	
 	
 func open_mimic():
 	print("mimic opened")

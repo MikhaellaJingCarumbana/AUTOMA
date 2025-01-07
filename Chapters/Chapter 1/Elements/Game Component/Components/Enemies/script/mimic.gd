@@ -14,6 +14,7 @@ var is_inside = false
 @onready var area_2d: Area2D = $Interaction
 @export var UI: Node
 @onready var pause_menu: Control = $"../Chest Puzzles/Chest Puzzle/Control"
+@export var button: Button
 
 func _ready() -> void:
 	
@@ -52,10 +53,12 @@ func _input(event: InputEvent) -> void:
 func toggle_chest_quiz() -> void:
 	if is_open:
 		chest_quiz.hide()
+		button.hide()
 		print("quiz open")
 		is_open = false
 	else:
 		chest_quiz.show()
+		button.show()
 		is_open = true
 
 

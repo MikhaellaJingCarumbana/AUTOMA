@@ -17,6 +17,8 @@ class_name Scale
 @onready var pause_menu: Control = $".."
 @onready var label: Label = $"../PauseMenu/Label"
 @export var ui: Node
+@export var button: Button
+
 
 
 var button_presse: bool = false
@@ -121,7 +123,7 @@ func handle_correct_answer():
 	label.text = "Correct!"
 	await get_tree().create_timer(1.5).timeout
 	pause_menu.hide()
-	button_should_close = true
+	button.hide()
 	mimic.play("opened")
 	opened = true
 	print("MIMIC OPENEDDDDD")
