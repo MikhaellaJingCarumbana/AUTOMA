@@ -6607,6 +6607,11 @@ position = Vector2(207, 242)
 chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle/Control")
 button = NodePath("../Chest Puzzles/Chest Puzzle/UI/Button")
 
+[node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz", "button") instance=ExtResource("30_m58dl")]
+position = Vector2(297, 243)
+chest_quiz = NodePath("../Chest Puzzles2/Chest Puzzle/Control")
+button = NodePath("../Chest Puzzles2/Chest Puzzle/UI/Button")
+
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(100, 248)
 projectile_scene = ExtResource("27_v5qjy")
@@ -6943,6 +6948,23 @@ button = NodePath("../../UI/Button")
 [node name="Button" parent="Chest Puzzles/Chest Puzzle/UI" index="0"]
 visible = false
 
+[node name="Chest Puzzles2" parent="." instance=ExtResource("37_jrd7v")]
+
+[node name="Chest Puzzle" parent="Chest Puzzles2" index="0"]
+question = "CRYSTAL*"
+
+[node name="Scale" parent="Chest Puzzles2/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button")]
+game_manager = NodePath("../../../../GameManager")
+player = NodePath("../../../../Player")
+mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
+item_weight = 20
+clue_hint = "anything goes..."
+ui = NodePath("../../UI")
+button = NodePath("../../UI/Button")
+
+[node name="Button" parent="Chest Puzzles2/Chest Puzzle/UI" index="0"]
+visible = false
+
 [node name="Inventory" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="Inventory" instance=ExtResource("24_2mhf1")]
@@ -6974,6 +6996,7 @@ mouse_filter = 2
 
 [editable path="Clues"]
 [editable path="Mimic"]
+[editable path="Mimic2"]
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
@@ -7005,6 +7028,10 @@ mouse_filter = 2
 [editable path="Chest Puzzles/Chest Puzzle"]
 [editable path="Chest Puzzles/Chest Puzzle/Control/Scale"]
 [editable path="Chest Puzzles/Chest Puzzle/UI"]
+[editable path="Chest Puzzles2"]
+[editable path="Chest Puzzles2/Chest Puzzle"]
+[editable path="Chest Puzzles2/Chest Puzzle/Control/Scale"]
+[editable path="Chest Puzzles2/Chest Puzzle/UI"]
 [editable path="Inventory/Inventory"]
 [editable path="Inventory/Inventory/Slot"]
 [editable path="Inventory/Inventory/Slot2"]
