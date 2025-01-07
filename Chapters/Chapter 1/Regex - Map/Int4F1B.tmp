@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bfj36amncwg2m" path="res://Chapters/Chapter 1/UI Components/Powerup UI/powerup_plus.tscn" id="20_hq8r3"]
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
-[ext_resource type="PackedScene" uid="uid://bd0vy7ccnkl4n" path="res://Chapters/Chapter 1/UI Components/Chest_Riddle.tscn" id="23_n4wct"]
+[ext_resource type="PackedScene" uid="uid://c73ja3vtl1h5h" path="res://Chapters/Chapter 1/UI Components/Chest Puzzle.tscn" id="23_y3qcw"]
 [ext_resource type="PackedScene" uid="uid://duwtec8hvsl3q" path="res://Chapters/Chapter 1/UI Components/Inventory/inventory.tscn" id="24_2mhf1"]
 [ext_resource type="PackedScene" uid="uid://eq8ppfbfjv8v" path="res://Chapters/Chapter 1/UI Components/dialogic_timeline.tscn" id="24_vdn58"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
@@ -6603,8 +6603,8 @@ layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 196
 position = Vector2(208, 241)
 
 [node name="Mimic" parent="." node_paths=PackedStringArray("chest_quiz", "button") instance=ExtResource("30_m58dl")]
-position = Vector2(207, 244)
-chest_quiz = NodePath("../UI/Chest Puzzle/Control")
+position = Vector2(207, 242)
+chest_quiz = NodePath("../UI/Control")
 button = NodePath("../Chest Puzzles2/Chest Puzzle/UI/Button")
 
 [node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz", "button") instance=ExtResource("30_m58dl")]
@@ -6776,26 +6776,17 @@ visible = false
 [node name="PauseMenu" parent="UI/PauseGame" index="0"]
 visible = false
 
-[node name="Chest Puzzle" parent="UI" instance=ExtResource("23_n4wct")]
-process_priority = -1
-
-[node name="Control" parent="UI/Chest Puzzle" index="0"]
-process_priority = -1
+[node name="Control" parent="UI" instance=ExtResource("23_y3qcw")]
 visible = false
 
-[node name="PauseMenu" parent="UI/Chest Puzzle/Control" index="0"]
-process_priority = -1
-
-[node name="Scale" parent="UI/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node", "ui", "button", "pause_menu")]
-game_manager = NodePath("../../../../GameManager")
-player = NodePath("../../../../Player")
-mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
-interactable_node = NodePath("../../../../Mimic/Interaction")
+[node name="Scale" parent="UI/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button")]
+game_manager = NodePath("../../../GameManager")
+player = NodePath("../../../Player")
+mimic = NodePath("../../../Mimic/AnimatedSprite2D")
 item_weight = 10
-clue_hint = "one or more..."
-ui = NodePath("../UI")
+clue_hint = "One or more"
+ui = NodePath("../../../Chest Puzzles2/Chest Puzzle/UI")
 button = NodePath("../UI/Button")
-pause_menu = NodePath("..")
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -6954,13 +6945,9 @@ position = Vector2(789.625, 199)
 shape = SubResource("RectangleShape2D_8oxew")
 
 [node name="Chest Puzzles2" parent="." instance=ExtResource("37_jrd7v")]
-layer = 0
 
 [node name="Chest Puzzle" parent="Chest Puzzles2" index="0"]
 question = "CRYSTAL*"
-
-[node name="Control" parent="Chest Puzzles2/Chest Puzzle" index="0"]
-visible = false
 
 [node name="Scale" parent="Chest Puzzles2/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button")]
 mouse_filter = 2
@@ -7006,7 +6993,6 @@ mouse_filter = 2
 [connection signal="body_exited" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_exited"]
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
-[connection signal="pressed" from="Chest Puzzles2/Chest Puzzle/UI/Button" to="Chest Puzzles2/Chest Puzzle" method="_on_button_pressed"]
 
 [editable path="Clues"]
 [editable path="Mimic"]
@@ -7024,10 +7010,9 @@ mouse_filter = 2
 [editable path="UI/Dialogic2"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
-[editable path="UI/Chest Puzzle"]
-[editable path="UI/Chest Puzzle/Control"]
-[editable path="UI/Chest Puzzle/Control/Scale"]
-[editable path="UI/Chest Puzzle/Control/UI"]
+[editable path="UI/Control"]
+[editable path="UI/Control/Scale"]
+[editable path="UI/Control/UI"]
 [editable path="Enemies/Plus"]
 [editable path="Enemies/Plus2"]
 [editable path="Enemies/Star"]
@@ -7044,9 +7029,7 @@ mouse_filter = 2
 [editable path="Tutorial Manager/TutorialText2"]
 [editable path="Chest Puzzles2"]
 [editable path="Chest Puzzles2/Chest Puzzle"]
-[editable path="Chest Puzzles2/Chest Puzzle/Control"]
 [editable path="Chest Puzzles2/Chest Puzzle/Control/Scale"]
-[editable path="Chest Puzzles2/Chest Puzzle/Control/UI"]
 [editable path="Chest Puzzles2/Chest Puzzle/UI"]
 [editable path="Inventory/Inventory"]
 [editable path="Inventory/Inventory/Slot"]

@@ -8,16 +8,18 @@ process_priority = 1
 
 [node name="Chest Puzzle" parent="." instance=ExtResource("1_5iyv6")]
 
-[node name="Control" parent="Chest Puzzle" index="0"]
-visible = false
-
 [node name="PauseMenu" parent="Chest Puzzle/Control" index="0"]
 mouse_filter = 0
+
+[node name="Scale" parent="Chest Puzzle/Control" index="1"]
+item_weight = 10
 
 [node name="UI" parent="Chest Puzzle" instance=ExtResource("2_ivut7")]
 
 [connection signal="pressed" from="Chest Puzzle/UI/Button" to="Chest Puzzle" method="_on_button_pressed"]
 
 [editable path="Chest Puzzle"]
+[editable path="Chest Puzzle/Control"]
 [editable path="Chest Puzzle/Control/Scale"]
+[editable path="Chest Puzzle/Control/UI"]
 [editable path="Chest Puzzle/UI"]

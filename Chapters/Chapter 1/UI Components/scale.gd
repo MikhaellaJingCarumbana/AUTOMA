@@ -14,10 +14,11 @@ class_name Scale
 @onready var collision_shape_2d: CollisionShape2D = $Clues/CollisionShape2D
 @export var item_weight: int
 @export var clue_hint: String = ""
-@onready var pause_menu: Control = $".."
 @onready var label: Label = $"../PauseMenu/Label"
 @export var ui: Node
 @export var button: Button
+@export var pause_menu: Node
+@onready var slot: Slot = $"Chest Puzzles2/Chest Puzzle/Control/Scale/Slot"
 
 
 var button_presse: bool = false
@@ -64,14 +65,17 @@ func confirm_slots():
 	
 	total_sts = 0
 	all_items_are_coins = true
+	
 	for slot in get_children():
+		print("Slot: ", slot)
+		print("Slot filled: ", slot.filled)
 		if slot.filled:
 			total_sts += slot.get_STS()
 			if slot.get_STS() != item_weight:
 				all_items_are_coins = false
 			
 	
-	var is_correct: bool = false	
+	var is_correct: bool = false
 	match logical_operator:
 		"==":
 			is_correct = total_sts == target_weight
@@ -109,9 +113,7 @@ func handle_wrong_answer():
 	
 	label.text = "Incorrect"
 	game_manager.decrease_health()
-	pause_menu.hide()
 	button.hide()
-	pause_menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.text = "Try Again"
 	mimic.play("reveal")
 	is_ready_to_check = false
