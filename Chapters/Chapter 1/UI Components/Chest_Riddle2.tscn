@@ -206,3 +206,4 @@ icon = ExtResource("7_2nb4u")
 [connection signal="pressed" from="PauseMenu/Back" to="." method="_on_back_pressed"]
 
 [editable path="PauseMenu/Scale"]
+[editable path="PauseMenu/Scale/UI"]

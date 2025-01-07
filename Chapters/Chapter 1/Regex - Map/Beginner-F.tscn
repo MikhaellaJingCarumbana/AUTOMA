@@ -6613,7 +6613,6 @@ door_code_path = NodePath("..")
 door_code = NodePath("../../UI/DoorCode")
 
 [node name="Player" parent="." instance=ExtResource("5_e65jt")]
-visible = true
 light_mask = 4
 visibility_layer = 4
 position = Vector2(191, 122)

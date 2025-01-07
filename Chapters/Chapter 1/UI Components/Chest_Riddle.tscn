@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bd0vy7ccnkl4n"]
+[gd_scene load_steps=9 format=3 uid="uid://bd0vy7ccnkl4n"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/chest_riddle.gd" id="1_q41b7"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_64hfg"]
 [ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="3_7pgvg"]
 [ext_resource type="FontFile" uid="uid://dexd0d2xxu57p" path="res://Fonts/ds-runenglish-2-font/DsRunenglish2-nR5O.ttf" id="4_h3b64"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="5_b6lpp"]
-[ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="6_gxbla"]
 [ext_resource type="PackedScene" uid="uid://4iutda755b11" path="res://Chapters/Chapter 1/Elements/Game Component/Components/scale.tscn" id="8_j45hs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
@@ -30,31 +29,22 @@ shader_parameter/height = 3.0
 shader_parameter/frequency = 20.0
 shader_parameter/speed = 3.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_428r6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23jol"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihnej"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox7mq"]
-bg_color = Color(0.152941, 0.254902, 0.317647, 0.603922)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itg4a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myoo7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1dq6"]
-
 [node name="Chest Puzzle" type="Node"]
 script = ExtResource("1_q41b7")
 question = "COIN+"
 
-[node name="PauseMenu" type="ColorRect" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PauseMenu" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_aq6tb")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -63,7 +53,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.164706, 0.164706, 0.207843, 1)
 
-[node name="Label" type="Label" parent="PauseMenu"]
+[node name="Label" type="Label" parent="Control/PauseMenu"]
 material = SubResource("ShaderMaterial_ucfga")
 layout_mode = 1
 anchors_preset = 8
@@ -89,7 +79,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="question" type="Label" parent="PauseMenu"]
+[node name="question" type="Label" parent="Control/PauseMenu"]
 material = SubResource("ShaderMaterial_ucfga")
 layout_mode = 1
 anchors_preset = 8
@@ -113,7 +103,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="PauseMenu"]
+[node name="Label2" type="Label" parent="Control/PauseMenu"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -136,16 +126,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="PauseMenu"]
+[node name="Label3" type="Label" parent="Control/PauseMenu"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -804.0
+offset_left = -802.0
 offset_top = -1015.0
-offset_right = 804.0
+offset_right = 806.0
 offset_bottom = -929.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -159,57 +149,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Scale" parent="PauseMenu" instance=ExtResource("8_j45hs")]
+[node name="Scale" parent="Control" instance=ExtResource("8_j45hs")]
 layout_mode = 1
 offset_top = 18.0
 offset_bottom = 133.0
 
-[node name="UI" type="Control" parent="PauseMenu"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="PauseMenu/UI"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 890.0
-offset_top = 670.0
-offset_right = 990.0
-offset_bottom = 708.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_hover_color = Color(0.0313726, 1, 0.980392, 1)
-theme_override_fonts/font = ExtResource("5_b6lpp")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_428r6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_23jol")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ihnej")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ox7mq")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_itg4a")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_myoo7")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_h1dq6")
-text = "Check"
-
-[node name="Back" type="Button" parent="PauseMenu/UI"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.023
-anchor_top = 0.052
-anchor_right = 0.023
-anchor_bottom = 0.052
-offset_left = 73.08
-offset_top = 53.92
-offset_right = 137.08
-offset_bottom = 117.92
-scale = Vector2(1.5, 1.5)
-icon = ExtResource("6_gxbla")
-
-[connection signal="pressed" from="PauseMenu/UI/Button" to="PauseMenu/Scale" method="_on_button_pressed"]
-[connection signal="pressed" from="PauseMenu/UI/Back" to="." method="_on_back_pressed"]
-
-[editable path="PauseMenu/Scale"]
+[editable path="Control/Scale"]

@@ -1,14 +1,16 @@
 extends Node
 
 @export_file("*.json") var json_file: String = ""
-@onready var pause_menu: ColorRect = $PauseMenu
 @onready var submit: Button = $PauseMenu/Submit
 @onready var answer_input: LineEdit = $PauseMenu/answer_input
 @onready var question_label: Label = $PauseMenu/Label
 @export var question: String = ""
-@onready var question_q: Label = $PauseMenu/question
-@onready var button: Button = $PauseMenu/UI/Button
 @onready var back: Button = $PauseMenu/UI/Back
+@onready var pause_menu: Control = $Control
+@onready var question_q: Label = $Control/PauseMenu/question
+@onready var ui: Control = $"../UI"
+@onready var scale: Scale = $Control/Scale
+@onready var button: Button = $"Chest Puzzles/Chest Puzzle/UI/Button"
 
 
 var questions = []
@@ -20,12 +22,11 @@ func _ready() -> void:
 	
 func open_mimic():
 	print("mimic opened")
-	pause_menu.show()
-	button.show()
-	back.show()
 	
 func _on_back_pressed() -> void:
 	pause_menu.hide()
-	button.hide()
-	back.hide()
+	ui.hide()
+	
+func _on_button_pressed() -> void:
+	scale.confirm_slots()
 	

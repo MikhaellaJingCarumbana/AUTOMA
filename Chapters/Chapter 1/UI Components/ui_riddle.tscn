@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://djlhjxi8ybmnv"]
+
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="1_t52qb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_428r6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23jol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihnej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox7mq"]
+bg_color = Color(0.152941, 0.254902, 0.317647, 0.603922)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itg4a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myoo7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1dq6"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 925.0
+offset_top = 692.0
+offset_right = 1025.0
+offset_bottom = 730.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.0313726, 1, 0.980392, 1)
+theme_override_fonts/font = ExtResource("1_t52qb")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_428r6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_23jol")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ihnej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ox7mq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_itg4a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_myoo7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h1dq6")
+text = "Check"

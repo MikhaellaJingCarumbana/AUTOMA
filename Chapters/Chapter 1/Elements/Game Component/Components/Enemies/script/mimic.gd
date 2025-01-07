@@ -5,7 +5,6 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var in_area: bool = false
-@onready var pause_menu: ColorRect = $"../../UI/Chest Puzzle/PauseMenu"
 var is_open = false 
 @onready var clues: Area2D = $"../Clues"
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -13,6 +12,8 @@ var is_mimic_open = false
 var is_inside = false
 @export var chest_quiz: Node
 @onready var area_2d: Area2D = $Interaction
+@export var UI: Node
+@onready var pause_menu: Control = $"../Chest Puzzles/Chest Puzzle/Control"
 
 func _ready() -> void:
 	
@@ -51,9 +52,12 @@ func _input(event: InputEvent) -> void:
 func toggle_chest_quiz() -> void:
 	if is_open:
 		chest_quiz.hide()
+		UI.hide()
+		print("quiz open")
 		is_open = false
 	else:
 		chest_quiz.show()
+		UI.show()
 		is_open = true
 
 

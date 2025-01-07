@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=59 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -24,12 +24,10 @@
 [ext_resource type="PackedScene" uid="uid://cofswi7j1xxfg" path="res://Chapters/Chapter 1/UI Components/Notes2.tscn" id="19_0u2xi"]
 [ext_resource type="PackedScene" uid="uid://bfj36amncwg2m" path="res://Chapters/Chapter 1/UI Components/Powerup UI/powerup_plus.tscn" id="20_hq8r3"]
 [ext_resource type="PackedScene" uid="uid://dpwtui6ho2dvt" path="res://Chapters/Chapter 1/Powerups/Plus-p.tscn" id="22_fd4b0"]
-[ext_resource type="PackedScene" uid="uid://cgx5rm0prmpo1" path="res://Chapters/Chapter 1/UI Components/DoorCode.tscn" id="22_g3po6"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="22_lwn0i"]
 [ext_resource type="PackedScene" uid="uid://duwtec8hvsl3q" path="res://Chapters/Chapter 1/UI Components/Inventory/inventory.tscn" id="24_2mhf1"]
 [ext_resource type="PackedScene" uid="uid://eq8ppfbfjv8v" path="res://Chapters/Chapter 1/UI Components/dialogic_timeline.tscn" id="24_vdn58"]
 [ext_resource type="PackedScene" uid="uid://c162a7t7d151x" path="res://Chapters/Chapter 1/Powerups/Star-p.tscn" id="24_wlico"]
-[ext_resource type="PackedScene" uid="uid://bd0vy7ccnkl4n" path="res://Chapters/Chapter 1/UI Components/Chest_Riddle.tscn" id="26_3w3o8"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="26_spiw6"]
 [ext_resource type="PackedScene" uid="uid://ct6u7brjt3as2" path="res://Chapters/Chapter 1/Powerups/projectile/star_projectile.tscn" id="27_v5qjy"]
 [ext_resource type="PackedScene" uid="uid://cymhm63n3suwp" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/mimic.tscn" id="30_m58dl"]
@@ -39,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
 [ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 [ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="37_d2ayn"]
+[ext_resource type="PackedScene" uid="uid://bl307x25uvrnk" path="res://Chapters/Chapter 1/UI Components/chest_puzzles.tscn" id="37_jrd7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin0b"]
 texture = ExtResource("1_g8rnr")
@@ -6601,61 +6600,45 @@ layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
 [node name="Portaldoor" parent="." instance=ExtResource("7_52ehc")]
-position = Vector2(283, 212)
+position = Vector2(366, 212)
 scale = Vector2(0.6875, 0.671875)
 
 [node name="CollisionShape2D" parent="Portaldoor/Door" index="0"]
 visible = true
 
-[node name="InteractArea" parent="Portaldoor" index="2" node_paths=PackedStringArray("door_code")]
+[node name="InteractArea" parent="Portaldoor" index="2"]
 interact_type = "open_door_code"
 interact_value = "opened door code"
 door_code_path = NodePath("..")
-door_code = NodePath("../../Chest Puzzles/DoorCode")
 
 [node name="CollisionShape2D" parent="Portaldoor/InteractArea" index="0"]
 visible = true
 
 [node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(205, 245)
-parent_chest = NodePath("../Chest Puzzles/Chest Puzzle2/PauseMenu/Scale")
+position = Vector2(208, 241)
+parent_chest = NodePath("../Chest Puzzles/Chest Puzzle/Control/Scale")
 
-[node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(254, 803)
-parent_chest = NodePath("../Chest Puzzles/Chest Puzzle2/PauseMenu/Scale")
-
-[node name="Mimic" parent="." node_paths=PackedStringArray("chest_quiz") instance=ExtResource("30_m58dl")]
-position = Vector2(204, 244)
-chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle2/PauseMenu")
-
-[node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz") instance=ExtResource("30_m58dl")]
-visible = false
-position = Vector2(147, 244)
-chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle/PauseMenu")
+[node name="Mimic" parent="." node_paths=PackedStringArray("chest_quiz", "UI") instance=ExtResource("30_m58dl")]
+position = Vector2(207, 242)
+chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle/Control")
+UI = NodePath("../Chest Puzzles/Chest Puzzle/UI")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
-visible = true
 position = Vector2(100, 248)
 projectile_scene = ExtResource("27_v5qjy")
 
-[node name="CollisionShape2D" parent="Player" index="2"]
-visible = true
-
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
-position = Vector2(102, 0)
+position = Vector2(82, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
-limit_left = 10
-limit_top = 7
-limit_right = 1034
-limit_bottom = 1088
-
-[node name="CollisionShape2D" parent="Player/Interaction Component/InteractionArea" index="0"]
-visible = true
+limit_left = -10
+limit_top = 8
+limit_right = 1014
+limit_bottom = 1089
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(202, 248)
+position = Vector2(182, 248)
 script = ExtResource("8_d8o1v")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -6667,7 +6650,7 @@ limit_target = NodePath("../Camera_bounds/CollisionShape2D")
 [node name="Camera_bounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bounds"]
-position = Vector2(522, 547)
+position = Vector2(502, 548)
 shape = SubResource("RectangleShape2D_rut0x")
 debug_color = Color(0.74902, 0.94902, 1, 0.196078)
 
@@ -6803,6 +6786,8 @@ visible = false
 
 [node name="PauseMenu" parent="UI/PauseGame" index="0"]
 visible = false
+
+[node name="Chest Puzzle" type="Node" parent="UI"]
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -6960,52 +6945,17 @@ visible_ratio = 0.0
 position = Vector2(789.625, 199)
 shape = SubResource("RectangleShape2D_8oxew")
 
-[node name="Chest Puzzles" type="CanvasLayer" parent="."]
+[node name="Chest Puzzles" parent="." instance=ExtResource("37_jrd7v")]
 
-[node name="Chest Puzzle" parent="Chest Puzzles" instance=ExtResource("26_3w3o8")]
-
-[node name="PauseMenu" parent="Chest Puzzles/Chest Puzzle" index="0"]
-visible = false
-mouse_filter = 1
-
-[node name="Scale" parent="Chest Puzzles/Chest Puzzle/PauseMenu" index="4" node_paths=PackedStringArray("game_manager", "player", "mimic")]
-mouse_filter = 2
+[node name="Scale" parent="Chest Puzzles/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic")]
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
-timeline_file = "Mimic_reveal"
-timeline_file2 = "Mimic_dead"
 mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
 item_weight = 10
-clue_hint = "One won't do..."
+clue_hint = "one or more"
 
-[node name="Chest Puzzle2" parent="Chest Puzzles" instance=ExtResource("26_3w3o8")]
-question = "CRYSTAL*"
-
-[node name="PauseMenu" parent="Chest Puzzles/Chest Puzzle2" index="0"]
+[node name="UI" parent="Chest Puzzles/Chest Puzzle" index="1"]
 visible = false
-mouse_filter = 1
-
-[node name="Scale" parent="Chest Puzzles/Chest Puzzle2/PauseMenu" index="4" node_paths=PackedStringArray("game_manager", "player", "mimic")]
-mouse_filter = 2
-target_weight = 0
-game_manager = NodePath("../../../../GameManager")
-player = NodePath("../../../../Player")
-mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
-logical_operator = ">="
-item_weight = 20
-clue_hint = "Anything goes"
-
-[node name="DoorCode" parent="Chest Puzzles" instance=ExtResource("22_g3po6")]
-json_file = "res://Chapters/Chapter 1/JSON/Chapter2_door.json"
-cutscene = "res://Chapters/Chapter 1/Cutscene/Door_Unlocked.tscn"
-door_dialogue = "One more misstep, and this door will become your tomb."
-
-[node name="PauseMenu" parent="Chest Puzzles/DoorCode" index="0"]
-visible = false
-mouse_filter = 1
-
-[node name="answer_input" parent="Chest Puzzles/DoorCode/PauseMenu" index="2"]
-mouse_filter = 2
 
 [node name="Inventory" type="CanvasLayer" parent="."]
 
@@ -7035,14 +6985,13 @@ mouse_filter = 2
 [connection signal="body_exited" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_exited"]
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
+[connection signal="pressed" from="Chest Puzzles/Chest Puzzle/UI/Button" to="Chest Puzzles/Chest Puzzle" method="_on_button_pressed"]
 
 [editable path="Portaldoor"]
 [editable path="Portaldoor/Door"]
 [editable path="Portaldoor/InteractArea"]
 [editable path="Clues"]
-[editable path="Clues2"]
 [editable path="Mimic"]
-[editable path="Mimic2"]
 [editable path="Player"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
@@ -7070,11 +7019,10 @@ mouse_filter = 2
 [editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="Tutorial Manager/TutorialText"]
 [editable path="Tutorial Manager/TutorialText2"]
+[editable path="Chest Puzzles"]
 [editable path="Chest Puzzles/Chest Puzzle"]
-[editable path="Chest Puzzles/Chest Puzzle/PauseMenu/Scale"]
-[editable path="Chest Puzzles/Chest Puzzle2"]
-[editable path="Chest Puzzles/Chest Puzzle2/PauseMenu/Scale"]
-[editable path="Chest Puzzles/DoorCode"]
+[editable path="Chest Puzzles/Chest Puzzle/Control/Scale"]
+[editable path="Chest Puzzles/Chest Puzzle/UI"]
 [editable path="Inventory/Inventory"]
 [editable path="Inventory/Inventory/Slot"]
 [editable path="Inventory/Inventory/Slot2"]

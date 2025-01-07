@@ -350,7 +350,6 @@ fill_from = Vector2(0.508547, 0.457265)
 fill_to = Vector2(0.871795, 0.149573)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-visible = false
 collision_layer = 3
 script = ExtResource("1_2hvlw")
 sfx_jump = ExtResource("2_1ctjh")
@@ -377,7 +376,6 @@ animation = &"Hurt"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_hegce")
 
@@ -398,7 +396,6 @@ collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component/InteractionArea"]
-visible = false
 shape = SubResource("CircleShape2D_a08na")
 
 [node name="InteractLabel" type="Label" parent="Interaction Component/InteractionArea"]

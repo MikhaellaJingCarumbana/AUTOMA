@@ -2,8 +2,6 @@ extends GridContainer
 class_name Scale
 
 @export var target_weight: int
-@onready var label: Label = $"../Label"
-@onready var pause_menu: ColorRect = $".."
 @export var game_manager: Node
 @export var player: Node
 @export var timeline_file: String = ""
@@ -16,15 +14,19 @@ class_name Scale
 @onready var collision_shape_2d: CollisionShape2D = $Clues/CollisionShape2D
 @export var item_weight: int
 @export var clue_hint: String = ""
+@onready var pause_menu: Control = $".."
+@onready var label: Label = $"../PauseMenu/Label"
+@export var button: Node
 
+
+var button_presse: bool = false
 var opened: bool = false
 var wrong_guess_count: int = 0
 const MAX_WRONG_ANSWERS: int = 3
 var is_ready_to_check: bool = false
 var total_sts: int = 0
 var all_items_are_coins: bool = true
-@onready var button: Button = $"../UI/Button"
-@onready var back: Button = $"../UI/Back"
+var is_confirming: bool = false
 
 
 
@@ -54,6 +56,10 @@ func _on_slot_changed() -> void:
 
 		
 func confirm_slots():
+	if is_confirming:
+		return
+	is_confirming = true
+	
 	total_sts = 0
 	all_items_are_coins = true
 	for slot in get_children():
@@ -92,56 +98,55 @@ func confirm_slots():
 		handle_correct_answer()
 	else:
 		handle_wrong_answer()
+		
+	await get_tree().create_timer(0.5).timeout
+	is_confirming = false
 				
 			
-
-		
 func handle_wrong_answer():
 	
 	label.text = "Incorrect"
 	game_manager.decrease_health()
+	pause_menu.hide()
+	pause_menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
 	label.text = "Try Again"
 	mimic.play("reveal")
 	is_ready_to_check = false
-	
-	Dialogic.start(timeline_file)
-	
-	if pause_menu:
-		pause_menu.hide()
 		
-	
+	if timeline_file:
+		Dialogic.start(timeline_file)
+		
 func handle_correct_answer():
 	label.text = "Correct!"
 	await get_tree().create_timer(1.5).timeout
+	pause_menu.hide()
 	mimic.play("opened")
 	opened = true
 	print("MIMIC OPENEDDDDD")
 	
-	if pause_menu:
-		pause_menu.hide()
+		
+
 	if is_instance_valid(clues):
 		clues.show()
 		collision_shape_2d.disabled = false
 	
 	if opened:
 		label.text = "This is the greed they talk about in the bible..."
-		button.hide()
 		print("Clue is now collectible")
 
 	
 	emit_signal("correct_answer_handled")
-	Dialogic.start(timeline_file2)
 	
-
-func _on_button_pressed() -> void:
-	print("button pressed")
-	confirm_slots()
+	if timeline_file2:
+		Dialogic.start(timeline_file2)
+	
 	
 func  _input(event: InputEvent) -> void:
-	if event.is_action_pressed("enter") and opened:
+	if event.is_action_pressed("enter"):
+		print(event)
 		confirm_slots()
 	
 func is_open() -> bool:
 	print("Mimic is open called. State: ", opened)
 	return opened
-	
