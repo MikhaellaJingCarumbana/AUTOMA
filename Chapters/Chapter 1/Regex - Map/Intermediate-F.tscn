@@ -6608,7 +6608,7 @@ chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle/Control")
 button = NodePath("../Chest Puzzles/Chest Puzzle/UI/Button")
 
 [node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz", "button") instance=ExtResource("30_m58dl")]
-position = Vector2(297, 243)
+position = Vector2(818, 533)
 chest_quiz = NodePath("../Chest Puzzles2/Chest Puzzle/Control")
 button = NodePath("../Chest Puzzles2/Chest Puzzle/UI/Button")
 
@@ -6954,6 +6954,7 @@ visible = false
 question = "CRYSTAL*"
 
 [node name="Scale" parent="Chest Puzzles2/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button")]
+mouse_filter = 2
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
@@ -6961,6 +6962,9 @@ item_weight = 20
 clue_hint = "anything goes..."
 ui = NodePath("../../UI")
 button = NodePath("../../UI/Button")
+
+[node name="UI" parent="Chest Puzzles2/Chest Puzzle" index="1"]
+mouse_filter = 2
 
 [node name="Button" parent="Chest Puzzles2/Chest Puzzle/UI" index="0"]
 visible = false
