@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
+[ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 [ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="37_d2ayn"]
 [ext_resource type="PackedScene" uid="uid://bl307x25uvrnk" path="res://Chapters/Chapter 1/UI Components/chest_puzzles.tscn" id="37_jrd7v"]
 
@@ -6618,15 +6618,10 @@ visible = true
 position = Vector2(208, 241)
 parent_chest = NodePath("../Chest Puzzles/Chest Puzzle/Control/Scale")
 
-[node name="Mimic" parent="." node_paths=PackedStringArray("chest_quiz", "button") instance=ExtResource("30_m58dl")]
+[node name="Mimic" parent="." node_paths=PackedStringArray("chest_quiz", "UI") instance=ExtResource("30_m58dl")]
 position = Vector2(207, 242)
 chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle/Control")
-button = NodePath("../Chest Puzzles/Chest Puzzle/UI/Button")
-
-[node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz", "button") instance=ExtResource("30_m58dl")]
-position = Vector2(207, 242)
-chest_quiz = NodePath("../Chest Puzzles/Chest Puzzle/Control")
-button = NodePath("../Chest Puzzles/Chest Puzzle/UI/Button")
+UI = NodePath("../Chest Puzzles/Chest Puzzle/UI")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(100, 248)
@@ -6744,26 +6739,6 @@ position = Vector2(1519.41, 1085.91)
 shape = SubResource("RectangleShape2D_jhqhu")
 debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 
-[node name="Chest Puzzles" parent="." instance=ExtResource("37_jrd7v")]
-
-[node name="Scale" parent="Chest Puzzles/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button")]
-game_manager = NodePath("../../../../GameManager")
-player = NodePath("../../../../Player")
-mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
-item_weight = 10
-clue_hint = "one or more"
-ui = NodePath("../../UI")
-button = NodePath("../../UI/Button")
-
-[node name="Button" parent="Chest Puzzles/Chest Puzzle/UI" index="0"]
-visible = false
-
-[node name="Inventory" type="CanvasLayer" parent="."]
-
-[node name="Inventory" parent="Inventory" instance=ExtResource("24_2mhf1")]
-visible = false
-mouse_filter = 2
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" parent="UI" instance=ExtResource("14_su5ms")]
@@ -6811,6 +6786,8 @@ visible = false
 
 [node name="PauseMenu" parent="UI/PauseGame" index="0"]
 visible = false
+
+[node name="Chest Puzzle" type="Node" parent="UI"]
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -6968,6 +6945,22 @@ visible_ratio = 0.0
 position = Vector2(789.625, 199)
 shape = SubResource("RectangleShape2D_8oxew")
 
+[node name="Chest Puzzles" parent="." instance=ExtResource("37_jrd7v")]
+
+[node name="Scale" parent="Chest Puzzles/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui")]
+game_manager = NodePath("../../../../GameManager")
+player = NodePath("../../../../Player")
+mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
+item_weight = 10
+clue_hint = "one or more"
+ui = NodePath("../../UI")
+
+[node name="Inventory" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="Inventory" instance=ExtResource("24_2mhf1")]
+visible = false
+mouse_filter = 2
+
 [node name="Pause and Death" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
@@ -6990,25 +6983,14 @@ shape = SubResource("RectangleShape2D_8oxew")
 [connection signal="body_exited" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_exited"]
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
+[connection signal="pressed" from="Chest Puzzles/Chest Puzzle/UI/Button" to="Chest Puzzles/Chest Puzzle" method="_on_button_pressed"]
 
 [editable path="Portaldoor"]
 [editable path="Portaldoor/Door"]
 [editable path="Portaldoor/InteractArea"]
 [editable path="Clues"]
 [editable path="Mimic"]
-[editable path="Mimic2"]
 [editable path="Player"]
-[editable path="Chest Puzzles"]
-[editable path="Chest Puzzles/Chest Puzzle"]
-[editable path="Chest Puzzles/Chest Puzzle/Control/Scale"]
-[editable path="Chest Puzzles/Chest Puzzle/UI"]
-[editable path="Inventory/Inventory"]
-[editable path="Inventory/Inventory/Slot"]
-[editable path="Inventory/Inventory/Slot2"]
-[editable path="Inventory/Inventory/Slot3"]
-[editable path="Inventory/Inventory/Slot4"]
-[editable path="Inventory/Inventory/Slot5"]
-[editable path="Inventory/Inventory/Slot6"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
 [editable path="UI/Powerup_Info"]
@@ -7035,3 +7017,14 @@ shape = SubResource("RectangleShape2D_8oxew")
 [editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="Tutorial Manager/TutorialText"]
 [editable path="Tutorial Manager/TutorialText2"]
+[editable path="Chest Puzzles"]
+[editable path="Chest Puzzles/Chest Puzzle"]
+[editable path="Chest Puzzles/Chest Puzzle/Control/Scale"]
+[editable path="Chest Puzzles/Chest Puzzle/UI"]
+[editable path="Inventory/Inventory"]
+[editable path="Inventory/Inventory/Slot"]
+[editable path="Inventory/Inventory/Slot2"]
+[editable path="Inventory/Inventory/Slot3"]
+[editable path="Inventory/Inventory/Slot4"]
+[editable path="Inventory/Inventory/Slot5"]
+[editable path="Inventory/Inventory/Slot6"]
