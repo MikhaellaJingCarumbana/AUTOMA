@@ -6643,6 +6643,53 @@ position = Vector2(502, 548)
 shape = SubResource("RectangleShape2D_rut0x")
 debug_color = Color(0.74902, 0.94902, 1, 0.196078)
 
+[node name="Chest Puzzles2" parent="." instance=ExtResource("37_jrd7v")]
+layer = 0
+
+[node name="Chest Puzzle" parent="Chest Puzzles2" index="0"]
+question = "CRYSTAL*"
+
+[node name="Control" parent="Chest Puzzles2/Chest Puzzle" index="0"]
+visible = false
+
+[node name="Scale" parent="Chest Puzzles2/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button", "pause_menu")]
+mouse_filter = 2
+game_manager = NodePath("../../../../GameManager")
+player = NodePath("../../../../Player")
+mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
+item_weight = 20
+clue_hint = "anything goes..."
+ui = NodePath("../../UI")
+button = NodePath("../../UI/Button")
+pause_menu = NodePath("..")
+
+[node name="UI" parent="Chest Puzzles2/Chest Puzzle" index="1"]
+mouse_filter = 2
+
+[node name="Button" parent="Chest Puzzles2/Chest Puzzle/UI" index="0"]
+visible = false
+
+[node name="Chest Puzzle2" parent="Chest Puzzles2" instance=ExtResource("23_n4wct")]
+process_priority = -1
+
+[node name="Control" parent="Chest Puzzles2/Chest Puzzle2" index="0"]
+process_priority = -1
+visible = false
+
+[node name="PauseMenu" parent="Chest Puzzles2/Chest Puzzle2/Control" index="0"]
+process_priority = -1
+
+[node name="Scale" parent="Chest Puzzles2/Chest Puzzle2/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node", "ui", "button", "pause_menu")]
+game_manager = NodePath("../../../../GameManager")
+player = NodePath("../../../../Player")
+mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
+interactable_node = NodePath("../../../../Mimic/Interaction")
+item_weight = 10
+clue_hint = "one or more..."
+ui = NodePath("../UI")
+button = NodePath("../UI/Button")
+pause_menu = NodePath("..")
+
 [node name="Death Zones" type="Node" parent="."]
 
 [node name="spike" type="Area2D" parent="Death Zones"]
@@ -6731,13 +6778,18 @@ debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" parent="UI" instance=ExtResource("14_su5ms")]
+z_index = 1
+mouse_filter = 1
 
 [node name="Notes" parent="UI" instance=ExtResource("15_epllm")]
+z_index = 1
+mouse_filter = 1
 
 [node name="Powerup_Info" parent="UI" instance=ExtResource("17_pqsq3")]
 
 [node name="PauseMenu" parent="UI/Powerup_Info" index="0"]
 visible = false
+mouse_filter = 1
 
 [node name="Clue_System2" parent="UI" instance=ExtResource("18_ca3xp")]
 
@@ -6750,6 +6802,7 @@ visible = false
 visible = false
 
 [node name="Powerup_Choose" parent="UI" instance=ExtResource("20_hq8r3")]
+process_priority = 1
 
 [node name="PauseMenu" parent="UI/Powerup_Choose" index="0"]
 visible = false
@@ -6770,11 +6823,15 @@ position = Vector2(818, 487)
 
 [node name="PauseMenu" parent="UI/DeathScreen" index="0"]
 visible = false
+z_index = 1
+mouse_filter = 1
 
 [node name="PauseGame" parent="UI" instance=ExtResource("16_7kixp")]
 
 [node name="PauseMenu" parent="UI/PauseGame" index="0"]
 visible = false
+z_index = 1
+mouse_filter = 1
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -6819,6 +6876,8 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [node name="StarProjectile" parent="." instance=ExtResource("27_v5qjy")]
 
 [node name="Crystal" parent="." instance=ExtResource("30_sq58t")]
+z_index = 1
+z_as_relative = false
 position = Vector2(-1, 2)
 parent_enemy = NodePath("../Enemies/Skull")
 
@@ -6932,62 +6991,35 @@ visible_ratio = 0.0
 position = Vector2(789.625, 199)
 shape = SubResource("RectangleShape2D_8oxew")
 
-[node name="Chest Puzzles2" parent="." instance=ExtResource("37_jrd7v")]
-layer = 0
-
-[node name="Chest Puzzle" parent="Chest Puzzles2" index="0"]
-question = "CRYSTAL*"
-
-[node name="Control" parent="Chest Puzzles2/Chest Puzzle" index="0"]
-visible = false
-
-[node name="Scale" parent="Chest Puzzles2/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button", "pause_menu")]
-mouse_filter = 2
-game_manager = NodePath("../../../../GameManager")
-player = NodePath("../../../../Player")
-mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
-item_weight = 20
-clue_hint = "anything goes..."
-ui = NodePath("../../UI")
-button = NodePath("../../UI/Button")
-pause_menu = NodePath("..")
-
-[node name="UI" parent="Chest Puzzles2/Chest Puzzle" index="1"]
-mouse_filter = 2
-
-[node name="Button" parent="Chest Puzzles2/Chest Puzzle/UI" index="0"]
-visible = false
-
-[node name="Chest Puzzle2" parent="Chest Puzzles2" instance=ExtResource("23_n4wct")]
-process_priority = -1
-
-[node name="Control" parent="Chest Puzzles2/Chest Puzzle2" index="0"]
-process_priority = -1
-visible = false
-
-[node name="PauseMenu" parent="Chest Puzzles2/Chest Puzzle2/Control" index="0"]
-process_priority = -1
-
-[node name="Scale" parent="Chest Puzzles2/Chest Puzzle2/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "interactable_node", "ui", "button", "pause_menu")]
-game_manager = NodePath("../../../../GameManager")
-player = NodePath("../../../../Player")
-mimic = NodePath("../../../../Mimic/AnimatedSprite2D")
-interactable_node = NodePath("../../../../Mimic/Interaction")
-item_weight = 10
-clue_hint = "one or more..."
-ui = NodePath("../UI")
-button = NodePath("../UI/Button")
-pause_menu = NodePath("..")
-
 [node name="Inventory" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="Inventory" parent="Inventory" instance=ExtResource("24_2mhf1")]
 process_priority = 1
 visible = false
-mouse_filter = 2
+z_index = 1
+
+[node name="Slot" parent="Inventory/Inventory" index="0"]
+mouse_filter = 1
+
+[node name="Slot2" parent="Inventory/Inventory" index="1"]
+mouse_filter = 1
+
+[node name="Slot3" parent="Inventory/Inventory" index="2"]
+mouse_filter = 1
+
+[node name="Slot4" parent="Inventory/Inventory" index="3"]
+mouse_filter = 1
+
+[node name="Slot5" parent="Inventory/Inventory" index="4"]
+mouse_filter = 1
+
+[node name="Slot6" parent="Inventory/Inventory" index="5"]
+mouse_filter = 1
 
 [node name="Pause and Death" type="CanvasLayer" parent="."]
 
+[connection signal="pressed" from="Chest Puzzles2/Chest Puzzle/UI/Button" to="Chest Puzzles2/Chest Puzzle" method="_on_button_pressed"]
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
 [connection signal="body_entered" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_entered"]
@@ -7008,12 +7040,21 @@ mouse_filter = 2
 [connection signal="body_exited" from="Death Zones/spike9" to="Death Zones/spike9" method="_on_body_exited"]
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
-[connection signal="pressed" from="Chest Puzzles2/Chest Puzzle/UI/Button" to="Chest Puzzles2/Chest Puzzle" method="_on_button_pressed"]
 
 [editable path="Clues"]
 [editable path="Mimic"]
 [editable path="Mimic2"]
 [editable path="Player"]
+[editable path="Chest Puzzles2"]
+[editable path="Chest Puzzles2/Chest Puzzle"]
+[editable path="Chest Puzzles2/Chest Puzzle/Control"]
+[editable path="Chest Puzzles2/Chest Puzzle/Control/Scale"]
+[editable path="Chest Puzzles2/Chest Puzzle/Control/UI"]
+[editable path="Chest Puzzles2/Chest Puzzle/UI"]
+[editable path="Chest Puzzles2/Chest Puzzle2"]
+[editable path="Chest Puzzles2/Chest Puzzle2/Control"]
+[editable path="Chest Puzzles2/Chest Puzzle2/Control/Scale"]
+[editable path="Chest Puzzles2/Chest Puzzle2/Control/UI"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
 [editable path="UI/Powerup_Info"]
@@ -7036,20 +7077,11 @@ mouse_filter = 2
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]
+[editable path="Crystal"]
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="Tutorial Manager/TutorialText"]
 [editable path="Tutorial Manager/TutorialText2"]
-[editable path="Chest Puzzles2"]
-[editable path="Chest Puzzles2/Chest Puzzle"]
-[editable path="Chest Puzzles2/Chest Puzzle/Control"]
-[editable path="Chest Puzzles2/Chest Puzzle/Control/Scale"]
-[editable path="Chest Puzzles2/Chest Puzzle/Control/UI"]
-[editable path="Chest Puzzles2/Chest Puzzle/UI"]
-[editable path="Chest Puzzles2/Chest Puzzle2"]
-[editable path="Chest Puzzles2/Chest Puzzle2/Control"]
-[editable path="Chest Puzzles2/Chest Puzzle2/Control/Scale"]
-[editable path="Chest Puzzles2/Chest Puzzle2/Control/UI"]
 [editable path="Inventory/Inventory"]
 [editable path="Inventory/Inventory/Slot"]
 [editable path="Inventory/Inventory/Slot2"]
