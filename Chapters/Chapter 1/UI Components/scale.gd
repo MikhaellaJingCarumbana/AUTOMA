@@ -17,6 +17,7 @@ class_name Scale
 @onready var pause_menu: Control = $".."
 @onready var label: Label = $"../PauseMenu/Label"
 @export var ui: Node
+@export var button: Button
 
 
 var button_presse: bool = false
@@ -109,6 +110,7 @@ func handle_wrong_answer():
 	label.text = "Incorrect"
 	game_manager.decrease_health()
 	pause_menu.hide()
+	button.hide()
 	pause_menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.text = "Try Again"
 	mimic.play("reveal")
@@ -116,6 +118,8 @@ func handle_wrong_answer():
 		
 	if timeline_file:
 		Dialogic.start(timeline_file)
+	
+	
 		
 func handle_correct_answer():
 	label.text = "Correct!"
