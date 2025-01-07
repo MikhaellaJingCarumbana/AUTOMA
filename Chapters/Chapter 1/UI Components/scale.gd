@@ -73,6 +73,14 @@ func confirm_slots():
 			total_sts += slot.get_STS()
 			if slot.get_STS() != item_weight:
 				all_items_are_coins = false
+					
+	# Debug information
+	print("Total STS: ", total_sts)
+	print("Target Weight: ", target_weight)
+	print("Logical Operator: ", logical_operator)
+	print("item weight: ", item_weight)
+	print("%d %s %d" % [total_sts, logical_operator, target_weight])
+	
 			
 	
 	var is_correct: bool = false
@@ -94,11 +102,6 @@ func confirm_slots():
 			print("Invalid logical operator: %s" % logical_operator)
 			return
 			
-	print("Total STS: ", total_sts)
-	print("Target Weight: ", target_weight)
-	print("Logical Operator: ", logical_operator)
-	print("item weight: ", item_weight)
-	print("%d %s %d" % [total_sts, logical_operator, target_weight])
 			
 	if is_correct and all_items_are_coins:
 		handle_correct_answer()
@@ -113,7 +116,7 @@ func handle_wrong_answer():
 	
 	label.text = "Incorrect"
 	game_manager.decrease_health()
-	button.hide()
+	pause_menu.hide()
 	label.text = "Try Again"
 	mimic.play("reveal")
 	is_ready_to_check = false
