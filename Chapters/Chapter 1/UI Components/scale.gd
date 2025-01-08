@@ -123,6 +123,8 @@ func handle_wrong_answer():
 		
 	if timeline_file:
 		Dialogic.start(timeline_file)
+		
+	total_sts = 0
 	
 	
 		
@@ -145,6 +147,8 @@ func handle_correct_answer():
 		ui.hide()
 		label.text = "This is the greed they talk about in the bible..."
 		print("Clue is now collectible")
+		
+	total_sts = 0
 		
 
 	
