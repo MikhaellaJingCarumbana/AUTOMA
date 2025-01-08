@@ -60,6 +60,12 @@ func toggle_chest_quiz() -> void:
 		chest_quiz.show()
 		button.show()
 		is_open = true
+		
+func opened_quiz():
+	print("Quiz is opened = ", is_open)
+	return is_open
+	
+	
 
 
 		

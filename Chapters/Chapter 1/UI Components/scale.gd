@@ -124,8 +124,6 @@ func handle_wrong_answer():
 	if timeline_file:
 		Dialogic.start(timeline_file)
 	
-	
-		
 func handle_correct_answer():
 	label.text = "Correct!"
 	await get_tree().create_timer(1.5).timeout
@@ -153,11 +151,6 @@ func handle_correct_answer():
 	if timeline_file2:
 		Dialogic.start(timeline_file2)
 	
-	
-func  _input(event: InputEvent) -> void:
-	if event.is_action_pressed("enter"):
-		print(event)
-		confirm_slots()
 	
 func is_open() -> bool:
 	print("Mimic is open called. State: ", opened)

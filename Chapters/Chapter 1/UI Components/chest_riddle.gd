@@ -11,6 +11,8 @@ extends Node
 @onready var ui: Control = $"../UI"
 @onready var scale: Scale = $Control/Scale
 @onready var button: Button = $UI/Button
+@onready var mimic: CharacterBody2D = $"../../Mimic"
+
 
 
 var questions = []
@@ -32,6 +34,9 @@ func _on_back_pressed() -> void:
 	
 func _on_button_pressed() -> void:
 	scale.confirm_slots()
-	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Submit answer") and mimic.opened_quiz():
+		scale.confirm_slots()
 
 	

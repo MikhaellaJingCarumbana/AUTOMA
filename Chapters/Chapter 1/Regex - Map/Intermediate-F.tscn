@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
-[ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
+[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 [ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="37_d2ayn"]
 [ext_resource type="PackedScene" uid="uid://bl307x25uvrnk" path="res://Chapters/Chapter 1/UI Components/chest_puzzles.tscn" id="37_jrd7v"]
 
@@ -6599,17 +6599,23 @@ layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
 [node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(208, 241)
+position = Vector2(253, 803)
+parent_chest = NodePath("../Chest Puzzles2/Chest Puzzle2/Control/Scale")
+
+[node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
+position = Vector2(818, 533)
+parent_chest = NodePath("../Chest Puzzles2/Chest Puzzle/Control/Scale")
 
 [node name="Mimic" parent="." node_paths=PackedStringArray("chest_quiz", "button") instance=ExtResource("30_m58dl")]
-position = Vector2(207, 244)
+position = Vector2(253, 803)
 chest_quiz = NodePath("../Chest Puzzles2/Chest Puzzle2/Control")
-button = NodePath("../Chest Puzzles2/Chest Puzzle/UI/Button")
+button = NodePath("../Chest Puzzles2/Chest Puzzle/Control/UI/Button")
 
-[node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz", "button") instance=ExtResource("30_m58dl")]
+[node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz", "UI", "button") instance=ExtResource("30_m58dl")]
 position = Vector2(818, 533)
 chest_quiz = NodePath("../Chest Puzzles2/Chest Puzzle/Control")
-button = NodePath("../Chest Puzzles2/Chest Puzzle/UI/Button")
+UI = NodePath("../Chest Puzzles2/Chest Puzzle2/Control/UI")
+button = NodePath("../Chest Puzzles2/Chest Puzzle2/Control/UI/Button")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
 position = Vector2(100, 248)
@@ -6651,22 +6657,21 @@ question = "CRYSTAL*"
 [node name="Control" parent="Chest Puzzles2/Chest Puzzle" index="0"]
 visible = false
 
+[node name="PauseMenu" parent="Chest Puzzles2/Chest Puzzle/Control" index="0"]
+process_priority = -1
+
 [node name="Scale" parent="Chest Puzzles2/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button", "pause_menu")]
 mouse_filter = 2
+target_weight = 0
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
+logical_operator = ">="
 item_weight = 20
 clue_hint = "anything goes..."
-ui = NodePath("../../UI")
-button = NodePath("../../UI/Button")
+ui = NodePath("../UI")
+button = NodePath("../UI/Button")
 pause_menu = NodePath("..")
-
-[node name="UI" parent="Chest Puzzles2/Chest Puzzle" index="1"]
-mouse_filter = 2
-
-[node name="Button" parent="Chest Puzzles2/Chest Puzzle/UI" index="0"]
-visible = false
 
 [node name="Chest Puzzle2" parent="Chest Puzzles2" instance=ExtResource("23_n4wct")]
 process_priority = -1
@@ -7006,7 +7011,6 @@ mouse_filter = 1
 
 [node name="Pause and Death" type="CanvasLayer" parent="."]
 
-[connection signal="pressed" from="Chest Puzzles2/Chest Puzzle/UI/Button" to="Chest Puzzles2/Chest Puzzle" method="_on_button_pressed"]
 [connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
 [connection signal="body_entered" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_entered"]
@@ -7029,6 +7033,7 @@ mouse_filter = 1
 [connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
 
 [editable path="Clues"]
+[editable path="Clues2"]
 [editable path="Mimic"]
 [editable path="Mimic2"]
 [editable path="Player"]
@@ -7037,7 +7042,6 @@ mouse_filter = 1
 [editable path="Chest Puzzles2/Chest Puzzle/Control"]
 [editable path="Chest Puzzles2/Chest Puzzle/Control/Scale"]
 [editable path="Chest Puzzles2/Chest Puzzle/Control/UI"]
-[editable path="Chest Puzzles2/Chest Puzzle/UI"]
 [editable path="Chest Puzzles2/Chest Puzzle2"]
 [editable path="Chest Puzzles2/Chest Puzzle2/Control"]
 [editable path="Chest Puzzles2/Chest Puzzle2/Control/Scale"]
