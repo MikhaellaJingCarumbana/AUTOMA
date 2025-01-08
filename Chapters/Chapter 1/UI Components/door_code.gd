@@ -29,6 +29,7 @@ func interact_door():
 
 
 func _on_button_pressed() -> void:
+	print("Button pressed")
 	pause_menu.hide()
 	
 func load_question() -> void:

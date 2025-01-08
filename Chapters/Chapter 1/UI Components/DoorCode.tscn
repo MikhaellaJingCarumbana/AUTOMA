@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="3_5fc7o"]
 [ext_resource type="FontFile" uid="uid://dexd0d2xxu57p" path="res://Fonts/ds-runenglish-2-font/DsRunenglish2-nR5O.ttf" id="3_00858"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_m2org"]
-[ext_resource type="Texture2D" uid="uid://csbyhcjcdhusm" path="res://Art/Lucid V1.2/PNG/Flat/64/Left-Arrow.png" id="6_wxrwi"]
+[ext_resource type="Texture2D" uid="uid://bflpr8egl04vc" path="res://Art/Lucid V1.2/SVG/Flat/Left-Arrow.svg" id="6_njthd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
 shader = ExtResource("2_l88a0")
@@ -153,21 +153,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Back" type="Button" parent="PauseMenu"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.023
-anchor_top = 0.052
-anchor_right = 0.023
-anchor_bottom = 0.052
-offset_left = 97.84
-offset_top = -0.16
-offset_right = 161.84
-offset_bottom = 63.84
-scale = Vector2(1.5, 1.5)
-mouse_filter = 2
-icon = ExtResource("6_wxrwi")
+[node name="Button" type="Button" parent="PauseMenu"]
+offset_left = 65.0
+offset_top = 41.0
+offset_right = 129.0
+offset_bottom = 105.0
+icon = ExtResource("6_njthd")
 
 [node name="Submit" type="Button" parent="PauseMenu"]
 layout_mode = 1
@@ -182,10 +173,10 @@ offset_right = 151.5
 offset_bottom = -293.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 2
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("3_m2org")
 theme_override_font_sizes/font_size = 50
 text = "Submit"
 
-[connection signal="pressed" from="PauseMenu/Back" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Submit" to="." method="_on_submit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c73ja3vtl1h5h"]
+[gd_scene load_steps=10 format=3 uid="uid://c73ja3vtl1h5h"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/UI Components/chest_puzzle.gd" id="1_0ie75"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_b7s68"]
@@ -7,7 +7,6 @@
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="4_cw14e"]
 [ext_resource type="PackedScene" uid="uid://4iutda755b11" path="res://Chapters/Chapter 1/Elements/Game Component/Components/scale.tscn" id="5_hmdh6"]
 [ext_resource type="PackedScene" uid="uid://djlhjxi8ybmnv" path="res://Chapters/Chapter 1/UI Components/ui_riddle.tscn" id="6_6t1nn"]
-[ext_resource type="PackedScene" uid="uid://duwtec8hvsl3q" path="res://Chapters/Chapter 1/UI Components/Inventory/inventory.tscn" id="7_j3643"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aq6tb"]
 shader = ExtResource("1_b7s68")
@@ -154,9 +153,21 @@ offset_top = 18.0
 offset_bottom = 133.0
 
 [node name="UI" parent="." instance=ExtResource("6_6t1nn")]
-
-[node name="Inventory" parent="." instance=ExtResource("7_j3643")]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="UI" index="0"]
+offset_left = -50.0
+offset_top = 157.0
+offset_right = 50.0
+offset_bottom = 195.0
+mouse_filter = 1
 
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 

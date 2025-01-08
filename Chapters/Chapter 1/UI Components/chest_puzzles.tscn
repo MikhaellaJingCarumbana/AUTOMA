@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl307x25uvrnk"]
+[gd_scene load_steps=2 format=3 uid="uid://bl307x25uvrnk"]
 
 [ext_resource type="PackedScene" uid="uid://bd0vy7ccnkl4n" path="res://Chapters/Chapter 1/UI Components/Chest_Riddle.tscn" id="1_5iyv6"]
-[ext_resource type="PackedScene" uid="uid://djlhjxi8ybmnv" path="res://Chapters/Chapter 1/UI Components/ui_riddle.tscn" id="2_ivut7"]
 
 [node name="Chest Puzzles" type="CanvasLayer"]
 process_priority = 1
@@ -14,12 +13,7 @@ mouse_filter = 0
 [node name="Scale" parent="Chest Puzzle/Control" index="1"]
 item_weight = 10
 
-[node name="UI" parent="Chest Puzzle" instance=ExtResource("2_ivut7")]
-
-[connection signal="pressed" from="Chest Puzzle/UI/Button" to="Chest Puzzle" method="_on_button_pressed"]
-
 [editable path="Chest Puzzle"]
 [editable path="Chest Puzzle/Control"]
 [editable path="Chest Puzzle/Control/Scale"]
 [editable path="Chest Puzzle/Control/UI"]
-[editable path="Chest Puzzle/UI"]
