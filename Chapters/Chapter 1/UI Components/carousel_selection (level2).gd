@@ -52,6 +52,16 @@ func _on_next_pressed() -> void:
 	
 	_select_deselect_highlight()
 	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("left"):
+		var scrollValue = targetScroll + _get_space_between()
+		await _tween_scroll(scrollValue)
+		_select_deselect_highlight()
+	elif event.is_action_pressed("right"):
+		var scrollValue = targetScroll - _get_space_between()
+		await _tween_scroll(scrollValue)
+		_select_deselect_highlight()
+	
 func _get_space_between():
 	var distanceSize = object_container.get_theme_constant("separation")
 	var objectSize = object_container.get_children()[1].size.x
