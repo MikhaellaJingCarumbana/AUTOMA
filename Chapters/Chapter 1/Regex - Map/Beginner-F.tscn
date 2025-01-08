@@ -6788,7 +6788,10 @@ visible = false
 mouse_filter = 1
 
 [node name="Button" parent="CanvasLayer/DoorCode/PauseMenu" index="5"]
-layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="body_entered" from="UI/Dialogic2/Area2D" to="UI/Dialogic2" method="_on_area_2d_body_entered"]
@@ -6814,8 +6817,8 @@ layout_mode = 0
 [editable path="UI/Clue_System"]
 [editable path="UI/Note System"]
 [editable path="UI/DeathScreen"]
-[editable path="UI/PauseGame"]
 [editable path="UI/Dialogic"]
+[editable path="UI/PauseGame"]
 [editable path="Enemies/Skull"]
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]

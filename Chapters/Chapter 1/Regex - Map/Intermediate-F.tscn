@@ -6649,13 +6649,15 @@ question = "CRYSTAL*"
 [node name="Control" parent="Chest Puzzles2/Chest Puzzle" index="0"]
 visible = false
 
-[node name="Scale" parent="Chest Puzzles2/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "pause_menu")]
+[node name="Scale" parent="Chest Puzzles2/Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "mimic", "ui", "button", "pause_menu")]
 mouse_filter = 2
 game_manager = NodePath("../../../../GameManager")
 player = NodePath("../../../../Player")
 mimic = NodePath("../../../../Mimic2/AnimatedSprite2D")
 item_weight = 20
 clue_hint = "anything goes..."
+ui = NodePath("../UI")
+button = NodePath("../UI/Button")
 pause_menu = NodePath("..")
 
 [node name="Chest Puzzle2" parent="Chest Puzzles2" instance=ExtResource("23_n4wct")]

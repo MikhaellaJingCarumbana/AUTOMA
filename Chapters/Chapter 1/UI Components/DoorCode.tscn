@@ -154,6 +154,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="PauseMenu"]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 41.0
 offset_right = 129.0
