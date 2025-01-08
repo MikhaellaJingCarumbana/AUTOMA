@@ -6599,10 +6599,15 @@ layer_5/name = "infront of props"
 layer_5/tile_data = PackedInt32Array(1966125, 524293, 9, 1966128, 655365, 8, 1966136, 655365, 8, 1966133, 524293, 9, 1966126, 524293, 8, 1966127, 589829, 8, 1966134, 524293, 8, 1966135, 589829, 8, 2097199, 4, 26, 2162735, 4, 27, 2097200, 65540, 26, 2162736, 65540, 27, 2097205, 4, 26, 2162741, 4, 27, 2097206, 65540, 26, 2162742, 65540, 27, 1703978, 655364, 3, 1703979, 720900, 3, 2162730, 655364, 5, 2162731, 720900, 5, 1769514, 655364, 4, 1769515, 720900, 4, 1835050, 655364, 4, 1835051, 720900, 4, 1900586, 655364, 4, 1900587, 720900, 4, 1966122, 655364, 4, 1966123, 720900, 4, 2031658, 655364, 4, 2031659, 720900, 4, 2097194, 655364, 4, 2097195, 720900, 4, 1769529, 655364, 4, 1769530, 720900, 4, 1835065, 655364, 4, 1835066, 720900, 4, 1900601, 655364, 4, 1900602, 720900, 4, 1966137, 655364, 4, 1966138, 720900, 4, 2031673, 655364, 4, 2031674, 720900, 4, 2097209, 655364, 4, 2097210, 720900, 4, 2162745, 655364, 5, 2162746, 720900, 5, 3145769, 131076, 268435493, 3145768, 196612, 268435493, 3211305, 131076, 268435494, 3211304, 196612, 268435494)
 
 [node name="Clues" parent="." instance=ExtResource("7_8b7mw")]
-position = Vector2(208, 241)
+position = Vector2(250, 806)
+parent_chest = NodePath("../Chest Puzzles2/Chest Puzzle/Control/Scale")
+
+[node name="Clues2" parent="." instance=ExtResource("7_8b7mw")]
+position = Vector2(818, 534)
+parent_chest = NodePath("../Chest Puzzles2/Chest Puzzle2/Control/Scale")
 
 [node name="Mimic" parent="." node_paths=PackedStringArray("chest_quiz") instance=ExtResource("30_m58dl")]
-position = Vector2(207, 244)
+position = Vector2(250, 804)
 chest_quiz = NodePath("../Chest Puzzles2/Chest Puzzle2/Control")
 
 [node name="Mimic2" parent="." node_paths=PackedStringArray("chest_quiz") instance=ExtResource("30_m58dl")]
@@ -6815,35 +6820,64 @@ mouse_filter = 1
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Skull" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(733, 527)
+position = Vector2(735, 527)
+
+[node name="Skull3" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(930, 242)
+
+[node name="Skull2" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(748, 241)
+
+[node name="Skull4" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(649, 671)
+
+[node name="Skull5" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(764, 670)
+
+[node name="Skull6" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(531, 783)
+
+[node name="Skull7" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(740, 784)
+
+[node name="Skull8" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(191, 1040)
+
+[node name="Skull9" parent="Enemies" instance=ExtResource("12_k2flh")]
+position = Vector2(874, 1040)
 
 [node name="Note" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
+parent_enemy = NodePath("../Skull")
 
 [node name="Note2" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
+parent_enemy = NodePath("../Skull8")
 
 [node name="Note3" parent="Enemies" instance=ExtResource("10_kl4pt")]
 position = Vector2(2, 6)
-
-[node name="Plus" parent="Enemies" instance=ExtResource("22_fd4b0")]
+parent_enemy = NodePath("../Skull9")
 
 [node name="Plus2" parent="Enemies" instance=ExtResource("22_fd4b0")]
+parent_enemy = NodePath("../Skull2")
 
 [node name="Star" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
-
-[node name="Star2" parent="Enemies" instance=ExtResource("24_wlico")]
-powerup_type = "infinite projectiles"
+parent_enemy = NodePath("../Skull6")
 
 [node name="Star3" parent="Enemies" instance=ExtResource("24_wlico")]
 powerup_type = "infinite projectiles"
 
-[node name="Hearts" parent="Enemies" instance=ExtResource("26_spiw6")]
-
 [node name="Hearts2" parent="Enemies" instance=ExtResource("26_spiw6")]
+parent_enemy = NodePath("../Skull5")
 
 [node name="AnimatedSprite2D" parent="Enemies/Hearts2" index="0"]
+frame_progress = 0.879936
+
+[node name="Hearts3" parent="Enemies" instance=ExtResource("26_spiw6")]
+parent_enemy = NodePath("../Skull4")
+
+[node name="AnimatedSprite2D" parent="Enemies/Hearts3" index="0"]
 frame_progress = 0.879936
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("22_lwn0i")]
@@ -6858,12 +6892,13 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 z_index = 1
 z_as_relative = false
 position = Vector2(-1, 2)
-parent_enemy = NodePath("../Enemies/Skull")
-
-[node name="Crystal2" parent="." instance=ExtResource("30_sq58t")]
-position = Vector2(-1, 2)
+parent_enemy = NodePath("../Enemies/Skull3")
 
 [node name="Coin" parent="." instance=ExtResource("31_bcqml")]
+parent_enemy = NodePath("../Enemies/Skull3")
+
+[node name="Coin2" parent="." instance=ExtResource("31_bcqml")]
+parent_enemy = NodePath("../Enemies/Skull")
 
 [node name="HurtPlayerEffect" parent="." instance=ExtResource("33_vxk4d")]
 
@@ -7002,6 +7037,7 @@ z_index = 1
 [connection signal="pressed" from="UI/Powerup_Choose/PauseMenu/HBoxContainer/JumpButton" to="UI/Powerup_Choose" method="_on_jump_button_pressed"]
 
 [editable path="Clues"]
+[editable path="Clues2"]
 [editable path="Mimic"]
 [editable path="Mimic2"]
 [editable path="Player"]
@@ -7024,13 +7060,11 @@ z_index = 1
 [editable path="UI/Powerup_Choose"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
-[editable path="Enemies/Plus"]
 [editable path="Enemies/Plus2"]
 [editable path="Enemies/Star"]
-[editable path="Enemies/Star2"]
 [editable path="Enemies/Star3"]
-[editable path="Enemies/Hearts"]
 [editable path="Enemies/Hearts2"]
+[editable path="Enemies/Hearts3"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]
