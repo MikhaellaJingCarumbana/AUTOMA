@@ -6847,10 +6847,9 @@ mouse_filter = 1
 position = Vector2(735, 527)
 
 [node name="Skull3" parent="Enemies" instance=ExtResource("12_k2flh")]
-position = Vector2(328, 239)
+position = Vector2(893, 239)
 
 [node name="Skull2" parent="Enemies" instance=ExtResource("12_k2flh")]
-visible = false
 position = Vector2(748, 241)
 
 [node name="Skull4" parent="Enemies" instance=ExtResource("12_k2flh")]

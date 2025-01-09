@@ -8,8 +8,12 @@ var group_id = null
 var grouped: bool = false
 @onready var anim: AnimatedSprite2D = %AnimatedSprite2D
 
-const speed = 30 
+const speed = 50
+const base_speed = 40 
+const max_speed = 100
+var current_speed = base_speed
 var is_cyclops_chase: bool = false
+var player_chase_time = 0.0
 
 
 #health
@@ -73,6 +77,7 @@ func handle_animation():
 			taking_damage = false
 		elif dead and is_roaming:
 			is_roaming = false
+			
 			handle_death()
 			
 func handle_death():
@@ -87,6 +92,7 @@ func handle_death():
 		print("DEBUG: No note node found under the same parent as enemy.")
 		
 	load_sfx(death_sound)
+	anim.play("death")
 	sfx_player.play()
 	await get_tree().create_timer(0.3).timeout
 	self.queue_free()
@@ -112,9 +118,25 @@ func move(delta):
 		if !is_cyclops_chase:
 			velocity += dir * speed * delta
 		elif is_cyclops_chase and !taking_damage:
-			var dir_to_player = position.direction_to(player.position) * speed
-			velocity.x = dir_to_player.x
-			dir.x = abs(velocity.x)/velocity.x
+			
+			player_chase_time += delta
+			
+			current_speed = lerp(base_speed, max_speed, player_chase_time / 5.0)
+			current_speed = clamp(current_speed, base_speed, max_speed)
+			
+			var dir_to_player = position.direction_to(player.position)
+			
+			var random_offset = Vector2(
+				randf_range(-0.2, 0.2),
+				randf_range(-0.2, 0.2)
+			)
+			
+			dir_to_player += random_offset
+			dir_to_player = dir_to_player.normalized()
+			
+			velocity = dir_to_player * speed
+			dir.x = sign(velocity.x)
+			
 		is_roaming = true
 	elif dead:
 		velocity.x = 0
@@ -136,12 +158,27 @@ func _on_area_2d_body_entered(body):
 	if (body.name == "Player"):
 		var y_delta = position.y - body.position.y
 		var x_delta = body.position.x - position.x
-		print(y_delta)
+		
+		print("y_delta:", y_delta, "x_delta:", x_delta)
+		
 		if(y_delta > 7):
 			print("Destroy enemy")
 			anim.play("deal_damage")
 			handle_death()
 			body.jump()
+			
+		elif y_delta <  -7:
+			print("Player hit the bottom of the skull! Damaging player.")
+			anim.play("deal_damage")
+			game_manager.decrease_health()
+			
+			body.velocity.y += 300 
+			body.jump_slide(x_delta * 2)
+			
+			is_cyclops_chase = false
+			await get_tree().create_timer(0.5).timeout
+			is_cyclops_chase = true
+			
 		else:
 			print("Decrease player health")
 			anim.play("deal_damage")
