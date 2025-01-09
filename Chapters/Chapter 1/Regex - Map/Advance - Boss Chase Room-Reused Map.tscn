@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://esxjvhuoq40l"]
+[gd_scene load_steps=33 format=3 uid="uid://esxjvhuoq40l"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_y5tvb"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="2_g6scb"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://brhxilmu0pj86" path="res://Chapters/Chapter 1/UI Components/spike.tscn" id="13_k0b3n"]
 [ext_resource type="PackedScene" uid="uid://nuh3a8lcx5d6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="14_rjj73"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="15_lkj11"]
+[ext_resource type="PackedScene" uid="uid://dqj7wy887g5rl" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Goblin.tscn" id="17_akxdp"]
+[ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="18_1c6xv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cktx6"]
 texture = ExtResource("1_y5tvb")
@@ -6275,6 +6277,9 @@ duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbhy7"]
+size = Vector2(1106, 646)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8n06m"]
 size = Vector2(50.25, 9)
 
@@ -6317,16 +6322,24 @@ layer_6/name = "infront of decors"
 layer_6/tile_data = PackedInt32Array(1245222, 655360, 536870920, 1245219, 655360, 536870920, 1245220, 655360, 805306376, 1245221, 655360, 536870920, 1507371, 458752, 8, 1507372, 524288, 8, 1507373, 589824, 8, 524296, 589829, 0, 524349, 589829, 1, 1703965, 655365, 1)
 
 [node name="Player" parent="." instance=ExtResource("6_yx4og")]
-position = Vector2(334, 168)
+position = Vector2(771, 136)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(334, 168)
+position = Vector2(771, 136)
 script = ExtResource("6_eksja")
 follow_mode = 1
 follow_target = NodePath("../Player")
 zoom = Vector2(5, 7)
 tween_resource = SubResource("Resource_0rmqt")
 tween_on_load = false
+limit_target = NodePath("../Camera_bounds/CollisionShape2D")
+
+[node name="Camera_bounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bounds"]
+position = Vector2(561, 335)
+shape = SubResource("RectangleShape2D_bbhy7")
+debug_color = Color(0.652662, 0.930431, 1, 0.42)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -6337,6 +6350,9 @@ unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [node name="HurtPlayerEffect" parent="." instance=ExtResource("9_b6ygs")]
+
+[node name="ColorRect" parent="HurtPlayerEffect/PlayerHurt" index="2"]
+visible = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -6440,6 +6456,16 @@ position = Vector2(646, 679)
 [node name="CollisionShape2D" parent="CheckpointManager/Checkpoint" index="0"]
 position = Vector2(-162, -42)
 
+[node name="enemies" type="Node" parent="."]
+
+[node name="Goblin" parent="enemies" instance=ExtResource("17_akxdp")]
+position = Vector2(967, 165)
+
+[node name="Hearts" parent="enemies" instance=ExtResource("18_1c6xv")]
+parent_enemy = NodePath("../Goblin")
+
+[editable path="HurtPlayerEffect"]
+[editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
 [editable path="UI/DeathScreen"]
