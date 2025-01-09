@@ -65,11 +65,9 @@ func handle_animation():
 					anim.flip_h = false
 		else:
 			anim.play("idle")
-	elif take_damage and !is_dealing_damage:
-		anim.play("death")
-		taking_damage = false
 	elif dead and is_roaming:
 		is_roaming = false
+		anim.play("death")
 		handle_death()
 
 func handle_death():
@@ -90,6 +88,7 @@ func handle_death():
 	
 	load_sfx(death_sound)
 	sfx_player.play()
+	anim.play("death")
 	
 	var death_animation_length = anim.sprite_frames.get_frame_count("death") / anim.sprite_frames.get_animation_speed("death")
 	await get_tree().create_timer(death_animation_length).timeout
