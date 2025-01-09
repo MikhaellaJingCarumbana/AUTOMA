@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_iqdbx"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="14_su5ms"]
 [ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="15_epllm"]
+[ext_resource type="PackedScene" uid="uid://brhxilmu0pj86" path="res://Chapters/Chapter 1/UI Components/spike.tscn" id="16_1ltu4"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="16_7kixp"]
 [ext_resource type="PackedScene" uid="uid://rkh8abgwi878" path="res://Chapters/Chapter 1/UI Components/Powerup Information/scenes/Powerup_Info.tscn" id="17_pqsq3"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="17_v4ecl"]
@@ -36,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
+[ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 [ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="37_d2ayn"]
 [ext_resource type="PackedScene" uid="uid://bl307x25uvrnk" path="res://Chapters/Chapter 1/UI Components/chest_puzzles.tscn" id="37_jrd7v"]
 
@@ -6550,9 +6551,6 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rut0x"]
 size = Vector2(1024, 1081)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iro4"]
-size = Vector2(65, 9)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm5x4"]
 size = Vector2(33.5, 9)
 
@@ -6706,13 +6704,7 @@ pause_menu = NodePath("..")
 
 [node name="Death Zones" type="Node" parent="."]
 
-[node name="spike" type="Area2D" parent="Death Zones"]
-script = ExtResource("10_nls0b")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zones/spike"]
-position = Vector2(463.5, 508.5)
-shape = SubResource("RectangleShape2D_2iro4")
-debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+[node name="spike" parent="Death Zones" instance=ExtResource("16_1ltu4")]
 
 [node name="spike2" type="Area2D" parent="Death Zones"]
 script = ExtResource("10_nls0b")
@@ -7074,8 +7066,9 @@ z_index = 1
 
 [node name="Pause and Death" type="CanvasLayer" parent="."]
 
-[connection signal="body_entered" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_entered"]
-[connection signal="body_exited" from="Death Zones/spike" to="Death Zones/spike" method="_on_body_exited"]
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="body_entered" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_entered"]
 [connection signal="body_exited" from="Death Zones/spike2" to="Death Zones/spike2" method="_on_body_exited"]
 [connection signal="body_entered" from="Death Zones/spike3" to="Death Zones/spike3" method="_on_body_entered"]

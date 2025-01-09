@@ -1,9 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://esxjvhuoq40l"]
+[gd_scene load_steps=30 format=3 uid="uid://esxjvhuoq40l"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_y5tvb"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="2_g6scb"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="3_e8240"]
 [ext_resource type="Texture2D" uid="uid://imatk76rwuj4" path="res://Art/Dungeon Vibes Tilesets/Props 2.png" id="4_lcq1w"]
+[ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="5_gqh6a"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_eksja"]
+[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="6_yx4og"]
+[ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="7_bjayh"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_jw8nq"]
+[ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="8_rkrj4"]
+[ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="9_b6ygs"]
+[ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="9_ba8lm"]
+[ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="10_hk5r6"]
+[ext_resource type="PackedScene" uid="uid://brhxilmu0pj86" path="res://Chapters/Chapter 1/UI Components/spike.tscn" id="13_k0b3n"]
+[ext_resource type="PackedScene" uid="uid://nuh3a8lcx5d6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="14_rjj73"]
+[ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="15_lkj11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cktx6"]
 texture = ExtResource("1_y5tvb")
@@ -6257,6 +6269,33 @@ sources/2 = SubResource("TileSetAtlasSource_v7n44")
 sources/4 = SubResource("TileSetAtlasSource_6gtic")
 sources/5 = SubResource("TileSetAtlasSource_4g61o")
 
+[sub_resource type="Resource" id="Resource_0rmqt"]
+script = ExtResource("7_jw8nq")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8n06m"]
+size = Vector2(50.25, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkywr"]
+size = Vector2(34.25, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfu01"]
+size = Vector2(63.125, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jf1km"]
+size = Vector2(33.5625, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d0ed"]
+size = Vector2(97, 9.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foefh"]
+size = Vector2(32.5, 9.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgyjl"]
+size = Vector2(63.25, 9.5)
+
 [node name="NewMap" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6276,3 +6315,146 @@ layer_5/name = "decors"
 layer_5/tile_data = PackedInt32Array(1114123, 6291460, 20, 1179659, 6291460, 21, 1245195, 6291460, 22, 1114124, 6356996, 20, 1179660, 6356996, 21, 1245196, 6356996, 22, 1114125, 6422532, 20, 1179661, 6422532, 21, 1245197, 6422532, 22, 1114126, 6488068, 20, 1179662, 6488068, 21, 1245198, 6488068, 22, 1638465, 5242884, 5, 1704001, 5242884, 6, 1769537, 5242884, 7, 1638466, 5308420, 5, 1704002, 5308420, 6, 1769538, 5308420, 7, 1638467, 5373956, 5, 1704003, 5373956, 6, 1769539, 5373956, 7, 1638468, 5439492, 5, 1704004, 5439492, 6, 1769540, 5439492, 7, 1572899, 6029316, 32, 1638435, 6029316, 33, 1703971, 6029316, 34, 1769507, 6029316, 35, 1572900, 6094852, 32, 1638436, 6094852, 33, 1703972, 6094852, 34, 1769508, 6094852, 35, 1572901, 6160388, 32, 1638437, 6160388, 33, 1703973, 6160388, 34, 1769509, 6160388, 35, 1572902, 6225924, 32, 1638438, 6225924, 33, 1703974, 6225924, 34, 1769510, 6225924, 35, 1835044, 851972, 47, 1835045, 917508, 47, 1376260, 262148, 48, 1441796, 262148, 49, 1507332, 262148, 50, 1572868, 262148, 51, 1376261, 327684, 48, 1441797, 327684, 49, 1507333, 327684, 50, 1572869, 327684, 51, 1376262, 393220, 48, 1441798, 393220, 49, 1507334, 393220, 50, 1572870, 393220, 51, 1376263, 458756, 48, 1441799, 458756, 49, 1507335, 458756, 50, 1572871, 458756, 51, 393234, 327680, 23, 458770, 327680, 24, 524306, 327680, 25, 393235, 393216, 23, 458771, 393216, 24, 524307, 393216, 25, 327708, 327680, 23, 393244, 327680, 24, 458780, 327680, 25, 327709, 393216, 23, 393245, 393216, 24, 458781, 393216, 25, 262182, 327680, 23, 327718, 327680, 24, 393254, 327680, 25, 262183, 393216, 23, 327719, 393216, 24, 393255, 393216, 25, 1507397, 327680, 23, 1572933, 327680, 24, 1638469, 327680, 25, 1507398, 393216, 23, 1572934, 393216, 24, 1638470, 393216, 25, 524357, 327680, 23, 589893, 327680, 24, 655429, 327680, 25, 524358, 393216, 23, 589894, 393216, 24, 655430, 393216, 25, 1441793, 327680, 23, 1507329, 327680, 24, 1572865, 327680, 25, 1441794, 393216, 23, 1507330, 393216, 24, 1572866, 393216, 25, 1966081, 327680, 23, 2031617, 327680, 24, 2097153, 327680, 25, 1966082, 393216, 23, 2031618, 393216, 24, 2097154, 393216, 25, 2555924, 458757, 4, 2555925, 458757, 4, 2555926, 458757, 4, 2555927, 458757, 4, 2490393, 458757, 4, 2490394, 458757, 4, 2555932, 458757, 4, 2555933, 458757, 4, 2555936, 458757, 4, 2555937, 458757, 4, 2555938, 458757, 4, 2555939, 458757, 4, 2555940, 458757, 4, 2555941, 458757, 4, 2555946, 458757, 4, 2555947, 458757, 4, 2424850, 458757, 4, 2424851, 458757, 4, 2424876, 458757, 4, 2424877, 458757, 4, 2424878, 458757, 4, 2424879, 458757, 4, 852005, 458757, 4, 852006, 458757, 4, 852007, 458757, 4, 1638454, 458757, 4, 1638455, 458757, 4, 1114147, 6291460, 32, 1179683, 6291460, 33, 1245219, 6291460, 34, 1114148, 6356996, 32, 1179684, 6356996, 33, 1245220, 6356996, 34, 1114149, 6422532, 32, 1179685, 6422532, 33, 1245221, 6422532, 34, 1114150, 6488068, 32, 1179686, 6488068, 33, 1245222, 6488068, 34, 2097181, 6029316, 28, 2162717, 6029316, 29, 2228253, 6029316, 30, 2097182, 6094852, 28, 2162718, 6094852, 29, 2228254, 6094852, 30, 2097183, 6160388, 28, 2162719, 6160388, 29, 2228255, 6160388, 30, 2097184, 6225924, 28, 2162720, 6225924, 29, 2228256, 6225924, 30, 2162712, 6291460, 28, 2228248, 6291460, 29, 2293784, 6291460, 30, 2359320, 6291460, 31, 2162713, 6356996, 28, 2228249, 6356996, 29, 2293785, 6356996, 30, 2359321, 6356996, 31, 2162714, 6422532, 28, 2228250, 6422532, 29, 2293786, 6422532, 30, 2359322, 6422532, 31, 2162715, 6488068, 28, 2228251, 6488068, 29, 2293787, 6488068, 30, 2359323, 6488068, 31, 393247, 5767172, 41, 393248, 5832708, 41, 393249, 5898244, 41, 393250, 5963780, 41, 327714, 5767172, 41, 327715, 5832708, 41, 327716, 5898244, 41, 327717, 5963780, 41, 262176, 6094852, 37, 327712, 6094852, 38, 262177, 6160388, 37, 327713, 6160388, 38, 196643, 6094852, 37, 262179, 6094852, 38, 196644, 6160388, 37, 262180, 6160388, 38, 655395, 1900546, 3, 720931, 1900546, 4, 786467, 1900546, 5, 655396, 1966082, 3, 720932, 1966082, 4, 786468, 1966082, 5, 655400, 1900546, 3, 720936, 1900546, 4, 786472, 1900546, 5, 655401, 1966082, 3, 720937, 1966082, 4, 786473, 1966082, 5, 1966140, 1900546, 3, 2031676, 1900546, 4, 2097212, 1900546, 5, 1966141, 1966082, 3, 2031677, 1966082, 4, 2097213, 1966082, 5, 1966135, 1900546, 3, 2031671, 1900546, 4, 2097207, 1900546, 5, 1966136, 1966082, 3, 2031672, 1966082, 4, 2097208, 1966082, 5, 2162731, 524290, 9, 2162732, 589826, 9, 2162733, 655362, 9, 2162735, 655362, 8, 2162734, 589826, 8, 2097198, 589826, 3, 2097197, 589826, 3, 2097196, 589826, 3, 1835030, 458757, 4, 1835031, 458757, 4, 1835034, 458757, 4, 1835035, 458757, 4, 1769478, 6291460, 20, 1835014, 6291460, 21, 1900550, 6291460, 22, 1769479, 6356996, 20, 1835015, 6356996, 21, 1900551, 6356996, 22, 1769480, 6422532, 20, 1835016, 6422532, 21, 1900552, 6422532, 22, 1769481, 6488068, 20, 1835017, 6488068, 21, 1900553, 6488068, 22, 1835037, 262144, 34, 1835042, 262144, 34, 1048636, 655365, 0, 720934, 262144, 40, 2031674, 262144, 40, 2031652, 327680, 42, 2097189, 327680, 42, 2162726, 327680, 42, 2162724, 327680, 42, 2031654, 327680, 42, 1441836, 196608, 43, 1310755, 458752, 8, 1310756, 524288, 8, 1310757, 524288, 8, 1310758, 524288, 8)
 layer_6/name = "infront of decors"
 layer_6/tile_data = PackedInt32Array(1245222, 655360, 536870920, 1245219, 655360, 536870920, 1245220, 655360, 805306376, 1245221, 655360, 536870920, 1507371, 458752, 8, 1507372, 524288, 8, 1507373, 589824, 8, 524296, 589829, 0, 524349, 589829, 1, 1703965, 655365, 1)
+
+[node name="Player" parent="." instance=ExtResource("6_yx4og")]
+position = Vector2(334, 168)
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(334, 168)
+script = ExtResource("6_eksja")
+follow_mode = 1
+follow_target = NodePath("../Player")
+zoom = Vector2(5, 7)
+tween_resource = SubResource("Resource_0rmqt")
+tween_on_load = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("5_gqh6a")]
+unique_name_in_owner = true
+hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
+
+[node name="HurtPlayerEffect" parent="." instance=ExtResource("9_b6ygs")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" parent="UI" instance=ExtResource("7_bjayh")]
+
+[node name="Notes" parent="UI" instance=ExtResource("8_rkrj4")]
+
+[node name="DeathScreen" parent="UI" instance=ExtResource("9_ba8lm")]
+
+[node name="PauseMenu" parent="UI/DeathScreen" index="0"]
+visible = false
+
+[node name="PauseGame" parent="UI" instance=ExtResource("10_hk5r6")]
+
+[node name="PauseMenu" parent="UI/PauseGame" index="0"]
+visible = false
+
+[node name="Death_zones" type="Node" parent="."]
+
+[node name="spike" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+
+[node name="CollisionShape2D" parent="Death_zones/spike" index="0"]
+position = Vector2(367.75, 459.5)
+
+[node name="spike2" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+
+[node name="CollisionShape2D" parent="Death_zones/spike2" index="0"]
+position = Vector2(615.875, 220)
+shape = SubResource("RectangleShape2D_8n06m")
+
+[node name="spike3" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-177, 240)
+
+[node name="CollisionShape2D" parent="Death_zones/spike3" index="0"]
+position = Vector2(607.875, 220)
+shape = SubResource("RectangleShape2D_fkywr")
+
+[node name="spike11" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-177, 240)
+
+[node name="CollisionShape2D" parent="Death_zones/spike11" index="0"]
+position = Vector2(1057, 172)
+shape = SubResource("RectangleShape2D_fkywr")
+
+[node name="spike4" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-177, 240)
+
+[node name="CollisionShape2D" parent="Death_zones/spike4" index="0"]
+position = Vector2(481, 364)
+shape = SubResource("RectangleShape2D_fkywr")
+
+[node name="spike5" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-177, 240)
+
+[node name="CollisionShape2D" parent="Death_zones/spike5" index="0"]
+position = Vector2(529.438, 396)
+shape = SubResource("RectangleShape2D_rfu01")
+
+[node name="spike6" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-177, 240)
+
+[node name="CollisionShape2D" parent="Death_zones/spike6" index="0"]
+position = Vector2(592.219, 380)
+shape = SubResource("RectangleShape2D_jf1km")
+
+[node name="spike7" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-128, 257)
+
+[node name="CollisionShape2D" parent="Death_zones/spike7" index="0"]
+position = Vector2(592.219, 380)
+shape = SubResource("RectangleShape2D_jf1km")
+
+[node name="spike8" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-65, 256)
+
+[node name="CollisionShape2D" parent="Death_zones/spike8" index="0"]
+position = Vector2(625.5, 380.25)
+shape = SubResource("RectangleShape2D_0d0ed")
+
+[node name="spike9" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-65, 256)
+
+[node name="CollisionShape2D" parent="Death_zones/spike9" index="0"]
+position = Vector2(753.75, 381)
+shape = SubResource("RectangleShape2D_foefh")
+
+[node name="spike10" parent="Death_zones" instance=ExtResource("13_k0b3n")]
+position = Vector2(-65, 256)
+
+[node name="CollisionShape2D" parent="Death_zones/spike10" index="0"]
+position = Vector2(800.375, 348)
+shape = SubResource("RectangleShape2D_kgyjl")
+
+[node name="death_zone" parent="Death_zones" instance=ExtResource("14_rjj73")]
+
+[node name="CollisionShape2D" parent="Death_zones/death_zone" index="0"]
+position = Vector2(646, 679)
+
+[node name="CheckpointManager" parent="." instance=ExtResource("15_lkj11")]
+
+[node name="CollisionShape2D" parent="CheckpointManager/Checkpoint" index="0"]
+position = Vector2(-162, -42)
+
+[editable path="UI/Panel"]
+[editable path="UI/Notes"]
+[editable path="UI/DeathScreen"]
+[editable path="UI/PauseGame"]
+[editable path="Death_zones/spike"]
+[editable path="Death_zones/spike2"]
+[editable path="Death_zones/spike3"]
+[editable path="Death_zones/spike11"]
+[editable path="Death_zones/spike4"]
+[editable path="Death_zones/spike5"]
+[editable path="Death_zones/spike6"]
+[editable path="Death_zones/spike7"]
+[editable path="Death_zones/spike8"]
+[editable path="Death_zones/spike9"]
+[editable path="Death_zones/spike10"]
+[editable path="Death_zones/death_zone"]
+[editable path="CheckpointManager"]
+[editable path="CheckpointManager/Checkpoint"]

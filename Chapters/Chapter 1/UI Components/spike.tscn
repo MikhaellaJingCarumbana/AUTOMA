@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://brhxilmu0pj86"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/spikes.gd" id="1_61v2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iro4"]
+size = Vector2(65, 9)
+
+[node name="spike" type="Area2D"]
+script = ExtResource("1_61v2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(463.5, 508.5)
+shape = SubResource("RectangleShape2D_2iro4")
+debug_color = Color(0.726115, 0.089743, 0.152382, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

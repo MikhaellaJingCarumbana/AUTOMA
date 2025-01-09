@@ -28,7 +28,3 @@ func fade_out():
 		await get_tree().process_frame
 	color_rect.visible = false
 	
-func load_sfx(sfx_to_load):
-	if %sfx_player.stream != sfx_to_load:
-		%sfx_player.stop()
-		%sfx_player.stream = sfx_to_load

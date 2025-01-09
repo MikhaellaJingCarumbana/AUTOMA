@@ -30,7 +30,8 @@ var powerup_time_left: float = 0.0
 
 
 func _ready() -> void:
-	powerup_choose.connect("powerup_selected", _apply_powerup)
+	if powerup_choose:
+		powerup_choose.connect("powerup_selected", _apply_powerup)
 	
 	for i in range(hearts.size()):
 		if i < lives:
