@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8dl2m5rrksba"
+path="res://.godot/imported/goblin-death-6729.mp3-ff3a96bc0f3eb4167cace26d554071e2.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/goblin-death-6729.mp3"
+dest_files=["res://.godot/imported/goblin-death-6729.mp3-ff3a96bc0f3eb4167cace26d554071e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

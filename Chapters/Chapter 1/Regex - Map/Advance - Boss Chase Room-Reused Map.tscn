@@ -6342,7 +6342,6 @@ shape = SubResource("RectangleShape2D_bbhy7")
 debug_color = Color(0.652662, 0.930431, 1, 0.42)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.099986, 0.099986, 0.099986, 1)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("5_gqh6a")]
@@ -6458,11 +6457,14 @@ position = Vector2(-162, -42)
 
 [node name="enemies" type="Node" parent="."]
 
+[node name="Hearts" parent="enemies" instance=ExtResource("18_1c6xv")]
+parent_enemy = NodePath("../Goblin")
+
 [node name="Goblin" parent="enemies" instance=ExtResource("17_akxdp")]
 position = Vector2(967, 165)
 
-[node name="Hearts" parent="enemies" instance=ExtResource("18_1c6xv")]
-parent_enemy = NodePath("../Goblin")
+[node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
 
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
