@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bjut1x75w7p42"]
+[gd_scene load_steps=61 format=3 uid="uid://bjut1x75w7p42"]
 
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="1_g8rnr"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="2_jdupe"]
@@ -6583,6 +6583,9 @@ size = Vector2(110.75, 114)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oxew"]
 size = Vector2(292.75, 114)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hacfc"]
+size = Vector2(162, 114)
+
 [node name="Intermediate-f" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -6999,7 +7002,7 @@ offset_left = 94.0
 offset_top = 191.0
 offset_right = 19094.0
 offset_bottom = 6660.0
-text = "Enemies will drop coins and crystals, collect these. "
+text = "Enemies will drop coins and crystals, collect these. Press \"TAB\" to view the items."
 horizontal_alignment = 1
 vertical_alignment = 2
 visible_characters = 0
@@ -7007,6 +7010,24 @@ visible_ratio = 0.0
 
 [node name="CollisionShape2D" parent="Tutorial Manager/TutorialText/Area2D" index="0"]
 position = Vector2(118.25, 200)
+shape = SubResource("RectangleShape2D_iovt1")
+
+[node name="TutorialText3" parent="Tutorial Manager" instance=ExtResource("37_d2ayn")]
+
+[node name="Label" parent="Tutorial Manager/TutorialText3" index="0"]
+offset_left = 225.0
+offset_top = 222.0
+offset_right = 19225.0
+offset_bottom = 6691.0
+text = "Wisps will light the way, they turn off when you exit the area.
+"
+horizontal_alignment = 1
+vertical_alignment = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="CollisionShape2D" parent="Tutorial Manager/TutorialText3/Area2D" index="0"]
+position = Vector2(356, 196)
 shape = SubResource("RectangleShape2D_iovt1")
 
 [node name="TutorialText2" parent="Tutorial Manager" instance=ExtResource("37_d2ayn")]
@@ -7025,6 +7046,23 @@ visible_ratio = 0.0
 [node name="CollisionShape2D" parent="Tutorial Manager/TutorialText2/Area2D" index="0"]
 position = Vector2(789.625, 199)
 shape = SubResource("RectangleShape2D_8oxew")
+
+[node name="TutorialText4" parent="Tutorial Manager" instance=ExtResource("37_d2ayn")]
+
+[node name="Label" parent="Tutorial Manager/TutorialText4" index="0"]
+offset_left = 702.0
+offset_top = 477.0
+offset_right = 19702.0
+offset_bottom = 6946.0
+text = "Clues are now inside mimics, Press \"E\" to interact with them."
+horizontal_alignment = 1
+vertical_alignment = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="CollisionShape2D" parent="Tutorial Manager/TutorialText4/Area2D" index="0"]
+position = Vector2(755, 490)
+shape = SubResource("RectangleShape2D_hacfc")
 
 [node name="Inventory" type="CanvasLayer" parent="."]
 layer = 0
@@ -7097,7 +7135,9 @@ z_index = 1
 [editable path="StarProjectile"]
 [editable path="Crystal"]
 [editable path="Tutorial Manager/TutorialText"]
+[editable path="Tutorial Manager/TutorialText3"]
 [editable path="Tutorial Manager/TutorialText2"]
+[editable path="Tutorial Manager/TutorialText4"]
 [editable path="Inventory/Inventory"]
 [editable path="Inventory/Inventory/Slot"]
 [editable path="Inventory/Inventory/Slot2"]
