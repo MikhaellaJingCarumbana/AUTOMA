@@ -10,7 +10,7 @@ var grouped: bool = false
 
 const speed = 50
 const base_speed = 40 
-const max_speed = 100
+const max_speed = 120
 var current_speed = base_speed
 var is_cyclops_chase: bool = false
 var player_chase_time = 0.0

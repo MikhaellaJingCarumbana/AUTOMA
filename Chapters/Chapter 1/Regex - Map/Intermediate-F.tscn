@@ -6655,6 +6655,8 @@ position = Vector2(502, 548)
 shape = SubResource("RectangleShape2D_rut0x")
 debug_color = Color(0.74902, 0.94902, 1, 0.196078)
 
+[node name="Dialogic" type="CanvasLayer" parent="."]
+
 [node name="Chest Puzzles2" parent="." instance=ExtResource("37_jrd7v")]
 layer = 0
 
