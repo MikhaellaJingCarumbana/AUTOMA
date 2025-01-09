@@ -1145,7 +1145,7 @@ layer_5/tile_data = PackedInt32Array(589827, 2, 2, 589828, 131074, 2, 524323, 52
 position = Vector2(112, 143)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(112, 103)
+position = Vector2(160, 103)
 script = ExtResource("5_l3kw7")
 follow_mode = 5
 follow_target = NodePath("../Regex Sprite")

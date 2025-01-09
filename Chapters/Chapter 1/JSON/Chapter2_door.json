@@ -1,6 +1,6 @@
 [
 	{
-		"question": "L = { w e {a,b} * / w starts with aa and ends with bb and contains baba as substring} ",
-		"correct_answers": ["aa (a+b)* baba (a+b)* bb"]
+		"question": "L = { w e {a,b} * / contains either aa or bb and starts with any number of a’s and ends with any number of b’s } ",
+		"correct_answers": ["a * (aa + bb) b *"]
 	}
 ]
