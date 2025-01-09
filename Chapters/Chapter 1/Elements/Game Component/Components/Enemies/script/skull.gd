@@ -6,9 +6,10 @@ class_name SkullEnemy
 @export var group_type: String = "Skull"
 var group_id = null
 var grouped: bool = false
+@onready var anim: AnimatedSprite2D = %AnimatedSprite2D
 
 const speed = 30 
-var is_cyclops_chase: bool = true
+var is_cyclops_chase: bool = false
 
 
 #health
@@ -36,7 +37,6 @@ var player_in_area = false
 @export var death_sound: AudioStream
 @onready var sfx_player: AudioStreamPlayer2D = %sfx_player
 @onready var whisper: AudioStreamPlayer2D = $whisper
-@onready var anim: AnimatedSprite2D = %AnimatedSprite2D
 
 
 
@@ -46,6 +46,7 @@ signal died(group_id: int)
 
 func _ready():
 	whisper.play()
+	anim.play("walk")
 	position.y -= hover_height
 	
 	
@@ -91,7 +92,20 @@ func handle_death():
 	self.queue_free()
 	print("Enemy has been freed")
 	
-	
+
+func _on_chase_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		is_cyclops_chase = true
+		player_in_area = true
+		print("PLAYER ENTERED CHASE AREA!!!")
+
+
+func _on_chase_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		is_cyclops_chase = false
+		player_in_area = false
+		print("PLAYER EXITED CHASE AREA!!!")
+
 
 func move(delta):
 	if !dead:

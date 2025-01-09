@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://1qohgqlv5m1j"]
+[gd_scene load_steps=41 format=3 uid="uid://1qohgqlv5m1j"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/script/skull.gd" id="1_u6ei2"]
 [ext_resource type="AudioStream" uid="uid://efb0w1yr064j" path="res://Chapters/Chapter 1/audios/sounds/strong-blow-98195.mp3" id="2_n0nlh"]
@@ -253,6 +253,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.465812)
 fill_to = Vector2(0.871795, 0.123932)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_epl3o"]
+radius = 83.006
+
 [node name="Skull" type="CharacterBody2D" groups=["Enemies"]]
 texture_filter = 1
 script = ExtResource("1_u6ei2")
@@ -298,5 +301,13 @@ stream = ExtResource("4_yqpnx")
 volume_db = -15.0
 max_distance = 200.0
 
+[node name="chase_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chase_Area"]
+shape = SubResource("CircleShape2D_epl3o")
+debug_color = Color(0.983869, 0.1218, 0.0577825, 0.42)
+
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="chase_Area" to="." method="_on_chase_area_body_entered"]
+[connection signal="body_exited" from="chase_Area" to="." method="_on_chase_area_body_exited"]
