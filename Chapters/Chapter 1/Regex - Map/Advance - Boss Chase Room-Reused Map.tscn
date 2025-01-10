@@ -6458,6 +6458,15 @@ position = Vector2(-162, -42)
 
 [node name="enemies" type="Node" parent="."]
 
+[node name="Note" parent="enemies" instance=ExtResource("20_u8ybr")]
+parent_enemy = NodePath("../Goblin4")
+
+[node name="Note2" parent="enemies" instance=ExtResource("20_u8ybr")]
+parent_enemy = NodePath("../Goblin8")
+
+[node name="Note3" parent="enemies" instance=ExtResource("20_u8ybr")]
+parent_enemy = NodePath("../Goblin")
+
 [node name="Hearts" parent="enemies" instance=ExtResource("18_1c6xv")]
 parent_enemy = NodePath("../Goblin")
 
@@ -6484,9 +6493,6 @@ position = Vector2(953, 532)
 
 [node name="Goblin6" parent="enemies" instance=ExtResource("17_akxdp")]
 position = Vector2(1052, 437)
-
-[node name="Note" parent="enemies" instance=ExtResource("20_u8ybr")]
-parent_enemy = NodePath("../Goblin4")
 
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
