@@ -37,6 +37,7 @@ var player_in_area = false
 @onready var sfx_player: AudioStreamPlayer2D = %sfx_player
 
 
+
 var in_collision_area: bool = false
 @onready var roaming_timer: Timer = $Roaming_timer
 @onready var direction_timer: Timer = $DirectionTimer
@@ -69,6 +70,7 @@ func handle_animation():
 	elif dead and is_roaming:
 		is_roaming = false
 		anim.play("death")
+		load_sfx(death_sound)
 		sfx_player.play()
 		handle_death()
 
@@ -90,13 +92,12 @@ func handle_death():
 	else:
 		print("DEBUG: No note node found under the same parent as enemy.")
 	
+	anim.play("death")
 	load_sfx(death_sound)
 	sfx_player.play()
-	anim.play("death")
-	
 	var death_animation_length = anim.sprite_frames.get_frame_count("death") / anim.sprite_frames.get_animation_speed("death")
 	await get_tree().create_timer(death_animation_length).timeout
-
+	
 	
 	print("DEBUG: Death animation finished. Freeing enemy.")
 	queue_free()

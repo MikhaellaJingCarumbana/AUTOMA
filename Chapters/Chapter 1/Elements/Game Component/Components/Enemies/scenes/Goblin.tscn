@@ -353,6 +353,7 @@ size = Vector2(324, 80.5)
 [node name="Goblin" type="CharacterBody2D" groups=["Enemies"]]
 texture_filter = 1
 script = ExtResource("1_x1huu")
+death_sound = ExtResource("11_5qss1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
