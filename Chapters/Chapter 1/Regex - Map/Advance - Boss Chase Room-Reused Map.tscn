@@ -4,19 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="2_g6scb"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="3_e8240"]
 [ext_resource type="Texture2D" uid="uid://imatk76rwuj4" path="res://Art/Dungeon Vibes Tilesets/Props 2.png" id="4_lcq1w"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="5_gqh6a"]
+[ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="5_gqh6a"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_eksja"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="6_yx4og"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="7_bjayh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_jw8nq"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="8_rkrj4"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="9_b6ygs"]
+[ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="8_rkrj4"]
+[ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="9_b6ygs"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="9_ba8lm"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="10_hk5r6"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/UI Components/spike.tscn" id="13_k0b3n"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="14_rjj73"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="15_lkj11"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Goblin.tscn" id="17_akxdp"]
+[ext_resource type="PackedScene" uid="uid://brhxilmu0pj86" path="res://Chapters/Chapter 1/UI Components/spike.tscn" id="13_k0b3n"]
+[ext_resource type="PackedScene" uid="uid://nuh3a8lcx5d6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="14_rjj73"]
+[ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="15_lkj11"]
+[ext_resource type="PackedScene" uid="uid://dqj7wy887g5rl" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Goblin.tscn" id="17_akxdp"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="18_1c6xv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cktx6"]
@@ -6274,7 +6274,7 @@ transition = 0
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbhy7"]
-size = Vector2(1106, 646)
+size = Vector2(1160, 646)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8n06m"]
 size = Vector2(50.25, 9)
@@ -6329,7 +6329,7 @@ limit_target = NodePath("../Camera_bounds/CollisionShape2D")
 [node name="Camera_bounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bounds"]
-position = Vector2(561, 335)
+position = Vector2(588, 335)
 shape = SubResource("RectangleShape2D_bbhy7")
 debug_color = Color(0.652662, 0.930431, 1, 0.42)
 

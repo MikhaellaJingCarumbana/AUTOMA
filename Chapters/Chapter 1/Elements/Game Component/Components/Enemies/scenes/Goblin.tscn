@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b3bmjewmwyij4" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/smoke/FX052_03.png" id="7_xmq58"]
 [ext_resource type="Texture2D" uid="uid://th5tl1yp5utl" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/smoke/FX052_04.png" id="8_4fjhc"]
 [ext_resource type="AudioStream" uid="uid://b8dl2m5rrksba" path="res://Chapters/Chapter 1/audios/sounds/goblin-death-6729.mp3" id="11_5qss1"]
-[ext_resource type="AudioStream" uid="uid://s4qliheatfjo" path="res://Chapters/Chapter 1/audios/sounds/goblin_noise-216740.mp3" id="12_b3gti"]
+[ext_resource type="AudioStream" uid="uid://cttdrshw03ag5" path="res://Chapters/Chapter 1/audios/sounds/snarling-46535.mp3" id="12_06bgg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eyn7i"]
 atlas = ExtResource("3_ro48r")
@@ -394,8 +394,8 @@ stream = ExtResource("11_5qss1")
 volume_db = -5.0
 
 [node name="cackle" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_b3gti")
-volume_db = -20.0
+stream = ExtResource("12_06bgg")
+volume_db = -15.0
 max_distance = 200.0
 
 [node name="chase_Area" type="Area2D" parent="."]

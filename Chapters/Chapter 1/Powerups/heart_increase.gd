@@ -10,6 +10,7 @@ extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var parent_enemy: NodePath
 @onready var enemy: CharacterBody2D = get_node_or_null(parent_enemy)
+@onready var collect: AudioStreamPlayer2D = $collect
 
 @onready var game_manager: Node = get_parent().get_parent().get_node("GameManager")
 
@@ -90,6 +91,8 @@ func _on_body_entered(body: Node2D) -> void:
 			print("DEBUG: Body entered powerup area:", body.name)
 			game_manager.increase_health()
 			emit_signal("powerup_collected", body)
+			$collect.play()
+			await get_tree().create_timer(0.2).timeout
 			queue_free()
 			print("Hearts collected")
 	elif not visible:
