@@ -135,6 +135,7 @@ func move(delta):
 		is_roaming = true
 	elif dead:
 			velocity.x = 0
+			velocity.y += gravity * delta
 		
 
 func _on_direction_timer_timeout() -> void:

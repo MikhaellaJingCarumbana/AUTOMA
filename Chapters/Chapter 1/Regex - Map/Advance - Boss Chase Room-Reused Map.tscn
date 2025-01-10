@@ -6480,7 +6480,7 @@ position = Vector2(1052, 437)
 
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(4, 0)
+position = Vector2(-186, -64)
 
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]

@@ -294,6 +294,7 @@ texture = SubResource("GradientTexture2D_x3nx2")
 
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+stream = ExtResource("2_n0nlh")
 volume_db = 1.0
 
 [node name="whisper" type="AudioStreamPlayer2D" parent="."]

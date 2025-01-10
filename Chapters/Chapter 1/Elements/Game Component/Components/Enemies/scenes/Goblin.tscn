@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://f0cmer1x2nw1" path="res://Chapters/Chapter 1/Sprite/goblin scout - silhouette all animations-free/walk.png" id="6_raelq"]
 [ext_resource type="Texture2D" uid="uid://b3bmjewmwyij4" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/smoke/FX052_03.png" id="7_xmq58"]
 [ext_resource type="Texture2D" uid="uid://th5tl1yp5utl" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/Art/smoke/FX052_04.png" id="8_4fjhc"]
-[ext_resource type="AudioStream" uid="uid://b8dl2m5rrksba" path="res://Chapters/Chapter 1/audios/sounds/goblin-death-6729.mp3" id="11_5qss1"]
+[ext_resource type="AudioStream" uid="uid://efb0w1yr064j" path="res://Chapters/Chapter 1/audios/sounds/strong-blow-98195.mp3" id="12_5iftc"]
 [ext_resource type="AudioStream" uid="uid://cttdrshw03ag5" path="res://Chapters/Chapter 1/audios/sounds/snarling-46535.mp3" id="12_06bgg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eyn7i"]
@@ -347,13 +347,13 @@ fill = 1
 fill_from = Vector2(0.5, 0.465812)
 fill_to = Vector2(0.871795, 0.123932)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5u7u"]
-size = Vector2(324, 80.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qovtv"]
+radius = 156.0
 
 [node name="Goblin" type="CharacterBody2D" groups=["Enemies"]]
 texture_filter = 1
 script = ExtResource("1_x1huu")
-death_sound = ExtResource("11_5qss1")
+death_sound = ExtResource("12_5iftc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -390,7 +390,7 @@ texture = SubResource("GradientTexture2D_x3nx2")
 
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("11_5qss1")
+stream = ExtResource("12_5iftc")
 volume_db = -5.0
 
 [node name="cackle" type="AudioStreamPlayer2D" parent="."]
@@ -401,8 +401,7 @@ max_distance = 200.0
 [node name="chase_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chase_Area"]
-position = Vector2(0, -23.25)
-shape = SubResource("RectangleShape2D_q5u7u")
+shape = SubResource("CircleShape2D_qovtv")
 debug_color = Color(0.983869, 0.1218, 0.0577825, 0.42)
 
 [node name="Roaming_timer" type="Timer" parent="."]
