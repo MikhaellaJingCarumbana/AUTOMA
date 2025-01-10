@@ -1,20 +1,24 @@
-[gd_scene load_steps=37 format=3 uid="uid://esxjvhuoq40l"]
+[gd_scene load_steps=41 format=3 uid="uid://esxjvhuoq40l"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_y5tvb"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="2_g6scb"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="3_e8240"]
 [ext_resource type="Texture2D" uid="uid://imatk76rwuj4" path="res://Art/Dungeon Vibes Tilesets/Props 2.png" id="4_lcq1w"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="5_gqh6a"]
+[ext_resource type="PackedScene" uid="uid://vhshve7ggaee" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues2.tscn" id="5_pl6ya"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_eksja"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="6_yx4og"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="7_bjayh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_jw8nq"]
 [ext_resource type="PackedScene" uid="uid://cfvu57xiwe423" path="res://Chapters/Chapter 1/UI Components/note_button.tscn" id="8_rkrj4"]
+[ext_resource type="PackedScene" uid="uid://cymhm63n3suwp" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/mimic.tscn" id="8_x7vko"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="9_b6ygs"]
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="9_ba8lm"]
+[ext_resource type="PackedScene" uid="uid://cwsjbvfsg8dm4" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Brown chest.tscn" id="9_j1b71"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="10_hk5r6"]
+[ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="10_hr31g"]
 [ext_resource type="PackedScene" uid="uid://bo1ha765wnr3e" path="res://Chapters/Chapter 1/UI Components/Notes3.tscn" id="12_0oayq"]
-[ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="13_4vknq"]
+[ext_resource type="PackedScene" uid="uid://d1whd31p3uhul" path="res://Chapters/Chapter 1/UI Components/Clue_System3.tscn" id="13_j4s4e"]
 [ext_resource type="PackedScene" uid="uid://brhxilmu0pj86" path="res://Chapters/Chapter 1/UI Components/spike.tscn" id="13_k0b3n"]
 [ext_resource type="PackedScene" uid="uid://nuh3a8lcx5d6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="14_rjj73"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="15_lkj11"]
@@ -6319,11 +6323,67 @@ layer_3/tile_data = PackedInt32Array(1114123, 6291460, 20, 1179659, 6291460, 21,
 layer_4/name = "infront of decors"
 layer_4/tile_data = PackedInt32Array(1245222, 655360, 536870920, 1245219, 655360, 536870920, 1245220, 655360, 805306376, 1245221, 655360, 536870920, 1507371, 458752, 8, 1507372, 524288, 8, 1507373, 589824, 8, 524296, 589829, 0, 524349, 589829, 1, 1703965, 655365, 1)
 
+[node name="Clues" parent="." instance=ExtResource("5_pl6ya")]
+position = Vector2(207, 385)
+parent_chest = NodePath("../BrownChest2")
+
+[node name="Clues2" parent="." instance=ExtResource("5_pl6ya")]
+position = Vector2(1080, 434)
+parent_chest = NodePath("../BrownChest")
+
+[node name="Clues3" parent="." instance=ExtResource("5_pl6ya")]
+position = Vector2(347, 529)
+parent_chest = NodePath("../BrownChest4")
+
+[node name="Clues4" parent="." instance=ExtResource("5_pl6ya")]
+position = Vector2(598, 530)
+parent_chest = NodePath("../BrownChest3")
+
+[node name="BrownChest3" parent="." instance=ExtResource("9_j1b71")]
+position = Vector2(606, 529)
+
+[node name="InteractArea" parent="BrownChest3" index="1"]
+interact_type = "open_chest"
+
+[node name="InteractArea2" parent="BrownChest3" instance=ExtResource("10_hr31g")]
+interact_label = ""
+interact_type = "open_chest"
+
+[node name="BrownChest2" parent="." instance=ExtResource("9_j1b71")]
+position = Vector2(215, 383)
+
+[node name="InteractArea" parent="BrownChest2" index="1"]
+interact_type = "open_chest"
+
+[node name="InteractArea2" parent="BrownChest2" instance=ExtResource("10_hr31g")]
+interact_label = ""
+interact_type = "open_chest"
+
+[node name="BrownChest" parent="." instance=ExtResource("9_j1b71")]
+position = Vector2(1087, 433)
+
+[node name="InteractArea" parent="BrownChest" index="1"]
+interact_type = "open_chest"
+
+[node name="InteractArea2" parent="BrownChest" instance=ExtResource("10_hr31g")]
+interact_label = ""
+interact_type = "open_chest"
+
+[node name="BrownChest4" parent="." instance=ExtResource("9_j1b71")]
+position = Vector2(355, 529)
+
+[node name="InteractArea" parent="BrownChest4" index="1"]
+interact_type = "open_chest"
+
+[node name="InteractArea2" parent="BrownChest4" instance=ExtResource("10_hr31g")]
+interact_label = ""
+interact_type = "open_chest"
+
 [node name="Player" parent="." instance=ExtResource("6_yx4og")]
-position = Vector2(63, 169)
+position = Vector2(56, 168)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(200, 169)
+position = Vector2(200, 168)
 script = ExtResource("6_eksja")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -6332,7 +6392,85 @@ tween_resource = SubResource("Resource_0rmqt")
 tween_on_load = false
 limit_target = NodePath("../Camera_bounds/CollisionShape2D")
 
+[node name="Mimic" parent="." instance=ExtResource("8_x7vko")]
+position = Vector2(156, 532)
+
+[node name="Light" type="Node" parent="."]
+
+[node name="Torch" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(305, 121)
+
+[node name="AnimatedSprite2D" parent="Light/Torch" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch" index="1"]
+visible = false
+
+[node name="Torch2" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(849, 114)
+
+[node name="AnimatedSprite2D" parent="Light/Torch2" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch2" index="1"]
+visible = false
+
+[node name="Torch3" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(592, 308)
+
+[node name="AnimatedSprite2D" parent="Light/Torch3" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch3" index="1"]
+visible = false
+
+[node name="Torch4" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(101, 366)
+
+[node name="AnimatedSprite2D" parent="Light/Torch4" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch4" index="1"]
+visible = false
+
+[node name="Torch5" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(1043, 366)
+
+[node name="AnimatedSprite2D" parent="Light/Torch5" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch5" index="1"]
+visible = false
+
+[node name="Torch6" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(597, 560)
+
+[node name="AnimatedSprite2D" parent="Light/Torch6" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch6" index="1"]
+visible = false
+
+[node name="Torch7" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(299, 522)
+
+[node name="AnimatedSprite2D" parent="Light/Torch7" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch7" index="1"]
+visible = false
+
+[node name="Torch8" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(849, 524)
+
+[node name="AnimatedSprite2D" parent="Light/Torch8" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch8" index="1"]
+visible = false
+
 [node name="Camera_bounds" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera_bounds"]
 position = Vector2(588, 335)
@@ -6357,14 +6495,14 @@ visible = false
 
 [node name="Notes" parent="UI" instance=ExtResource("8_rkrj4")]
 
+[node name="Clue_System2" parent="UI" instance=ExtResource("13_j4s4e")]
+
+[node name="CarouselSelection" parent="UI/Clue_System2" index="0"]
+visible = false
+
 [node name="Note System" parent="UI" instance=ExtResource("12_0oayq")]
 
 [node name="CarouselSelection" parent="UI/Note System" index="0"]
-visible = false
-
-[node name="Clue_System2" parent="UI" instance=ExtResource("13_4vknq")]
-
-[node name="CarouselSelection" parent="UI/Clue_System2" index="0"]
 visible = false
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("9_ba8lm")]
@@ -6506,86 +6644,24 @@ position = Vector2(1052, 437)
 unique_name_in_owner = true
 position = Vector2(-186, -64)
 
-[node name="Light" type="Node" parent="."]
-
-[node name="Torch" parent="Light" instance=ExtResource("22_aitif")]
-position = Vector2(305, 121)
-
-[node name="AnimatedSprite2D" parent="Light/Torch" index="0"]
-visible = false
-
-[node name="PointLight2D" parent="Light/Torch" index="1"]
-visible = false
-
-[node name="Torch2" parent="Light" instance=ExtResource("22_aitif")]
-position = Vector2(849, 114)
-
-[node name="AnimatedSprite2D" parent="Light/Torch2" index="0"]
-visible = false
-
-[node name="PointLight2D" parent="Light/Torch2" index="1"]
-visible = false
-
-[node name="Torch3" parent="Light" instance=ExtResource("22_aitif")]
-position = Vector2(592, 308)
-
-[node name="AnimatedSprite2D" parent="Light/Torch3" index="0"]
-visible = false
-
-[node name="PointLight2D" parent="Light/Torch3" index="1"]
-visible = false
-
-[node name="Torch4" parent="Light" instance=ExtResource("22_aitif")]
-position = Vector2(101, 366)
-
-[node name="AnimatedSprite2D" parent="Light/Torch4" index="0"]
-visible = false
-
-[node name="PointLight2D" parent="Light/Torch4" index="1"]
-visible = false
-
-[node name="Torch5" parent="Light" instance=ExtResource("22_aitif")]
-position = Vector2(1043, 366)
-
-[node name="AnimatedSprite2D" parent="Light/Torch5" index="0"]
-visible = false
-
-[node name="PointLight2D" parent="Light/Torch5" index="1"]
-visible = false
-
-[node name="Torch6" parent="Light" instance=ExtResource("22_aitif")]
-position = Vector2(597, 560)
-
-[node name="AnimatedSprite2D" parent="Light/Torch6" index="0"]
-visible = false
-
-[node name="PointLight2D" parent="Light/Torch6" index="1"]
-visible = false
-
-[node name="Torch7" parent="Light" instance=ExtResource("22_aitif")]
-position = Vector2(299, 522)
-
-[node name="AnimatedSprite2D" parent="Light/Torch7" index="0"]
-visible = false
-
-[node name="PointLight2D" parent="Light/Torch7" index="1"]
-visible = false
-
-[node name="Torch8" parent="Light" instance=ExtResource("22_aitif")]
-position = Vector2(849, 524)
-
-[node name="AnimatedSprite2D" parent="Light/Torch8" index="0"]
-visible = false
-
-[node name="PointLight2D" parent="Light/Torch8" index="1"]
-visible = false
-
+[editable path="BrownChest3"]
+[editable path="BrownChest2"]
+[editable path="BrownChest"]
+[editable path="BrownChest4"]
+[editable path="Light/Torch"]
+[editable path="Light/Torch2"]
+[editable path="Light/Torch3"]
+[editable path="Light/Torch4"]
+[editable path="Light/Torch5"]
+[editable path="Light/Torch6"]
+[editable path="Light/Torch7"]
+[editable path="Light/Torch8"]
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
-[editable path="UI/Note System"]
 [editable path="UI/Clue_System2"]
+[editable path="UI/Note System"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
 [editable path="Death_zones/spike"]
@@ -6602,11 +6678,3 @@ visible = false
 [editable path="Death_zones/death_zone"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
-[editable path="Light/Torch"]
-[editable path="Light/Torch2"]
-[editable path="Light/Torch3"]
-[editable path="Light/Torch4"]
-[editable path="Light/Torch5"]
-[editable path="Light/Torch6"]
-[editable path="Light/Torch7"]
-[editable path="Light/Torch8"]

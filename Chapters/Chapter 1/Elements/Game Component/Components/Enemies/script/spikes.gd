@@ -37,10 +37,14 @@ func _on_body_exited(body: Node2D) -> void:
 				
 func handle_player_collision(body):
 	var x_delta = body.position.x - position.x
+	var y_delta = body.position.y - position.y
 	
 	print("Decrease player health")
 	game_manager.decrease_health()
-	
+	if y_delta < 10:
+		print("decrease player health")
+		game_manager.decrease_health()
+		
 	if x_delta > 0:
 		body.jump_slide(500) #push to the right
 	else:
