@@ -83,6 +83,7 @@ func handle_death():
 	is_cyclops_chase = false
 	is_roaming = false
 	
+	
 	var note = get_parent().get_node_or_null("Note")
 	if note:
 		note.visible = true
@@ -91,6 +92,10 @@ func handle_death():
 		print("DEBUG: Note made visible and collidable at position: ", note.global_position)
 	else:
 		print("DEBUG: No note node found under the same parent as enemy.")
+		
+	$Area2D.set_deferred("monitoring", false)
+	$Area2D.set_deferred("monitorable", false)
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	
 	anim.play("death")
 	load_sfx(death_sound)

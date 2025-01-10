@@ -1,14 +1,14 @@
 extends Area2D
 
-var checkpoint_manager
+@export var checkpoint_manager: Node
 var player
-var game_manager
+@onready var game_manager: Node = %GameManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	checkpoint_manager = get_parent().get_node("CheckpointManager")
 	player = get_parent().get_node("Player")
-	game_manager = get_parent().get_node("GameManager")
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

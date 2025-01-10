@@ -8,7 +8,9 @@ extends CanvasLayer
 @export var hurt: AudioStream
 
 var _is_active: bool = false
-@onready var sfx_play: AudioStreamPlayer2D = %sfx_play
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $PlayerHurt/AudioStreamPlayer2D
+
+
 
 func show_hurt_effect():
 	if color_rect.visible:

@@ -6446,7 +6446,8 @@ position = Vector2(-65, 256)
 position = Vector2(800.375, 348)
 shape = SubResource("RectangleShape2D_kgyjl")
 
-[node name="death_zone" parent="Death_zones" instance=ExtResource("14_rjj73")]
+[node name="death_zone" parent="Death_zones" node_paths=PackedStringArray("checkpoint_manager") instance=ExtResource("14_rjj73")]
+checkpoint_manager = NodePath("../../CheckpointManager")
 
 [node name="CollisionShape2D" parent="Death_zones/death_zone" index="0"]
 position = Vector2(646, 679)
