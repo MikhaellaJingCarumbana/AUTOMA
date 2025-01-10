@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://esxjvhuoq40l"]
+[gd_scene load_steps=37 format=3 uid="uid://esxjvhuoq40l"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_y5tvb"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="2_g6scb"]
@@ -14,12 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://p7gw8d51vfui" path="res://Chapters/Chapter 1/UI Components/Death Screen.tscn" id="9_ba8lm"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="10_hk5r6"]
 [ext_resource type="PackedScene" uid="uid://bo1ha765wnr3e" path="res://Chapters/Chapter 1/UI Components/Notes3.tscn" id="12_0oayq"]
+[ext_resource type="PackedScene" uid="uid://bhd3d0sbsd3te" path="res://Chapters/Chapter 1/UI Components/Clue_System2.tscn" id="13_4vknq"]
 [ext_resource type="PackedScene" uid="uid://brhxilmu0pj86" path="res://Chapters/Chapter 1/UI Components/spike.tscn" id="13_k0b3n"]
 [ext_resource type="PackedScene" uid="uid://nuh3a8lcx5d6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="14_rjj73"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="15_lkj11"]
 [ext_resource type="PackedScene" uid="uid://dqj7wy887g5rl" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Goblin.tscn" id="17_akxdp"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="18_1c6xv"]
 [ext_resource type="PackedScene" uid="uid://xci00g1uphd1" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note(level2).tscn" id="20_u8ybr"]
+[ext_resource type="PackedScene" uid="uid://06geuk2wovx1" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball2.tscn" id="22_aitif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cktx6"]
 texture = ExtResource("1_y5tvb")
@@ -6338,7 +6340,7 @@ shape = SubResource("RectangleShape2D_bbhy7")
 debug_color = Color(0.652662, 0.930431, 1, 0.42)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.099986, 0.099986, 0.099986, 1)
+color = Color(0.0728426, 0.0728427, 0.0728426, 1)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("5_gqh6a")]
 unique_name_in_owner = true
@@ -6358,6 +6360,11 @@ visible = false
 [node name="Note System" parent="UI" instance=ExtResource("12_0oayq")]
 
 [node name="CarouselSelection" parent="UI/Note System" index="0"]
+visible = false
+
+[node name="Clue_System2" parent="UI" instance=ExtResource("13_4vknq")]
+
+[node name="CarouselSelection" parent="UI/Clue_System2" index="0"]
 visible = false
 
 [node name="DeathScreen" parent="UI" instance=ExtResource("9_ba8lm")]
@@ -6499,11 +6506,86 @@ position = Vector2(1052, 437)
 unique_name_in_owner = true
 position = Vector2(-186, -64)
 
+[node name="Light" type="Node" parent="."]
+
+[node name="Torch" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(305, 121)
+
+[node name="AnimatedSprite2D" parent="Light/Torch" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch" index="1"]
+visible = false
+
+[node name="Torch2" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(849, 114)
+
+[node name="AnimatedSprite2D" parent="Light/Torch2" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch2" index="1"]
+visible = false
+
+[node name="Torch3" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(592, 308)
+
+[node name="AnimatedSprite2D" parent="Light/Torch3" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch3" index="1"]
+visible = false
+
+[node name="Torch4" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(101, 366)
+
+[node name="AnimatedSprite2D" parent="Light/Torch4" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch4" index="1"]
+visible = false
+
+[node name="Torch5" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(1043, 366)
+
+[node name="AnimatedSprite2D" parent="Light/Torch5" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch5" index="1"]
+visible = false
+
+[node name="Torch6" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(597, 560)
+
+[node name="AnimatedSprite2D" parent="Light/Torch6" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch6" index="1"]
+visible = false
+
+[node name="Torch7" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(299, 522)
+
+[node name="AnimatedSprite2D" parent="Light/Torch7" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch7" index="1"]
+visible = false
+
+[node name="Torch8" parent="Light" instance=ExtResource("22_aitif")]
+position = Vector2(849, 524)
+
+[node name="AnimatedSprite2D" parent="Light/Torch8" index="0"]
+visible = false
+
+[node name="PointLight2D" parent="Light/Torch8" index="1"]
+visible = false
+
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
 [editable path="UI/Note System"]
+[editable path="UI/Clue_System2"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
 [editable path="Death_zones/spike"]
@@ -6520,3 +6602,11 @@ position = Vector2(-186, -64)
 [editable path="Death_zones/death_zone"]
 [editable path="CheckpointManager"]
 [editable path="CheckpointManager/Checkpoint"]
+[editable path="Light/Torch"]
+[editable path="Light/Torch2"]
+[editable path="Light/Torch3"]
+[editable path="Light/Torch4"]
+[editable path="Light/Torch5"]
+[editable path="Light/Torch6"]
+[editable path="Light/Torch7"]
+[editable path="Light/Torch8"]

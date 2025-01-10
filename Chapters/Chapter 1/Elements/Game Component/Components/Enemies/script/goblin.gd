@@ -65,7 +65,7 @@ func handle_animation():
 					anim.flip_h = true
 				elif dir.x == 1:
 					anim.flip_h = false
-		else:
+		elif velocity.x == 0:
 			anim.play("idle")
 	elif dead and is_roaming:
 		is_roaming = false
@@ -93,6 +93,7 @@ func handle_death():
 	else:
 		print("DEBUG: No note node found under the same parent as enemy.")
 		
+	$CollisionShape2D.set_deferred("disabled", true)
 	$Area2D.set_deferred("monitoring", false)
 	$Area2D.set_deferred("monitorable", false)
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
