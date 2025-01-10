@@ -3,7 +3,7 @@ extends Area2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var parent_enemy: NodePath
-@onready var enemy: SkullEnemy = get_node_or_null(parent_enemy)
+@onready var enemy: CharacterBody2D = get_node_or_null(parent_enemy)
 
 @onready var game_manager: Node = get_parent().get_parent().get_node("GameManager")
 @export var float_amplitude: float = 5.0
