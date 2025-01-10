@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2dipjwiuqsmn"]
+[gd_scene load_steps=18 format=3 uid="uid://d2dipjwiuqsmn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Powerups/heart_increase.gd" id="1_cxhqx"]
 [ext_resource type="Texture2D" uid="uid://dnnoelyrddepy" path="res://Chapters/Chapter 1/Powerups/asset/Spritesheet.png" id="2_7og4c"]
+[ext_resource type="AudioStream" uid="uid://cavn4ysypr5a3" path="res://Chapters/Chapter 1/audios/sounds/coin.wav" id="3_k6d5f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vaxv"]
 atlas = ExtResource("2_7og4c")
@@ -113,5 +114,8 @@ one_shot = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_5t7wj")
 texture_scale = 0.8
+
+[node name="collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k6d5f")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

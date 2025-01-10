@@ -4,7 +4,6 @@ extends CanvasLayer
 @export var fade_speed: float = 0.5
 @onready var color_rect: ColorRect = $PlayerHurt/ColorRect
 @onready var animation_player: AnimationPlayer = $PlayerHurt/AnimationPlayer
-@onready var sfx_player: AudioStreamPlayer2D = %sfx_player
 
 @export var hurt: AudioStream
 
