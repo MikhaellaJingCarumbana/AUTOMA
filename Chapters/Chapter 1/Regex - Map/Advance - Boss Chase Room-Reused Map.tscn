@@ -6316,10 +6316,10 @@ layer_4/name = "infront of decors"
 layer_4/tile_data = PackedInt32Array(1245222, 655360, 536870920, 1245219, 655360, 536870920, 1245220, 655360, 805306376, 1245221, 655360, 536870920, 1507371, 458752, 8, 1507372, 524288, 8, 1507373, 589824, 8, 524296, 589829, 0, 524349, 589829, 1, 1703965, 655365, 1)
 
 [node name="Player" parent="." instance=ExtResource("6_yx4og")]
-position = Vector2(771, 136)
+position = Vector2(63, 169)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(771, 136)
+position = Vector2(200, 169)
 script = ExtResource("6_eksja")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -6336,7 +6336,6 @@ shape = SubResource("RectangleShape2D_bbhy7")
 debug_color = Color(0.652662, 0.930431, 1, 0.42)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.099986, 0.099986, 0.099986, 1)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("5_gqh6a")]
@@ -6457,6 +6456,27 @@ parent_enemy = NodePath("../Goblin")
 
 [node name="Goblin" parent="enemies" instance=ExtResource("17_akxdp")]
 position = Vector2(967, 165)
+
+[node name="Goblin2" parent="enemies" instance=ExtResource("17_akxdp")]
+position = Vector2(36, 389)
+
+[node name="Goblin7" parent="enemies" instance=ExtResource("17_akxdp")]
+position = Vector2(110, 533)
+
+[node name="Goblin3" parent="enemies" instance=ExtResource("17_akxdp")]
+position = Vector2(533, 453)
+
+[node name="Goblin4" parent="enemies" instance=ExtResource("17_akxdp")]
+position = Vector2(275, 165)
+
+[node name="Goblin8" parent="enemies" instance=ExtResource("17_akxdp")]
+position = Vector2(598, 100)
+
+[node name="Goblin5" parent="enemies" instance=ExtResource("17_akxdp")]
+position = Vector2(953, 532)
+
+[node name="Goblin6" parent="enemies" instance=ExtResource("17_akxdp")]
+position = Vector2(1052, 437)
 
 [node name="sfx_player" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

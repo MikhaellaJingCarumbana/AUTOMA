@@ -381,7 +381,7 @@ shape = SubResource("CircleShape2D_rrr10")
 position = Vector2(0, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.753908, 0.753908)
+scale = Vector2(1.25195, 1.25195)
 color = Color(0.176699, 0.682919, 1, 1)
 energy = 0.5
 range_z_min = -1026
@@ -401,7 +401,6 @@ max_distance = 200.0
 [node name="chase_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chase_Area"]
-visible = false
 position = Vector2(0, -23.25)
 shape = SubResource("RectangleShape2D_q5u7u")
 debug_color = Color(0.983869, 0.1218, 0.0577825, 0.42)
