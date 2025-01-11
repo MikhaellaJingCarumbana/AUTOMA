@@ -80,6 +80,7 @@ theme_override_constants/separation = 10
 [node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
+mouse_filter = 1
 theme_override_colors/font_hover_color = Color(0.498039, 0.792157, 0.945098, 1)
 theme_override_fonts/font = ExtResource("3_yflp4")
 theme_override_font_sizes/font_size = 70
@@ -90,6 +91,7 @@ text = "try again"
 [node name="Main Menu" type="Button" parent="PauseMenu/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
+mouse_filter = 1
 theme_override_colors/font_hover_color = Color(0.498039, 0.792157, 0.945098, 1)
 theme_override_fonts/font = ExtResource("3_yflp4")
 theme_override_font_sizes/font_size = 70
