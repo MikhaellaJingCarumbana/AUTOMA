@@ -6337,6 +6337,10 @@ interact_type = "open_door_code"
 door_code_path = NodePath("../../UI/DoorCode")
 door_code = NodePath("../../UI/DoorCode")
 
+[node name="Mimic" parent="Portaldoor" instance=ExtResource("8_x7vko")]
+position = Vector2(53.9826, -371.429)
+scale = Vector2(1.11304, 1.14286)
+
 [node name="Clues" parent="." instance=ExtResource("5_pl6ya")]
 position = Vector2(207, 385)
 parent_chest = NodePath("../BrownChest2")
@@ -6394,10 +6398,10 @@ interact_label = ""
 interact_type = "open_chest"
 
 [node name="Player" parent="." instance=ExtResource("6_yx4og")]
-position = Vector2(208, 537)
+position = Vector2(52, 168)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(208, 537)
+position = Vector2(200, 168)
 script = ExtResource("6_eksja")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -6405,9 +6409,6 @@ zoom = Vector2(5, 7)
 tween_resource = SubResource("Resource_0rmqt")
 tween_on_load = false
 limit_target = NodePath("../Camera_bounds/CollisionShape2D")
-
-[node name="Mimic" parent="." instance=ExtResource("8_x7vko")]
-position = Vector2(172, 163)
 
 [node name="Light" type="Node" parent="."]
 
@@ -6544,12 +6545,6 @@ visible = false
 
 [node name="PauseMenu" parent="UI/DeathScreen" index="0"]
 visible = false
-
-[node name="Resume" parent="UI/DeathScreen/PauseMenu/VBoxContainer" index="0"]
-mouse_filter = 1
-
-[node name="Main Menu" parent="UI/DeathScreen/PauseMenu/VBoxContainer" index="1"]
-mouse_filter = 1
 
 [node name="PauseGame" parent="UI" instance=ExtResource("10_hk5r6")]
 

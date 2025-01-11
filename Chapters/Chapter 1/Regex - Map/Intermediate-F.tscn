@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://b53sidrsp0cr" path="res://Chapters/Chapter 1/Inventory System/Collectible/Coin.tscn" id="31_bcqml"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="33_vxk4d"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="34_ot2tf"]
-[ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
+[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="35_apfom"]
 [ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="37_d2ayn"]
 [ext_resource type="PackedScene" uid="uid://bl307x25uvrnk" path="res://Chapters/Chapter 1/UI Components/chest_puzzles.tscn" id="37_jrd7v"]
 
@@ -6626,12 +6626,12 @@ position = Vector2(818, 533)
 chest_quiz = NodePath("../Chest Puzzles2/Chest Puzzle/Control")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
-position = Vector2(314, 1049)
+position = Vector2(180, 249)
 projectile_scene = ExtResource("27_v5qjy")
 
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
-position = Vector2(0, -37.1429)
+position = Vector2(2, 0)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
 limit_left = -10
@@ -6640,7 +6640,7 @@ limit_right = 1014
 limit_bottom = 1089
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(314, 1011.86)
+position = Vector2(182, 249)
 script = ExtResource("8_d8o1v")
 follow_mode = 1
 follow_target = NodePath("../Player")
