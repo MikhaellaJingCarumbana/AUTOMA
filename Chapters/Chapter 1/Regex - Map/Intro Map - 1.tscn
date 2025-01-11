@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cq2bx3qqccn51"]
+[gd_scene load_steps=16 format=3 uid="uid://cq2bx3qqccn51"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_johjb"]
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="2_hhxqb"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="4_cegvd"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_l3kw7"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_sjupd"]
-[ext_resource type="PackedScene" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="7_mqhrp"]
+[ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="7_mqhrp"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="8_jxh6j"]
+[ext_resource type="PackedScene" uid="uid://c3ube8tesc6pg" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Shadow Boss.tscn" id="9_y5yff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0itut"]
 texture = ExtResource("1_johjb")
@@ -1158,11 +1159,14 @@ layer_4/tile_data = PackedInt32Array(458816, 1310722, 5, 524352, 1310722, 6, 589
 layer_5/name = "infront of deco"
 layer_5/tile_data = PackedInt32Array(589827, 2, 2, 589828, 131074, 2, 524323, 524288, 37, 589859, 524288, 38, 524324, 589824, 37, 589860, 589824, 38, 458778, 131072, 45, 524314, 131072, 44, 589850, 131072, 45, 327706, 131072, 43, 393242, 131072, 44, 262150, 524290, 1, 327686, 524290, 2, 262151, 589826, 1, 327687, 589826, 2, 458767, 524290, 8, 458768, 589826, 8, 458769, 589826, 8, 458770, 589826, 8, 458771, 589826, 8, 458772, 589826, 8, 458781, 589826, 8, 458782, 589826, 8, 458783, 589826, 8, 458784, 589826, 8, 458785, 589826, 8, 458786, 589826, 8, 458787, 589826, 8, 458780, 589826, 8, 458766, 589826, 8, 458773, 589826, 8, 393234, 1638402, 5, 393233, 1572866, 5, 393247, 1572866, 5, 393248, 1507330, 268435461, 524311, 0, 26, 589847, 0, 27, 524312, 65536, 26, 589848, 65536, 27, 458774, 589826, 8, 52, 851970, 1, 65588, 851970, 2, 131124, 851970, 3, 53, 917506, 1, 65589, 917506, 2, 54, 983042, 1, 66, 1048578, 1, 67, 1114114, 1, 65603, 1114114, 2, 68, 1179650, 1, 65604, 1179650, 2, 131140, 1179650, 3, 69, 851970, 1, 65605, 851970, 2, 131141, 851970, 3, 70, 917506, 1, 65606, 917506, 2, 71, 983042, 1, 49, 1048578, 1, 50, 1114114, 1, 65586, 1114114, 2, 51, 1179650, 1, 65587, 1179650, 2, 131123, 1179650, 3, 38, 851970, 1, 65574, 851970, 2, 131110, 851970, 3, 39, 917506, 1, 65575, 917506, 2, 40, 983042, 1, 35, 1048578, 1, 36, 1114114, 1, 65572, 1114114, 2, 37, 1179650, 1, 65573, 1179650, 2, 131109, 1179650, 3, 25, 851970, 1, 65561, 851970, 2, 131097, 851970, 3, 26, 917506, 1, 65562, 917506, 2, 27, 983042, 1, 22, 1048578, 1, 23, 1114114, 1, 65559, 1114114, 2, 24, 1179650, 1, 65560, 1179650, 2, 131096, 1179650, 3, 12, 851970, 1, 65548, 851970, 2, 131084, 851970, 3, 13, 917506, 1, 65549, 917506, 2, 14, 983042, 1, 9, 1048578, 1, 10, 1114114, 1, 65546, 1114114, 2, 11, 1179650, 1, 65547, 1179650, 2, 131083, 1179650, 3, 2, 851970, 1, 65538, 851970, 2, 131074, 851970, 3, 3, 917506, 1, 65539, 917506, 2, 4, 983042, 1, -65479, 1114114, 4, 57, 1114114, 5, 65593, 1114114, 6, -65476, 1114114, 4, 60, 1114114, 5, 65596, 1114114, 6, -65473, 1114114, 4, 63, 1114114, 5, 65599, 1114114, 6, 131132, 1114114, 5, 196668, 1114114, 5, 262204, 1114114, 5, 327740, 1114114, 6, 131129, 1114114, 5, 196665, 1114114, 6, 131135, 1114114, 6, 524340, 131072, 26, 589876, 131072, 27, 524341, 196608, 26, 589877, 196608, 27, 524357, 131072, 26, 589893, 131072, 27, 524358, 196608, 26, 589894, 196608, 27)
 
+[node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
+position = Vector2(1034, 126)
+
 [node name="Player" parent="." instance=ExtResource("4_cegvd")]
-position = Vector2(109, 153)
+position = Vector2(921, 152)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(161, 102)
+position = Vector2(921, 102)
 script = ExtResource("5_l3kw7")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -1185,5 +1189,8 @@ debug_color = Color(0.652662, 0.930431, 1, 0.42)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" parent="CanvasLayer" instance=ExtResource("8_jxh6j")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.162066, 0.162066, 0.162066, 1)
 
 [editable path="CanvasLayer/Panel"]
