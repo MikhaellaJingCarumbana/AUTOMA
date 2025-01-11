@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://esxjvhuoq40l"]
+[gd_scene load_steps=44 format=3 uid="uid://esxjvhuoq40l"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_y5tvb"]
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="2_g6scb"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="3_e8240"]
 [ext_resource type="Texture2D" uid="uid://imatk76rwuj4" path="res://Art/Dungeon Vibes Tilesets/Props 2.png" id="4_lcq1w"]
+[ext_resource type="PackedScene" uid="uid://cmsalwq5xoat6" path="res://Chapters/Chapter 1/Sprite/Props animated/doors/Portaldoor.tscn" id="5_crvse"]
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="5_gqh6a"]
 [ext_resource type="PackedScene" uid="uid://vhshve7ggaee" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues2.tscn" id="5_pl6ya"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_eksja"]
@@ -24,8 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="15_lkj11"]
 [ext_resource type="PackedScene" uid="uid://dqj7wy887g5rl" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Goblin.tscn" id="17_akxdp"]
 [ext_resource type="PackedScene" uid="uid://d2dipjwiuqsmn" path="res://Chapters/Chapter 1/Powerups/Hearts.tscn" id="18_1c6xv"]
+[ext_resource type="PackedScene" uid="uid://cgx5rm0prmpo1" path="res://Chapters/Chapter 1/UI Components/DoorCode.tscn" id="19_2or5c"]
 [ext_resource type="PackedScene" uid="uid://xci00g1uphd1" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note(level2).tscn" id="20_u8ybr"]
 [ext_resource type="PackedScene" uid="uid://06geuk2wovx1" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball2.tscn" id="22_aitif"]
+[ext_resource type="PackedScene" uid="uid://bd0vy7ccnkl4n" path="res://Chapters/Chapter 1/UI Components/Chest_Riddle.tscn" id="27_keyym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cktx6"]
 texture = ExtResource("1_y5tvb")
@@ -6323,6 +6326,16 @@ layer_3/tile_data = PackedInt32Array(1114123, 6291460, 20, 1179659, 6291460, 21,
 layer_4/name = "infront of decors"
 layer_4/tile_data = PackedInt32Array(1245222, 655360, 536870920, 1245219, 655360, 536870920, 1245220, 655360, 805306376, 1245221, 655360, 536870920, 1507371, 458752, 8, 1507372, 524288, 8, 1507373, 589824, 8, 524296, 589829, 0, 524349, 589829, 1, 1703965, 655365, 1)
 
+[node name="Portaldoor" parent="." instance=ExtResource("5_crvse")]
+position = Vector2(123.5, 488)
+scale = Vector2(0.898438, 0.875)
+
+[node name="InteractArea" parent="Portaldoor" index="2" node_paths=PackedStringArray("door_code")]
+interact_label = ""
+interact_type = "open_door_code"
+door_code_path = NodePath("../../UI/DoorCode")
+door_code = NodePath("../../UI/DoorCode")
+
 [node name="Clues" parent="." instance=ExtResource("5_pl6ya")]
 position = Vector2(207, 385)
 parent_chest = NodePath("../BrownChest2")
@@ -6380,10 +6393,10 @@ interact_label = ""
 interact_type = "open_chest"
 
 [node name="Player" parent="." instance=ExtResource("6_yx4og")]
-position = Vector2(56, 168)
+position = Vector2(208, 537)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(200, 168)
+position = Vector2(208, 537)
 script = ExtResource("6_eksja")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -6393,7 +6406,7 @@ tween_on_load = false
 limit_target = NodePath("../Camera_bounds/CollisionShape2D")
 
 [node name="Mimic" parent="." instance=ExtResource("8_x7vko")]
-position = Vector2(156, 532)
+position = Vector2(172, 163)
 
 [node name="Light" type="Node" parent="."]
 
@@ -6489,11 +6502,27 @@ hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Pan
 [node name="ColorRect" parent="HurtPlayerEffect/PlayerHurt" index="2"]
 visible = false
 
+[node name="Chest Puzzle" parent="." instance=ExtResource("27_keyym")]
+
+[node name="Control" parent="Chest Puzzle" index="0"]
+visible = false
+
+[node name="Scale" parent="Chest Puzzle/Control" index="1" node_paths=PackedStringArray("game_manager", "player", "ui", "button")]
+game_manager = NodePath("../../../GameManager")
+player = NodePath("../../../Player")
+ui = NodePath("../UI")
+button = NodePath("../UI/Button")
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" parent="UI" instance=ExtResource("7_bjayh")]
 
 [node name="Notes" parent="UI" instance=ExtResource("8_rkrj4")]
+
+[node name="DoorCode" parent="UI" instance=ExtResource("19_2or5c")]
+
+[node name="PauseMenu" parent="UI/DoorCode" index="0"]
+visible = false
 
 [node name="Clue_System2" parent="UI" instance=ExtResource("13_j4s4e")]
 
@@ -6644,6 +6673,9 @@ position = Vector2(1052, 437)
 unique_name_in_owner = true
 position = Vector2(-186, -64)
 
+[editable path="Portaldoor"]
+[editable path="Portaldoor/Door"]
+[editable path="Portaldoor/InteractArea"]
 [editable path="BrownChest3"]
 [editable path="BrownChest2"]
 [editable path="BrownChest"]
@@ -6658,8 +6690,13 @@ position = Vector2(-186, -64)
 [editable path="Light/Torch8"]
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
+[editable path="Chest Puzzle"]
+[editable path="Chest Puzzle/Control"]
+[editable path="Chest Puzzle/Control/Scale"]
+[editable path="Chest Puzzle/Control/UI"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
+[editable path="UI/DoorCode"]
 [editable path="UI/Clue_System2"]
 [editable path="UI/Note System"]
 [editable path="UI/DeathScreen"]

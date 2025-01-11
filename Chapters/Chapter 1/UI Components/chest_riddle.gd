@@ -8,10 +8,9 @@ extends Node
 @onready var back: Button = $PauseMenu/UI/Back
 @onready var pause_menu: Control = $Control
 @onready var question_q: Label = $Control/PauseMenu/question
-@onready var ui: Control = $"../UI"
 @onready var scale: Scale = $Control/Scale
 @onready var button: Button = $UI/Button
-
+@export var ui: Control
 
 var questions = []
 var current_question_index = -1
