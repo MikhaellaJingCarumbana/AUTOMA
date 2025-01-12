@@ -788,6 +788,7 @@ script = ExtResource("10_5iqws")
 
 [node name="Glitch Out" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("17_xa2u2")
+dash_offset = null
 
 [node name="Glitch Slice" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("18_b3aiq")
