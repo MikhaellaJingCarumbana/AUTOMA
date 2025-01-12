@@ -6,7 +6,6 @@ var attack_finished = false
 func enter():
 	super.enter()
 	animation_player.play("attack 1")
-	attack_finished = true
 	
 	
 func transition():
@@ -14,10 +13,10 @@ func transition():
 		#print("Should go back to run")
 		run = false
 		get_parent().change_state("Run")
+
 		
-
-
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("Should go back to run")
 		run = true
+		
