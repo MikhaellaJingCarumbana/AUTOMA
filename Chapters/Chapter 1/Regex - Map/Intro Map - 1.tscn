@@ -1162,11 +1162,8 @@ layer_5/tile_data = PackedInt32Array(589827, 2, 2, 589828, 131074, 2, 524323, 52
 [node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
 position = Vector2(1034, 126)
 
-[node name="Player" parent="." instance=ExtResource("4_cegvd")]
-position = Vector2(921, 152)
-
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(921, 102)
+position = Vector2(808, 102)
 script = ExtResource("5_l3kw7")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -1192,5 +1189,8 @@ debug_color = Color(0.652662, 0.930431, 1, 0.42)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.162066, 0.162066, 0.162066, 1)
+
+[node name="Player" parent="." instance=ExtResource("4_cegvd")]
+position = Vector2(808, 152)
 
 [editable path="CanvasLayer/Panel"]

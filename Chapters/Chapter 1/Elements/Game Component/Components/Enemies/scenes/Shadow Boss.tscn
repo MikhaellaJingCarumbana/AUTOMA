@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=93 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Texture2D" uid="uid://5s7crdkccbu3" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/1. idle.png" id="1_1eftc"]
 [ext_resource type="Texture2D" uid="uid://uqast36w1pfd" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/3. attack 1 - 1.png" id="1_odk4t"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://btpdmu5plk2pv" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/4. idle + Shield.png" id="6_1svwh"]
 [ext_resource type="Texture2D" uid="uid://bxw3et1ylcq3b" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/7. jump.png" id="7_vrmj2"]
 [ext_resource type="Texture2D" uid="uid://b7lx4qpspbp2i" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/2. run.png" id="8_ce456"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/state.gd" id="10_5iqws"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/finite_state_machine.gd" id="10_dena1"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/idle.gd" id="11_7if8f"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/run.gd" id="12_hgrs3"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50061"]
 particle_flag_disable_z = true
@@ -549,11 +553,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_65gjq"]
-resource_name = "flicker"
-length = 0.3
-loop_mode = 1
-
 [sub_resource type="Animation" id="Animation_yxkuc"]
 length = 0.001
 tracks/0/type = "value"
@@ -568,6 +567,11 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.75]
 }
+
+[sub_resource type="Animation" id="Animation_65gjq"]
+resource_name = "flicker"
+length = 0.3
+loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_xjmpq"]
 resource_name = "flicker2"
@@ -604,10 +608,9 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s5q6"]
-radius = 200.0
+radius = 81.0
 
 [node name="ShadowBoss" type="CharacterBody2D"]
-collision_layer = 2
 script = ExtResource("1_qpgom")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -628,8 +631,8 @@ texture = SubResource("GradientTexture2D_pe8p5")
 position = Vector2(0, 1)
 scale = Vector2(1.60156, 1.60156)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"run"
-frame_progress = 0.225356
+animation = &"idle"
+autoplay = "idle"
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -705,20 +708,28 @@ text = "debug
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player Detection"]
 shape = SubResource("CircleShape2D_4s5q6")
 
-[node name="FiniteStateMachine" type="Node" parent="."]
+[node name="FiniteStateMachine" type="Node2D" parent="."]
+script = ExtResource("10_dena1")
 
-[node name="Node" type="Node" parent="FiniteStateMachine"]
+[node name="Idle" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("11_7if8f")
 
-[node name="Node2" type="Node" parent="FiniteStateMachine"]
+[node name="Run" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("12_hgrs3")
 
-[node name="Node3" type="Node" parent="FiniteStateMachine"]
+[node name="Attack 1" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_5iqws")
 
-[node name="Node4" type="Node" parent="FiniteStateMachine"]
+[node name="Attack 2" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_5iqws")
 
-[node name="Node5" type="Node" parent="FiniteStateMachine"]
+[node name="Jump" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_5iqws")
 
-[node name="Node6" type="Node" parent="FiniteStateMachine"]
+[node name="Fall" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_5iqws")
 
-[node name="Node7" type="Node" parent="FiniteStateMachine"]
+[node name="Dead" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_5iqws")
 
-[node name="Node8" type="Node" parent="FiniteStateMachine"]
+[connection signal="body_entered" from="Player Detection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
