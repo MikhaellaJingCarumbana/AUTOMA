@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=95 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Texture2D" uid="uid://5s7crdkccbu3" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/1. idle.png" id="1_1eftc"]
 [ext_resource type="Texture2D" uid="uid://uqast36w1pfd" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/3. attack 1 - 1.png" id="1_odk4t"]
@@ -334,7 +334,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2kij4")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack 1",
 "speed": 5.0
 }, {
@@ -372,7 +372,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_camus")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack 2",
 "speed": 5.0
 }, {
@@ -611,6 +611,9 @@ corner_radius_bottom_left = 10
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s5q6"]
 radius = 170.848
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktohb"]
+radius = 97.0155
+
 [node name="ShadowBoss" type="CharacterBody2D"]
 script = ExtResource("1_qpgom")
 
@@ -632,9 +635,10 @@ texture = SubResource("GradientTexture2D_pe8p5")
 position = Vector2(0, 1)
 scale = Vector2(1.60156, 1.60156)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"attack 1"
+animation = &"attack 2"
 autoplay = "idle"
-frame_progress = 0.214448
+frame = 10
+frame_progress = 1.0
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -734,4 +738,12 @@ script = ExtResource("10_5iqws")
 [node name="Dead" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
+[node name="attack_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_Area"]
+shape = SubResource("CircleShape2D_ktohb")
+debug_color = Color(0.668804, 0.1209, 0.212928, 0.42)
+
 [connection signal="body_entered" from="Player Detection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
+[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Run" method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="attack_Area" to="FiniteStateMachine/Attack 1" method="_on_attack_area_body_exited"]

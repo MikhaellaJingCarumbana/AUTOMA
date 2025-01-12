@@ -1,6 +1,6 @@
 extends State
 
-
+var attack: bool = false
 func enter():
 	super.enter()
 	owner.set_physics_process(true)
@@ -13,8 +13,12 @@ func exit():
 func transition():
 	
 	var distance = owner.position.length()
-	print(distance)
 	
-	if distance < 650:
-		print("Change to attack 1")
+	if attack:
+		attack = false
 		get_parent().change_state("Attack 1")
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		attack = true
+		
