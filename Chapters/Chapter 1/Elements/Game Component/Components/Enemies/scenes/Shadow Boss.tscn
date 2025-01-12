@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=106 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -13,9 +13,12 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/state.gd" id="10_5iqws"]
 [ext_resource type="Texture2D" uid="uid://xsomonqvyevh" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Land.png" id="10_8pv8n"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/finite_state_machine.gd" id="10_dena1"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/idle.gd" id="11_7if8f"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/run.gd" id="12_hgrs3"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Attack_1.gd" id="15_r5vet"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/idle.gd" id="13_a5d6f"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/run.gd" id="15_clsue"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/slash_1.gd" id="15_tp6w4"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/slash_2.gd" id="16_7ujen"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/glitch_out.gd" id="17_xa2u2"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/glitch_slice.gd" id="18_b3aiq"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50061"]
 particle_flag_disable_z = true
@@ -474,7 +477,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kr2m2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Slash 1",
 "speed": 5.0
 }, {
@@ -494,7 +497,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6gy43")
 }],
-"loop": true,
+"loop": false,
 "name": &"Slash 2",
 "speed": 5.0
 }, {
@@ -511,7 +514,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6hn5s")
 }],
-"loop": true,
+"loop": false,
 "name": &"glitch jump",
 "speed": 5.0
 }, {
@@ -531,7 +534,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jbw0a")
 }],
-"loop": true,
+"loop": false,
 "name": &"glitch out",
 "speed": 5.0
 }, {
@@ -566,7 +569,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v0pnn")
 }],
-"loop": true,
+"loop": false,
 "name": &"glitch slice",
 "speed": 5.0
 }, {
@@ -589,7 +592,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w2ym2")
 }],
-"loop": true,
+"loop": false,
 "name": &"glitch sweep",
 "speed": 5.0
 }, {
@@ -603,7 +606,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rq5yj")
 }],
-"loop": true,
+"loop": false,
 "name": &"land",
 "speed": 5.0
 }]
@@ -687,9 +690,10 @@ texture = SubResource("GradientTexture2D_pe8p5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.40617, 1.40617)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"Run"
+animation = &"Slash 2"
 autoplay = "Idle"
-frame_progress = 0.653725
+frame = 4
+frame_progress = 1.0
 speed_scale = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -768,25 +772,25 @@ shape = SubResource("CircleShape2D_4s5q6")
 script = ExtResource("10_dena1")
 
 [node name="Idle" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("11_7if8f")
+script = ExtResource("13_a5d6f")
 
 [node name="Idle Glitch" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
 [node name="Slash 1" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("15_r5vet")
+script = ExtResource("15_tp6w4")
 
 [node name="Slash 2" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_5iqws")
+script = ExtResource("16_7ujen")
 
 [node name="Glitch Jump" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
 [node name="Glitch Out" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_5iqws")
+script = ExtResource("17_xa2u2")
 
 [node name="Glitch Slice" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_5iqws")
+script = ExtResource("18_b3aiq")
 
 [node name="Glitch Sweep" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
@@ -795,7 +799,7 @@ script = ExtResource("10_5iqws")
 script = ExtResource("10_5iqws")
 
 [node name="Run" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("12_hgrs3")
+script = ExtResource("15_clsue")
 
 [node name="attack_Area" type="Area2D" parent="."]
 
@@ -803,6 +807,7 @@ script = ExtResource("12_hgrs3")
 shape = SubResource("CircleShape2D_ktohb")
 debug_color = Color(0.668804, 0.1209, 0.212928, 0.42)
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 1" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Player Detection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
 [connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Run" method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attack_Area" to="FiniteStateMachine/Slash 1" method="_on_attack_area_body_exited"]

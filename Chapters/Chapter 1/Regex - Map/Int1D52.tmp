@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cq2bx3qqccn51"]
+[gd_scene load_steps=16 format=3 uid="uid://cq2bx3qqccn51"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_johjb"]
 [ext_resource type="Texture2D" uid="uid://cl543vtiptinx" path="res://Art/Dungeon Vibes Tilesets/Dungeon Tile Set.png" id="2_hhxqb"]
@@ -1142,9 +1142,6 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx4u3"]
 size = Vector2(1182, 190)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0towx"]
-size = Vector2(1138, 156)
-
 [node name="IntroMap-1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1195,11 +1192,5 @@ position = Vector2(808, 152)
 
 [node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
 position = Vector2(967, 129)
-
-[node name="Map_bounds" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map_bounds"]
-position = Vector2(595, 85)
-shape = SubResource("RectangleShape2D_0towx")
 
 [editable path="CanvasLayer/Panel"]
