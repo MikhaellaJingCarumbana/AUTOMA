@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=94 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Texture2D" uid="uid://5s7crdkccbu3" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/1. idle.png" id="1_1eftc"]
 [ext_resource type="Texture2D" uid="uid://uqast36w1pfd" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/Sprite/3. attack 1 - 1.png" id="1_odk4t"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/finite_state_machine.gd" id="10_dena1"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/idle.gd" id="11_7if8f"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/run.gd" id="12_hgrs3"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/attack_1.gd" id="13_c6qsu"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50061"]
 particle_flag_disable_z = true
@@ -608,7 +609,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s5q6"]
-radius = 81.0
+radius = 170.848
 
 [node name="ShadowBoss" type="CharacterBody2D"]
 script = ExtResource("1_qpgom")
@@ -631,8 +632,9 @@ texture = SubResource("GradientTexture2D_pe8p5")
 position = Vector2(0, 1)
 scale = Vector2(1.60156, 1.60156)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"idle"
+animation = &"attack 1"
 autoplay = "idle"
+frame_progress = 0.214448
 speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -718,7 +720,7 @@ script = ExtResource("11_7if8f")
 script = ExtResource("12_hgrs3")
 
 [node name="Attack 1" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_5iqws")
+script = ExtResource("13_c6qsu")
 
 [node name="Attack 2" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
