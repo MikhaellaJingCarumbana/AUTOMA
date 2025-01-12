@@ -5,12 +5,17 @@ class_name State
 @onready var animation_player = owner.find_child("AnimatedSprite2D")
 var can_transition: bool = true
 
+func _ready():
+	set_physics_process(false)
+
 func enter():
-	super.enter()
-	animation_player.play("Attack 2")
-	can_transition = true
+	set_physics_process(true)
+	
+func exit():
+	set_physics_process(false)
 	
 func transition():
-	if can_tansition:
-		can_transition = false
-		get_parent().change_state()
+	pass
+
+func _physics_process(delta: float) -> void:
+	transition()

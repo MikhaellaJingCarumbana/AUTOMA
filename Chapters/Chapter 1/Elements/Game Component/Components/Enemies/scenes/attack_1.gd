@@ -5,7 +5,7 @@ var attack_finished = false
 # Called when the node enters the scene tree for the first time.
 func enter():
 	super.enter()
-	animation_player.play("attack 1")
+	animation_player.play("Slash 1")
 	
 	
 func transition():

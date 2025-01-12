@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=87 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -8,14 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://b1b6ld7cnvsr0" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle Gltich.png" id="7_5c30o"]
 [ext_resource type="Texture2D" uid="uid://lb8h8xtgoxww" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Glitch Out.png" id="7_h208l"]
 [ext_resource type="Texture2D" uid="uid://102r4xqxpfhp" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Glitch Slices.png" id="8_llhxv"]
-[ext_resource type="Texture2D" uid="uid://c655cgpgo6uk5" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Run.png" id="9_87ctq"]
 [ext_resource type="Texture2D" uid="uid://d1vsy381adjxx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Glitch Sweep.png" id="9_jp3sa"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Sprite/SAHDOW Series - Frost Curse Boss/state.gd" id="10_5iqws"]
 [ext_resource type="Texture2D" uid="uid://xsomonqvyevh" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Land.png" id="10_8pv8n"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/finite_state_machine.gd" id="10_dena1"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/idle.gd" id="11_7if8f"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/run.gd" id="12_hgrs3"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Attack_1.gd" id="15_r5vet"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50061"]
 particle_flag_disable_z = true
@@ -124,54 +120,6 @@ region = Rect2(1260, 0, 140, 46)
 [sub_resource type="AtlasTexture" id="AtlasTexture_h0yn7"]
 atlas = ExtResource("7_5c30o")
 region = Rect2(1400, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ao37"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(0, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ave8"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(140, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mqgvy"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(280, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddt40"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(420, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vm5ha"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(560, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nuoyh"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(700, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_384ho"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(840, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y44b3"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(980, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v12sm"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(1120, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y14b8"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(1260, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jroj4"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(1400, 0, 140, 46)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1laih"]
-atlas = ExtResource("9_87ctq")
-region = Rect2(1540, 0, 140, 46)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yx7cc"]
 atlas = ExtResource("2_el1y5")
@@ -413,47 +361,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ao37")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ave8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mqgvy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ddt40")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vm5ha")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nuoyh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_384ho")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y44b3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v12sm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y14b8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jroj4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1laih")
-}],
-"loop": true,
-"name": &"Run",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_yx7cc")
 }, {
 "duration": 1.0,
@@ -652,7 +559,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j8dky"]
-radius = 12.0
+radius = 7.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qawb6"]
 bg_color = Color(0.802454, 0, 0.171917, 1)
@@ -687,9 +594,9 @@ texture = SubResource("GradientTexture2D_pe8p5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.40617, 1.40617)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"Run"
+animation = &"land"
 autoplay = "Idle"
-frame_progress = 0.653725
+frame_progress = 0.315616
 speed_scale = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -699,7 +606,7 @@ libraries = {
 speed_scale = -1.32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 14)
+position = Vector2(-9, 16)
 shape = SubResource("CapsuleShape2D_j8dky")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -767,42 +674,35 @@ shape = SubResource("CircleShape2D_4s5q6")
 [node name="FiniteStateMachine" type="Node2D" parent="."]
 script = ExtResource("10_dena1")
 
-[node name="Idle" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("11_7if8f")
-
-[node name="Idle Glitch" type="Node2D" parent="FiniteStateMachine"]
+[node name="Node2D" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
-[node name="Slash 1" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("15_r5vet")
-
-[node name="Slash 2" type="Node2D" parent="FiniteStateMachine"]
+[node name="Node2D2" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
-[node name="Glitch Jump" type="Node2D" parent="FiniteStateMachine"]
+[node name="Node2D3" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
-[node name="Glitch Out" type="Node2D" parent="FiniteStateMachine"]
+[node name="Node2D4" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
-[node name="Glitch Slice" type="Node2D" parent="FiniteStateMachine"]
+[node name="Node2D5" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
-[node name="Glitch Sweep" type="Node2D" parent="FiniteStateMachine"]
+[node name="Node2D6" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
-[node name="Land" type="Node2D" parent="FiniteStateMachine"]
+[node name="Node2D7" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")
 
-[node name="Run" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("12_hgrs3")
+[node name="Node2D8" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_5iqws")
+
+[node name="Node2D9" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_5iqws")
 
 [node name="attack_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_Area"]
 shape = SubResource("CircleShape2D_ktohb")
 debug_color = Color(0.668804, 0.1209, 0.212928, 0.42)
-
-[connection signal="body_entered" from="Player Detection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
-[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Run" method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="attack_Area" to="FiniteStateMachine/Slash 1" method="_on_attack_area_body_exited"]

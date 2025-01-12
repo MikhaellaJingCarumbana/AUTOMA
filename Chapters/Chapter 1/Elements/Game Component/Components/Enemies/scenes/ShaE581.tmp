@@ -689,7 +689,7 @@ scale = Vector2(1.40617, 1.40617)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
 animation = &"Run"
 autoplay = "Idle"
-frame_progress = 0.653725
+frame_progress = 0.958388
 speed_scale = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -802,7 +802,3 @@ script = ExtResource("12_hgrs3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_Area"]
 shape = SubResource("CircleShape2D_ktohb")
 debug_color = Color(0.668804, 0.1209, 0.212928, 0.42)
-
-[connection signal="body_entered" from="Player Detection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
-[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Run" method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="attack_Area" to="FiniteStateMachine/Slash 1" method="_on_attack_area_body_exited"]

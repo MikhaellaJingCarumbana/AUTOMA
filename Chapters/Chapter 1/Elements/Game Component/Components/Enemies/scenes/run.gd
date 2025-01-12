@@ -16,7 +16,7 @@ func transition():
 	
 	if attack:
 		attack = false
-		get_parent().change_state("Attack 1")
+		get_parent().change_state("Slash 1")
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
