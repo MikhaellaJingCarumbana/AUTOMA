@@ -1,10 +1,13 @@
 extends State
 
 var run: bool = false
+var attack_finished = false
 # Called when the node enters the scene tree for the first time.
 func enter():
 	super.enter()
 	animation_player.play("attack 1")
+	attack_finished = true
+	
 	
 func transition():
 	if run:
