@@ -781,10 +781,8 @@ texture = SubResource("GradientTexture2D_pe8p5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.40617, 1.40617)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"glitch sweep"
+animation = &"glitch out"
 autoplay = "Idle"
-frame = 5
-frame_progress = 1.0
 speed_scale = 3.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

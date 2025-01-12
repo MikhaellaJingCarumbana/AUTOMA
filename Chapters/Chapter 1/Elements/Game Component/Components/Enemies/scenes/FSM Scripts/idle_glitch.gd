@@ -12,5 +12,5 @@ func transition():
 	var distance = owner.direction.length()
 	if distance > 120:
 		await get_tree().create_timer(0.4).timeout
-		get_parent().change_state("Glitch Slice")
+		get_parent().change_state("Glitch Out")
 	

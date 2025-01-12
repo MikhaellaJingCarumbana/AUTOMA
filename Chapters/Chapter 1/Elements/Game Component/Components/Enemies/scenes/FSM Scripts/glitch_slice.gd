@@ -1,6 +1,5 @@
 extends State
 
-var can_tranistion1: bool = false
 var dash_speed = 700
 var dash_distance = 200
 var is_dashing = false
@@ -13,8 +12,9 @@ var can_transition1: bool = false
 func enter():
 	super.enter()
 	animation_player.play("glitch slice")
+	owner.set_physics_process(true)
 	await dash()
-	can_tranistion1 = true
+	can_transition1 = false
 
 func dash():
 	is_dashing = true
@@ -25,13 +25,17 @@ func dash():
 		
 	var tween = create_tween()
 	
-	tween.tween_property(owner, "position", target_position, 0.3)
+	tween.tween_property(owner, "position", target_position, 0.8)
 	await tween.finished
 	is_dashing = false
 	
 	
 func transition():
-	if can_tranistion1 and not is_dashing:
-		can_tranistion1 = false
+	if can_transition1 and not is_dashing:
+		can_transition1 = false
+		print("Transition to Slash 1")
 		get_parent().change_state("Slash 1")
+		
+
+
 	
