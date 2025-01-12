@@ -7,16 +7,25 @@ func enter():
 	owner.set_physics_process(true)
 	animation_player.play("Run")
 	
+	can_transition = false
+	await get_tree().create_timer(0.5).timeout
+	can_transition = true
+	
 func exit():
 	super.exit()
 	owner.set_physics_process(false)
 	
 func transition():
+	
+	if not can_transition:
+		return
+		
 	var distance = owner.direction.length()
 	print(distance)
 	
-	if distance < 40:
+	if distance < 50:
 		get_parent().change_state("Slash 1")
 		
-	if distance > 150:
+	elif distance > 200:
+		print("Dashing")
 		get_parent().change_state("Glitch Out")

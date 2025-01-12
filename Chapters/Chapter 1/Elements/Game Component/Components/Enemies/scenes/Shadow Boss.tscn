@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=107 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://xsomonqvyevh" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Land.png" id="10_8pv8n"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/finite_state_machine.gd" id="10_dena1"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/idle.gd" id="13_a5d6f"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/idle_glitch.gd" id="14_4f6tl"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/run.gd" id="15_clsue"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/slash_1.gd" id="15_tp6w4"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/slash_2.gd" id="16_7ujen"]
@@ -775,7 +776,7 @@ script = ExtResource("10_dena1")
 script = ExtResource("13_a5d6f")
 
 [node name="Idle Glitch" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_5iqws")
+script = ExtResource("14_4f6tl")
 
 [node name="Slash 1" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("15_tp6w4")
@@ -788,7 +789,6 @@ script = ExtResource("10_5iqws")
 
 [node name="Glitch Out" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("17_xa2u2")
-dash_offset = null
 
 [node name="Glitch Slice" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("18_b3aiq")
@@ -809,6 +809,7 @@ shape = SubResource("CircleShape2D_ktohb")
 debug_color = Color(0.668804, 0.1209, 0.212928, 0.42)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 1" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 2" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Player Detection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
 [connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Run" method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attack_Area" to="FiniteStateMachine/Slash 1" method="_on_attack_area_body_exited"]

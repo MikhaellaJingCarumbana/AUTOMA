@@ -7,12 +7,13 @@ func enter():
 	super.enter()
 	owner.set_physics_process(true)
 	animation_player.play("Slash 1")
-
+	
 func transition():
 	var distance = owner.direction.length()
+	if distance > 50:
+		get_parent().change_state("Run")
 	
-	if distance < 40 and animation_finished:
-		get_parent().change_state("Slash 2")
 
-func _on_animated_sprite_2d_animation_finished() -> void:
-	animation_finished = true
+func _on_animated_sprite_2d_animation_finished(anim_name: String) -> void:
+	if anim_name == "Slash 1":
+		animation_finished = true
