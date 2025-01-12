@@ -11,8 +11,13 @@ func enter():
 func exit():
 	super.exit()
 	owner.set_physics_process(false)
-
+	
 func transition():
-	get_parent().change_state("Idle Glitch")
+	var distance = owner.direction.length()
+	
+	if distance > 100:
+		get_parent().change_state("Run")
+
+	
 	
 			

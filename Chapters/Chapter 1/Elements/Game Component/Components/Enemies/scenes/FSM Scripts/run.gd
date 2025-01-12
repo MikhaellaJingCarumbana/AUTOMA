@@ -22,10 +22,10 @@ func transition():
 		
 	var distance = owner.direction.length()
 	print(distance)
-	
-	if distance < 50:
+	if distance < 150:
+		get_parent().change_state("Idle Glitch")
+	elif distance < 50:
 		get_parent().change_state("Slash 1")
-		
 	elif distance > 200:
 		print("Dashing")
 		get_parent().change_state("Glitch Out")

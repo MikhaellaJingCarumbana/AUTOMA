@@ -1,6 +1,5 @@
 extends State
 
-@onready var map_bounds: CollisionShape2D = $Map_bounds/CollisionShape2D
 var dash_speed = 1000
 var dash_distance = 200
 var is_dashing = false
@@ -12,35 +11,24 @@ func enter():
 	super.enter()
 	owner.set_physics_process(true)
 	animation_player.play("glitch out")
-	dash()
-	
-func exit():
-	super.exit()
-	owner.set_physics_process(false)
-	
-func dash():
-	is_dashing = true
-	var direction = (owner.player.position - owner.position).normalized()
-	var dash_time = 0.2
-	var dash_timer = 0.0
-	
-	var original_speed = owner.SPEED
-	owner.SPEED = dash_speed
-	
-	while dash_timer < dash_timer:
-		owner.position += direction * dash_speed * get_physics_process_delta_time()
-		dash_timer += get_physics_process_delta_time()
-		await get_tree().process_frame
-	
-	owner.SPEED = original_speed
-	owner.velocity = Vector2.ZERO
-	is_dashing = false
-	
+	await dash()
 	can_transition1 = true
 	
-func transition():
-	if not can_transition1:
-		return
-	can_transition1 = false
+func dash(): 
+	var target_position = player.position
 	
-	get_parent().change_state("Slash 2")
+	if target_position.y > owner.position.y:
+		target_position.y = owner.position.y
+		
+	var tween = create_tween()
+	
+	tween.tween_property(owner, "position", target_position, 0.8)
+	await tween.finished
+
+
+func transition():
+	if can_transition1:
+		can_transition1 = false
+		
+		get_parent().change_state("Glitch Slice")
+	
