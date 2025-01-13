@@ -1145,7 +1145,7 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx4u3"]
 size = Vector2(1182, 190)
 
-[node name="IntroMap-1" type="Node2D" groups=["Boss", "Player"]]
+[node name="IntroMap-1" type="Node2D" groups=["Boss", "Player", "ShadowBoss"]]
 script = ExtResource("1_obft5")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1198,9 +1198,6 @@ boss_node = NodePath("../ShadowBoss")
 
 [node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
 position = Vector2(967, 129)
-
-[node name="Clank" parent="ShadowBoss" index="12"]
-stream_paused = false
 
 [node name="Map_bounds" type="Area2D" parent="."]
 
