@@ -24,6 +24,6 @@ func transition():
 	print(distance)
 	if distance < 50:
 		get_parent().change_state("Slash 1")
-	elif distance > 300:
+	elif distance > 180:
 		print("Dashing")
 		get_parent().change_state("Glitch Out")

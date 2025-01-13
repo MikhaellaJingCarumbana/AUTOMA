@@ -30,10 +30,10 @@ func transition():
 	if can_transition1:
 		
 		var distance = owner.direction.length()
-		if distance < 70:
+		if distance < 60:
 			get_parent().change_state("Slash 2")
-		elif distance > 70:
+		elif distance > 60 and distance < 100:
+			get_parent().change_state("Run")
+		elif distance > 100:
 			get_parent().change_state("Glitch Slice")
 			
-		can_transition1 = false
-	

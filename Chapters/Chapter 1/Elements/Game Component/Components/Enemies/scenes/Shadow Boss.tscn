@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=121 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/slash_2.gd" id="16_7ujen"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/glitch_out.gd" id="17_xa2u2"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/glitch_slice.gd" id="18_b3aiq"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/glitch_sweep.gd" id="21_irbsk"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50061"]
 particle_flag_disable_z = true
@@ -781,7 +782,7 @@ texture = SubResource("GradientTexture2D_pe8p5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.40617, 1.40617)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"glitch out"
+animation = &"glitch slice"
 autoplay = "Idle"
 speed_scale = 3.0
 
@@ -882,7 +883,7 @@ script = ExtResource("17_xa2u2")
 script = ExtResource("18_b3aiq")
 
 [node name="Glitch Sweep" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("10_5iqws")
+script = ExtResource("21_irbsk")
 
 [node name="Land" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5iqws")

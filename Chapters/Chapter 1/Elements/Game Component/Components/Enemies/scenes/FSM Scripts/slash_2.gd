@@ -19,8 +19,10 @@ func transition():
 	
 	if distance < 70:
 		get_parent().change_state("Slash 1")
-	elif distance > 100:
+	elif distance > 100 and distance < 180:
 		get_parent().change_state("Run")
+	else:
+		get_parent().change_state("Glitch Out")
 	
 
 	
