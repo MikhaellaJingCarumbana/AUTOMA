@@ -1193,6 +1193,4 @@ position = Vector2(808, 152)
 [node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
 position = Vector2(967, 129)
 
-[node name="Map_bounds" type="Area2D" parent="."]
-
 [editable path="CanvasLayer/Panel"]
