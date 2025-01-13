@@ -4,6 +4,9 @@ class_name State
 @onready var debug = owner.find_child("debug")
 @onready var player = owner.get_parent().find_child("Player")
 @onready var animation_player = $"../../AnimatedSprite2D"
+@onready var health: AnimationPlayer = $"../../AnimationPlayer"
+@onready var ui: CanvasLayer = $"../../UI"
+
 var can_transition: bool = true
 
 func _ready():

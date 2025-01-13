@@ -27,7 +27,7 @@ func dash():
 		
 	var tween = create_tween()
 	
-	tween.tween_property(owner, "position", target_position, 0.8)
+	tween.tween_property(owner, "position", target_position, 0.3)
 	
 	
 func transition():

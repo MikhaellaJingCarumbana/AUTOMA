@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=126 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -15,8 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://xsomonqvyevh" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Land.png" id="10_8pv8n"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/finite_state_machine.gd" id="10_dena1"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/idle.gd" id="13_a5d6f"]
+[ext_resource type="Texture2D" uid="uid://c8t7f3rb227bd" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/final final.png" id="13_hgmc0"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/idle_glitch.gd" id="14_4f6tl"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="14_f28rb"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/run.gd" id="15_clsue"]
+[ext_resource type="Texture2D" uid="uid://bf275p4w5dk7" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Portrait.png" id="15_ctins"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/slash_1.gd" id="15_tp6w4"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/slash_2.gd" id="16_7ujen"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/glitch_out.gd" id="17_xa2u2"]
@@ -717,6 +720,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.75]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(167, 1121)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/ProgressBar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(412, 1222)]
+}
 
 [sub_resource type="Animation" id="Animation_65gjq"]
 resource_name = "flicker"
@@ -739,8 +766,37 @@ tracks/0/keys = {
 "values": [1.75, 2.23, 0.95, 0.63, 1.59]
 }
 
+[sub_resource type="Animation" id="Animation_cnqr0"]
+resource_name = "Healthbar"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(167, 1121), Vector2(167, 724), Vector2(167, 819)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/ProgressBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(412, 1222), Vector2(412, 825), Vector2(412, 920)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dn8gk"]
 _data = {
+"Healthbar": SubResource("Animation_cnqr0"),
 "RESET": SubResource("Animation_yxkuc"),
 "flicker": SubResource("Animation_65gjq"),
 "flicker2": SubResource("Animation_xjmpq")
@@ -749,12 +805,17 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j8dky"]
 radius = 12.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qawb6"]
-bg_color = Color(0.802454, 0, 0.171917, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydyok"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hg7rl"]
+texture = ExtResource("13_hgmc0")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s5q6"]
 radius = 164.073
@@ -792,7 +853,6 @@ speed_scale = 3.0
 libraries = {
 "": SubResource("AnimationLibrary_dn8gk")
 }
-speed_scale = -1.32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, 14)
@@ -806,14 +866,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -779.0
-offset_top = -79.0
-offset_right = 785.0
-offset_bottom = -30.0
+offset_left = -548.0
+offset_top = 149.0
+offset_right = 885.0
+offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/fill = SubResource("StyleBoxFlat_qawb6")
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ydyok")
+theme_override_styles/fill = SubResource("StyleBoxTexture_hg7rl")
 value = 100.0
+show_percentage = false
 
 [node name="Label" type="Label" parent="UI/ProgressBar"]
 layout_mode = 1
@@ -822,29 +886,30 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -778.0
-offset_top = -135.0
-offset_right = -621.0
-offset_bottom = -66.0
+offset_left = -710.5
+offset_top = 19.0
+offset_right = -414.5
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("14_f28rb")
 theme_override_font_sizes/font_size = 50
-text = "Knight"
+text = "Dungeon Guardian"
 
-[node name="Label" type="Label" parent="UI"]
-anchors_preset = 8
+[node name="TextureRect" type="TextureRect" parent="UI"]
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.5
-offset_top = -34.5
-offset_right = 150.5
-offset_bottom = 34.5
+anchor_bottom = 1.0
+offset_left = -793.0
+offset_top = 48.0
+offset_right = -573.0
+offset_bottom = 268.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "Boss Slained"
+grow_vertical = 0
+texture = ExtResource("15_ctins")
+expand_mode = 1
 
 [node name="debug" type="Label" parent="."]
 offset_left = -31.0

@@ -1185,7 +1185,7 @@ debug_color = Color(0.652662, 0.930431, 1, 0.42)
 [node name="Panel" parent="CanvasLayer" instance=ExtResource("8_jxh6j")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.20871, 0.20871, 0.20871, 1)
+color = Color(0.162066, 0.162066, 0.162066, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_cegvd")]
 position = Vector2(768, 152)
