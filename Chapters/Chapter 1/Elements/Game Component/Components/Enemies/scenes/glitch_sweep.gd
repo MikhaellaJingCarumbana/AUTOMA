@@ -28,4 +28,12 @@ func dash():
 	tween.tween_property(owner, "position", target_position, 0.8)
 
 func transition():
-	pass
+	if animation_player.is_playing():
+		return
+		
+	var distance = owner.direction.length()
+	
+	if distance < 60:
+		get_parent().change_state("Slash 1")
+	if distance >= 60:
+		get_parent().change_state("Glitch Out")

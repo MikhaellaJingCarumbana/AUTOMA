@@ -7,10 +7,7 @@ func enter():
 	super.enter()
 	owner.set_physics_process(true)
 	animation_player.play("Slash 2")
-	
-func exit():
-	super.exit()
-	owner.set_physics_process(false)
+
 	
 func transition():
 	if animation_player.is_playing():
