@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ciocx06mmswou"
+path="res://.godot/imported/metal-clang-sound-81634.mp3-df10170415a70c7e2b0b7f91f1214498.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/metal-clang-sound-81634.mp3"
+dest_files=["res://.godot/imported/metal-clang-sound-81634.mp3-df10170415a70c7e2b0b7f91f1214498.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

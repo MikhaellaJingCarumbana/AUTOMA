@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=128 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/glitch_slice.gd" id="18_b3aiq"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/glitch_sweep.gd" id="21_irbsk"]
 [ext_resource type="AudioStream" uid="uid://x3iek33xopge" path="res://Chapters/Chapter 1/audios/sounds/glitch-sound-effect-96251.mp3" id="26_r0sbd"]
+[ext_resource type="AudioStream" uid="uid://ciocx06mmswou" path="res://Chapters/Chapter 1/audios/sounds/metal-clang-sound-81634.mp3" id="27_1n004"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50061"]
 particle_flag_disable_z = true
@@ -745,6 +746,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(412, 1222)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Clank:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_65gjq"]
 resource_name = "flicker"
@@ -793,6 +806,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(412, 1222), Vector2(412, 825), Vector2(412, 920)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Clank:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dn8gk"]
@@ -868,9 +893,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -548.0
-offset_top = 149.0
+offset_top = 158.0
 offset_right = 885.0
-offset_bottom = 205.0
+offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -904,9 +929,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -793.0
-offset_top = 48.0
+offset_top = 57.0
 offset_right = -573.0
-offset_bottom = 268.0
+offset_bottom = 277.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("15_ctins")
@@ -972,6 +997,11 @@ autoplay = true
 max_distance = 1000.0
 
 [node name="Boss Music" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Clank" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_1n004")
+volume_db = -10.0
+stream_paused = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 1" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 2" method="_on_animated_sprite_2d_animation_finished"]
