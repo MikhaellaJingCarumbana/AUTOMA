@@ -16,7 +16,7 @@ var direction : Vector2
 
 var health_boss = 100:
 	set(value):
-		health = value
+		health_boss = value
 		progress_bar.value = value
 		if value <= 0:
 			progress_bar.visible = false
@@ -46,3 +46,4 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage():
 	health_boss -= 10
+	print("Boss health: ", health_boss)

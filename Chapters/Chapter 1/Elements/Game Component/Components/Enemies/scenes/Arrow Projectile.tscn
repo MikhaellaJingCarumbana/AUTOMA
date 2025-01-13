@@ -131,7 +131,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdnow"]
-radius = 9.0
+radius = 26.3059
 
 [node name="ArrowProjectile" type="Area2D"]
 collision_layer = 0
@@ -140,14 +140,15 @@ script = ExtResource("1_kimu5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7pt4d")
-frame_progress = 0.199601
+frame_progress = 0.831676
 speed_scale = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(17, 2)
 shape = SubResource("CircleShape2D_mdnow")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1, 1.5)
+scale = Vector2(2.9, 2.75)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

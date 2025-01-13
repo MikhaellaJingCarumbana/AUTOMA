@@ -9,7 +9,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body.take_damage()
+	if body.is_in_group("Boss"):
+		body.take_damage()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

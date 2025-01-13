@@ -984,7 +984,7 @@ script = ExtResource("10_5iqws")
 [node name="Run" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("15_clsue")
 
-[node name="Death" type="Node2D" parent="FiniteStateMachine"]
+[node name="Death" type="Node2D" parent="FiniteStateMachine" groups=["Boss", "Player"]]
 
 [node name="attack_Area" type="Area2D" parent="."]
 
