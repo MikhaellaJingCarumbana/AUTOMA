@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=127 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/glitch_out.gd" id="17_xa2u2"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/glitch_slice.gd" id="18_b3aiq"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/glitch_sweep.gd" id="21_irbsk"]
+[ext_resource type="AudioStream" uid="uid://x3iek33xopge" path="res://Chapters/Chapter 1/audios/sounds/glitch-sound-effect-96251.mp3" id="26_r0sbd"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50061"]
 particle_flag_disable_z = true
@@ -818,7 +819,7 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s5q6"]
-radius = 164.073
+radius = 244.205
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ktohb"]
 radius = 48.0
@@ -963,6 +964,14 @@ script = ExtResource("15_clsue")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_Area"]
 shape = SubResource("CircleShape2D_ktohb")
 debug_color = Color(0.668804, 0.1209, 0.212928, 0.42)
+
+[node name="Boss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_r0sbd")
+volume_db = -5.0
+autoplay = true
+max_distance = 1000.0
+
+[node name="Boss Music" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 1" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 2" method="_on_animated_sprite_2d_animation_finished"]
