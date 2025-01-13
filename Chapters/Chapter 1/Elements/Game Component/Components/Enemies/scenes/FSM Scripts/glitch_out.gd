@@ -7,6 +7,7 @@ var is_dashing = false
 var animation_finished: bool = false
 
 var can_transition1: bool = false
+var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Called when the node enters the scene tree for the first time.
 func enter():
 	super.enter()
