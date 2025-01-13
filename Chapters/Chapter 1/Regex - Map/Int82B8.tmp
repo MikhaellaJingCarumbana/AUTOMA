@@ -1145,7 +1145,7 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx4u3"]
 size = Vector2(1182, 190)
 
-[node name="IntroMap-1" type="Node2D" groups=["Boss", "Player"]]
+[node name="IntroMap-1" type="Node2D"]
 script = ExtResource("1_obft5")
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -9,8 +9,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Boss"):
+	
+	print("Projectile hit: ", body.name, "( Type: ", body.get_class(), ")")
+	if body.is_in_group("ShadowBoss"):
 		body.take_damage()
+	else:
+		print("Hit detected but not on boss")
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
