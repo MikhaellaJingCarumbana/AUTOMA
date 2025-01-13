@@ -1199,13 +1199,8 @@ boss_node = NodePath("../ShadowBoss")
 [node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
 position = Vector2(967, 129)
 
-[node name="ProgressBar" parent="ShadowBoss/UI" index="0"]
-offset_top = 142.0
-offset_bottom = 198.0
-
-[node name="TextureRect" parent="ShadowBoss/UI" index="1"]
-offset_top = 41.0
-offset_bottom = 261.0
+[node name="Clank" parent="ShadowBoss" index="12"]
+stream_paused = false
 
 [node name="Map_bounds" type="Area2D" parent="."]
 

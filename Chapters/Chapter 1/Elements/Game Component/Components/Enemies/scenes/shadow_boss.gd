@@ -45,5 +45,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide() 
 	
 func take_damage():
-	health_boss -= 10
+	health_boss -= 3
 	print("Boss health: ", health_boss)

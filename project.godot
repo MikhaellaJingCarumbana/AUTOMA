@@ -92,9 +92,9 @@ folder_colors={
 
 [global_group]
 
-Player=""
 Boss=""
 ShadowBoss=""
+Player=""
 
 [input]
 

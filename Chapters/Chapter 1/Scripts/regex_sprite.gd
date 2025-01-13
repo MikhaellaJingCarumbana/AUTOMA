@@ -355,6 +355,8 @@ func shoot_boss():
 		var boss = get_node(boss_node)
 		if boss:
 			bullet.direction = (boss.global_position - global_position).normalized()
+			
+			bullet.rotation = bullet.direction.angle()
 		else:
 			print("Boss not found in the scene tree!")
 			return

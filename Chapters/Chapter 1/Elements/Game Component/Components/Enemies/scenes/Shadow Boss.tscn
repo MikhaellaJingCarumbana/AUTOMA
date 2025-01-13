@@ -845,7 +845,7 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s5q6"]
-radius = 244.205
+radius = 144.281
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ktohb"]
 radius = 48.0
@@ -894,9 +894,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -548.0
-offset_top = 158.0
+offset_top = 142.0
 offset_right = 885.0
-offset_bottom = 214.0
+offset_bottom = 198.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -930,9 +930,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -793.0
-offset_top = 57.0
+offset_top = 41.0
 offset_right = -573.0
-offset_bottom = 277.0
+offset_bottom = 261.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("15_ctins")
