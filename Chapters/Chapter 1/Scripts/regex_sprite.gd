@@ -55,6 +55,8 @@ var footsteps_fram: Array = [2, 4, 6, 8]
 @onready var chest_puzzle: Node = $"../UI/Chest Puzzle/PauseMenu"
 @export var bullet_node: PackedScene
 
+@export var boss_node: NodePath
+
 
 func _ready():
 	add_to_group("Player")
@@ -350,9 +352,13 @@ func shoot_boss():
 		var bullet = bullet_node.instantiate()
 		
 		bullet.position = global_position
-		bullet.direction = (get_global_mouse_position() - global_position).normalized()
+		var boss = get_node(boss_node)
+		if boss:
+			bullet.direction = (boss.global_position - global_position).normalized()
+		else:
+			print("Boss not found in the scene tree!")
+			return
+		#bullet.position = global_position
+		#bullet.direction = (get_global_mouse_position() - global_position).normalized()
 		get_tree().current_scene.call_deferred("add_child", bullet)
 		
-func _input2(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot_boss"):
-		shoot_boss()

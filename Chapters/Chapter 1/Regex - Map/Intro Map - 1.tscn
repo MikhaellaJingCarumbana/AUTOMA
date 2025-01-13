@@ -1194,6 +1194,7 @@ color = Color(0.20871, 0.20871, 0.20871, 1)
 [node name="Player" parent="." instance=ExtResource("4_cegvd")]
 position = Vector2(616, 152)
 bullet_node = ExtResource("10_b27oa")
+boss_node = NodePath("../ShadowBoss")
 
 [node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
 position = Vector2(967, 129)
