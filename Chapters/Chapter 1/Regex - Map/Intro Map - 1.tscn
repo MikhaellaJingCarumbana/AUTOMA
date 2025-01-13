@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cq2bx3qqccn51"]
+[gd_scene load_steps=19 format=3 uid="uid://cq2bx3qqccn51"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_johjb"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Regex - Map/Boss fight.gd" id="1_obft5"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://5unf6g2m0jbu" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager2.tscn" id="7_mqhrp"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="8_jxh6j"]
 [ext_resource type="PackedScene" uid="uid://c3ube8tesc6pg" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Shadow Boss.tscn" id="9_y5yff"]
+[ext_resource type="PackedScene" uid="uid://dv46w1sqiton1" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Arrow Projectile.tscn" id="10_b27oa"]
 [ext_resource type="AudioStream" uid="uid://bsa27g2vrtxao" path="res://Chapters/Chapter 1/audios/music/Boss music.mp3" id="11_bjp2l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0itut"]
@@ -1192,9 +1193,18 @@ color = Color(0.20871, 0.20871, 0.20871, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_cegvd")]
 position = Vector2(616, 152)
+bullet_node = ExtResource("10_b27oa")
 
 [node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
 position = Vector2(967, 129)
+
+[node name="ProgressBar" parent="ShadowBoss/UI" index="0"]
+offset_top = 142.0
+offset_bottom = 198.0
+
+[node name="TextureRect" parent="ShadowBoss/UI" index="1"]
+offset_top = 41.0
+offset_bottom = 261.0
 
 [node name="Map_bounds" type="Area2D" parent="."]
 

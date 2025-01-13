@@ -984,6 +984,8 @@ script = ExtResource("10_5iqws")
 [node name="Run" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("15_clsue")
 
+[node name="Death" type="Node2D" parent="FiniteStateMachine"]
+
 [node name="attack_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_Area"]
@@ -1001,7 +1003,6 @@ max_distance = 1000.0
 [node name="Clank" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_1n004")
 volume_db = -10.0
-stream_paused = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 1" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 2" method="_on_animated_sprite_2d_animation_finished"]

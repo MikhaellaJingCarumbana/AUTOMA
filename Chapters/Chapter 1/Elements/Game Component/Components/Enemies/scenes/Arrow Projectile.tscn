@@ -1,0 +1,153 @@
+[gd_scene load_steps=34 format=3 uid="uid://dv46w1sqiton1"]
+
+[ext_resource type="Texture2D" uid="uid://dd7ijxecfyhkh" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_0.png" id="1_hmryx"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/arrow_projectile.gd" id="1_kimu5"]
+[ext_resource type="Texture2D" uid="uid://cemellmnhl2vl" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_1.png" id="2_cx7xh"]
+[ext_resource type="Texture2D" uid="uid://cprivvbfbfsea" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_2.png" id="3_8ucoc"]
+[ext_resource type="Texture2D" uid="uid://bg0iytwjfyvk4" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_3.png" id="4_vbvxd"]
+[ext_resource type="Texture2D" uid="uid://kk376l48agoy" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_4.png" id="5_oaw12"]
+[ext_resource type="Texture2D" uid="uid://bp30j303ixd4y" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_5.png" id="6_0tdhc"]
+[ext_resource type="Texture2D" uid="uid://d2ci81wleqrbi" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_6.png" id="7_iliw2"]
+[ext_resource type="Texture2D" uid="uid://cs3gydiuwdk57" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_7.png" id="8_mjhrv"]
+[ext_resource type="Texture2D" uid="uid://fyipi0j4bseh" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_8.png" id="9_nk5aj"]
+[ext_resource type="Texture2D" uid="uid://ctcjeqkmwk2sj" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_9.png" id="10_pgusf"]
+[ext_resource type="Texture2D" uid="uid://30vxd5fi42aj" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_10.png" id="11_plvsx"]
+[ext_resource type="Texture2D" uid="uid://dgky4odjqbogx" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_11.png" id="12_5jkwt"]
+[ext_resource type="Texture2D" uid="uid://dsem7m0ud4in6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_12.png" id="13_dwa43"]
+[ext_resource type="Texture2D" uid="uid://8jw4on18vi6l" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_13.png" id="14_0x3sv"]
+[ext_resource type="Texture2D" uid="uid://c75n4bovbra4i" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_14.png" id="15_h4yul"]
+[ext_resource type="Texture2D" uid="uid://mtdqi404enja" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_15.png" id="16_e772j"]
+[ext_resource type="Texture2D" uid="uid://p7g3nn2jlhu" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_16.png" id="17_8hkt8"]
+[ext_resource type="Texture2D" uid="uid://wnbbvwrtkfjj" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_17.png" id="18_bb4tg"]
+[ext_resource type="Texture2D" uid="uid://kca0wa1bumo0" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_18.png" id="19_0mssw"]
+[ext_resource type="Texture2D" uid="uid://c44of5xeiau3l" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_19.png" id="20_gciay"]
+[ext_resource type="Texture2D" uid="uid://cqudkf3gsyllw" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_20.png" id="21_aoio6"]
+[ext_resource type="Texture2D" uid="uid://bv8pq241y6llb" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_21.png" id="22_5s3q5"]
+[ext_resource type="Texture2D" uid="uid://h548u7bqdxfs" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_22.png" id="23_jqj6v"]
+[ext_resource type="Texture2D" uid="uid://dbsvt85j3bup8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_23.png" id="24_aegne"]
+[ext_resource type="Texture2D" uid="uid://dd3ctupev7kj6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_24.png" id="25_egofi"]
+[ext_resource type="Texture2D" uid="uid://wthitno1mdim" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_25.png" id="26_v0ans"]
+[ext_resource type="Texture2D" uid="uid://da71c37tpij8f" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_26.png" id="27_c6c7t"]
+[ext_resource type="Texture2D" uid="uid://cdwu76xatey2x" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_27.png" id="28_2sqk0"]
+[ext_resource type="Texture2D" uid="uid://blcjlhagqrrjj" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_28.png" id="29_anf41"]
+[ext_resource type="Texture2D" uid="uid://bvltv2b8vp8a1" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Magic Arrow/1_29.png" id="30_4e6xo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7pt4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hmryx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cx7xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8ucoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vbvxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oaw12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0tdhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iliw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mjhrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nk5aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pgusf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_plvsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5jkwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dwa43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0x3sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h4yul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_e772j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8hkt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_bb4tg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0mssw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gciay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_aoio6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_5s3q5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_jqj6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_aegne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_egofi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_v0ans")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_c6c7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_2sqk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_anf41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4e6xo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdnow"]
+radius = 9.0
+
+[node name="ArrowProjectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_kimu5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7pt4d")
+frame_progress = 0.199601
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, 2)
+shape = SubResource("CircleShape2D_mdnow")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -53,6 +53,7 @@ var footsteps_fram: Array = [2, 4, 6, 8]
 
 @export var shoot: AudioStream
 @onready var chest_puzzle: Node = $"../UI/Chest Puzzle/PauseMenu"
+@export var bullet_node: PackedScene
 
 
 func _ready():
@@ -110,6 +111,8 @@ func jump():
 func _input(event):
 	if event.is_action_pressed("shoot") and is_infinite_projectiles_active:
 		shoot_projectile()
+	if event.is_action_pressed("shoot_boss"):
+		shoot_boss()
 	
 func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
@@ -341,3 +344,15 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 	if sprite.animation == "Jump": return
 	load_sfx(sfx_footsteps)
 	if sprite.frame in footsteps_fram: sfx_player.play()
+
+func shoot_boss():
+	if bullet_node:
+		var bullet = bullet_node.instantiate()
+		
+		bullet.position = global_position
+		bullet.direction = (get_global_mouse_position() - global_position).normalized()
+		get_tree().current_scene.call_deferred("add_child", bullet)
+		
+func _input2(event: InputEvent) -> void:
+	if event.is_action_pressed("shoot_boss"):
+		shoot_boss()
