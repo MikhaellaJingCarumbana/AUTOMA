@@ -13,10 +13,10 @@ func enter():
 	animation_player.play("glitch out")
 	await dash()
 	can_transition1 = true
-
+	
+	
 func dash(): 
 	
-	is_dashing = true
 	var target_position = player.position
 	
 	if target_position.y > owner.position.y:
@@ -25,12 +25,15 @@ func dash():
 	var tween = create_tween()
 	
 	tween.tween_property(owner, "position", target_position, 0.8)
-	is_dashing = false
-
-
+	
 func transition():
 	if can_transition1:
+		
+		var distance = owner.direction.length()
+		if distance < 70:
+			get_parent().change_state("Slash 2")
+		elif distance > 70:
+			get_parent().change_state("Glitch Slice")
+			
 		can_transition1 = false
-	
-		get_parent().change_state("Run")
 	

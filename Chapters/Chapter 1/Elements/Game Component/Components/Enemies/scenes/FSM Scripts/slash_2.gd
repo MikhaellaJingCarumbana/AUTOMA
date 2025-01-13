@@ -13,10 +13,15 @@ func exit():
 	owner.set_physics_process(false)
 	
 func transition():
+	if animation_player.is_playing():
+		return
 	var distance = owner.direction.length()
 	
-	if distance > 100:
+	if distance < 70:
+		get_parent().change_state("Slash 1")
+	elif distance > 100:
 		get_parent().change_state("Run")
+	
 
 	
 	
