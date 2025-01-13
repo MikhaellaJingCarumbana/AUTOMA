@@ -7,10 +7,12 @@ func enter():
 	owner.set_physics_process(true)
 	animation_player.play("Idle Glitch")
 	
+func exit():
+	super.exit()
+	owner.set_physics_process(false)
+	
 func transition():
-	var distance = owner.direction.length()
-	if distance < 100:
-		get_parent().change_state("Run")
-	else:
-		get_parent().change_state("Glitch Out")
+	await get_tree().create_timer(0.5).timeout
+	get_parent().change_state("Run")
+
 	

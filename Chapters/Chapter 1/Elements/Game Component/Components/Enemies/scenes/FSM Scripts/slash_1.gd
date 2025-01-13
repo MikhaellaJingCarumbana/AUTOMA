@@ -8,9 +8,6 @@ func enter():
 	owner.set_physics_process(true)
 	animation_player.play("Slash 1")
 	
-func exit():
-	super.exit()
-	owner.set_physics_process(false)	
 	
 func transition():
 	if animation_player.is_playing():
