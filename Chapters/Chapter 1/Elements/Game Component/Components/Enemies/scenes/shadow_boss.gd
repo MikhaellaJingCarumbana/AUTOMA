@@ -13,13 +13,18 @@ const MAX_FALL_SPEED = 1200.0
 @onready var sprite = $AnimatedSprite2D
 
 var direction : Vector2
+var is_dead: bool = false
 
 var health_boss = 100:
 	set(value):
+		if is_dead:
+			return
 		health_boss = value
 		progress_bar.value = value
+		
 		if value <= 0:
-			progress_bar.visible = false
+			is_dead = true
+			$AnimationPlayer.play("dead")
 			find_child("FiniteStateMachine").change_state("Death")
 
 func _ready() -> void:

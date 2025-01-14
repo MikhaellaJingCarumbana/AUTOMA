@@ -4,8 +4,11 @@ extends Area2D
 var direction = Vector2.RIGHT
 var speed = 300
 
+
+
 func _ready() -> void:
 	$AnimationPlayer.play("light")
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta

@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=130 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -821,10 +821,51 @@ tracks/0/keys = {
 "values": [1.75, 2.23, 0.95, 0.63, 1.59]
 }
 
+[sub_resource type="Animation" id="Animation_rw1dc"]
+resource_name = "dead"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(167, 819), Vector2(167, 724), Vector2(167, 1121)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/ProgressBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(412, 920), Vector2(412, 825), Vector2(412, 1222)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Clank:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dn8gk"]
 _data = {
 "Healthbar": SubResource("Animation_cnqr0"),
 "RESET": SubResource("Animation_yxkuc"),
+"dead": SubResource("Animation_rw1dc"),
 "flicker": SubResource("Animation_65gjq"),
 "flicker2": SubResource("Animation_xjmpq")
 }
@@ -894,9 +935,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -548.0
-offset_top = 142.0
+offset_top = 207.0
 offset_right = 885.0
-offset_bottom = 198.0
+offset_bottom = 263.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -930,9 +971,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -793.0
-offset_top = 41.0
+offset_top = 106.0
 offset_right = -573.0
-offset_bottom = 261.0
+offset_bottom = 326.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("15_ctins")
@@ -1005,7 +1046,6 @@ max_distance = 1000.0
 [node name="Clank" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_1n004")
 volume_db = -10.0
-stream_paused = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 1" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Slash 2" method="_on_animated_sprite_2d_animation_finished"]
