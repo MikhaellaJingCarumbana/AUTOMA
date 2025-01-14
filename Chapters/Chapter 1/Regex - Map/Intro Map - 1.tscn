@@ -1208,7 +1208,7 @@ offset_right = 1309.0
 offset_bottom = 94.0
 theme_override_styles/background = SubResource("StyleBoxFlat_44x8h")
 theme_override_styles/fill = SubResource("StyleBoxTexture_r44qv")
-value = 50.0
+value = 100.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="CanvasLayer/ProgressBar"]

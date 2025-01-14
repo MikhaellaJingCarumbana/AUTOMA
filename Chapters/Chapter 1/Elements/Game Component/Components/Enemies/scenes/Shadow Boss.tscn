@@ -887,7 +887,7 @@ axis_stretch_vertical = 2
 radius = 144.281
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_275h1"]
-size = Vector2(54, 25)
+size = Vector2(159, 42)
 
 [node name="ShadowBoss" type="CharacterBody2D" groups=["ShadowBoss"]]
 script = ExtResource("1_qpgom")
@@ -909,12 +909,11 @@ texture = SubResource("GradientTexture2D_pe8p5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.40617, 1.40617)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"glitch slice"
+animation = &"glitch sweep"
 autoplay = "Idle"
-frame = 9
+frame = 5
 frame_progress = 1.0
 speed_scale = 3.0
-flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1031,7 +1030,7 @@ script = ExtResource("26_6ynjy")
 [node name="attack_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_Area"]
-position = Vector2(51, 19.5)
+position = Vector2(-2.5, 13)
 shape = SubResource("RectangleShape2D_275h1")
 debug_color = Color(0.668804, 0.1209, 0.212928, 0.42)
 
@@ -1055,4 +1054,8 @@ stream = ExtResource("29_ty4nm")
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Glitch Out" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Glitch Slice" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Player Detection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
+[connection signal="body_entered" from="attack_Area" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Slash 1" method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Slash 2" method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Glitch Slice" method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Glitch Sweep" method="_on_attack_area_body_entered"]

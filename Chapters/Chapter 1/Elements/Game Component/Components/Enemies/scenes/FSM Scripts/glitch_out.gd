@@ -15,6 +15,7 @@ func enter():
 	animation_player.play("glitch out")
 	await dash()
 	can_transition1 = true
+	owner.in_attack_state = false
 
 	
 	

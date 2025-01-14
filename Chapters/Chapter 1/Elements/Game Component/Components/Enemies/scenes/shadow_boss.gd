@@ -14,6 +14,7 @@ const MAX_FALL_SPEED = 1200.0
 
 var direction : Vector2
 var is_dead: bool = false
+var in_attack_state: bool = false
 
 var health_boss = 100:
 	set(value):
@@ -39,8 +40,12 @@ func _process(delta: float) -> void:
 	
 	if direction.x < 0:
 		sprite.flip_h = true
+		$attack_Area/CollisionShape2D.scale = Vector2(-1,1)
+		
 	else:
 		sprite.flip_h = false
+		$attack_Area/CollisionShape2D.scale = Vector2(1,1)
+		
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
@@ -56,3 +61,10 @@ func take_damage():
 	health_boss -= 3
 	$Hit.play()
 	print("Boss health: ", health_boss)
+
+
+#func _on_attack_area_body_entered(body: Node2D) -> void:
+#	if body.is_in_group("Player") and not is_dead:
+#		if (direction.x < 0 and sprite.flip_h) or (direction.x > 0 and not sprite.flip_h):
+#			if in_attack_state:
+#				body.take_damage()

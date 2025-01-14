@@ -6,6 +6,7 @@ func enter():
 	super.enter()
 	owner.set_physics_process(true)
 	animation_player.play("Idle Glitch")
+	owner.in_attack_state = false
 	
 func exit():
 	super.exit()

@@ -6,6 +6,7 @@ func enter():
 	super.enter()
 	owner.set_physics_process(true)
 	animation_player.play("Run")
+	owner.in_attack_state = false
 	
 	can_transition = false
 	await get_tree().create_timer(0.5).timeout
