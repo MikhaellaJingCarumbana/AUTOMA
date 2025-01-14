@@ -32,6 +32,9 @@ func _ready() -> void:
 	set_physics_process(false)
 	
 func _process(delta: float) -> void:
+	if is_dead:
+		return
+		
 	direction = player.position - position
 	
 	if direction.x < 0:
@@ -51,4 +54,5 @@ func _physics_process(delta: float) -> void:
 	
 func take_damage():
 	health_boss -= 3
+	$Hit.play()
 	print("Boss health: ", health_boss)
