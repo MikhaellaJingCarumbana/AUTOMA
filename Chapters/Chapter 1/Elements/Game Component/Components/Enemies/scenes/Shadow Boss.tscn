@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://c3ube8tesc6pg"]
+[gd_scene load_steps=132 format=3 uid="uid://c3ube8tesc6pg"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/shadow_boss.gd" id="1_qpgom"]
 [ext_resource type="Texture2D" uid="uid://8mka0tlswutx" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle.png" id="2_44rwg"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/finite_state_machine.gd" id="10_dena1"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/idle.gd" id="13_a5d6f"]
 [ext_resource type="Texture2D" uid="uid://c8t7f3rb227bd" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/final final.png" id="13_hgmc0"]
+[ext_resource type="Texture2D" uid="uid://db6sf6vbplca6" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Enemy bg.png" id="13_ssgq1"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/idle_glitch.gd" id="14_4f6tl"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="14_f28rb"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/FSM Scripts/run.gd" id="15_clsue"]
@@ -874,12 +875,8 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j8dky"]
 radius = 12.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydyok"]
-bg_color = Color(0.255659, 0.255659, 0.255659, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1q262"]
+texture = ExtResource("13_ssgq1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hg7rl"]
 texture = ExtResource("13_hgmc0")
@@ -889,8 +886,8 @@ axis_stretch_vertical = 2
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s5q6"]
 radius = 144.281
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ktohb"]
-radius = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_275h1"]
+size = Vector2(54, 25)
 
 [node name="ShadowBoss" type="CharacterBody2D" groups=["ShadowBoss"]]
 script = ExtResource("1_qpgom")
@@ -912,11 +909,12 @@ texture = SubResource("GradientTexture2D_pe8p5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.40617, 1.40617)
 sprite_frames = SubResource("SpriteFrames_nm1y2")
-animation = &"glitch sweep"
+animation = &"glitch slice"
 autoplay = "Idle"
-frame = 5
+frame = 9
 frame_progress = 1.0
 speed_scale = 3.0
+flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -936,14 +934,14 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -548.0
-offset_top = 207.0
+offset_top = 142.0
 offset_right = 885.0
-offset_bottom = 263.0
+offset_bottom = 198.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_ydyok")
+theme_override_styles/background = SubResource("StyleBoxTexture_1q262")
 theme_override_styles/fill = SubResource("StyleBoxTexture_hg7rl")
 value = 100.0
 show_percentage = false
@@ -972,9 +970,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -793.0
-offset_top = 106.0
+offset_top = 41.0
 offset_right = -573.0
-offset_bottom = 326.0
+offset_bottom = 261.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("15_ctins")
@@ -1033,7 +1031,8 @@ script = ExtResource("26_6ynjy")
 [node name="attack_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_Area"]
-shape = SubResource("CircleShape2D_ktohb")
+position = Vector2(51, 19.5)
+shape = SubResource("RectangleShape2D_275h1")
 debug_color = Color(0.668804, 0.1209, 0.212928, 0.42)
 
 [node name="Boss" type="AudioStreamPlayer2D" parent="."]
@@ -1056,6 +1055,4 @@ stream = ExtResource("29_ty4nm")
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Glitch Out" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FiniteStateMachine/Glitch Slice" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Player Detection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
-[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Idle Glitch" method="_on_attack_area_body_entered"]
-[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Run" method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="attack_Area" to="FiniteStateMachine/Slash 1" method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="attack_Area" to="FiniteStateMachine/Slash 1" method="_on_attack_area_body_entered"]

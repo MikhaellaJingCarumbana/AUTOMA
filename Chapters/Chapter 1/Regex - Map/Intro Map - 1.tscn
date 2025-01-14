@@ -1199,6 +1199,7 @@ debug_color = Color(0.652662, 0.930431, 1, 0.42)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" parent="CanvasLayer" instance=ExtResource("8_jxh6j")]
+visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
 offset_left = 68.0
@@ -1231,14 +1232,6 @@ boss_node = NodePath("../ShadowBoss")
 
 [node name="ShadowBoss" parent="." instance=ExtResource("9_y5yff")]
 position = Vector2(967, 129)
-
-[node name="ProgressBar" parent="ShadowBoss/UI" index="0"]
-offset_top = 142.0
-offset_bottom = 198.0
-
-[node name="TextureRect" parent="ShadowBoss/UI" index="1"]
-offset_top = 41.0
-offset_bottom = 261.0
 
 [node name="Map_bounds" type="Area2D" parent="."]
 

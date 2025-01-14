@@ -39,3 +39,8 @@ func transition():
 			get_parent().change_state("Glitch Sweep")
 		elif distance >= 60:
 			get_parent().change_state("Glitch Out")
+			
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		print("Player health decreased")
+		body.take_damage()

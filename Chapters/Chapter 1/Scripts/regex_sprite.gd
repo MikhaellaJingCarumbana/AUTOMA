@@ -56,7 +56,26 @@ var footsteps_fram: Array = [2, 4, 6, 8]
 @export var bullet_node: PackedScene
 
 @export var boss_node: NodePath
+@onready var progress_bar: ProgressBar = $"../CanvasLayer/ProgressBar"
 
+var is_Dead: bool = false
+
+var health_player = 100:
+	set(value):
+		if is_Dead:
+			return
+		health_player = value
+		progress_bar.value = value
+		
+		if value <= 0:
+			is_Dead = true
+			sprite.play("Death")
+			#add death screen here
+			
+func take_damage():
+	health_player -= 3
+	#add sound effect
+	print("Player health: ", health_player)
 
 func _ready():
 	add_to_group("Player")
