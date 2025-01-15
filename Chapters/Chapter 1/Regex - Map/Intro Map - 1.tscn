@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cq2bx3qqccn51"]
+[gd_scene load_steps=24 format=3 uid="uid://cq2bx3qqccn51"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_johjb"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Regex - Map/Boss fight.gd" id="1_obft5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dv46w1sqiton1" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Enemies/scenes/Arrow Projectile.tscn" id="10_b27oa"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="10_v2ivb"]
 [ext_resource type="AudioStream" uid="uid://bsa27g2vrtxao" path="res://Chapters/Chapter 1/audios/music/Boss music.mp3" id="11_bjp2l"]
+[ext_resource type="PackedScene" uid="uid://diqeghqbejq38" path="res://Chapters/Chapter 1/UI Components/magic_system.tscn" id="11_vjrvb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0itut"]
 texture = ExtResource("1_johjb")
@@ -1184,9 +1185,9 @@ zoom = Vector2(4, 7)
 tween_resource = SubResource("Resource_kdwc8")
 limit_target = NodePath("../Area2D/CollisionShape2D")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("7_mqhrp")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("magic_bar") instance=ExtResource("7_mqhrp")]
 unique_name_in_owner = true
-hearts = [NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect2"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect3"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect4"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect5")]
+magic_bar = [NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect"), NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect2"), NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect3"), NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect4"), NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect5")]
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -1222,6 +1223,8 @@ theme_override_fonts/font = ExtResource("10_v2ivb")
 theme_override_font_sizes/font_size = 800
 text = "Adventurer"
 
+[node name="Panel2" parent="CanvasLayer" instance=ExtResource("11_vjrvb")]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.20871, 0.20871, 0.20871, 1)
 
@@ -1241,4 +1244,5 @@ stream = ExtResource("11_bjp2l")
 [connection signal="body_entered" from="ShadowBoss/Player Detection" to="." method="_on_player_detection_body_entered"]
 
 [editable path="CanvasLayer/Panel"]
+[editable path="CanvasLayer/Panel2"]
 [editable path="ShadowBoss"]

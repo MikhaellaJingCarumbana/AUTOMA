@@ -1,6 +1,10 @@
 extends Node
 
 @export var hearts: Array[Node]
+@export var magic_bar: Array[Node]
+@export var shoot_duration: float = 5.0
+@export var cooldown_duration: float = 5.0
+
 @onready var note_system: Control = $"../UI/Note System/CarouselSelection"
 @onready var clue_system: Control = $"../UI/Clue_System2/CarouselSelection"
 @onready var powerup_choose: Node = $"../UI/Powerup_Choose"
@@ -10,12 +14,15 @@ extends Node
 @onready var hurt_player_effect: CanvasLayer = $"../HurtPlayerEffect"
 @onready var anim: AnimatedSprite2D = $"../Player/AnimatedSprite2D"
 
-
+var can_shoot: bool = true
+var shoot_timer: Timer
+var cooldown_timer: Timer
 var enemy_groups: Dictionary = {}
 var group_counter: int = 0
 
 var points = 0
 var lives = 5
+var magic = 5
 var clues_collected = 0
 var notes_collected = 0
 
@@ -29,6 +36,8 @@ var is_powerup_active: bool = false
 var powerup_time_left: float = 0.0
 
 
+
+
 func _ready() -> void:
 	if powerup_choose:
 		powerup_choose.connect("powerup_selected", _apply_powerup)
@@ -38,7 +47,57 @@ func _ready() -> void:
 			hearts[i].show()
 		else:
 			hearts[i].hide()
-	print("HEARTS INITIALIZED. VISIBLE HEARTS: ", lives)
+	print("HEARTS INITIALIZED. VISIBLE HEARTS: ", magic)
+	
+	for i in range(magic_bar.size()):
+		if i < lives:
+			magic_bar[i].show()
+		else:
+			magic_bar[i].hide()
+	print("HEARTS INITIALIZED. VISIBLE HEARTS: ", magic)
+	
+	shoot_timer = Timer.new()
+	shoot_timer.wait_time = shoot_duration
+	shoot_timer.timeout.connect(_on_shoot_timeout)
+	add_child(shoot_timer)
+	
+	cooldown_timer = Timer.new()
+	cooldown_timer.wait_time = cooldown_duration
+	cooldown_timer.timeout.connect(_on_cooldown_timeout)
+	add_child(cooldown_timer)
+	
+	can_shoot = true
+	print("PLAYER READY TO SHOOT")
+	
+	
+func _on_shoot_timeout():
+	can_shoot = false
+	print("DEBUG: Shooting duration ended. Entering cooldown phase.")
+	cooldown_timer.start()
+	decrease_magic()
+	
+func _on_cooldown_timeout():
+	can_shoot = true
+	print("DEBUG: Cooldown complete. Player can shoot again.")
+	shoot_timer.start()
+	increase_magic()
+	
+func decrease_magic():
+	for i in range(len(magic_bar)):
+		if magic_bar[i].visible:
+			magic_bar[i].hide()
+			print("DEBUG: Magic decreased. Index:", i)
+			await get_tree().create_timer(1.0).timeout
+			break
+			
+func increase_magic():
+	for i in range(len(magic_bar)):
+		if not magic_bar[i].visible:
+			print("DEBUG: Magic increased. Index:", i)
+			await get_tree().create_timer(1.0).timeout
+			magic_bar[i].show()
+			break
+	
 	
 func _on_powerup_collected() -> void:
 	print("DEBUG: Powerup collected!")
@@ -53,6 +112,8 @@ func _process(delta: float) -> void:
 			reset_player_powerup()
 		else:
 			print("DEBUG: Power-up time remaining: %.2f seconds" % powerup_time_left)
+			
+
 			
 
 func decrease_health():

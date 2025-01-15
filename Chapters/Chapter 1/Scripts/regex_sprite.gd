@@ -367,19 +367,36 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 	if sprite.frame in footsteps_fram: sfx_player.play()
 
 func shoot_boss():
-	if bullet_node:
-		var bullet = bullet_node.instantiate()
+	if not game_manager:
+		print("NO GAME MANAGER")
+	else:
+		print("There is game manager")
 		
-		bullet.position = global_position
-		var boss = get_node(boss_node)
-		if boss:
-			var direction = (boss.global_position - global_position).normalized()
-			bullet.direction = (boss.global_position - global_position).normalized()
-			bullet.rotation = bullet.direction.angle()
-		else:
-			print("Boss not found in the scene tree!")
-			return
-		#bullet.position = global_position
-		#bullet.direction = (get_global_mouse_position() - global_position).normalized()
-		get_tree().current_scene.call_deferred("add_child", bullet)
+	if game_manager.can_shoot:
+		print("Can shoot")
+		if bullet_node:
+			var bullet = bullet_node.instantiate()
+	
+			bullet.position = global_position
+			var boss = get_node(boss_node)
+			if boss:
+				var direction = (boss.global_position - global_position).normalized()
+				bullet.direction = (boss.global_position - global_position).normalized()
+				bullet.rotation = bullet.direction.angle()
+			else:
+				print("Boss not found in the scene tree!")
+				return
+			#bullet.position = global_position
+			#bullet.direction = (get_global_mouse_position() - global_position).normalized()
+			get_tree().current_scene.call_deferred("add_child", bullet)
+			
+			if game_manager.shoot_timer.is_stopped():
+				game_manager.cooldown_timer.start()
+				game_manager.decrease_magic()
+			else:
+				print("DEBUG: Shoot timer already running. Time left: ", game_manager.cooldown_timer.time_left)
+				
+	else:
+		print("On cooldown!")
+			
 		

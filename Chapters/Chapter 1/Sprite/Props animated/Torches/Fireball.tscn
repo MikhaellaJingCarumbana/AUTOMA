@@ -454,7 +454,7 @@ torch_die = ExtResource("3_8du7v")
 position = Vector2(-2.38419e-07, -9.53674e-07)
 scale = Vector2(1.101, 1.101)
 sprite_frames = SubResource("SpriteFrames_qf1mx")
-frame_progress = 0.931189
+frame_progress = 0.659364
 speed_scale = 15.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
