@@ -21,4 +21,3 @@ func _on_body_entered(body):
 
 func killPlayer():
 	game_manager.decrease_health()
-	player.position = checkpoint_manager.last_location

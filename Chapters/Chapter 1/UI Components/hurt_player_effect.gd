@@ -25,8 +25,11 @@ func show_hurt_effect():
 	fade_out()
 	
 func fade_out():
-	while color_rect.modulate.a > 0.0:
-		color_rect.modulate.a -= fade_speed * get_process_delta_time()
-		await get_tree().process_frame
+	var fade_timer = 0.0
+	while fade_timer < effect_duration:
+		var delta = get_process_delta_time()
+		fade_timer += delta
+		color_rect.modulate.a = lerp(1.0, 0.0, fade_timer / effect_duration)
+		await get_tree().process_frame		
 	color_rect.visible = false
 	

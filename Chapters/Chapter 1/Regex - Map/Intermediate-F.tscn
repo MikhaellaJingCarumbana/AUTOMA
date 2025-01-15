@@ -6631,13 +6631,9 @@ projectile_scene = ExtResource("27_v5qjy")
 
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
-position = Vector2(2, 0)
+position = Vector2(436, -134.143)
 scale = Vector2(1, 1)
-zoom = Vector2(5, 7)
-limit_left = -10
-limit_top = 8
-limit_right = 1014
-limit_bottom = 1089
+zoom = Vector2(4.96694, 7)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(182, 249)

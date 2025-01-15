@@ -55,7 +55,6 @@ func _ready() -> void:
 func _on_slot_changed() -> void:
 	is_ready_to_check = false
 	label.text = "Arrange the items and press check"
-	
 
 		
 func confirm_slots():
@@ -149,14 +148,10 @@ func handle_correct_answer():
 		print("Clue is now collectible")
 		
 	total_sts = 0
-		
-
-	
 	emit_signal("correct_answer_handled")
 	
 	if timeline_file2:
 		Dialogic.start(timeline_file2)
-	
 	
 func  _input(event: InputEvent) -> void:
 	if event.is_action_pressed("enter"):
