@@ -1185,9 +1185,8 @@ zoom = Vector2(4, 7)
 tween_resource = SubResource("Resource_kdwc8")
 limit_target = NodePath("../Area2D/CollisionShape2D")
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("magic_bar") instance=ExtResource("7_mqhrp")]
+[node name="GameManager" parent="." instance=ExtResource("7_mqhrp")]
 unique_name_in_owner = true
-magic_bar = [NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect"), NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect2"), NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect3"), NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect4"), NodePath("../CanvasLayer/Panel2/HBoxContainer/TextureRect5")]
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -1224,6 +1223,12 @@ theme_override_font_sizes/font_size = 800
 text = "Adventurer"
 
 [node name="Panel2" parent="CanvasLayer" instance=ExtResource("11_vjrvb")]
+
+[node name="Label" parent="CanvasLayer/Panel2" index="0"]
+offset_left = 121.0
+offset_top = 1.0
+offset_right = 243.0
+offset_bottom = 25.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.20871, 0.20871, 0.20871, 1)

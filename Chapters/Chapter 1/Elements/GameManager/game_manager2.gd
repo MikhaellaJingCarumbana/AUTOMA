@@ -1,7 +1,6 @@
 extends Node
 
 @export var hearts: Array[Node]
-@export var magic_bar: Array[Node]
 @export var shoot_duration: float = 5.0
 @export var cooldown_duration: float = 5.0
 
@@ -49,12 +48,6 @@ func _ready() -> void:
 			hearts[i].hide()
 	print("HEARTS INITIALIZED. VISIBLE HEARTS: ", magic)
 	
-	for i in range(magic_bar.size()):
-		if i < lives:
-			magic_bar[i].show()
-		else:
-			magic_bar[i].hide()
-	print("HEARTS INITIALIZED. VISIBLE HEARTS: ", magic)
 	
 	shoot_timer = Timer.new()
 	shoot_timer.wait_time = shoot_duration
@@ -83,20 +76,10 @@ func _on_cooldown_timeout():
 	increase_magic()
 	
 func decrease_magic():
-	for i in range(len(magic_bar)):
-		if magic_bar[i].visible:
-			magic_bar[i].hide()
-			print("DEBUG: Magic decreased. Index:", i)
-			await get_tree().create_timer(1.0).timeout
-			break
+	$"../CanvasLayer/Panel2/Label".text = "COOLING DOWN"
 			
 func increase_magic():
-	for i in range(len(magic_bar)):
-		if not magic_bar[i].visible:
-			print("DEBUG: Magic increased. Index:", i)
-			await get_tree().create_timer(1.0).timeout
-			magic_bar[i].show()
-			break
+	$"../CanvasLayer/Panel2/Label".text = "SHOOT"
 	
 	
 func _on_powerup_collected() -> void:

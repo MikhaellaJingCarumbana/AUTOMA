@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://diqeghqbejq38"]
+[gd_scene load_steps=3 format=3 uid="uid://diqeghqbejq38"]
 
-[ext_resource type="PackedScene" uid="uid://bnk2387hhckd3" path="res://Chapters/Chapter 1/Elements/Game Component/Components/healthbar/magic_sys.tscn" id="1_fwjpu"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_jx3w5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t2oi"]
@@ -17,65 +16,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3t2oi")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -158.0
-offset_right = 158.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
-
-[node name="Hearts" parent="HBoxContainer/TextureRect" instance=ExtResource("1_fwjpu")]
-frame_progress = 0.53876
-
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="HBoxContainer/TextureRect2" instance=ExtResource("1_fwjpu")]
-frame_progress = 0.45988
-
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="HBoxContainer/TextureRect3" instance=ExtResource("1_fwjpu")]
-
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="HBoxContainer/TextureRect4" instance=ExtResource("1_fwjpu")]
-
-[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-
-[node name="Hearts" parent="HBoxContainer/TextureRect5" instance=ExtResource("1_fwjpu")]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -61.0
-offset_top = -20.0
-offset_right = 61.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+offset_left = 126.0
+offset_top = 58.0
+offset_right = 248.0
+offset_bottom = 82.0
 theme_override_fonts/font = ExtResource("2_jx3w5")
 theme_override_font_sizes/font_size = 25
-text = "magic arrows"
+text = "CAN SHOOT"
 horizontal_alignment = 1
