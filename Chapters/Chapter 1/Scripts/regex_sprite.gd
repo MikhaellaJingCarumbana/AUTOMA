@@ -134,6 +134,7 @@ func _input(event):
 		shoot_projectile()
 	if event.is_action_pressed("shoot_boss"):
 		shoot_boss()
+
 	
 func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
@@ -392,9 +393,9 @@ func shoot_boss():
 			
 			if game_manager.shoot_timer.is_stopped():
 				game_manager.cooldown_timer.start()
-				game_manager.decrease_magic()
 			else:
 				print("DEBUG: Shoot timer already running. Time left: ", game_manager.cooldown_timer.time_left)
+				
 				
 	else:
 		print("On cooldown!")

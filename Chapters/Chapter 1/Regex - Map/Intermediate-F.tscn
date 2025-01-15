@@ -7132,6 +7132,7 @@ unique_name_in_owner = true
 [editable path="CheckpointManager/Checkpoint"]
 [editable path="StarProjectile"]
 [editable path="Crystal"]
+[editable path="Light/Torch"]
 [editable path="Tutorial Manager/TutorialText"]
 [editable path="Tutorial Manager/TutorialText3"]
 [editable path="Tutorial Manager/TutorialText2"]

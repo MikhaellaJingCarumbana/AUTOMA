@@ -1224,11 +1224,12 @@ text = "Adventurer"
 
 [node name="Panel2" parent="CanvasLayer" instance=ExtResource("11_vjrvb")]
 
-[node name="Label" parent="CanvasLayer/Panel2" index="0"]
-offset_left = 121.0
-offset_top = 1.0
-offset_right = 243.0
-offset_bottom = 25.0
+[node name="Label" parent="CanvasLayer/Panel2" index="1"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 133.0
+offset_right = 264.0
+offset_bottom = 157.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.20871, 0.20871, 0.20871, 1)

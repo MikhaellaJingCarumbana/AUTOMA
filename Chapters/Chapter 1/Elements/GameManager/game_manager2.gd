@@ -1,8 +1,8 @@
 extends Node
 
 @export var hearts: Array[Node]
-@export var shoot_duration: float = 5.0
-@export var cooldown_duration: float = 5.0
+@export var shoot_duration: float = 3.0
+@export var cooldown_duration: float = 3.0
 
 @onready var note_system: Control = $"../UI/Note System/CarouselSelection"
 @onready var clue_system: Control = $"../UI/Clue_System2/CarouselSelection"
@@ -60,26 +60,51 @@ func _ready() -> void:
 	add_child(cooldown_timer)
 	
 	can_shoot = true
+	shoot_timer.start()
 	print("PLAYER READY TO SHOOT")
 	
 	
 func _on_shoot_timeout():
-	can_shoot = false
-	print("DEBUG: Shooting duration ended. Entering cooldown phase.")
-	cooldown_timer.start()
-	decrease_magic()
+	if shoot_timer.is_stopped():
+		can_shoot = false
+		print("DEBUG: Shooting duration ended. Entering cooldown phase.")
+		cooldown_timer.start()
+		print("TIMER: cooldown_timer Time left: Time left: ", cooldown_timer.time_left)
+		decrease_magic()
+	else:
+		shoot_timer.stop()
+		can_shoot = false
+		cooldown_timer.start()
+		
+		decrease_magic()
 	
 func _on_cooldown_timeout():
-	can_shoot = true
-	print("DEBUG: Cooldown complete. Player can shoot again.")
-	shoot_timer.start()
-	increase_magic()
+	if cooldown_timer.is_stopped():
+		can_shoot = true
+		print("DEBUG: Cooldown complete. Player can shoot again.")
+		shoot_timer.start()
+		print("TIMER:Shoot_timer Time left: ", shoot_timer.time_left)
+		increase_magic()
+	else:
+		cooldown_timer.stop()
+		can_shoot = true
+		shoot_timer.start()
+		print("TIMER:Shoot_timer Time left: ", shoot_timer.time_left)
+		increase_magic()
 	
 func decrease_magic():
-	$"../CanvasLayer/Panel2/Label".text = "COOLING DOWN"
+	if $"../CanvasLayer/Panel2/AnimatedSprite2D":
+		$"../CanvasLayer/Panel2/AnimatedSprite2D".play("end")
+		$"../CanvasLayer/Panel2/AudioStreamPlayer2D".play()
+		if $"../CanvasLayer/Panel2/Label":
+			$"../CanvasLayer/Panel2/Label".text = "COOLING DOWN"
 			
 func increase_magic():
-	$"../CanvasLayer/Panel2/Label".text = "SHOOT"
+	if $"../CanvasLayer/Panel2/AnimatedSprite2D":
+		$"../CanvasLayer/Panel2/AnimatedSprite2D".play("loop")
+		
+		if $"../CanvasLayer/Panel2/Label":
+			$"../CanvasLayer/Panel2/Label".text = "SHOOT"
 	
 	
 func _on_powerup_collected() -> void:
