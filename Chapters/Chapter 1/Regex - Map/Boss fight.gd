@@ -12,3 +12,5 @@ func _ready() -> void:
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		boss_music.play()
+		$Player_healthbar.play("player_health")
+		

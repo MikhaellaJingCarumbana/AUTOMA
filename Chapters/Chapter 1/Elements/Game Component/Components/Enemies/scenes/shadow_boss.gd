@@ -26,6 +26,7 @@ var health_boss = 100:
 		if value <= 0:
 			is_dead = true
 			$AnimationPlayer.play("dead")
+			$"../Player_healthbar".play("player_health_2")
 			find_child("FiniteStateMachine").change_state("Death")
 
 func _ready() -> void:

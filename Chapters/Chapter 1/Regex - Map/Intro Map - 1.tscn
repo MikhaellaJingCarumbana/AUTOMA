@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cq2bx3qqccn51"]
+[gd_scene load_steps=29 format=3 uid="uid://cq2bx3qqccn51"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_johjb"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Regex - Map/Boss fight.gd" id="1_obft5"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="10_v2ivb"]
 [ext_resource type="AudioStream" uid="uid://bsa27g2vrtxao" path="res://Chapters/Chapter 1/audios/music/Boss music.mp3" id="11_bjp2l"]
 [ext_resource type="PackedScene" uid="uid://diqeghqbejq38" path="res://Chapters/Chapter 1/UI Components/magic_system.tscn" id="11_vjrvb"]
+[ext_resource type="AudioStream" uid="uid://ciocx06mmswou" path="res://Chapters/Chapter 1/audios/sounds/metal-clang-sound-81634.mp3" id="16_tlb1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0itut"]
 texture = ExtResource("1_johjb")
@@ -1158,6 +1159,96 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r44qv"]
 texture = ExtResource("9_5cyui")
 
+[sub_resource type="Animation" id="Animation_jfms3"]
+resource_name = "player_health"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ProgressBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(68, -136), Vector2(68, 164), Vector2(68, 58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("clank:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_sf782"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ProgressBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(68, -136)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("clank:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_11mkb"]
+resource_name = "player_health_2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ProgressBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(68, 58), Vector2(68, 164), Vector2(68, -136)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("clank:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghyt1"]
+_data = {
+"RESET": SubResource("Animation_sf782"),
+"player_health": SubResource("Animation_jfms3"),
+"player_health_2": SubResource("Animation_11mkb")
+}
+
 [node name="IntroMap-1" type="Node2D" groups=["Boss", "Player", "ShadowBoss"]]
 script = ExtResource("1_obft5")
 
@@ -1203,9 +1294,9 @@ visible = false
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
 offset_left = 68.0
-offset_top = 48.0
+offset_top = -136.0
 offset_right = 1309.0
-offset_bottom = 94.0
+offset_bottom = -90.0
 theme_override_styles/background = SubResource("StyleBoxFlat_44x8h")
 theme_override_styles/fill = SubResource("StyleBoxTexture_r44qv")
 value = 100.0
@@ -1225,7 +1316,6 @@ text = "Adventurer"
 [node name="Panel2" parent="CanvasLayer" instance=ExtResource("11_vjrvb")]
 
 [node name="Label" parent="CanvasLayer/Panel2" index="1"]
-layout_mode = 0
 offset_left = 142.0
 offset_top = 133.0
 offset_right = 264.0
@@ -1246,6 +1336,14 @@ position = Vector2(967, 129)
 
 [node name="Boss music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_bjp2l")
+
+[node name="Player_healthbar" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ghyt1")
+}
+
+[node name="clank" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_tlb1v")
 
 [connection signal="body_entered" from="ShadowBoss/Player Detection" to="." method="_on_player_detection_body_entered"]
 
