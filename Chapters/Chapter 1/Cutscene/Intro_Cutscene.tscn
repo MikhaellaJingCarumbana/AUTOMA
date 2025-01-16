@@ -1,173 +1,47 @@
-[gd_scene load_steps=16 format=3 uid="uid://cttu1epijbegv"]
+[gd_scene load_steps=27 format=3 uid="uid://cttu1epijbegv"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/intro_cutscene.gd" id="1_goiph"]
-[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_mwd41"]
-[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="2_3n5jv"]
+[ext_resource type="Texture2D" uid="uid://lh8pbw6tjq7h" path="res://Chapters/Chapter 1/Cutscene/Powerup/bACK.png" id="2_ri8hi"]
+[ext_resource type="Texture2D" uid="uid://5et5vqnmqll2" path="res://Chapters/Chapter 1/Cutscene/Powerup/FRONT.png" id="3_0n4lw"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="3_av81a"]
-[ext_resource type="FontFile" uid="uid://dexd0d2xxu57p" path="res://Fonts/ds-runenglish-2-font/DsRunenglish2-nR5O.ttf" id="4_utvx1"]
 [ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/music/grimyth - Dungeon XI.ogg" id="8_s2kc8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nuj8p"]
-shader = ExtResource("1_mwd41")
-shader_parameter/polar_coordinates = false
-shader_parameter/polar_center = Vector2(0.5, 0.5)
-shader_parameter/polar_zoom = 1.0
-shader_parameter/polar_repeat = 1.0
-shader_parameter/spin_rotation = 1.0
-shader_parameter/spin_speed = 2.0
-shader_parameter/offset = Vector2(0, 0)
-shader_parameter/colour_1 = Color(0.00391229, 0.0177251, 0.0187817, 1)
-shader_parameter/colour_2 = Color(0.0204632, 0.100139, 0.095863, 1)
-shader_parameter/colour_3 = Color(0.0104863, 0.0653723, 0.087975, 1)
-shader_parameter/contrast = 1.0
-shader_parameter/spin_amount = 0.5
-shader_parameter/pixel_filter = 700.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xmpqh"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0xpa"]
-shader = ExtResource("2_3n5jv")
-shader_parameter/height = 2.0
-shader_parameter/frequency = 10.0
-shader_parameter/speed = 2.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2c0rf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ul7d"]
-shader = ExtResource("2_3n5jv")
-shader_parameter/height = 3.0
-shader_parameter/frequency = 25.0
-shader_parameter/speed = 3.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4do6i"]
 
-[sub_resource type="Gradient" id="Gradient_8fk1y"]
-offsets = PackedFloat32Array(0.13, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u88ws"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wr06n"]
-gradient = SubResource("Gradient_8fk1y")
-fill = 1
-fill_from = Vector2(0.5, 0.478632)
-fill_to = Vector2(0.837607, 0.0940171)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba7qi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tysqb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve1jl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t06eb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8c8c4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vu2kg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3bg0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fmlhm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0n4lw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_p5uyu"]
 resource_name = "1"
 length = 50.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/1:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.06667, 2.06667, 6.23333, 7.23333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(9.21667, 10.1833, 14.1833, 15.1333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/4:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(23.1333, 24.5, 27.3667, 28.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/5:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(30.1333, 32, 36.0333, 37.0667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/6:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(39.0333, 40, 44, 45.0333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 1), Color(0.94902, 0.94902, 0.94902, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/ColorRect2:self_modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(15.6667),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/ColorRect2:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 17, 19.2667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/ColorRect2:show_behind_parent")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(17),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(-3.16667),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("CanvasLayer/7:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(46.0667, 46.7667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0), Color(0.94902, 0.94902, 0.94902, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_1uo35"]
 resource_name = "Crystal"
@@ -179,129 +53,333 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/1:modulate")
+tracks/0/path = NodePath("CanvasLayer/Button/Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 1)]
+"values": [Vector2(0.274468, 0.274468)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/2:modulate")
+tracks/1/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0)]
+"update": 1,
+"values": [-1]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/4:modulate")
+tracks/2/path = NodePath("CanvasLayer/Button:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0)]
+"values": [Vector2(767.5, 1120)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/5:modulate")
+tracks/3/path = NodePath("CanvasLayer/Button2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0)]
+"values": [Vector2(767.5, 1120)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/6:modulate")
+tracks/4/path = NodePath("CanvasLayer/Button3:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0)]
+"values": [Vector2(767.5, 1120)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/ColorRect2:self_modulate")
+tracks/5/path = NodePath("CanvasLayer/Button2:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/ColorRect2:modulate")
+tracks/6/path = NodePath("CanvasLayer/Button3:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [0.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/ColorRect2:show_behind_parent")
+tracks/7/path = NodePath("CanvasLayer/Label2:self_modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/8/path = NodePath("CanvasLayer/Label:self_modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("CanvasLayer/7:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
+
+[sub_resource type="Animation" id="Animation_8nt8b"]
+resource_name = "Card powerup"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Button/Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.274468, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.00709222, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.274468, 0.274468)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Label:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.466667, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mnxd2"]
+resource_name = "Card powerup_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Button/Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.274468, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.00709222, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.274468, 0.274468)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, -1]
+}
+
+[sub_resource type="Animation" id="Animation_h1gll"]
+resource_name = "Intro card draw"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(767.813, 331)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(464, 334)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Button3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(1087, 334)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Button2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.433333),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.94902, 0.94902, 0.94902, 0)]
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Button3:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.433333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cse5r"]
+resource_name = "new_animation"
+
+[sub_resource type="Animation" id="Animation_t1ycr"]
+resource_name = "Take card"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.4, 0.433333, 0.766667, 0.8, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(767.813, 331), Vector2(767.813, 331), Vector2(767.813, 478), Vector2(767.813, -696), Vector2(767.813, -696), Vector2(767.813, 403), Vector2(767.5, 227)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(464, 334), Vector2(337, 334), Vector2(464, 334), Vector2(764, 334), Vector2(764, 204), Vector2(764, 125), Vector2(764, 358), Vector2(764, 1186)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Button3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1087, 334), Vector2(1288, 334), Vector2(1087, 334), Vector2(762, 334), Vector2(762, 210), Vector2(762, 131), Vector2(762, 373), Vector2(762, 1182)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Button2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Button3:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jidkc"]
 _data = {
 "1": SubResource("Animation_p5uyu"),
+"Card powerup": SubResource("Animation_8nt8b"),
+"Card powerup_2": SubResource("Animation_mnxd2"),
 "Crystal": SubResource("Animation_1uo35"),
-"RESET": SubResource("Animation_wa543")
+"Intro card draw": SubResource("Animation_h1gll"),
+"RESET": SubResource("Animation_wa543"),
+"Take card": SubResource("Animation_t1ycr"),
+"new_animation": SubResource("Animation_cse5r")
 }
 
 [node name="Intro" type="Node2D"]
@@ -310,187 +388,155 @@ script = ExtResource("1_goiph")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_nuj8p")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.5
+offset_top = 580.0
+offset_right = 192.5
+offset_bottom = 1206.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xmpqh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2c0rf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4do6i")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_u88ws")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ba7qi")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tysqb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ve1jl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t06eb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8c8c4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vu2kg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i3bg0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Button2"]
+position = Vector2(196, 307)
+scale = Vector2(0.274468, 0.274468)
+texture = ExtResource("2_ri8hi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button2/Sprite2D"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_fmlhm")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.5
+offset_top = 580.0
+offset_right = 192.5
+offset_bottom = 1206.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xmpqh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2c0rf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4do6i")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_u88ws")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ba7qi")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tysqb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ve1jl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t06eb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8c8c4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vu2kg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i3bg0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Button"]
+position = Vector2(196, 307)
+scale = Vector2(0.274468, 0.274468)
+texture = ExtResource("2_ri8hi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button/Sprite2D"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_fmlhm")
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.5
+offset_top = 580.0
+offset_right = 192.5
+offset_bottom = 1206.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xmpqh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2c0rf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4do6i")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_u88ws")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ba7qi")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tysqb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ve1jl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t06eb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8c8c4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vu2kg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i3bg0")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Button3"]
+position = Vector2(196, 307)
+scale = Vector2(0.274468, 0.274468)
+texture = ExtResource("2_ri8hi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button3/Sprite2D"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_fmlhm")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-visible = false
-material = SubResource("ShaderMaterial_s0xpa")
-anchors_preset = 8
+modulate = Color(0.956863, 0.894118, 0.764706, 1)
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -531.5
-offset_top = -107.0
-offset_right = 531.5
-offset_bottom = 107.0
+offset_left = -446.5
+offset_top = 70.0
+offset_right = 446.5
+offset_bottom = 165.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "sdasdqweqweqdasdasdasda"
-
-[node name="1" type="Label" parent="CanvasLayer"]
-modulate = Color(0.94902, 0.94902, 0.94902, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -813.5
-offset_top = -107.0
-offset_right = 813.5
-offset_bottom = 107.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_av81a")
-theme_override_font_sizes/font_size = 60
-text = "They say no one enters the Abyss willingly..."
+theme_override_font_sizes/font_size = 150
+text = "You gained a new ability"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="2" type="Label" parent="CanvasLayer"]
-modulate = Color(0.94902, 0.94902, 0.94902, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -813.5
-offset_top = -107.0
-offset_right = 813.5
-offset_bottom = 107.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_av81a")
-theme_override_font_sizes/font_size = 60
-text = "But here you are— condemned, cursed, betrayed."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="3" type="Label" parent="CanvasLayer"]
-modulate = Color(0.94902, 0.94902, 0.94902, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -813.5
-offset_top = -107.0
-offset_right = 813.5
-offset_bottom = 107.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_av81a")
-theme_override_font_sizes/font_size = 60
-text = "But here you are— condemned, cursed, betrayed."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_nuj8p")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0313726, 0.105882, 0.109804, 1)
-
-[node name="4" type="Label" parent="CanvasLayer"]
-modulate = Color(0.94902, 0.94902, 0.94902, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -813.5
-offset_top = -107.0
-offset_right = 813.5
-offset_bottom = 107.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.911635, 1, 0.994474, 1)
-theme_override_fonts/font = ExtResource("3_av81a")
-theme_override_font_sizes/font_size = 60
-text = "The Abyss pulls you deeper with every step."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="5" type="Label" parent="CanvasLayer"]
-modulate = Color(0.94902, 0.94902, 0.94902, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -813.5
-offset_top = -107.0
-offset_right = 813.5
-offset_bottom = 107.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.911635, 1, 0.994474, 1)
-theme_override_fonts/font = ExtResource("3_av81a")
-theme_override_font_sizes/font_size = 60
-text = "The only way out…"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="6" type="Label" parent="CanvasLayer"]
-modulate = Color(0.94902, 0.94902, 0.94902, 0)
-material = SubResource("ShaderMaterial_4ul7d")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -813.5
-offset_top = -107.0
-offset_right = 813.5
-offset_bottom = 107.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.0313726, 1, 0.980392, 1)
-theme_override_fonts/font = ExtResource("4_utvx1")
-theme_override_font_sizes/font_size = 80
-text = "DOWN."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="7" type="Label" parent="CanvasLayer"]
-modulate = Color(0.94902, 0.94902, 0.94902, 0)
-material = SubResource("ShaderMaterial_4ul7d")
+[node name="Label2" type="Label" parent="CanvasLayer"]
+modulate = Color(0.956863, 0.894118, 0.764706, 1)
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -813.5
-offset_top = -214.0
-offset_right = 813.5
+offset_left = -618.0
+offset_top = -208.0
+offset_right = 618.0
+offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.0313726, 1, 0.980392, 1)
-theme_override_fonts/font = ExtResource("4_utvx1")
-theme_override_font_sizes/font_size = 35
-text = "Press \"space\" to proceed."
+theme_override_fonts/font = ExtResource("3_av81a")
+theme_override_font_sizes/font_size = 70
+text = "you will need all the help you need in your final fight. To activate this ability, press \"Q\"."
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="GraphFrame" type="GraphFrame" parent="CanvasLayer"]
-offset_right = 9.0
-offset_bottom = 63.0
-
-[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(973, 373)
-scale = Vector2(12, 9.82857)
-color = Color(0.580392, 0.0784314, 0.643137, 1)
-energy = 2.92
-texture = SubResource("GradientTexture2D_wr06n")
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -501,3 +547,5 @@ libraries = {
 stream = ExtResource("8_s2kc8")
 volume_db = 1.0
 autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
