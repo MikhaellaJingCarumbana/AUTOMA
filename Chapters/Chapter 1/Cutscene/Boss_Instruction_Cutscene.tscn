@@ -43,10 +43,154 @@ animations = [{
 resource_name = "1"
 length = 50.0
 
+[sub_resource type="Animation" id="Animation_8nt8b"]
+resource_name = "Card powerup"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Button/Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.274468, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.00709222, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.274468, 0.274468)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Label:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.466667, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mnxd2"]
+resource_name = "Card powerup_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Button/Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.274468, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.00709222, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.274468, 0.274468)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, -1]
+}
+
 [sub_resource type="Animation" id="Animation_1uo35"]
 resource_name = "Crystal"
 length = 0.7
 loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_h1gll"]
+resource_name = "Intro card draw"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(767.813, 331)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Button2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(464, 334)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Button3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(1087, 334)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Button2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.433333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Button3:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.433333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_wa543"]
 length = 0.001
@@ -159,153 +303,6 @@ tracks/8/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_8nt8b"]
-resource_name = "Card powerup"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Button/Sprite2D:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.274468, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.00709222, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.274468, 0.274468)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [-1, 0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Label2:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.3, 1.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Label:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.466667, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_mnxd2"]
-resource_name = "Card powerup_2"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Button/Sprite2D:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.274468, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.00709222, 0.274468), Vector2(0.167518, 0.274468), Vector2(0.274468, 0.274468)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, -1]
-}
-
-[sub_resource type="Animation" id="Animation_h1gll"]
-resource_name = "Intro card draw"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Button:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(767.813, 331)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Button2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(464, 334)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Button3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(767.5, 1120), Vector2(767.5, 150), Vector2(767.5, 334), Vector2(767.5, 334), Vector2(1087, 334)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Button2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.433333),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Button3:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.433333),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_cse5r"]
-resource_name = "new_animation"
-
 [sub_resource type="Animation" id="Animation_t1ycr"]
 resource_name = "Take card"
 length = 0.9
@@ -328,7 +325,7 @@ tracks/1/path = NodePath("CanvasLayer/Button2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7),
+"times": PackedFloat32Array(0.166667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(464, 334), Vector2(337, 334), Vector2(464, 334), Vector2(764, 334), Vector2(764, 204), Vector2(764, 125), Vector2(764, 358), Vector2(764, 1186)]
@@ -340,7 +337,7 @@ tracks/2/path = NodePath("CanvasLayer/Button3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7),
+"times": PackedFloat32Array(0.166667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1087, 334), Vector2(1288, 334), Vector2(1087, 334), Vector2(762, 334), Vector2(762, 210), Vector2(762, 131), Vector2(762, 373), Vector2(762, 1182)]
@@ -369,6 +366,9 @@ tracks/4/keys = {
 "update": 0,
 "values": []
 }
+
+[sub_resource type="Animation" id="Animation_cse5r"]
+resource_name = "new_animation"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jidkc"]
 _data = {
@@ -401,10 +401,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.5
-offset_top = 580.0
-offset_right = 192.5
-offset_bottom = 1206.0
+offset_left = -496.0
+offset_top = -206.0
+offset_right = -111.0
+offset_bottom = 420.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -436,10 +436,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.5
-offset_top = 580.0
-offset_right = 192.5
-offset_bottom = 1206.0
+offset_left = -192.187
+offset_top = -209.0
+offset_right = 192.813
+offset_bottom = 417.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -471,10 +471,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.5
-offset_top = 580.0
-offset_right = 192.5
-offset_bottom = 1206.0
+offset_left = 127.0
+offset_top = -206.0
+offset_right = 512.0
+offset_bottom = 420.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -532,8 +532,9 @@ offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_av81a")
-theme_override_font_sizes/font_size = 70
-text = "you will need all the help you need in your final fight. To activate this ability, press \"Q\"."
+theme_override_font_sizes/font_size = 40
+text = "you will need all the help you need in your final fight. To activate this ability, press \"Q\".
+Press \"Space\" to continue."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

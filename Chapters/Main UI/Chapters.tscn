@@ -81,9 +81,9 @@ layout_mode = 2
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="HBoxContainer/Chapter 1" to="HBoxContainer/Chapter 1" method="_on_pressed_chapter1"]
 [connection signal="pressed" from="HBoxContainer/Chapter 1" to="HBoxContainer/Chapter 1" method="_on_pressed"]
-[connection signal="pressed" from="HBoxContainer/Chapter 2" to="HBoxContainer/Chapter 2" method="_on_pressed_chapter2"]
+[connection signal="pressed" from="HBoxContainer/Chapter 1" to="HBoxContainer/Chapter 1" method="_on_pressed_chapter1"]
 [connection signal="pressed" from="HBoxContainer/Chapter 2" to="HBoxContainer/Chapter 2" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Chapter 2" to="HBoxContainer/Chapter 2" method="_on_pressed_chapter2"]
 
 [editable path="HBoxContainer/Chapter 1"]
