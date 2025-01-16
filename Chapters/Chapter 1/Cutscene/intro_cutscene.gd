@@ -28,3 +28,6 @@ func _on_button_mouse_exited() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Intro card draw":
 		animation_player.play("Take card")
+		
+	if anim_name == "Take card":
+		animation_player.play("Card powerup")
