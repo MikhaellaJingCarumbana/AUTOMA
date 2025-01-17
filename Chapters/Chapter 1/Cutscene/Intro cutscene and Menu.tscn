@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://clagfdu1atth1"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/intro_cutscene_and_menu.gd" id="1_dv5t6"]
-[ext_resource type="PackedScene" uid="uid://c2eymjdf4i78p" path="res://Chapters/Chapter 1/Regex - Map/Beginner-F.tscn" id="2_qwl8k"]
+[ext_resource type="PackedScene" uid="uid://btfcehjsmqpuc" path="res://Chapters/Chapter 1/Cutscene/Chapter 1 Menu.tscn" id="2_pp05w"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="4_6hunt"]
 [ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="5_767hn"]
 [ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/music/grimyth - Dungeon XI.ogg" id="5_hukhc"]
@@ -149,7 +149,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_uynwv"]
 resource_name = "intro"
-length = 40.0
+length = 27.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -291,7 +291,7 @@ _data = {
 
 [node name="Intro Cutscene 1" type="Node2D"]
 script = ExtResource("1_dv5t6")
-scene = ExtResource("2_qwl8k")
+scene = ExtResource("2_pp05w")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -496,8 +496,11 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_hukhc")
 volume_db = 22.8
+stream_paused = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ngxhb")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
