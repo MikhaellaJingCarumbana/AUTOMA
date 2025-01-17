@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m4e383kig8s1"
+path="res://.godot/imported/card-sounds-35956.mp3-5517dfd75ae6c0e4649ee6bb685987c1.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/card-sounds-35956.mp3"
+dest_files=["res://.godot/imported/card-sounds-35956.mp3-5517dfd75ae6c0e4649ee6bb685987c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,173 @@
+[gd_scene load_steps=23 format=3 uid="uid://co1bnsg044bcs"]
+
+[ext_resource type="Texture2D" uid="uid://durqal1kjk4tg" path="res://Art/Custom UI/card back.png" id="1_3dqhb"]
+[ext_resource type="Script" path="res://Chapters/Main UI/Scripts/chapter_button.gd" id="1_qs78s"]
+[ext_resource type="Texture2D" uid="uid://u0elpqkq4fdh" path="res://Art/Custom UI/Chapter 1.png" id="2_mbwbu"]
+[ext_resource type="Texture2D" uid="uid://538jirqtgbgh" path="res://Art/Custom UI/Chapter 2.png" id="3_uhxw0"]
+[ext_resource type="Texture2D" uid="uid://ca55unyhvfkbe" path="res://Art/Custom UI/Chapter 3.png" id="4_foqax"]
+[ext_resource type="AudioStream" uid="uid://m4e383kig8s1" path="res://Chapters/Chapter 1/audios/sounds/card-sounds-35956.mp3" id="6_tpjtn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ku8ak"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uijof"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycytq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rtk7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l15nw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qa3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t74od"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xraqs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4q7b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axhhf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yobsn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5lb78"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mbwbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uhxw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_foqax")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_h0y8f"]
+resource_name = "flip"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/AnimatedSprite2D:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.0834229, 0.1, 0.1001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25461, 0.25461), Vector2(0.0815762, 0.254792), Vector2(0.007, 0.255), Vector2(0.146508, 0.255008), Vector2(0.255, 0.255), Vector2(0.146508, 0.255008)]
+}
+
+[sub_resource type="Animation" id="Animation_rt36t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/AnimatedSprite2D:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25461, 0.25461)]
+}
+
+[sub_resource type="Animation" id="Animation_t0njq"]
+resource_name = "flip_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/AnimatedSprite2D:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, -1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.0834229, 0.1, 0.1001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.25461, 0.25461), Vector2(0.0815762, 0.254792), Vector2(0.007, 0.255), Vector2(0.146508, 0.255008), Vector2(0.255, 0.255), Vector2(0.146508, 0.255008)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ooo8"]
+_data = {
+"RESET": SubResource("Animation_rt36t"),
+"flip": SubResource("Animation_h0y8f"),
+"flip_2": SubResource("Animation_t0njq")
+}
+
+[node name="ChapterButton" type="Button"]
+offset_right = 365.0
+offset_bottom = 574.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ku8ak")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_uijof")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ycytq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8rtk7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_l15nw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_7qa3n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t74od")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_xraqs")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r4q7b")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_axhhf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yobsn")
+script = ExtResource("1_qs78s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(180, 283)
+scale = Vector2(0.25461, 0.25461)
+texture = ExtResource("1_3dqhb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_5lb78")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0ooo8")
+}
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tpjtn")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
