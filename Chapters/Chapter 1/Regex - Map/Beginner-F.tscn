@@ -6696,19 +6696,19 @@ disabled = true
 
 [node name="UI" parent="." instance=ExtResource("13_yy40w")]
 
-[node name="Dialogic" parent="UI" instance=ExtResource("16_q3mjn")]
-process_priority = -1
-timeline_file = "chests"
-
-[node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
-position = Vector2(347, 72)
-
 [node name="Dialogic3" parent="UI" instance=ExtResource("16_q3mjn")]
 process_priority = -1
 timeline_file = "Intro_Timeline"
 
 [node name="CollisionShape2D" parent="UI/Dialogic3/Area2D" index="0"]
 position = Vector2(160, 72)
+
+[node name="Dialogic" parent="UI" instance=ExtResource("16_q3mjn")]
+process_priority = -1
+timeline_file = "chests"
+
+[node name="CollisionShape2D" parent="UI/Dialogic/Area2D" index="0"]
+position = Vector2(347, 72)
 
 [node name="Dialogic2" type="Node" parent="UI"]
 process_priority = -1
@@ -6821,12 +6821,12 @@ offset_bottom = 64.0
 [editable path="UI"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
+[editable path="UI/Dialogic3"]
+[editable path="UI/Dialogic"]
 [editable path="UI/Clue_System"]
 [editable path="UI/Note System"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
-[editable path="UI/Dialogic"]
-[editable path="UI/Dialogic3"]
 [editable path="Enemies/Skull"]
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
