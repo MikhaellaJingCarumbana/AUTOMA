@@ -4,7 +4,7 @@ extends Control
 @onready var exit_button = $VBoxContainer/Exit
 @onready var world_scene = preload("res://Scenes/world.tscn")
 @onready var practice_questions = preload("res://Scenes/PracticeQuestionNew.tscn")
-@onready var chapters = preload("res://Chapters/Main UI/Chapters.tscn")
+@onready var chapters = preload("res://Chapters/Main UI/Chapters_enw.tscn")
 
 
 
