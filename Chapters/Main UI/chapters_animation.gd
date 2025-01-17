@@ -16,4 +16,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_chapter_button_pressed() -> void:
-	get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_file("res://Chapters/Chapter 1/Cutscene/Intro cutscene and Menu.tscn")

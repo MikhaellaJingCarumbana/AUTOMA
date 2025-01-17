@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://lho5dyio8cot"]
 
 [ext_resource type="Script" path="res://Chapters/Main UI/chapters_new_new.gd" id="1_2k3px"]
-[ext_resource type="PackedScene" uid="uid://ch2u3iyj70jf0" path="res://Chapters/Main UI/chapters animation.tscn" id="2_0a5ow"]
+[ext_resource type="PackedScene" path="res://Chapters/Main UI/chapters animation.tscn" id="2_0a5ow"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_58xs2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d77mf"]
@@ -33,6 +33,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="ChapterButton" parent="ChaptersAnimation/CanvasLayer" index="1"]
+offset_left = -182.5
+offset_top = 738.0
+offset_right = 182.5
+offset_bottom = 1312.0
+
+[node name="ChapterButton2" parent="ChaptersAnimation/CanvasLayer" index="2"]
+offset_top = 738.0
+offset_bottom = 1312.0
+
+[node name="ChapterButton3" parent="ChaptersAnimation/CanvasLayer" index="3"]
+offset_left = -182.5
+offset_top = 738.0
+offset_right = 182.5
+offset_bottom = 1312.0
 
 [connection signal="pressed" from="ChaptersAnimation/CanvasLayer/ChapterButton" to="ChaptersAnimation" method="_on_chapter_button_pressed"]
 
