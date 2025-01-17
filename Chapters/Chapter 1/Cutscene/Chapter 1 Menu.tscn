@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://btfcehjsmqpuc"]
+[gd_scene load_steps=52 format=3 uid="uid://btfcehjsmqpuc"]
 
 [ext_resource type="Texture2D" uid="uid://5ww003nnfxxf" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 1.png" id="1_pojbp"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/1.gd" id="2_h648r"]
@@ -243,6 +243,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tc7j4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yqp5e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1esb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5sm0f"]
+bg_color = Color(0.231373, 0.219608, 0.184314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ay0o5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytv16"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yjaf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbvhq"]
+
 [node name="Chapter1Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -302,7 +323,7 @@ position = Vector2(6.00248, 24.7733)
 scale = Vector2(1.73123, 1.73123)
 sprite_frames = SubResource("SpriteFrames_ggaij")
 autoplay = "default"
-frame_progress = 0.528345
+frame_progress = 0.637678
 speed_scale = 4.0
 
 [node name="4" type="TextureRect" parent="CanvasLayer"]
@@ -319,42 +340,61 @@ texture = ExtResource("5_cryqe")
 script = ExtResource("9_15idj")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -534.0
-offset_top = -163.0
-offset_right = -21.0
-offset_bottom = -36.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -316.0
+offset_right = 316.0
+offset_bottom = 176.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("10_h08hk")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 150
 text = "Chapter One:"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Sub" type="Label" parent="CanvasLayer"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -475.0
-offset_top = -58.0
-offset_right = -58.0
-offset_bottom = 18.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.5
+offset_top = 144.0
+offset_right = 208.5
+offset_bottom = 220.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("10_h08hk")
 theme_override_font_sizes/font_size = 60
 text = "Regular Expressions"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -76.0
+offset_right = 146.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_h08hk")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_tc7j4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_yqp5e")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_r1esb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5sm0f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ay0o5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ytv16")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6yjaf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vbvhq")
+text = "Start"
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(967, 537)
