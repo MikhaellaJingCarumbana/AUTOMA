@@ -13,4 +13,8 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("skip"):
+		animation_player.play("transition_2")
+		
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "transition_2":
 		get_tree().change_scene_to_packed(scene)

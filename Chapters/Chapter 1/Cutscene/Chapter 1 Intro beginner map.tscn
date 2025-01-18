@@ -1,145 +1,145 @@
-[gd_scene load_steps=52 format=3 uid="uid://btfcehjsmqpuc"]
+[gd_scene load_steps=52 format=3 uid="uid://b1lbrmwauwffq"]
 
-[ext_resource type="Texture2D" uid="uid://5ww003nnfxxf" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 1.png" id="1_pojbp"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/chapter_1_menu.gd" id="1_q50l7"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/1.gd" id="2_h648r"]
-[ext_resource type="PackedScene" uid="uid://c2eymjdf4i78p" path="res://Chapters/Chapter 1/Regex - Map/Beginner-F.tscn" id="2_hx2cc"]
-[ext_resource type="Texture2D" uid="uid://ywgqp35dylrm" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 2.png" id="2_vgu8m"]
-[ext_resource type="Texture2D" uid="uid://r5ixa0o7cju5" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 3.png" id="3_51ksq"]
-[ext_resource type="Texture2D" uid="uid://daablrykdg4bf" path="res://Chapters/Chapter 1/Cutscene/The Circle/Red Circle/The Circle 35x37.png" id="4_3nubj"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/2.gd" id="4_kbeja"]
-[ext_resource type="Texture2D" uid="uid://dy8p4vr86a3un" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 4.png" id="5_cryqe"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/3.gd" id="6_lak4o"]
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/4.gd" id="9_15idj"]
-[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="10_h08hk"]
-[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="11_rs7l7"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/chapter_1_menu.gd" id="1_2pcvp"]
+[ext_resource type="PackedScene" uid="uid://c2eymjdf4i78p" path="res://Chapters/Chapter 1/Regex - Map/Beginner-F.tscn" id="2_1sm50"]
+[ext_resource type="Texture2D" uid="uid://5ww003nnfxxf" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 1.png" id="3_kdqi7"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/1.gd" id="4_b4yuw"]
+[ext_resource type="Texture2D" uid="uid://ywgqp35dylrm" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 2.png" id="5_djls3"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/2.gd" id="6_xp0pc"]
+[ext_resource type="Texture2D" uid="uid://r5ixa0o7cju5" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 3.png" id="7_hqo86"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/3.gd" id="8_o4yth"]
+[ext_resource type="Texture2D" uid="uid://daablrykdg4bf" path="res://Chapters/Chapter 1/Cutscene/The Circle/Red Circle/The Circle 35x37.png" id="9_clk0h"]
+[ext_resource type="Texture2D" uid="uid://dy8p4vr86a3un" path="res://Chapters/Chapter 1/Cutscene/The Circle/Statement Piece/Layers + Sprite Sheet/layer 4.png" id="10_1m02y"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/4.gd" id="11_0fsb7"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="12_5esh6"]
+[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="13_jytef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lbi4"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(0, 0, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46d25"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(35, 0, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vi3e"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(70, 0, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lg2jl"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(105, 0, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83cvw"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(140, 0, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2rbv"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(175, 0, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1pha"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(0, 37, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bahx"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(35, 37, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qcpv"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(70, 37, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sn8q"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(105, 37, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j12iu"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(140, 37, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iq8pe"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(175, 37, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txhmd"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(0, 74, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57v6x"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(35, 74, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_851bg"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(70, 74, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xe0ix"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(105, 74, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhr2m"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(140, 74, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ou8nf"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(175, 74, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cu8to"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(0, 111, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4pg2"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(35, 111, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_77mv4"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(70, 111, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1h27"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(105, 111, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afano"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(140, 111, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_edu64"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(175, 111, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_526n5"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(0, 148, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap604"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(35, 148, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnhtg"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(70, 148, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3sqof"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(105, 148, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cyr7j"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(140, 148, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gw1ku"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(175, 148, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ciq7"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(0, 185, 35, 37)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktohq"]
-atlas = ExtResource("4_3nubj")
+atlas = ExtResource("9_clk0h")
 region = Rect2(35, 185, 35, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ggaij"]
@@ -247,7 +247,7 @@ animations = [{
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rgtir"]
-shader = ExtResource("11_rs7l7")
+shader = ExtResource("13_jytef")
 shader_parameter/height = 2.0
 shader_parameter/frequency = 25.0
 shader_parameter/speed = 4.0
@@ -313,8 +313,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_q50l7")
-scene = ExtResource("2_hx2cc")
+script = ExtResource("1_2pcvp")
+scene = ExtResource("2_1sm50")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -328,8 +328,8 @@ offset_right = 40.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_pojbp")
-script = ExtResource("2_h648r")
+texture = ExtResource("3_kdqi7")
+script = ExtResource("4_b4yuw")
 
 [node name="2" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -341,8 +341,8 @@ offset_right = 53.0
 offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vgu8m")
-script = ExtResource("4_kbeja")
+texture = ExtResource("5_djls3")
+script = ExtResource("6_xp0pc")
 
 [node name="3" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -354,8 +354,8 @@ offset_right = 40.0
 offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_51ksq")
-script = ExtResource("6_lak4o")
+texture = ExtResource("7_hqo86")
+script = ExtResource("8_o4yth")
 
 [node name="Circle" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
@@ -380,8 +380,8 @@ offset_right = 42.0
 offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_cryqe")
-script = ExtResource("9_15idj")
+texture = ExtResource("10_1m02y")
+script = ExtResource("11_0fsb7")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -391,7 +391,7 @@ offset_left = -316.0
 offset_right = 316.0
 offset_bottom = 176.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("10_h08hk")
+theme_override_fonts/font = ExtResource("12_5esh6")
 theme_override_font_sizes/font_size = 150
 text = "Chapter One:"
 horizontal_alignment = 1
@@ -407,7 +407,7 @@ offset_top = 144.0
 offset_right = 208.5
 offset_bottom = 220.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("10_h08hk")
+theme_override_fonts/font = ExtResource("12_5esh6")
 theme_override_font_sizes/font_size = 60
 text = "Regular Expressions"
 horizontal_alignment = 1
@@ -424,7 +424,7 @@ offset_top = 991.0
 offset_right = 208.5
 offset_bottom = 1067.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("10_h08hk")
+theme_override_fonts/font = ExtResource("12_5esh6")
 theme_override_font_sizes/font_size = 40
 text = "press space to start"
 horizontal_alignment = 1
