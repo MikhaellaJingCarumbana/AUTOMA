@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c60y7aefy1pw6"
+path="res://.godot/imported/horror-body-fall-hitting-dirt-02-152097.mp3-6f0c2598e80426babd419f4dec6bbc65.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/horror-body-fall-hitting-dirt-02-152097.mp3"
+dest_files=["res://.godot/imported/horror-body-fall-hitting-dirt-02-152097.mp3-6f0c2598e80426babd419f4dec6bbc65.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

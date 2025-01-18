@@ -1,6 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=50 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Regex - Map/beginner_f.gd" id="1_focah"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_jkwip"]
 [ext_resource type="Texture2D" uid="uid://imatk76rwuj4" path="res://Art/Dungeon Vibes Tilesets/Props 2.png" id="3_rl510"]
 [ext_resource type="Texture2D" uid="uid://bjv52ar51g1wj" path="res://Art/Dungeon Vibes Tilesets/Props 1.png" id="4_p7kio"]
@@ -6446,7 +6447,45 @@ size = Vector2(1026, 1074)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcec2"]
 size = Vector2(37, 145)
 
+[sub_resource type="Animation" id="Animation_ouvru"]
+resource_name = "transition"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c8url"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ypdq6"]
+_data = {
+"RESET": SubResource("Animation_c8url"),
+"transition": SubResource("Animation_ouvru")
+}
+
 [node name="Beginner-f" type="Node2D"]
+script = ExtResource("1_focah")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wccnq")
@@ -6800,8 +6839,24 @@ offset_top = 0.0
 offset_right = 64.0
 offset_bottom = 64.0
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ypdq6")
+}
+
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="body_entered" from="UI/Dialogic2/Area2D" to="UI/Dialogic2" method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="TutorialManager/TutorialText"]
 [editable path="TutorialManager/TutorialText2"]

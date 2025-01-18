@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bq0sh30f7y2g6"
+path="res://.godot/imported/body-fall-47877.mp3-e338bc0481cac5b60bb3b47913460930.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/body-fall-47877.mp3"
+dest_files=["res://.godot/imported/body-fall-47877.mp3-e338bc0481cac5b60bb3b47913460930.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
