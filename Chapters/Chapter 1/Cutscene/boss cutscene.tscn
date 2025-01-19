@@ -1,0 +1,341 @@
+[gd_scene load_steps=39 format=3 uid="uid://cpuun218wd5u0"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/boss_cutscene.gd" id="1_xcfhk"]
+[ext_resource type="Texture2D" uid="uid://b1b6ld7cnvsr0" path="res://Chapters/Chapter 1/Sprite/DARK - Glitch Samurai/Glitch Samurai-Idle Gltich.png" id="2_o8i0j"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="4_nnti0"]
+[ext_resource type="AudioStream" uid="uid://dwniqltiq0qi3" path="res://Chapters/Chapter 1/audios/music/grimyth - Dungeon XI.ogg" id="5_5f8b8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7pjg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5ys3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4l5e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yive7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpo00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gonvv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkgtf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8a85u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uprn8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aga6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lfkf4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bluk4"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(0, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6jkw"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(140, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy7tm"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(280, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s78ti"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(420, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0m3"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(560, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcqsp"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(700, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln2ko"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(840, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jwaj"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(980, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qoeb"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(1120, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwi7a"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(1260, 0, 140, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vfbj"]
+atlas = ExtResource("2_o8i0j")
+region = Rect2(1400, 0, 140, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnk0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bluk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6jkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy7tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s78ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcqsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln2ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jwaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qoeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwi7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vfbj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_p5uyu"]
+resource_name = "1"
+length = 50.0
+
+[sub_resource type="Animation" id="Animation_jhkb7"]
+resource_name = "new_animation_2"
+
+[sub_resource type="Animation" id="Animation_8nt8b"]
+resource_name = "Card powerup"
+length = 5.0
+
+[sub_resource type="Animation" id="Animation_mnxd2"]
+resource_name = "Card powerup_2"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_1uo35"]
+resource_name = "Crystal"
+length = 0.7
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_h1gll"]
+resource_name = "Intro card draw"
+length = 0.6
+
+[sub_resource type="Animation" id="Animation_wa543"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t1ycr"]
+resource_name = "Take card"
+length = 0.9
+
+[sub_resource type="Animation" id="Animation_cse5r"]
+resource_name = "new_animation"
+
+[sub_resource type="Animation" id="Animation_aev68"]
+resource_name = "boss intro"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.33333, 6.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.2, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jidkc"]
+_data = {
+"1": SubResource("Animation_p5uyu"),
+"Boss sprite": SubResource("Animation_jhkb7"),
+"Card powerup": SubResource("Animation_8nt8b"),
+"Card powerup_2": SubResource("Animation_mnxd2"),
+"Crystal": SubResource("Animation_1uo35"),
+"Intro card draw": SubResource("Animation_h1gll"),
+"RESET": SubResource("Animation_wa543"),
+"Take card": SubResource("Animation_t1ycr"),
+"boss intro": SubResource("Animation_aev68"),
+"new_animation": SubResource("Animation_cse5r")
+}
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_xcfhk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.051971, 0.051971, 0.0519709, 1)
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = -219.0
+offset_right = 141.5
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o7pjg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_u5ys3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n4l5e")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_yive7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vpo00")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gonvv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gkgtf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8a85u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uprn8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_aga6l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lfkf4")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Button"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button/Sprite2D"]
+position = Vector2(228.5, 68)
+scale = Vector2(17.3043, 17.3043)
+sprite_frames = SubResource("SpriteFrames_dnk0f")
+autoplay = "default"
+frame_progress = 0.456705
+speed_scale = 3.0
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/Button"]
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 107.0
+offset_right = 81.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.956863, 0.894118, 0.764706, 1)
+theme_override_fonts/font = ExtResource("4_nnti0")
+theme_override_font_sizes/font_size = 150
+text = "Beware the guardian"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -738.0
+offset_top = -242.0
+offset_right = 738.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.956863, 0.894118, 0.764706, 1)
+theme_override_fonts/font = ExtResource("4_nnti0")
+theme_override_font_sizes/font_size = 60
+text = "A shattered samurai, warped by time and corruption. None who challenge it leave whole."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jidkc")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5f8b8")
+volume_db = 1.0
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

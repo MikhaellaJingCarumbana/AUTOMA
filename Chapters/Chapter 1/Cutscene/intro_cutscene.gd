@@ -30,3 +30,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		animation_player.play("Take card")
 	if anim_name == "Take card":
 		animation_player.play("Card powerup")
+	if anim_name == "Card powerup":
+		get_tree().change_scene_to_file("res://Chapters/Chapter 1/Cutscene/boss cutscene.tscn")

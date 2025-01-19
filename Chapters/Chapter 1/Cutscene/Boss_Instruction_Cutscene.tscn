@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cttu1epijbegv"]
+[gd_scene load_steps=28 format=3 uid="uid://cttu1epijbegv"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/intro_cutscene.gd" id="1_goiph"]
 [ext_resource type="Texture2D" uid="uid://lh8pbw6tjq7h" path="res://Chapters/Chapter 1/Cutscene/Powerup/bACK.png" id="2_ri8hi"]
@@ -45,7 +45,7 @@ length = 50.0
 
 [sub_resource type="Animation" id="Animation_8nt8b"]
 resource_name = "Card powerup"
-length = 3.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,10 +77,10 @@ tracks/2/path = NodePath("CanvasLayer/Label2:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.3, 1.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1.3, 4.33333, 4.83333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -89,10 +89,34 @@ tracks/3/path = NodePath("CanvasLayer/Label:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.466667, 1.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.466667, 4.33333, 4.86667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Button/Sprite2D:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.3, 4.83333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.3, 4.83333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_mnxd2"]
@@ -302,6 +326,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Button/Sprite2D:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/Button/Sprite2D/AnimatedSprite2D:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_t1ycr"]
 resource_name = "Take card"
@@ -370,9 +418,13 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_cse5r"]
 resource_name = "new_animation"
 
+[sub_resource type="Animation" id="Animation_jhkb7"]
+resource_name = "new_animation_2"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jidkc"]
 _data = {
 "1": SubResource("Animation_p5uyu"),
+"Boss sprite": SubResource("Animation_jhkb7"),
 "Card powerup": SubResource("Animation_8nt8b"),
 "Card powerup_2": SubResource("Animation_mnxd2"),
 "Crystal": SubResource("Animation_1uo35"),
@@ -401,10 +453,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -496.0
-offset_top = -206.0
-offset_right = -111.0
-offset_bottom = 420.0
+offset_left = -196.0
+offset_top = 646.0
+offset_right = 189.0
+offset_bottom = 1272.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -436,10 +488,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.187
-offset_top = -209.0
-offset_right = 192.813
-offset_bottom = 417.0
+offset_left = -192.5
+offset_top = -313.0
+offset_right = 192.5
+offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -466,15 +518,16 @@ z_index = -1
 sprite_frames = SubResource("SpriteFrames_fmlhm")
 
 [node name="Button3" type="Button" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 127.0
-offset_top = -206.0
-offset_right = 512.0
-offset_bottom = 420.0
+offset_left = -198.0
+offset_top = 642.0
+offset_right = 187.0
+offset_bottom = 1268.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

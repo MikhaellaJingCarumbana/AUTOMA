@@ -6398,10 +6398,10 @@ interact_label = ""
 interact_type = "open_chest"
 
 [node name="Player" parent="." instance=ExtResource("6_yx4og")]
-position = Vector2(52, 168)
+position = Vector2(55, 527)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(200, 168)
+position = Vector2(200, 527)
 script = ExtResource("6_eksja")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -6527,6 +6527,7 @@ button = NodePath("../UI/Button")
 position = Vector2(167.875, 489.625)
 
 [node name="DoorCode" parent="UI" instance=ExtResource("19_2or5c")]
+cutscene = "res://Chapters/Chapter 1/Cutscene/Boss_Instruction_Cutscene.tscn"
 
 [node name="PauseMenu" parent="UI/DoorCode" index="0"]
 visible = false
