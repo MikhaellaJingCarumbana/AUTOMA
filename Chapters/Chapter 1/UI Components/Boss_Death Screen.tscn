@@ -59,7 +59,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.605674, 1.31156e-06, 2.88785e-07, 1)
 theme_override_fonts/font = ExtResource("3_xbb46")
 theme_override_font_sizes/font_size = 300
-text = "you died"
+text = "Defeat"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
@@ -98,6 +98,8 @@ theme_override_font_sizes/font_size = 70
 theme_override_styles/hover = SubResource("StyleBoxFlat_b4sqp")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_g7y27")
 text = "main menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
