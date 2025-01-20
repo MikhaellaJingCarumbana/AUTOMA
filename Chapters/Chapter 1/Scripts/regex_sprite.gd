@@ -57,6 +57,12 @@ var footsteps_fram: Array = [2, 4, 6, 8]
 
 @export var boss_node: NodePath
 @onready var progress_bar: ProgressBar = $"../CanvasLayer/ProgressBar"
+@onready var canvas_layer: CanvasLayer = $"../UI/Chapter1Menu/CanvasLayer"
+
+@onready var boss_progress_bar: ProgressBar = $"../ShadowBoss/UI/ProgressBar"
+@onready var player_canvas_layer: CanvasLayer = $"../CanvasLayer"
+@onready var boss_ui: CanvasLayer = $"../ShadowBoss/UI"
+@onready var boss_music: AudioStreamPlayer2D = $"../Boss music"
 
 var is_Dead: bool = false
 
@@ -70,6 +76,11 @@ var health_player = 100:
 		if value <= 0:
 			is_Dead = true
 			sprite.play("Death")
+			if canvas_layer:
+				canvas_layer.show()
+				player_canvas_layer.hide()
+				boss_ui.hide()
+				boss_music.stop()
 			#add death screen here
 			
 func take_damage():

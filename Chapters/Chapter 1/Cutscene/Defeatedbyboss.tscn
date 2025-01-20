@@ -1,7 +1,6 @@
-[gd_scene load_steps=84 format=3 uid="uid://cp4u5fwdq4om2"]
+[gd_scene load_steps=83 format=3 uid="uid://cp4u5fwdq4om2"]
 
-[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/chapter_1_menu.gd" id="1_bl2px"]
-[ext_resource type="PackedScene" uid="uid://b43b40is24160" path="res://Chapters/Chapter 1/Cutscene/cutscene for chapter 1.tscn" id="2_gpobh"]
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/defeatedbyboss.gd" id="1_u70yw"]
 [ext_resource type="Texture2D" uid="uid://wjdxpj20j8sb" path="res://Chapters/Chapter 1/Cutscene/Hanger/BG 1.png" id="3_fhalo"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/1.gd" id="4_haiic"]
 [ext_resource type="Texture2D" uid="uid://dmqqqn4pqx5q" path="res://Chapters/Chapter 1/Cutscene/Hanger/BG 2.png" id="5_57hvk"]
@@ -15,7 +14,6 @@
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="12_03tol"]
 [ext_resource type="Texture2D" uid="uid://c2fearufcr516" path="res://Chapters/Chapter 1/Cutscene/Hanger/BG 5.png" id="12_rqqkd"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/5.gd" id="13_0u45k"]
-[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="13_p06vu"]
 [ext_resource type="Shader" path="res://shaders/VHS._RETRO.gdshader" id="14_1xjad"]
 [ext_resource type="Texture2D" uid="uid://dygt22pky0i0d" path="res://Chapters/Chapter 1/Cutscene/Hanger/BG 6.png" id="14_fv6ja"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/moving menu/6.gd" id="15_2qgrf"]
@@ -404,12 +402,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgtir"]
-shader = ExtResource("13_p06vu")
-shader_parameter/height = 2.0
-shader_parameter/frequency = 25.0
-shader_parameter/speed = 4.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fiysf"]
 shader = ExtResource("14_1xjad")
 shader_parameter/range = 0.0
@@ -417,6 +409,20 @@ shader_parameter/noiseQuality = 300.0
 shader_parameter/noiseIntensity = -0.002
 shader_parameter/offsetIntensity = -0.07
 shader_parameter/colorOffsetIntensity = 0.277
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xion"]
+bg_color = Color(0.666569, 0.666569, 0.666569, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yqy1"]
+bg_color = Color(0.29219, 0.29219, 0.29219, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="Animation" id="Animation_16us3"]
 length = 0.001
@@ -479,8 +485,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bl2px")
-scene = ExtResource("2_gpobh")
+script = ExtResource("1_u70yw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -620,53 +625,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -386.5
-offset_top = -145.0
-offset_right = 386.5
-offset_bottom = 140.0
+offset_left = -532.5
+offset_top = -189.0
+offset_right = 532.5
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.603922, 0, 0, 1)
 theme_override_fonts/font = ExtResource("12_03tol")
-theme_override_font_sizes/font_size = 300
+theme_override_font_sizes/font_size = 350
 text = "Defeat"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Sub" type="Label" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -208.5
-offset_top = 81.0
-offset_right = 208.5
-offset_bottom = 157.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_03tol")
-theme_override_font_sizes/font_size = 60
-text = "try again?"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Sub2" type="Label" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_rgtir")
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -208.5
-offset_top = 991.0
-offset_right = 208.5
-offset_bottom = 1067.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("12_03tol")
-theme_override_font_sizes/font_size = 40
-text = "press space to start"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -678,6 +646,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+
+[node name="Try Again" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = 109.0
+offset_right = 165.5
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_hover_color = Color(0.603922, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_03tol")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_0xion")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3yqy1")
+text = "Try Again"
+
+[node name="Main menu" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = 211.0
+offset_right = 165.5
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_hover_color = Color(0.603922, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_03tol")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_0xion")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3yqy1")
+text = "Main Menu"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -696,4 +705,6 @@ libraries = {
 "": SubResource("AnimationLibrary_hgydg")
 }
 
+[connection signal="pressed" from="CanvasLayer/Try Again" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main menu" to="." method="_on_main_menu_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

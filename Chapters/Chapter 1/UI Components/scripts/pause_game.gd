@@ -24,14 +24,14 @@ func _on_resume_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://Chapters/Main UI/Chapters_enw.tscn")
 
 
 func _on_chapters_pressed() -> void:
-	var scene_path = "res://Chapters/Main UI/Chapters.tscn"
+	var scene_path = "res://Chapters/Main UI/Chapters_enw.tscn"
 	if not FileAccess.file_exists(scene_path):
 		print("Error: Scene file does not exist:", scene_path)
 		return
 	if get_tree() != null:
 		get_tree().paused = false  # Unpause before changing scenes
-		get_tree().change_scene_to_file("res://Chapters/Main UI/Chapters.tscn")
+		get_tree().change_scene_to_file("res://Chapters/Main UI/Chapters_enw.tscn")

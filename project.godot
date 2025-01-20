@@ -44,6 +44,7 @@ directories/dtl_directory={
 "Mimic_reveal": "res://Chapters/Chapter 1/Dialogic Timelines/Mimic_reveal.dtl",
 "Tests/timeline": "res://Tests/timeline.dtl",
 "Wisps": "res://Chapters/Chapter 1/Dialogic Timelines/Wisps.dtl",
+"boss door": "res://Chapters/Chapter 1/Dialogic Timelines/boss door.dtl",
 "chests": "res://Chapters/Chapter 1/Dialogic Timelines/chests.dtl",
 "timeline": "res://timeline.dtl"
 }

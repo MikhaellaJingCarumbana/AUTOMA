@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cq2bx3qqccn51"]
+[gd_scene load_steps=32 format=3 uid="uid://cq2bx3qqccn51"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_johjb"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Regex - Map/Boss fight.gd" id="1_obft5"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bsa27g2vrtxao" path="res://Chapters/Chapter 1/audios/music/Boss music.mp3" id="11_bjp2l"]
 [ext_resource type="PackedScene" uid="uid://diqeghqbejq38" path="res://Chapters/Chapter 1/UI Components/magic_system.tscn" id="11_vjrvb"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="13_a7bms"]
+[ext_resource type="PackedScene" uid="uid://cp4u5fwdq4om2" path="res://Chapters/Chapter 1/Cutscene/Defeatedbyboss.tscn" id="14_hgyev"]
 [ext_resource type="AudioStream" uid="uid://ciocx06mmswou" path="res://Chapters/Chapter 1/audios/sounds/metal-clang-sound-81634.mp3" id="16_tlb1v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0itut"]
@@ -1340,11 +1341,6 @@ offset_top = 133.0
 offset_right = 264.0
 offset_bottom = 157.0
 
-[node name="PauseGame" parent="CanvasLayer" instance=ExtResource("13_a7bms")]
-
-[node name="PauseMenu" parent="CanvasLayer/PauseGame" index="0"]
-visible = false
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.20871, 0.20871, 0.20871, 1)
 
@@ -1369,10 +1365,23 @@ libraries = {
 [node name="clank" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_tlb1v")
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseGame" parent="UI" instance=ExtResource("13_a7bms")]
+
+[node name="PauseMenu" parent="UI/PauseGame" index="0"]
+visible = false
+
+[node name="Chapter1Menu" parent="UI" instance=ExtResource("14_hgyev")]
+
+[node name="CanvasLayer" parent="UI/Chapter1Menu" index="0"]
+visible = false
+
 [connection signal="body_entered" from="ShadowBoss/Player Detection" to="." method="_on_player_detection_body_entered"]
 
 [editable path="TutorialText"]
 [editable path="CanvasLayer/Panel"]
 [editable path="CanvasLayer/Panel2"]
-[editable path="CanvasLayer/PauseGame"]
 [editable path="ShadowBoss"]
+[editable path="UI/PauseGame"]
+[editable path="UI/Chapter1Menu"]

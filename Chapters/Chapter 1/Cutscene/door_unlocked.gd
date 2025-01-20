@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	
 func _on_animation_finished(animation_name: String) -> void:
 	if animation_name == "unlock":
-		get_tree().change_scene_to_file("res://Chapters/Chapter 1/Regex - Map/Intermediate-F.tscn")
+		get_tree().change_scene_to_file("res://Chapters/Chapter 1/Regex - Map/Advance - Boss Chase Room-Reused Map.tscn")
