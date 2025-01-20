@@ -43,6 +43,9 @@ animations = [{
 resource_name = "1"
 length = 50.0
 
+[sub_resource type="Animation" id="Animation_jhkb7"]
+resource_name = "new_animation_2"
+
 [sub_resource type="Animation" id="Animation_8nt8b"]
 resource_name = "Card powerup"
 length = 5.0
@@ -418,9 +421,6 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_cse5r"]
 resource_name = "new_animation"
 
-[sub_resource type="Animation" id="Animation_jhkb7"]
-resource_name = "new_animation_2"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jidkc"]
 _data = {
 "1": SubResource("Animation_p5uyu"),
@@ -453,10 +453,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -196.0
-offset_top = 646.0
-offset_right = 189.0
-offset_bottom = 1272.0
+offset_left = -192.5
+offset_top = 580.0
+offset_right = 192.5
+offset_bottom = 1206.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -489,9 +489,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.5
-offset_top = -313.0
+offset_top = 580.0
 offset_right = 192.5
-offset_bottom = 313.0
+offset_bottom = 1206.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -524,10 +524,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -198.0
-offset_top = 642.0
-offset_right = 187.0
-offset_bottom = 1268.0
+offset_left = -192.5
+offset_top = 580.0
+offset_right = 192.5
+offset_bottom = 1206.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
