@@ -30,6 +30,6 @@ func fade_out():
 		var delta = get_process_delta_time()
 		fade_timer += delta
 		color_rect.modulate.a = lerp(1.0, 0.0, fade_timer / effect_duration)
-		await get_tree().process_frame		
+		await get_tree().create_timer(0.01).timeout		
 	color_rect.visible = false
 	

@@ -1,10 +1,13 @@
 extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if canvas_layer.visible:
+		get_tree().paused = false
+		
 func _on_try_again_pressed() -> void:
 	get_tree().reload_current_scene()
 	

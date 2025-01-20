@@ -63,7 +63,9 @@ var footsteps_fram: Array = [2, 4, 6, 8]
 @onready var player_canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var boss_ui: CanvasLayer = $"../ShadowBoss/UI"
 @onready var boss_music: AudioStreamPlayer2D = $"../Boss music"
+@onready var hurt_player_effect: CanvasLayer = $"../HurtPlayerEffect"
 
+var anim_finished: bool = false
 var is_Dead: bool = false
 
 var health_player = 100:
@@ -76,6 +78,7 @@ var health_player = 100:
 		if value <= 0:
 			is_Dead = true
 			sprite.play("Death")
+			
 			if canvas_layer:
 				canvas_layer.show()
 				player_canvas_layer.hide()
@@ -84,6 +87,7 @@ var health_player = 100:
 			#add death screen here
 			
 func take_damage():
+	hurt_player_effect.show_hurt_effect()
 	health_player -= 3
 	#add sound effect
 	print("Player health: ", health_player)
@@ -411,4 +415,10 @@ func shoot_boss():
 	else:
 		print("On cooldown!")
 			
+		
+
+
+func _on_animated_sprite_2d_animation_finished(anim_name: String) -> void:
+	if anim_name == "Death":
+		anim_finished = true
 		
