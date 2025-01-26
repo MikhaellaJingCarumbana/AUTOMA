@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cim2njy0ng6m6"
+path="res://.godot/imported/magical-glowing-37417.mp3-20d8b54bf122b0458288d4f284b8384b.mp3str"
+
+[deps]
+
+source_file="res://Chapters/Chapter 1/audios/sounds/magical-glowing-37417.mp3"
+dest_files=["res://.godot/imported/magical-glowing-37417.mp3-20d8b54bf122b0458288d4f284b8384b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

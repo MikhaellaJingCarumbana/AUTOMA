@@ -198,6 +198,11 @@ libraries = {
 "": SubResource("AnimationLibrary_2vrag")
 }
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2vrag")
+}
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -264,3 +269,4 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_animation_finished"]
