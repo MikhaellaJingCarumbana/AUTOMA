@@ -978,6 +978,7 @@ texture = ExtResource("15_ctins")
 expand_mode = 1
 
 [node name="debug" type="Label" parent="."]
+visible = false
 offset_left = -31.0
 offset_top = -66.0
 offset_right = 32.0

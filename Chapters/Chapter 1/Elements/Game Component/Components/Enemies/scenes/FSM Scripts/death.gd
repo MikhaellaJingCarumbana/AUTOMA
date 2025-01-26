@@ -9,7 +9,7 @@ var is_dead: bool = false
 func enter():
 	super.enter()
 	animation_player.play("dead")
-	boss_music.stop()
+	is_dead
 	await animation_player.animation_finished
 	await get_tree().create_timer(1.0).timeout
 	
