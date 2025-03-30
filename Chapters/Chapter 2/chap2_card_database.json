@@ -125,7 +125,10 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Cast a spell of choice! This transition lets your DFA journey upon either path A or B. Perfect for crafting versatile connections or loops.'[/center]",
-        "type": "transition - A or B"
+        "from_state":"",
+        "to_state": "",
+        "alphabet": "a",
+        "type": "transition_or "
     },
     {
         "nice_name": "Transition A and B",
@@ -133,15 +136,18 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Invoke a dual path of power! This transition requires both A and B to activate, binding states with a pact of duality.'[/center]",
-        "type": "transition - A & B"
+        "from_state":"",
+        "to_state": "",
+        "type": "transition_and"
     },
     {
         "nice_name": "Start State",
         "texture_path": "res://Art/Custom UI/effect_starting.png",
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
+        "state":"",
         "description": "[center]'Crown a state as the genesis of your DFA’s magic. The journey begins here, where all spells take form.'[/center]",
-        "type": "effect - Starting"
+        "type": "effect_start"
     },
     {
         "nice_name": "Final State",
@@ -149,6 +155,7 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Bestow a state with the blessing of completion. This final state marks the triumph of your DFA’s enchanted quest.'[/center]",
-        "type": "effect - Final"
+        "state":"",
+        "type": "effect_final"
     }
 ]
