@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://15c7vptiwdhg"]
+[gd_scene load_steps=12 format=3 uid="uid://15c7vptiwdhg"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_eqbjl"]
+[ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="2_jjk62"]
+[ext_resource type="PackedScene" uid="uid://d6ihvblbeii8" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Torch.tscn" id="3_7cwxp"]
+[ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="4_ve8c2"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_7ra5r"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6g8s7"]
+[ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="7_hjx4w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jacm"]
 texture = ExtResource("1_eqbjl")
@@ -707,6 +713,15 @@ texture = ExtResource("1_eqbjl")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6jacm")
 
+[sub_resource type="Resource" id="Resource_hiipw"]
+script = ExtResource("6_6g8s7")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwhtx"]
+size = Vector2(1009, 289)
+
 [node name="Con-beginner" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -724,3 +739,52 @@ layer_4/name = "decor"
 layer_4/tile_data = PackedInt32Array(720897, 655360, 5, 720898, 720896, 5, 655361, 655360, 4, 655362, 720896, 4, 589825, 655360, 4, 589826, 720896, 4, 524289, 655360, 4, 524290, 720896, 4, 458753, 655360, 4, 458754, 720896, 4, 393217, 655360, 4, 393218, 720896, 4, 327681, 655360, 3, 327682, 720896, 3, 720900, 655360, 5, 720901, 720896, 5, 393220, 655360, 4, 393221, 720896, 4, 458756, 655360, 4, 458757, 720896, 4, 524292, 655360, 4, 524293, 720896, 4, 589828, 655360, 4, 589829, 720896, 4, 655364, 655360, 4, 655365, 720896, 4, 327684, 655360, 3, 327685, 720896, 3, 589835, 327680, 9, 655371, 327680, 10, 720907, 327680, 11, 589836, 393216, 9, 655372, 393216, 10, 720908, 393216, 11, 458763, 327680, 9, 524299, 327680, 10, 458764, 393216, 9, 524300, 393216, 10, 327691, 327680, 9, 393227, 327680, 10, 327692, 393216, 9, 393228, 393216, 10, 262155, 327680, 12, 262156, 393216, 12, 131083, 458752, 12, 196619, 458752, 13, 131084, 524288, 12, 196620, 524288, 13, 589844, 327680, 9, 655380, 327680, 10, 720916, 327680, 11, 589845, 393216, 9, 655381, 393216, 10, 720917, 393216, 11, 458772, 327680, 9, 524308, 327680, 10, 458773, 393216, 9, 524309, 393216, 10, 327700, 327680, 9, 393236, 327680, 10, 327701, 393216, 9, 393237, 393216, 10, 262164, 327680, 12, 262165, 393216, 12, 131092, 458752, 12, 196628, 458752, 13, 131093, 524288, 12, 196629, 524288, 13, 589862, 327680, 9, 655398, 327680, 10, 720934, 327680, 11, 589863, 393216, 9, 655399, 393216, 10, 720935, 393216, 11, 458790, 327680, 9, 524326, 327680, 10, 458791, 393216, 9, 524327, 393216, 10, 327718, 327680, 9, 393254, 327680, 10, 327719, 393216, 9, 393255, 393216, 10, 262182, 327680, 12, 262183, 393216, 12, 131110, 458752, 12, 196646, 458752, 13, 131111, 524288, 12, 196647, 524288, 13, 720945, 327680, 5, 720946, 393216, 5, 196657, 327680, 4, 196658, 393216, 4, 262193, 327680, 4, 262194, 393216, 4, 327729, 327680, 4, 327730, 393216, 4, 393265, 327680, 4, 393266, 393216, 4, 458801, 327680, 4, 458802, 393216, 4, 524337, 327680, 4, 524338, 393216, 4, 589873, 327680, 4, 589874, 393216, 4, 655409, 327680, 4, 655410, 393216, 4, 131121, 327680, 3, 131122, 393216, 3, 589881, 131072, 31, 655417, 131072, 32, 720953, 131072, 33, 589882, 196608, 31, 655418, 196608, 32, 720954, 196608, 33, 655419, 196608, 268435490, 720955, 196608, 268435491, 655420, 131072, 37, 720956, 131072, 38, 655421, 196608, 37, 720957, 196608, 38, 720958, 393216, 39, 655411, 0, 26, 720947, 0, 27, 655412, 65536, 26, 720948, 65536, 27, 655415, 0, 26, 720951, 0, 27, 655416, 65536, 26, 720952, 65536, 27, 393268, 786432, 3, 458804, 786432, 4, 524340, 786432, 5, 393269, 851968, 3, 458805, 851968, 4, 524341, 851968, 5, 393272, 786432, 3, 458808, 786432, 4, 524344, 786432, 5, 393273, 851968, 3, 458809, 851968, 4, 524345, 851968, 5, 393276, 786432, 3, 458812, 786432, 4, 524348, 786432, 5, 393277, 851968, 3, 458813, 851968, 4, 524349, 851968, 5)
 layer_5/name = "infront of decor"
 layer_5/tile_data = PackedInt32Array(589826, 655360, 36, 655362, 655360, 37, 720898, 655360, 38, 589827, 720896, 36, 655363, 720896, 37, 720899, 720896, 38, 589828, 786432, 36, 655364, 786432, 37, 720900, 786432, 38, 65547, 196608, 5, 131083, 196608, 6, 131082, 196608, 5, 655417, 524288, 33, 720953, 524288, 34, 655418, 589824, 33, 720954, 589824, 34, 655365, 0, 26, 720901, 0, 27, 655366, 65536, 26, 720902, 65536, 27, 655369, 0, 26, 720905, 0, 27, 655370, 65536, 26, 720906, 65536, 27, 524295, 786432, 3, 589831, 786432, 4, 655367, 786432, 5, 524296, 851968, 3, 589832, 851968, 4, 655368, 851968, 5, 524288, 393216, 41, 589824, 393216, 42, 524289, 458752, 41, 589825, 458752, 42, 655360, 524288, 37, 720896, 524288, 38, 655361, 589824, 37, 720897, 589824, 38, 458804, 262144, 40, 458805, 327680, 40, 458812, 262144, 40, 458813, 327680, 40, 458808, 262144, 39, 458809, 327680, 39)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.197937, 0.197937, 0.197937, 1)
+
+[node name="Torch" parent="." instance=ExtResource("3_7cwxp")]
+position = Vector2(192, 157)
+
+[node name="Torch2" parent="." instance=ExtResource("3_7cwxp")]
+position = Vector2(338, 157)
+
+[node name="Torch3" parent="." instance=ExtResource("3_7cwxp")]
+position = Vector2(625, 155)
+
+[node name="Torch4" parent="." instance=ExtResource("3_7cwxp")]
+position = Vector2(799, 159)
+
+[node name="Torch5" parent="." instance=ExtResource("3_7cwxp")]
+position = Vector2(999, 160)
+
+[node name="Player" parent="." instance=ExtResource("2_jjk62")]
+position = Vector2(54, 184)
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("4_ve8c2")]
+unique_name_in_owner = true
+hearts = [NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect2/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect3/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect4/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect5/Hearts")]
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(196, 184)
+script = ExtResource("5_7ra5r")
+follow_mode = 1
+follow_target = NodePath("../Player")
+zoom = Vector2(5, 7)
+tween_resource = SubResource("Resource_hiipw")
+tween_on_load = false
+limit_target = NodePath("../Area2D/CollisionShape2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(508.5, 153.5)
+shape = SubResource("RectangleShape2D_gwhtx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" parent="CanvasLayer" instance=ExtResource("7_hjx4w")]
+
+[node name="death zones" type="Node" parent="."]
+
+[editable path="CanvasLayer/Panel"]
