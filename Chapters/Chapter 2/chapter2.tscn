@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=15 format=3 uid="uid://bh0d1tsgec7pn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
@@ -30,13 +30,13 @@ shader_parameter/pixel_filter = 1000.0
 [sub_resource type="Curve" id="Curve_rfnjg"]
 min_value = 1.0
 max_value = 8.0
-_data = [Vector2(0, 0), 0.0, 0.0, 1, 0, Vector2(0, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), inf_neg, 0.0, 1, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.190476, 5.4), 0.0, 0.0, 0, 0, Vector2(0.48718, 6.97368), 0.0, 0.0, 0, 0, Vector2(0.787546, 5.74211), 0.0, 0.0, 0, 0, Vector2(0.967033, 1.56842), 0.0, 0.0, 0, 0]
+point_count = 6
 
 [sub_resource type="Curve" id="Curve_lkg0v"]
 max_value = 25.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 12.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 metadata/_snap_enabled = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43vyn"]
@@ -50,6 +50,10 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="Curve" id="Curve_hcp64"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_nl1si")
@@ -71,32 +75,32 @@ offset_bottom = 377.0
 layout_mode = 0
 offset_left = 18.0
 offset_top = 29.0
-offset_right = 159.0
+offset_right = 262.0
 offset_bottom = 78.0
 text = "RESET CARDS"
 
 [node name="DrawTransitionORANDButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 179.0
-offset_top = 29.0
-offset_right = 423.0
-offset_bottom = 79.0
+offset_left = 18.0
+offset_top = 212.0
+offset_right = 262.0
+offset_bottom = 262.0
 text = "DRAW TRANSITION CARD
 "
 
 [node name="DrawEffectButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 88.0
-offset_right = 424.0
-offset_bottom = 137.0
+offset_left = 18.0
+offset_top = 151.0
+offset_right = 262.0
+offset_bottom = 200.0
 text = "DRAW EFFECT CARD"
 
 [node name="DiscardButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 90.0
-offset_right = 159.0
+offset_right = 262.0
 offset_bottom = 138.0
 text = "DISCARD CARDS"
 
@@ -129,7 +133,7 @@ hand_pile_position = Vector2(800, 900)
 discard_pile_position = Vector2(1870, 900)
 stack_display_gap = 10
 max_stack_display = 10
-card_return_speed = 0.1
+card_return_speed = 0.3
 draw_pile_layout = 2
 max_hand_size = 8
 max_hand_spread = 800
@@ -195,9 +199,9 @@ color = Color(0.10302, 0.102273, 1.20327e-08, 0.239216)
 [node name="StateCardDropzone" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 600.0
+offset_left = 400.0
 offset_top = 183.0
-offset_right = 733.0
+offset_right = 533.0
 offset_bottom = 373.0
 script = ExtResource("7_7qf07")
 card_pile_ui = NodePath("../CardPileUI")
@@ -221,21 +225,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_h46ya")
 expand_mode = 1
 
 [node name="StateCardDropzone2" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 800.0
+offset_left = 650.0
 offset_top = 183.0
-offset_right = 933.0
+offset_right = 783.0
 offset_bottom = 373.0
 script = ExtResource("7_7qf07")
 card_pile_ui = NodePath("../CardPileUI")
@@ -259,21 +264,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_h46ya")
 expand_mode = 1
 
 [node name="StateCardDropzone3" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1000.0
+offset_left = 900.0
 offset_top = 183.0
-offset_right = 1133.0
+offset_right = 1033.0
 offset_bottom = 373.0
 script = ExtResource("7_7qf07")
 card_pile_ui = NodePath("../CardPileUI")
@@ -297,21 +303,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_h46ya")
 expand_mode = 1
 
 [node name="StateCardDropzone4" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1200.0
+offset_left = 1150.0
 offset_top = 183.0
-offset_right = 1333.0
+offset_right = 1283.0
 offset_bottom = 373.0
 script = ExtResource("7_7qf07")
 card_pile_ui = NodePath("../CardPileUI")
@@ -335,12 +342,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_h46ya")
 expand_mode = 1
 
@@ -373,21 +381,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_h46ya")
 expand_mode = 1
 
 [node name="StateCardDropzone6" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1600.0
+offset_left = 1650.0
 offset_top = 183.0
-offset_right = 1733.0
+offset_right = 1783.0
 offset_bottom = 373.0
 script = ExtResource("7_7qf07")
 card_pile_ui = NodePath("../CardPileUI")
@@ -412,14 +421,217 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_h46ya")
 expand_mode = 1
+
+[node name="StateCardDropzone7" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 532.0
+offset_top = 449.0
+offset_right = 665.0
+offset_bottom = 639.0
+script = ExtResource("7_7qf07")
+card_pile_ui = NodePath("../CardPileUI")
+stack_display_gap = 1
+max_stack_display = 3
+
+[node name="ColorRect" type="ColorRect" parent="StateCardDropzone7"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0, 0.152941)
+
+[node name="TextureRect" type="TextureRect" parent="StateCardDropzone7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_h46ya")
+expand_mode = 1
+
+[node name="StateCardDropzone8" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 782.0
+offset_top = 449.0
+offset_right = 915.0
+offset_bottom = 639.0
+script = ExtResource("7_7qf07")
+card_pile_ui = NodePath("../CardPileUI")
+stack_display_gap = 1
+max_stack_display = 3
+
+[node name="ColorRect" type="ColorRect" parent="StateCardDropzone8"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0, 0.152941)
+
+[node name="TextureRect" type="TextureRect" parent="StateCardDropzone8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_h46ya")
+expand_mode = 1
+
+[node name="StateCardDropzone9" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1032.0
+offset_top = 449.0
+offset_right = 1165.0
+offset_bottom = 639.0
+script = ExtResource("7_7qf07")
+card_pile_ui = NodePath("../CardPileUI")
+stack_display_gap = 1
+max_stack_display = 3
+
+[node name="ColorRect" type="ColorRect" parent="StateCardDropzone9"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0, 0.152941)
+
+[node name="TextureRect" type="TextureRect" parent="StateCardDropzone9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_h46ya")
+expand_mode = 1
+
+[node name="StateCardDropzone10" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1282.0
+offset_top = 449.0
+offset_right = 1415.0
+offset_bottom = 639.0
+script = ExtResource("7_7qf07")
+card_pile_ui = NodePath("../CardPileUI")
+stack_display_gap = 1
+max_stack_display = 3
+
+[node name="ColorRect" type="ColorRect" parent="StateCardDropzone10"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0, 0.152941)
+
+[node name="TextureRect" type="TextureRect" parent="StateCardDropzone10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_h46ya")
+expand_mode = 1
+
+[node name="StateCardDropzone11" type="Control" parent="." node_paths=PackedStringArray("card_pile_ui")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1532.0
+offset_top = 449.0
+offset_right = 1665.0
+offset_bottom = 639.0
+script = ExtResource("7_7qf07")
+card_pile_ui = NodePath("../CardPileUI")
+stack_display_gap = 1
+max_stack_display = 3
+layout = 3
+
+[node name="ColorRect" type="ColorRect" parent="StateCardDropzone11"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0, 0.152941)
+
+[node name="TextureRect" type="TextureRect" parent="StateCardDropzone11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -10.0
+offset_right = 28.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_h46ya")
+expand_mode = 1
+
+[node name="TargetingLine2D" type="Line2D" parent="."]
+visible = false
+z_index = 4000
+width_curve = SubResource("Curve_hcp64")
+default_color = Color(0.87451, 0.666667, 0.223529, 1)
 
 [connection signal="pressed" from="Control/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Control/DrawTransitionORANDButton" to="." method="_on_draw_transition_orand_button_pressed"]
