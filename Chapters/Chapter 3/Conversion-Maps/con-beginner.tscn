@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://15c7vptiwdhg"]
+[gd_scene load_steps=13 format=3 uid="uid://15c7vptiwdhg"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_eqbjl"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="2_jjk62"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_7ra5r"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6g8s7"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="7_hjx4w"]
+[ext_resource type="PackedScene" uid="uid://du67xxugk343k" path="res://Chapters/Chapter 3/UI/Book.tscn" id="8_xxglu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jacm"]
 texture = ExtResource("1_eqbjl")
@@ -723,6 +724,9 @@ ease = 2
 size = Vector2(1009, 289)
 
 [node name="Con-beginner" type="Node2D"]
+
+[node name="Coin" parent="." instance=ExtResource("8_xxglu")]
+position = Vector2(431, 182)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_kp2mn")
