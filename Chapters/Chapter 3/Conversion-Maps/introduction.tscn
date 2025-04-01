@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c12jta2255bal"]
+[gd_scene load_steps=27 format=3 uid="uid://c12jta2255bal"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_iv2a1"]
 [ext_resource type="Texture2D" uid="uid://bqepisw4pgr0q" path="res://Art/Dungeon Vibes Tilesets/painting assets/.png" id="2_432rv"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="11_41wly"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="12_bauef"]
 [ext_resource type="PackedScene" uid="uid://eq8ppfbfjv8v" path="res://Chapters/Chapter 1/UI Components/dialogic_timeline.tscn" id="14_ejnu4"]
+[ext_resource type="Texture2D" uid="uid://dyxy4e4uc31bt" path="res://Chapters/Chapter 3/UI/Assets/Box-19X11.png" id="16_7issd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxcc5"]
 texture = ExtResource("1_iv2a1")
@@ -1407,6 +1408,28 @@ timeline_file = "Chap3"
 
 [node name="CollisionShape2D" parent="CanvasLayer/Dialogic/Area2D" index="0"]
 position = Vector2(56, 251)
+
+[node name="Clue" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Clue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Clue/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("16_7issd")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.122252, 0.122252, 0.122252, 1)

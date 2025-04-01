@@ -259,7 +259,7 @@ texture = SubResource("GradientTexture2D_0n3np")
 position = Vector2(-5.96046e-08, -1.19209e-07)
 scale = Vector2(0.559645, 0.559645)
 sprite_frames = SubResource("SpriteFrames_b0uil")
-frame_progress = 0.656044
+frame_progress = 0.139287
 speed_scale = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
