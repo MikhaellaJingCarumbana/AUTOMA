@@ -32,9 +32,11 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "Adventurer": "res://Tests/Adventurer.dch",
 "Eleanor_NPC": "res://Characters/Eleanor_NPC.dch",
+"No One": "res://Tests/No One.dch",
 "Sprite": "res://Characters/Sprite.dch"
 }
 directories/dtl_directory={
+"Chap3": "res://Chapters/Chapter 3/Timelines/Chap3.dtl",
 "Door": "res://Chapters/Chapter 1/Dialogic Timelines/Door.dtl",
 "Intro": "res://Chapters/Chapter 1/Dialogic Timelines/Intro.dtl",
 "Intro_Timeline": "res://Chapters/Chapter 1/Dialogic Timelines/Intro_Timeline.dtl",
