@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c12jta2255bal"]
+[gd_scene load_steps=34 format=3 uid="uid://c12jta2255bal"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_iv2a1"]
 [ext_resource type="Texture2D" uid="uid://bqepisw4pgr0q" path="res://Art/Dungeon Vibes Tilesets/painting assets/.png" id="2_432rv"]
@@ -1349,6 +1349,22 @@ shader_parameter/contrast = 1.0
 shader_parameter/spin_amount = 0.2
 shader_parameter/pixel_filter = 700.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7wfr"]
+shader = ExtResource("16_qqvjy")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.00392157, 0.0313726, 0.0509804, 0.635294)
+shader_parameter/colour_2 = Color(0.141176, 0.360784, 0.458824, 0.317647)
+shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 0.615686)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
+
 [node name="Introduction" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1601,6 +1617,23 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("17_h5bkg")
 theme_override_font_sizes/font_size = 70
 text = "Clue No. 1"
+
+[node name="Puzzle 1" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Puzzle 1"]
+material = SubResource("ShaderMaterial_l7wfr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.122252, 0.122252, 0.122252, 1)
