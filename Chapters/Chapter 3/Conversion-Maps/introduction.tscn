@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c12jta2255bal"]
+[gd_scene load_steps=38 format=3 uid="uid://c12jta2255bal"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_iv2a1"]
 [ext_resource type="Texture2D" uid="uid://bqepisw4pgr0q" path="res://Art/Dungeon Vibes Tilesets/painting assets/.png" id="2_432rv"]
@@ -21,7 +21,10 @@
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="17_h5bkg"]
 [ext_resource type="Texture2D" uid="uid://flsqx8km1dgn" path="res://Art/DFA to Regex Note Quiz 1/edited/22.png" id="20_fu5oc"]
 [ext_resource type="Texture2D" uid="uid://c1df3bl3b6f4m" path="res://Art/DFA to Regex Note Quiz 1/edited/23.png" id="21_v5lr1"]
-[ext_resource type="Texture2D" uid="uid://dcjcycm845k1w" path="res://Art/DFA to Regex Note Quiz 1/edited/clues/clues.png" id="22_gl5f0"]
+[ext_resource type="Script" path="res://Chapters/Chapter 3/Conversion-Maps/puzzle_1.gd" id="22_kj7uy"]
+[ext_resource type="Texture2D" uid="uid://bmxh0s5d0nrjr" path="res://Art/DFA to Regex Note Quiz 1/edited/clues/note1/Clues (5).png" id="22_xs1jb"]
+[ext_resource type="Texture2D" uid="uid://vvo1bqal3d5j" path="res://Art/DFA to Regex Note Quiz 1/edited/clues/note1/Clues (6).png" id="23_f32uy"]
+[ext_resource type="FontFile" uid="uid://dxqkm1qtkuxn7" path="res://Chapters/Chapter 3/fonts/Grandrainbowdemo-BWpWd.otf" id="24_3wjiw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxcc5"]
 texture = ExtResource("1_iv2a1")
@@ -1386,11 +1389,13 @@ layer_4/tile_data = PackedInt32Array(262147, 5, 0, 327683, 5, 1, 393219, 5, 2, 4
 position = Vector2(339, 278)
 canvas_layer = NodePath("../CanvasLayer/Puzzle 1")
 
-[node name="Shield2" parent="." instance=ExtResource("8_xwdjl")]
+[node name="Shield2" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("8_xwdjl")]
 position = Vector2(816, 278)
+canvas_layer = NodePath("../CanvasLayer/Puzzle 1")
 
-[node name="Shield3" parent="." instance=ExtResource("8_xwdjl")]
+[node name="Shield3" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("8_xwdjl")]
 position = Vector2(1266, 278)
+canvas_layer = NodePath("../CanvasLayer/Puzzle 1")
 
 [node name="Letter" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("16_p86rx")]
 position = Vector2(1036, 293)
@@ -1627,6 +1632,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("22_kj7uy")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Puzzle 1"]
 material = SubResource("ShaderMaterial_l7wfr")
@@ -1651,26 +1657,68 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -396.0
+offset_left = -383.0
+offset_top = -40.0
 offset_right = 396.0
-offset_bottom = 519.0
+offset_bottom = 499.0
 grow_horizontal = 2
-texture = ExtResource("22_gl5f0")
+texture = ExtResource("22_xs1jb")
 expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Puzzle 1/ColorRect/Panel"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Puzzle 1/ColorRect/Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -813.0
-offset_top = -20.0
-offset_right = 814.0
-offset_bottom = 77.0
+offset_left = -618.0
+offset_top = -344.0
+offset_right = 634.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("23_f32uy")
+expand_mode = 1
+
+[node name="LineEdit2" type="LineEdit" parent="CanvasLayer/Puzzle 1/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.747
+anchor_top = 0.5
+anchor_right = 0.747
+anchor_bottom = 0.5
+offset_left = -59.2401
+offset_top = -106.0
+offset_right = 60.7599
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.403922, 0.756863, 0.72549, 1)
+theme_override_fonts/font = ExtResource("24_3wjiw")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "???"
+alignment = 1
+
+[node name="LineEdit3" type="LineEdit" parent="CanvasLayer/Puzzle 1/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.335
+anchor_top = 0.474
+anchor_right = 0.335
+anchor_bottom = 0.474
+offset_left = -60.2
+offset_top = -105.92
+offset_right = 59.8
+offset_bottom = -29.92
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.403922, 0.756863, 0.72549, 1)
+theme_override_fonts/font = ExtResource("24_3wjiw")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "???"
+alignment = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.122252, 0.122252, 0.122252, 1)

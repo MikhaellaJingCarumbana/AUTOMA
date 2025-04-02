@@ -19,10 +19,14 @@ func _process(delta: float) -> void:
 	time_passed += delta * float_speed
 	texture_rect.position.y = start_position.y + sin(time_passed) * float_amplitude
 
-	# Check for interaction when player is nearby
+	# Show the CanvasLayer when "interact" is pressed
 	if player_nearby and Input.is_action_just_pressed("interact"):  
 		if canvas_layer:
-			canvas_layer.visible = !canvas_layer.visible  # Toggle visibility
+			canvas_layer.visible = true  # Only show, no toggling
+
+	# Hide the CanvasLayer only when "exit" is pressed
+	if canvas_layer.visible and Input.is_action_just_pressed("exit"):  
+		canvas_layer.visible = false  # Hide on "exit"
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
