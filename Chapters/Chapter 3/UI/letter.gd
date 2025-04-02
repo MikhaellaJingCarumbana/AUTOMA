@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var canvas_layer: Control = $"../CanvasLayer/Clue"
+@export var canvas_layer: Control
 
 var float_speed: float = 2.0  # Speed of floating movement
 var float_amplitude: float = 5.0  # How much it moves up and down
