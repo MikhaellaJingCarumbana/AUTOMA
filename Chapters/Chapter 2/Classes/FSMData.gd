@@ -3,16 +3,16 @@ class_name FSMData
 
 signal states_changed
 
-@export var states : Array[State] = []
-@export var initialState : State
-@export var acceptingStates: Array[State] = []
+@export var states : Array[StateNode] = []
+@export var initialState : StateNode
+@export var acceptingStates: Array[StateNode] = []
 @export var transitions : Array[Transition]
 @export var newTransition : Transition
 @export var alphabet: Array[String] = ['a','b']
 
 
 #Methods
-func set_initial_state(state:State):
+func set_initial_state(state:StateNode):
     if states.find(state) == -1:
         print('Error setting initial state: State does not exist')
         return
@@ -34,7 +34,7 @@ func check_initial_state():
         print('No initial state has been set yet')
         return null
 
-func add_accepting_state(state:State):
+func add_accepting_state(state:StateNode):
     if states.find(state) == -1:
         print('Error adding accepting state: State does not exist')
         return
@@ -43,14 +43,14 @@ func add_accepting_state(state:State):
         return
     acceptingStates.append(state)
 
-func remove_accepting_state(state:State):
+func remove_accepting_state(state:StateNode):
     if acceptingStates.find(state) == -1:
         print('Error removing accepting state: State is not an accepting state')
         return
     acceptingStates.erase(state)
 
 
-func add_state(state:State):
+func add_state(state:StateNode):
     if states.find(state) != -1:
         print('Error adding state: State already exist')
         return
@@ -58,7 +58,7 @@ func add_state(state:State):
         states.append(state)
 
 
-func delete_state(state:State):
+func delete_state(state:StateNode):
     var transitions_to_delete = []
     if states.find(state) == -1:
         print('Error deleting state: State does not exist')
@@ -72,7 +72,7 @@ func delete_state(state:State):
     states.erase(state)
 
 
-func add_transition(from:State, to:State, value:Array[String]):
+func add_transition(from:StateNode, to:StateNode, value:Array[String]):
     for transition in transitions:
         if transition.from == from and transition.to == to and transition.value == value:
             print('Error adding transition: Transition already exist')
@@ -112,7 +112,7 @@ func delete_letter(value:String):
     alphabet.erase(value)
 
 
-func get_incoming(state:State):
+func get_incoming(state:StateNode):
     var inTransitions : Array[Transition]
     for transition in transitions:
         if transition.to == state:
@@ -120,7 +120,7 @@ func get_incoming(state:State):
     return inTransitions
 
 
-func get_outgoing(state:State):
+func get_outgoing(state:StateNode):
     var outTransitions : Array[Transition]
     for transition in transitions:
         if transition.from == state:
@@ -128,7 +128,7 @@ func get_outgoing(state:State):
     return outTransitions
 
 ### NAA KO GI ADD ISHI, SORRY KARON PAKO KA REALIZE ANI NILA ###
-func is_accepting(state: State):
+func is_accepting(state: StateNode):
     return acceptingStates.any(func(s): return s.label == state.label)
     
 func get_state_by_label(label: String):
@@ -138,7 +138,7 @@ func get_state_by_label(label: String):
         
     return states[index]
     
-func check_if_string_IsValid(string: String, current_state: State = initialState):
+func check_if_string_IsValid(string: String, current_state: StateNode = initialState):
     # Some language accepts empty string as valid
     # but say a(a+b)*, empty string is not valid in this case
     # mainly because the language requires an 'a' in the start
@@ -188,7 +188,7 @@ func test_print():
     for transition in transitions:
         print("From: ", transition.from.label, " -> To: ", transition.to.label, " with Alphabet: ", transition.alphabet)
 
-func print_transitions(state: State):
+func print_transitions(state: StateNode):
     var incoming = get_incoming(state)
     var outgoing = get_outgoing(state)
     print("Transitions for State: ", state.label)
@@ -215,10 +215,10 @@ func print_initial_state():
 
 
 func _ready():
-    var sampleState: State
-    var sampleState2: State
-    sampleState = State.new('Test1')
-    sampleState2 = State.new('Test2')
+    var sampleState: StateNode
+    var sampleState2: StateNode
+    sampleState = StateNode.new('Test1')
+    sampleState2 = StateNode.new('Test2')
     add_state(sampleState)
     add_state(sampleState2)
     
@@ -233,8 +233,6 @@ func _ready():
     print_initial_state()
     
     add_accepting_state(sampleState2)
-    
-    delete_state(sampleState)
     
     print_initial_state()
     
