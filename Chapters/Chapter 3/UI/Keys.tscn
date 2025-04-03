@@ -1,0 +1,150 @@
+[gd_scene load_steps=14 format=3 uid="uid://ei8arisqxi56"]
+
+[ext_resource type="Texture2D" uid="uid://duw0spbgsg7d5" path="res://Chapters/Chapter 3/UI/Assets/Golden key-13x23.png" id="1_unnfp"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_nsqcd"]
+[ext_resource type="Script" path="res://Chapters/Chapter 3/UI/KEYS.gd" id="2_vxj41"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t2oi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t4g3"]
+atlas = ExtResource("1_unnfp")
+region = Rect2(0, 0, 13, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0lxb"]
+atlas = ExtResource("1_unnfp")
+region = Rect2(13, 0, 13, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bb0w"]
+atlas = ExtResource("1_unnfp")
+region = Rect2(26, 0, 13, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epyyh"]
+atlas = ExtResource("1_unnfp")
+region = Rect2(39, 0, 13, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgfmi"]
+atlas = ExtResource("1_unnfp")
+region = Rect2(52, 0, 13, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pgq8"]
+atlas = ExtResource("1_unnfp")
+region = Rect2(65, 0, 13, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo8hv"]
+atlas = ExtResource("1_unnfp")
+region = Rect2(78, 0, 13, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eia2"]
+atlas = ExtResource("1_unnfp")
+region = Rect2(91, 0, 13, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_youf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t4g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0lxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bb0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epyyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgfmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pgq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo8hv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eia2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Keys" type="Panel"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -374.0
+offset_top = 72.0
+offset_bottom = 150.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3t2oi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_right = 158.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/TextureRect"]
+position = Vector2(19.75, 34.9423)
+scale = Vector2(4.03846, 4.03846)
+sprite_frames = SubResource("SpriteFrames_youf5")
+frame_progress = 0.698754
+speed_scale = 3.0
+script = ExtResource("2_vxj41")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/TextureRect2"]
+position = Vector2(19.75, 34.9423)
+scale = Vector2(4.03846, 4.03846)
+sprite_frames = SubResource("SpriteFrames_youf5")
+frame_progress = 0.441879
+speed_scale = 3.0
+script = ExtResource("2_vxj41")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/TextureRect3"]
+position = Vector2(19.75, 34.9423)
+scale = Vector2(4.03846, 4.03846)
+sprite_frames = SubResource("SpriteFrames_youf5")
+frame_progress = 0.697628
+speed_scale = 3.0
+script = ExtResource("2_vxj41")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = 14.0
+offset_right = 51.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nsqcd")
+theme_override_font_sizes/font_size = 25
+text = "Player Keys"
+horizontal_alignment = 1

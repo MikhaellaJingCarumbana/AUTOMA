@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_0hbcj"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_1vbfd"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="11_41wly"]
-[ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="12_bauef"]
 [ext_resource type="PackedScene" uid="uid://eq8ppfbfjv8v" path="res://Chapters/Chapter 1/UI Components/dialogic_timeline.tscn" id="14_ejnu4"]
 [ext_resource type="PackedScene" uid="uid://gho7ed6abkss" path="res://Chapters/Chapter 3/UI/Letter.tscn" id="16_p86rx"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="16_qqvjy"]
@@ -25,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bmxh0s5d0nrjr" path="res://Art/DFA to Regex Note Quiz 1/edited/clues/note1/Clues (5).png" id="22_xs1jb"]
 [ext_resource type="Texture2D" uid="uid://vvo1bqal3d5j" path="res://Art/DFA to Regex Note Quiz 1/edited/clues/note1/Clues (6).png" id="23_f32uy"]
 [ext_resource type="FontFile" uid="uid://dxqkm1qtkuxn7" path="res://Chapters/Chapter 3/fonts/Grandrainbowdemo-BWpWd.otf" id="24_3wjiw"]
+[ext_resource type="PackedScene" uid="uid://ei8arisqxi56" path="res://Chapters/Chapter 3/UI/Keys.tscn" id="25_xig38"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxcc5"]
 texture = ExtResource("1_iv2a1")
@@ -1459,12 +1459,9 @@ shape = SubResource("RectangleShape2D_mw0jn")
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("11_41wly")]
 unique_name_in_owner = true
-hearts = [NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect2/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect3/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect4/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect5/Hearts")]
+hearts = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Panel" parent="CanvasLayer" instance=ExtResource("12_bauef")]
-visible = false
 
 [node name="Dialogic" parent="CanvasLayer" instance=ExtResource("14_ejnu4")]
 timeline_file = "Chap3"
@@ -1626,6 +1623,7 @@ theme_override_font_sizes/font_size = 70
 text = "Clue No. 1"
 
 [node name="Puzzle 1" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1720,9 +1718,10 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "???"
 alignment = 1
 
+[node name="Keys" parent="CanvasLayer" instance=ExtResource("25_xig38")]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.122252, 0.122252, 0.122252, 1)
 
 [editable path="Player"]
-[editable path="CanvasLayer/Panel"]
 [editable path="CanvasLayer/Dialogic"]
