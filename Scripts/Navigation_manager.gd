@@ -3,7 +3,7 @@ extends Node
 
 const scene_beginner = preload("res://Chapters/Chapter 3/Conversion-Maps/introduction.tscn")
 const scene_intermediate = preload("res://Chapters/Chapter 3/Conversion-Maps/con-beginner.tscn")
-const scene_advance = preload("res://Chapters/Chapter 1/Regex - Map/Advance.tscn")
+const scene_advance = preload("res://Chapters/Chapter 3/Conversion-Maps/con-advance.tscn")
 
 
 signal on_triggr_player_spawn

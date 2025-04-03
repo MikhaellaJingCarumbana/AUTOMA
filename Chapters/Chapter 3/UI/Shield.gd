@@ -12,12 +12,15 @@ var start_position: Vector2  # Store the initial position of the texture
 
 func _ready() -> void:
 	anim.play("default")
-	start_position = texture_rect.position  # Save initial position
+	
+	if texture_rect:
+		start_position = texture_rect.position  # Save initial position
 
 func _process(delta: float) -> void:
 	# Apply floating effect to the paper (TextureRect)
 	time_passed += delta * float_speed
-	texture_rect.position.y = start_position.y + sin(time_passed) * float_amplitude
+	if texture_rect:
+		texture_rect.position.y = start_position.y + sin(time_passed) * float_amplitude
 
 	# Show the CanvasLayer when "interact" is pressed
 	if player_nearby and Input.is_action_just_pressed("interact"):  

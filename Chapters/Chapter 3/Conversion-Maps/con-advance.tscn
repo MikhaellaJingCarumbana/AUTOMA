@@ -1108,8 +1108,8 @@ color = Color(0.194349, 0.194349, 0.194349, 1)
 
 [node name="Advance" parent="Door" instance=ExtResource("9_wvr2r")]
 position = Vector2(30, 100)
-destination_level_tag = "Beginner"
-destination_door_tag = "Beginner"
+destination_level_tag = "Intermediate"
+destination_door_tag = "Intermediate2"
 spawn_direction = "right"
 
 [node name="Spawn" parent="Door/Advance" index="1"]

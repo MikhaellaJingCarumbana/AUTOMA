@@ -6868,8 +6868,8 @@ checkpoint_manager = NodePath("../CheckpointManager")
 [node name="CollisionShape2D" parent="deathzone" index="0"]
 position = Vector2(778.5, 334.5)
 
-[connection signal="body_entered" from="UI/Dialogic2/Area2D" to="UI/Dialogic2" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
+[connection signal="body_entered" from="UI/Dialogic2/Area2D" to="UI/Dialogic2" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="TutorialManager/TutorialText"]
@@ -6887,14 +6887,14 @@ position = Vector2(778.5, 334.5)
 [editable path="Portaldoor/InteractArea"]
 [editable path="Player"]
 [editable path="UI"]
-[editable path="UI/Dialogic3"]
-[editable path="UI/Dialogic"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
 [editable path="UI/Clue_System"]
 [editable path="UI/Note System"]
 [editable path="UI/DeathScreen"]
 [editable path="UI/PauseGame"]
+[editable path="UI/Dialogic3"]
+[editable path="UI/Dialogic"]
 [editable path="CheckpointManager/Checkpoint2"]
 [editable path="Enemies/Skull"]
 [editable path="HurtPlayerEffect"]
