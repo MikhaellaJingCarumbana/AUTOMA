@@ -1053,7 +1053,7 @@ position = Vector2(194, 121)
 script = ExtResource("3_rx7wh")
 follow_mode = 1
 follow_target = NodePath("../Player")
-zoom = Vector2(5, 7)
+zoom = Vector2(5, 6)
 tween_resource = SubResource("Resource_q7r37")
 tween_on_load = false
 limit_target = NodePath("../Camera limits/CollisionShape2D")
@@ -1099,7 +1099,7 @@ position = Vector2(412, 244)
 position = Vector2(203, 249)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.194349, 0.194349, 0.194349, 1)
+color = Color(0.176419, 0.176419, 0.176419, 1)
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="."]
 color = Color(0.194349, 0.194349, 0.194349, 1)

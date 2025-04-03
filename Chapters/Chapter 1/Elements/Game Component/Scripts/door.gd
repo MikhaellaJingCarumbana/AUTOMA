@@ -20,6 +20,7 @@ func _on_body_entered(body):
 			NavigationManager.go_to_level(destination_level_tag, destination_door_tag)
 		else:
 			print("Keys not complete")  # Output message when keys are missing
+			Dialogic.start("Door not accessible")
 # Function to check if all keys are collected (visible)
 func all_keys_collected() -> bool:
 	return key1.visible and key2.visible and key3.visible

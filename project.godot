@@ -38,6 +38,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "Chap3": "res://Chapters/Chapter 3/Timelines/Chap3.dtl",
 "Door": "res://Chapters/Chapter 1/Dialogic Timelines/Door.dtl",
+"Door not accessible": "res://Chapters/Chapter 3/Timelines/Door not accessible.dtl",
 "Intro": "res://Chapters/Chapter 1/Dialogic Timelines/Intro.dtl",
 "Intro_Timeline": "res://Chapters/Chapter 1/Dialogic Timelines/Intro_Timeline.dtl",
 "Level3": "res://Chapters/Chapter 1/Dialogic Timelines/Level3.dtl",
