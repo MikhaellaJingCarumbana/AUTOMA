@@ -770,6 +770,9 @@ layer_5/tile_data = PackedInt32Array(589826, 655360, 36, 655362, 655360, 37, 720
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.197937, 0.197937, 0.197937, 1)
 
+[node name="Book" parent="." instance=ExtResource("10_tgwx8")]
+position = Vector2(141, 181)
+
 [node name="Torch" parent="." instance=ExtResource("3_7cwxp")]
 position = Vector2(192, 157)
 
@@ -834,15 +837,13 @@ key3 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect3")
 [node name="Spawn" parent="Door/Intermediate" index="1"]
 position = Vector2(39, 2)
 
-[node name="Book" parent="." instance=ExtResource("10_tgwx8")]
-position = Vector2(141, 181)
-
 [node name="CheckpointManager" parent="." instance=ExtResource("13_bbsk1")]
 
 [node name="Checkpoint" parent="CheckpointManager" index="0"]
 position = Vector2(95, 105)
 
-[node name="deathzone" parent="." instance=ExtResource("13_n5o2i")]
+[node name="deathzone" parent="." node_paths=PackedStringArray("checkpoint_manager") instance=ExtResource("13_n5o2i")]
+checkpoint_manager = NodePath("../CheckpointManager")
 
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
