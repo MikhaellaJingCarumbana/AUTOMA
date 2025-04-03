@@ -100,7 +100,7 @@ layout_mode = 2
 position = Vector2(19.75, 34.9423)
 scale = Vector2(4.03846, 4.03846)
 sprite_frames = SubResource("SpriteFrames_youf5")
-frame_progress = 0.698754
+frame_progress = 0.391184
 speed_scale = 3.0
 script = ExtResource("2_vxj41")
 
@@ -112,7 +112,7 @@ layout_mode = 2
 position = Vector2(19.75, 34.9423)
 scale = Vector2(4.03846, 4.03846)
 sprite_frames = SubResource("SpriteFrames_youf5")
-frame_progress = 0.441879
+frame_progress = 0.134309
 speed_scale = 3.0
 script = ExtResource("2_vxj41")
 
@@ -124,7 +124,7 @@ layout_mode = 2
 position = Vector2(19.75, 34.9423)
 scale = Vector2(4.03846, 4.03846)
 sprite_frames = SubResource("SpriteFrames_youf5")
-frame_progress = 0.697628
+frame_progress = 0.390058
 speed_scale = 3.0
 script = ExtResource("2_vxj41")
 
