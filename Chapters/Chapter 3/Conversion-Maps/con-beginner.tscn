@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://15c7vptiwdhg"]
+[gd_scene load_steps=18 format=3 uid="uid://15c7vptiwdhg"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_eqbjl"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="2_jjk62"]
@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="8_nvib1"]
 [ext_resource type="PackedScene" uid="uid://ei8arisqxi56" path="res://Chapters/Chapter 3/UI/Keys.tscn" id="8_revmq"]
 [ext_resource type="PackedScene" uid="uid://b34hnmsrqjq8o" path="res://Chapters/Chapter 3/UI/Book.tscn" id="10_tgwx8"]
-[ext_resource type="Script" path="res://Chapters/Chapter 3/Conversion-Maps/deathzone.gd" id="10_vrcnk"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="12_pgh7d"]
 [ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_bbsk1"]
+[ext_resource type="PackedScene" uid="uid://b453p0y45khtx" path="res://Chapters/Chapter 3/deathzone.tscn" id="13_n5o2i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jacm"]
 texture = ExtResource("1_eqbjl")
@@ -749,9 +749,6 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwhtx"]
 size = Vector2(1009, 289)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6hqu"]
-size = Vector2(1098, 82)
-
 [node name="Con-beginner" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -845,16 +842,7 @@ position = Vector2(141, 181)
 [node name="Checkpoint" parent="CheckpointManager" index="0"]
 position = Vector2(95, 105)
 
-[node name="deathzone" type="Area2D" parent="." node_paths=PackedStringArray("checkpoint_manager")]
-script = ExtResource("10_vrcnk")
-checkpoint_manager = NodePath("../CheckpointManager")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="deathzone"]
-position = Vector2(533, 277)
-shape = SubResource("RectangleShape2D_n6hqu")
-debug_color = Color(0.661777, 0.0731558, 0.128095, 0.42)
-
-[connection signal="body_entered" from="deathzone" to="deathzone" method="_on_body_entered"]
+[node name="deathzone" parent="." instance=ExtResource("13_n5o2i")]
 
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]

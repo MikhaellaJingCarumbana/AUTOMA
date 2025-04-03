@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b453p0y45khtx"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 3/Conversion-Maps/deathzone.gd" id="1_p2ykc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6hqu"]
+size = Vector2(1098, 82)
+
+[node name="deathzone" type="Area2D" node_paths=PackedStringArray("checkpoint_manager")]
+script = ExtResource("1_p2ykc")
+checkpoint_manager = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(533, 277)
+shape = SubResource("RectangleShape2D_n6hqu")
+debug_color = Color(0.661777, 0.0731558, 0.128095, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

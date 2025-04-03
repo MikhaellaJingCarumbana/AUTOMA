@@ -16,7 +16,9 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		killPlayer()
+		if game_manager:
+			game_manager.decrease_health()
+			killPlayer()
 
 func killPlayer():
 	player.position = checkpoint_manager.last_location
