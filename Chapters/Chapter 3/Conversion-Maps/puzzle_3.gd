@@ -2,7 +2,7 @@ extends Control
 
 @onready var four: LineEdit = $ColorRect/LineEdit3
 @onready var puzzle_1: Control = $"."
-@onready var key3: AnimatedSprite2D = $"../Keys/HBoxContainer/TextureRect3/AnimatedSprite2D"
+@onready var key3: TextureRect = $"../Keys/HBoxContainer/TextureRect3"
 
 func _process(delta: float) -> void:
 	# Check if player presses the submit answer action

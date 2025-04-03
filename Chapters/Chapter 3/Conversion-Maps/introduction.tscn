@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c12jta2255bal"]
+[gd_scene load_steps=46 format=3 uid="uid://c12jta2255bal"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_iv2a1"]
 [ext_resource type="Texture2D" uid="uid://bqepisw4pgr0q" path="res://Art/Dungeon Vibes Tilesets/painting assets/.png" id="2_432rv"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 3/Conversion-Maps/puzzle_3.gd" id="28_7kmlq"]
 [ext_resource type="Texture2D" uid="uid://1ptvujwjsq45" path="res://Art/DFA to Regex Note Quiz 1/edited/DFAs/30.png" id="28_sdrfe"]
 [ext_resource type="Texture2D" uid="uid://byxrxnbdsstu0" path="res://Art/DFA to Regex Note Quiz 1/edited/DFAs/DFAs (2).png" id="29_ok3nt"]
+[ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="33_0biog"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxcc5"]
 texture = ExtResource("1_iv2a1")
@@ -1890,6 +1891,18 @@ visible = false
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.122252, 0.122252, 0.122252, 1)
 
+[node name="Door" type="Node" parent="."]
+
+[node name="Beginner" parent="Door" instance=ExtResource("33_0biog")]
+position = Vector2(1449, 276)
+destination_level_tag = "Intermediate"
+destination_door_tag = "Advance"
+spawn_direction = "right"
+
+[node name="Spawn" parent="Door/Beginner" index="1"]
+position = Vector2(-49, 2)
+
 [editable path="Player"]
 [editable path="CanvasLayer/Dialogic"]
 [editable path="CanvasLayer/Keys"]
+[editable path="Door/Beginner"]
