@@ -9,9 +9,9 @@ class_name Door
 @onready var spawn = $Spawn
 
 # Reference to the keys
-@onready var key1: TextureRect = $"../../CanvasLayer/Keys/HBoxContainer/TextureRect"
-@onready var key2: TextureRect = $"../../CanvasLayer/Keys/HBoxContainer/TextureRect2"
-@onready var key3: TextureRect = $"../../CanvasLayer/Keys/HBoxContainer/TextureRect3"
+@export var key1: TextureRect
+@export var key2: TextureRect
+@export var key3: TextureRect
 
 
 func _on_body_entered(body):

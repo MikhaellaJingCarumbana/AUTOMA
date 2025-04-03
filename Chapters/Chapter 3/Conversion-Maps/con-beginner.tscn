@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://15c7vptiwdhg"]
+[gd_scene load_steps=19 format=3 uid="uid://15c7vptiwdhg"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_eqbjl"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="2_jjk62"]
@@ -7,6 +7,12 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_7ra5r"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6g8s7"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="7_hjx4w"]
+[ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="8_nvib1"]
+[ext_resource type="PackedScene" uid="uid://ei8arisqxi56" path="res://Chapters/Chapter 3/UI/Keys.tscn" id="8_revmq"]
+[ext_resource type="PackedScene" uid="uid://b34hnmsrqjq8o" path="res://Chapters/Chapter 3/UI/Book.tscn" id="10_tgwx8"]
+[ext_resource type="Script" path="res://Chapters/Chapter 3/Conversion-Maps/deathzone.gd" id="10_vrcnk"]
+[ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="12_pgh7d"]
+[ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_bbsk1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jacm"]
 texture = ExtResource("1_eqbjl")
@@ -743,6 +749,9 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwhtx"]
 size = Vector2(1009, 289)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6hqu"]
+size = Vector2(1098, 82)
+
 [node name="Con-beginner" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -780,7 +789,7 @@ position = Vector2(799, 159)
 position = Vector2(999, 160)
 
 [node name="Player" parent="." instance=ExtResource("2_jjk62")]
-position = Vector2(54, 184)
+position = Vector2(105, 184)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("4_ve8c2")]
 unique_name_in_owner = true
@@ -791,7 +800,7 @@ position = Vector2(196, 184)
 script = ExtResource("5_7ra5r")
 follow_mode = 1
 follow_target = NodePath("../Player")
-zoom = Vector2(5, 7)
+zoom = Vector2(5, 6)
 tween_resource = SubResource("Resource_hiipw")
 tween_on_load = false
 limit_target = NodePath("../Area2D/CollisionShape2D")
@@ -802,10 +811,55 @@ limit_target = NodePath("../Area2D/CollisionShape2D")
 position = Vector2(508.5, 153.5)
 shape = SubResource("RectangleShape2D_gwhtx")
 
+[node name="HurtPlayerEffect" parent="." instance=ExtResource("12_pgh7d")]
+
+[node name="ColorRect" parent="HurtPlayerEffect/PlayerHurt" index="2"]
+visible = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" parent="CanvasLayer" instance=ExtResource("7_hjx4w")]
+visible = false
+
+[node name="Keys" parent="CanvasLayer" instance=ExtResource("8_revmq")]
+visible = false
 
 [node name="death zones" type="Node" parent="."]
 
+[node name="Door" type="Node" parent="."]
+
+[node name="Intermediate" parent="Door" node_paths=PackedStringArray("key1", "key2", "key3") instance=ExtResource("8_nvib1")]
+position = Vector2(56, 164)
+key1 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect")
+key2 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect2")
+key3 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect3")
+
+[node name="Spawn" parent="Door/Intermediate" index="1"]
+position = Vector2(39, 2)
+
+[node name="Book" parent="." instance=ExtResource("10_tgwx8")]
+position = Vector2(141, 181)
+
+[node name="CheckpointManager" parent="." instance=ExtResource("13_bbsk1")]
+
+[node name="Checkpoint" parent="CheckpointManager" index="0"]
+position = Vector2(95, 105)
+
+[node name="deathzone" type="Area2D" parent="." node_paths=PackedStringArray("checkpoint_manager")]
+script = ExtResource("10_vrcnk")
+checkpoint_manager = NodePath("../CheckpointManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deathzone"]
+position = Vector2(533, 277)
+shape = SubResource("RectangleShape2D_n6hqu")
+debug_color = Color(0.661777, 0.0731558, 0.128095, 0.42)
+
+[connection signal="body_entered" from="deathzone" to="deathzone" method="_on_body_entered"]
+
+[editable path="HurtPlayerEffect"]
+[editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="CanvasLayer/Panel"]
+[editable path="CanvasLayer/Keys"]
+[editable path="Door/Intermediate"]
+[editable path="CheckpointManager"]
+[editable path="CheckpointManager/Checkpoint"]

@@ -1893,11 +1893,14 @@ color = Color(0.122252, 0.122252, 0.122252, 1)
 
 [node name="Door" type="Node" parent="."]
 
-[node name="Beginner" parent="Door" instance=ExtResource("33_0biog")]
+[node name="Beginner" parent="Door" node_paths=PackedStringArray("key1", "key2", "key3") instance=ExtResource("33_0biog")]
 position = Vector2(1449, 276)
 destination_level_tag = "Intermediate"
-destination_door_tag = "Advance"
+destination_door_tag = "Intermediate"
 spawn_direction = "right"
+key1 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect")
+key2 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect2")
+key3 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect3")
 
 [node name="Spawn" parent="Door/Beginner" index="1"]
 position = Vector2(-49, 2)
