@@ -1,12 +1,29 @@
-[gd_scene load_steps=12 format=3 uid="uid://15c7vptiwdhg"]
+[gd_scene load_steps=31 format=3 uid="uid://15c7vptiwdhg"]
 
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="1_eqbjl"]
+[ext_resource type="PackedScene" uid="uid://gho7ed6abkss" path="res://Chapters/Chapter 3/UI/Letter.tscn" id="2_dqnml"]
 [ext_resource type="PackedScene" uid="uid://cyd52m0kr135o" path="res://Chapters/Chapter 1/Sprite/Character Sprite/Player.tscn" id="2_jjk62"]
+[ext_resource type="PackedScene" uid="uid://dptvylgg3cb8u" path="res://Chapters/Chapter 3/UI/Shield.tscn" id="2_wurit"]
 [ext_resource type="PackedScene" uid="uid://d6ihvblbeii8" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Torch.tscn" id="3_7cwxp"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="4_ve8c2"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_7ra5r"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6g8s7"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="7_hjx4w"]
+[ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="8_nvib1"]
+[ext_resource type="PackedScene" uid="uid://ei8arisqxi56" path="res://Chapters/Chapter 3/UI/Keys.tscn" id="8_revmq"]
+[ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="11_agsfl"]
+[ext_resource type="Texture2D" uid="uid://ulpb76de3h3c" path="res://Art/DFA to Regex Note Quiz 2/note 1.png" id="12_balwr"]
+[ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="12_pgh7d"]
+[ext_resource type="PackedScene" uid="uid://mameywtekkis" path="res://Chapters/Chapter 1/Elements/Game Component/Components/checkpoint_manager.tscn" id="13_bbsk1"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="13_htqju"]
+[ext_resource type="PackedScene" uid="uid://b453p0y45khtx" path="res://Chapters/Chapter 3/deathzone.tscn" id="13_n5o2i"]
+[ext_resource type="Texture2D" uid="uid://byescy077b1d8" path="res://Art/DFA to Regex Note Quiz 2/note 2.png" id="14_7xkt2"]
+[ext_resource type="Script" path="res://Chapters/Chapter 3/Conversion-Maps/puzzle_1.gd" id="15_q2mum"]
+[ext_resource type="FontFile" uid="uid://dxqkm1qtkuxn7" path="res://Chapters/Chapter 3/fonts/Grandrainbowdemo-BWpWd.otf" id="18_kwskd"]
+[ext_resource type="Texture2D" uid="uid://dx4n2pmvx6uym" path="res://Art/DFA to Regex Note Quiz 2/edit/31.png" id="18_uy0j8"]
+[ext_resource type="Texture2D" uid="uid://bpgrwgsen1b7m" path="res://Art/DFA to Regex Note Quiz 2/edit/DFAs.png" id="20_0r8tv"]
+[ext_resource type="Script" path="res://Chapters/Chapter 3/Conversion-Maps/puzzle_2_2.gd" id="20_dnjg6"]
+[ext_resource type="Texture2D" uid="uid://dgghnp6e52hq3" path="res://Art/DFA to Regex Note Quiz 2/edit/DFAs (1).png" id="21_t5agv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jacm"]
 texture = ExtResource("1_eqbjl")
@@ -743,6 +760,38 @@ ease = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwhtx"]
 size = Vector2(1009, 289)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wlkof"]
+shader = ExtResource("11_agsfl")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 3.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.0214254, 0.12735, 0.176941, 0.807843)
+shader_parameter/colour_2 = Color(0, 0, 0, 0.807843)
+shader_parameter/colour_3 = Color(0.0330618, 0.055513, 0.102723, 0.807843)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.2
+shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vu3gf"]
+shader = ExtResource("11_agsfl")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.00392157, 0.0313726, 0.0509804, 1)
+shader_parameter/colour_2 = Color(0.141176, 0.360784, 0.458824, 1)
+shader_parameter/colour_3 = Color(0.160784, 0.215686, 0.329412, 1)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 700.0
+
 [node name="Con-beginner" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -764,6 +813,22 @@ layer_5/tile_data = PackedInt32Array(589826, 655360, 36, 655362, 655360, 37, 720
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.197937, 0.197937, 0.197937, 1)
 
+[node name="Shield" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("2_wurit")]
+position = Vector2(453, 162)
+canvas_layer = NodePath("../CanvasLayer/Puzzle 1")
+
+[node name="Shield2" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("2_wurit")]
+position = Vector2(507, 162)
+canvas_layer = NodePath("../CanvasLayer/Puzzle 2")
+
+[node name="Letter" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("2_dqnml")]
+position = Vector2(410, 182)
+canvas_layer = NodePath("../CanvasLayer/Clue1")
+
+[node name="Letter2" parent="." node_paths=PackedStringArray("canvas_layer") instance=ExtResource("2_dqnml")]
+position = Vector2(552, 182)
+canvas_layer = NodePath("../CanvasLayer/Clue2")
+
 [node name="Torch" parent="." instance=ExtResource("3_7cwxp")]
 position = Vector2(192, 157)
 
@@ -780,18 +845,18 @@ position = Vector2(799, 159)
 position = Vector2(999, 160)
 
 [node name="Player" parent="." instance=ExtResource("2_jjk62")]
-position = Vector2(54, 184)
+position = Vector2(105, 184)
 
 [node name="GameManager" parent="." node_paths=PackedStringArray("hearts") instance=ExtResource("4_ve8c2")]
 unique_name_in_owner = true
 hearts = [NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect2/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect3/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect4/Hearts"), NodePath("../CanvasLayer/Panel/HBoxContainer/TextureRect5/Hearts")]
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(196, 184)
+position = Vector2(201, 184)
 script = ExtResource("5_7ra5r")
 follow_mode = 1
 follow_target = NodePath("../Player")
-zoom = Vector2(5, 7)
+zoom = Vector2(5, 6)
 tween_resource = SubResource("Resource_hiipw")
 tween_on_load = false
 limit_target = NodePath("../Area2D/CollisionShape2D")
@@ -799,13 +864,329 @@ limit_target = NodePath("../Area2D/CollisionShape2D")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(508.5, 153.5)
+position = Vector2(513, 153.5)
 shape = SubResource("RectangleShape2D_gwhtx")
+
+[node name="HurtPlayerEffect" parent="." instance=ExtResource("12_pgh7d")]
+
+[node name="ColorRect" parent="HurtPlayerEffect/PlayerHurt" index="2"]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" parent="CanvasLayer" instance=ExtResource("7_hjx4w")]
+visible = false
+
+[node name="Keys" parent="CanvasLayer" instance=ExtResource("8_revmq")]
+
+[node name="TextureRect" parent="CanvasLayer/Keys/HBoxContainer" index="0"]
+visible = false
+
+[node name="TextureRect2" parent="CanvasLayer/Keys/HBoxContainer" index="1"]
+visible = false
+
+[node name="TextureRect3" parent="CanvasLayer/Keys/HBoxContainer" index="2"]
+visible = false
+
+[node name="Clue1" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Clue1"]
+material = SubResource("ShaderMaterial_wlkof")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Clue1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -444.0
+offset_right = 296.0
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_balwr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Clue1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("13_htqju")
+theme_override_font_sizes/font_size = 70
+text = "Clue No. 1
+"
+
+[node name="Clue2" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Clue2"]
+material = SubResource("ShaderMaterial_wlkof")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Clue2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -444.0
+offset_right = 296.0
+offset_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("14_7xkt2")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Clue2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 83.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("13_htqju")
+theme_override_font_sizes/font_size = 70
+text = "Clue No. 2"
+
+[node name="Puzzle 1" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_q2mum")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Puzzle 1"]
+material = SubResource("ShaderMaterial_vu3gf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Puzzle 1/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Puzzle 1/ColorRect/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -626.0
+offset_top = -496.0
+offset_right = 626.0
+offset_bottom = 496.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_uy0j8")
+expand_mode = 1
+
+[node name="LineEdit2" type="LineEdit" parent="CanvasLayer/Puzzle 1/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.747
+anchor_top = 0.5
+anchor_right = 0.747
+anchor_bottom = 0.5
+offset_left = -59.2401
+offset_top = -42.0
+offset_right = 60.7599
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.403922, 0.756863, 0.72549, 1)
+theme_override_fonts/font = ExtResource("18_kwskd")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "???"
+alignment = 1
+
+[node name="LineEdit3" type="LineEdit" parent="CanvasLayer/Puzzle 1/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.335
+anchor_top = 0.474
+anchor_right = 0.335
+anchor_bottom = 0.474
+offset_left = -98.2
+offset_top = -29.92
+offset_right = 21.8
+offset_bottom = 46.08
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.403922, 0.756863, 0.72549, 1)
+theme_override_fonts/font = ExtResource("18_kwskd")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "???"
+alignment = 1
+
+[node name="Puzzle 2" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_dnjg6")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Puzzle 2"]
+material = SubResource("ShaderMaterial_vu3gf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Puzzle 2/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Puzzle 2/ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -383.0
+offset_top = -40.0
+offset_right = 396.0
+offset_bottom = 499.0
+grow_horizontal = 2
+texture = ExtResource("20_0r8tv")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Puzzle 2/ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.0
+offset_top = -123.0
+offset_right = 335.0
+offset_bottom = 388.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_t5agv")
+expand_mode = 1
+
+[node name="LineEdit3" type="LineEdit" parent="CanvasLayer/Puzzle 2/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.335
+anchor_top = 0.474
+anchor_right = 0.335
+anchor_bottom = 0.474
+offset_left = 131.8
+offset_top = -0.920013
+offset_right = 436.8
+offset_bottom = 75.08
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.403922, 0.756863, 0.72549, 1)
+theme_override_fonts/font = ExtResource("18_kwskd")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "???"
+alignment = 1
 
 [node name="death zones" type="Node" parent="."]
 
+[node name="Door" type="Node" parent="."]
+
+[node name="Intermediate" parent="Door" node_paths=PackedStringArray("key1", "key2", "key3") instance=ExtResource("8_nvib1")]
+position = Vector2(56, 164)
+key1 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect")
+key2 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect2")
+key3 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect3")
+
+[node name="Spawn" parent="Door/Intermediate" index="1"]
+position = Vector2(39, 2)
+
+[node name="Intermediate2" parent="Door" node_paths=PackedStringArray("key1", "key2", "key3") instance=ExtResource("8_nvib1")]
+position = Vector2(929, 165)
+destination_level_tag = "Advance"
+destination_door_tag = "Advance"
+spawn_direction = "right"
+key1 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect")
+key2 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect2")
+key3 = NodePath("../../CanvasLayer/Keys/HBoxContainer/TextureRect3")
+
+[node name="Spawn" parent="Door/Intermediate2" index="1"]
+position = Vector2(-50, 7)
+
+[node name="CheckpointManager" parent="." instance=ExtResource("13_bbsk1")]
+
+[node name="Checkpoint" parent="CheckpointManager" index="0"]
+position = Vector2(95, 105)
+
+[node name="deathzone" parent="." node_paths=PackedStringArray("checkpoint_manager") instance=ExtResource("13_n5o2i")]
+position = Vector2(-8, 51)
+checkpoint_manager = NodePath("../CheckpointManager")
+
+[editable path="HurtPlayerEffect"]
+[editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="CanvasLayer/Panel"]
+[editable path="CanvasLayer/Keys"]
+[editable path="Door/Intermediate"]
+[editable path="Door/Intermediate2"]
+[editable path="CheckpointManager"]
+[editable path="CheckpointManager/Checkpoint"]

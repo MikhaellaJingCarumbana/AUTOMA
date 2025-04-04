@@ -6626,12 +6626,12 @@ position = Vector2(818, 533)
 chest_quiz = NodePath("../Chest Puzzles2/Chest Puzzle/Control")
 
 [node name="Player" parent="." instance=ExtResource("7_q1itm")]
-position = Vector2(180, 249)
+position = Vector2(302, 1047)
 projectile_scene = ExtResource("27_v5qjy")
 
 [node name="Camera2D" parent="Player" index="3"]
 physics_interpolation_mode = 1
-position = Vector2(2, 0)
+position = Vector2(0, -35.1429)
 scale = Vector2(1, 1)
 zoom = Vector2(5, 7)
 limit_left = -10
@@ -6640,7 +6640,7 @@ limit_right = 1014
 limit_bottom = 1089
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(182, 249)
+position = Vector2(302, 1011.86)
 script = ExtResource("8_d8o1v")
 follow_mode = 1
 follow_target = NodePath("../Player")

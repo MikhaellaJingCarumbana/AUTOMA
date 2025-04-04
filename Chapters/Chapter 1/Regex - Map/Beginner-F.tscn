@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c2eymjdf4i78p"]
+[gd_scene load_steps=51 format=3 uid="uid://c2eymjdf4i78p"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_b0mw0"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Regex - Map/beginner_f.gd" id="1_focah"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cwsjbvfsg8dm4" path="res://Chapters/Chapter 1/Sprite/Props animated/chests/Brown chest.tscn" id="8_dbcjb"]
 [ext_resource type="PackedScene" uid="uid://bei76mnjl0qfb" path="res://Chapters/Chapter 1/UI Components/tutorial_text.tscn" id="9_3fogp"]
 [ext_resource type="PackedScene" uid="uid://qwj22lc8qjt8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/interact_area.tscn" id="9_td7nl"]
-[ext_resource type="PackedScene" uid="uid://nuh3a8lcx5d6" path="res://Chapters/Chapter 1/Elements/Game Component/Components/death_zone.tscn" id="12_7hj65"]
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="13_bhq4s"]
 [ext_resource type="PackedScene" uid="uid://cputc5mpyun1c" path="res://Chapters/Chapter 1/Elements/Game Component/Components/ui.tscn" id="13_yy40w"]
 [ext_resource type="PackedScene" uid="uid://cgx5rm0prmpo1" path="res://Chapters/Chapter 1/UI Components/DoorCode.tscn" id="14_voc4h"]
@@ -22,9 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://duu4qwnplk6q4" path="res://Chapters/Chapter 1/Sprite/Props animated/items/note.tscn" id="18_yd2h7"]
 [ext_resource type="PackedScene" uid="uid://dja6w0kqc7gyq" path="res://Chapters/Chapter 1/UI Components/hurt_player_effect.tscn" id="20_25tw7"]
 [ext_resource type="PackedScene" uid="uid://demhtg7h654xh" path="res://Chapters/Chapter 1/Sprite/Props animated/items/clues.tscn" id="20_argpt"]
+[ext_resource type="PackedScene" uid="uid://bhrxy31csctq8" path="res://Chapters/Chapter 1/Elements/Game Component/Components/Checkpoint.tscn" id="20_rb883"]
 [ext_resource type="Script" path="res://Chapters/Chapter 1/Scripts/Dialogue_Start.gd" id="21_hkdo2"]
 [ext_resource type="PackedScene" uid="uid://d6ihvblbeii8" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Torch.tscn" id="23_2s1nl"]
 [ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="24_den0v"]
+[ext_resource type="PackedScene" uid="uid://b453p0y45khtx" path="res://Chapters/Chapter 3/deathzone.tscn" id="25_bb7yy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdeet"]
 texture = ExtResource("1_b0mw0")
@@ -6731,8 +6732,6 @@ position = Vector2(531, 453)
 shape = SubResource("RectangleShape2D_4y4kd")
 disabled = true
 
-[node name="death_zone" parent="." instance=ExtResource("12_7hj65")]
-
 [node name="UI" parent="." instance=ExtResource("13_yy40w")]
 
 [node name="Dialogic3" parent="UI" instance=ExtResource("16_q3mjn")]
@@ -6766,6 +6765,14 @@ unique_name_in_owner = true
 hearts = [NodePath("../UI/Panel/HBoxContainer/TextureRect"), NodePath("../UI/Panel/HBoxContainer/TextureRect2"), NodePath("../UI/Panel/HBoxContainer/TextureRect3"), NodePath("../UI/Panel/HBoxContainer/TextureRect4"), NodePath("../UI/Panel/HBoxContainer/TextureRect5")]
 
 [node name="CheckpointManager" parent="." instance=ExtResource("17_f6l53")]
+
+[node name="Checkpoint2" parent="CheckpointManager" instance=ExtResource("20_rb883")]
+
+[node name="CollisionShape2D" parent="CheckpointManager/Checkpoint2" index="0"]
+position = Vector2(160, 78)
+
+[node name="Respawn point" parent="CheckpointManager/Checkpoint2" index="1"]
+position = Vector2(187, 99)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -6854,6 +6861,13 @@ libraries = {
 "": SubResource("AnimationLibrary_ypdq6")
 }
 
+[node name="deathzone" parent="." node_paths=PackedStringArray("checkpoint_manager") instance=ExtResource("25_bb7yy")]
+position = Vector2(-97, 818)
+checkpoint_manager = NodePath("../CheckpointManager")
+
+[node name="CollisionShape2D" parent="deathzone" index="0"]
+position = Vector2(778.5, 334.5)
+
 [connection signal="pressed" from="UI/Notes/Button" to="UI/Note System" method="_on_button_pressed"]
 [connection signal="body_entered" from="UI/Dialogic2/Area2D" to="UI/Dialogic2" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
@@ -6872,7 +6886,6 @@ libraries = {
 [editable path="Portaldoor/Door"]
 [editable path="Portaldoor/InteractArea"]
 [editable path="Player"]
-[editable path="death_zone"]
 [editable path="UI"]
 [editable path="UI/Panel"]
 [editable path="UI/Notes"]
@@ -6882,7 +6895,9 @@ libraries = {
 [editable path="UI/PauseGame"]
 [editable path="UI/Dialogic3"]
 [editable path="UI/Dialogic"]
+[editable path="CheckpointManager/Checkpoint2"]
 [editable path="Enemies/Skull"]
 [editable path="HurtPlayerEffect"]
 [editable path="HurtPlayerEffect/PlayerHurt"]
 [editable path="CanvasLayer/DoorCode"]
+[editable path="deathzone"]

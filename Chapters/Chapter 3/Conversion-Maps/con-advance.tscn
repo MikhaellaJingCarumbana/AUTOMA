@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3a7rx4g1rtmd"]
+[gd_scene load_steps=15 format=3 uid="uid://b3a7rx4g1rtmd"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_nf2es"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_767qg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3g58s0ct8lt0" path="res://Chapters/Chapter 1/Elements/GameManager/GameManager.tscn" id="4_tox1p"]
 [ext_resource type="PackedScene" uid="uid://byg7c45yhcbdt" path="res://Chapters/Chapter 1/UI Components/panel.tscn" id="5_0rnvk"]
 [ext_resource type="PackedScene" uid="uid://bw7vckq1u1ghd" path="res://Chapters/Chapter 1/Sprite/Props animated/Torches/Fireball.tscn" id="8_c3t8w"]
+[ext_resource type="PackedScene" uid="uid://bdgnbfv6d0h3u" path="res://Chapters/Chapter 1/Elements/Game Component/Components/door.tscn" id="9_wvr2r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8irgn"]
 texture = ExtResource("1_nf2es")
@@ -1052,7 +1053,7 @@ position = Vector2(194, 121)
 script = ExtResource("3_rx7wh")
 follow_mode = 1
 follow_target = NodePath("../Player")
-zoom = Vector2(5, 7)
+zoom = Vector2(5, 6)
 tween_resource = SubResource("Resource_q7r37")
 tween_on_load = false
 limit_target = NodePath("../Camera limits/CollisionShape2D")
@@ -1098,9 +1099,21 @@ position = Vector2(412, 244)
 position = Vector2(203, 249)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.194349, 0.194349, 0.194349, 1)
+color = Color(0.176419, 0.176419, 0.176419, 1)
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="."]
 color = Color(0.194349, 0.194349, 0.194349, 1)
 
+[node name="Door" type="Node" parent="."]
+
+[node name="Advance" parent="Door" instance=ExtResource("9_wvr2r")]
+position = Vector2(30, 100)
+destination_level_tag = "Intermediate"
+destination_door_tag = "Intermediate2"
+spawn_direction = "right"
+
+[node name="Spawn" parent="Door/Advance" index="1"]
+position = Vector2(38, 1)
+
 [editable path="CanvasLayer/Panel"]
+[editable path="Door/Advance"]
