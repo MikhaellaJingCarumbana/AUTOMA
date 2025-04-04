@@ -234,7 +234,6 @@ func _ready():
     
     add_accepting_state(sampleState2)
     
-    print_initial_state()
     
     test_print()
 

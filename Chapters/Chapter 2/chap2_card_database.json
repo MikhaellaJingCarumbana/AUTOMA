@@ -5,7 +5,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q1 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 1
     },
     {
         "nice_name": "Q2",
@@ -13,7 +14,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q2 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 2
     },
     {
         "nice_name": "Q3",
@@ -21,7 +23,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q3 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 3
     },
     {
         "nice_name": "Q4",
@@ -29,7 +32,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q4 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 4
     },
     {
         "nice_name": "Q5",
@@ -37,7 +41,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q5 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 5
     },
     {
         "nice_name": "Q6",
@@ -45,7 +50,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]Summon the enchanted state Q6 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 6
     },
     {
         "nice_name": "Q7",
@@ -53,7 +59,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q7 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 7
     },
     {
         "nice_name": "Q8",
@@ -61,7 +68,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]Summon the enchanted state Q8 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 8
     },
     {
         "nice_name": "Q9",
@@ -69,7 +77,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]Summon the enchanted state Q9 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 9
     },
     {
         "nice_name": "Q10",
@@ -77,7 +86,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q10 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 10
     },
     {
         "nice_name": "Q11",
@@ -85,7 +95,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q11 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 11
     },
     {
         "nice_name": "Q12",
@@ -93,7 +104,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q12 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 12
     },
     {
         "nice_name": "Q13",
@@ -101,7 +113,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q13 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 13
     },
     {
         "nice_name": "Q14",
@@ -109,7 +122,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q14 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 14
     },
     {
         "nice_name": "Q15",
@@ -117,7 +131,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
         "description": "[center]'Summon the enchanted state Q15 into your mystical DFA. Bind it to others with transition spells and imbue it with traits using magical effects.'[/center]",
-        "type": "state"
+        "type": "state",
+        "value": 15
     },
     {
         "nice_name": "Transition A or B",
@@ -143,16 +158,20 @@
         "nice_name": "Start State",
         "texture_path": "res://Art/Custom UI/effect_starting.png",
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
-        "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
+        "resource_script_path": "res://Chapters/Chapter 2/chap2_effect_data.gd",
         "description": "[center]'Crown a state as the genesis of your DFA’s magic. The journey begins here, where all spells take form.'[/center]",
-        "type": "effect_start"
+        "type": "effect_start",
+        "state": "",
+        "effect": "start"
     },
     {
         "nice_name": "Final State",
         "texture_path": "res://Art/Custom UI/effect_final.png",
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
-        "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
+        "resource_script_path": "res://Chapters/Chapter 2/chap2_effect_data.gd",
         "description": "[center]'Bestow a state with the blessing of completion. This final state marks the triumph of your DFA’s enchanted quest.'[/center]",
-        "type": "effect_final"
+        "type": "effect_final",
+        "state": "",
+        "effect": "final"
     }
 ]

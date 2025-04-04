@@ -32,6 +32,15 @@ func _on_reset_button_pressed():
 func _get_transition_card():
     return "Transition A or B" if randi_range(0,1) else "Transition A and B"
 
+
+func _on_sort_button_pressed():
+    card_pile_ui.sort_hand(func(a, b): 
+        if a.card_data.type == b.card_data.type:
+            return a.card_data.value < b.card_data.value
+        else:
+            return a.card_data.suit < b.card_data.suit
+    )
+
 func _on_draw_transition_orand_button_pressed():
     if !card_pile_ui.hand_is_at_max_capacity():
         card_pile_ui.create_card_in_pile(_get_transition_card(), CardPileUI.Piles.hand_pile)

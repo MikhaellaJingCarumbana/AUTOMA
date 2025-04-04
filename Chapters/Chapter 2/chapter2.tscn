@@ -30,7 +30,7 @@ shader_parameter/pixel_filter = 1000.0
 [sub_resource type="Curve" id="Curve_rfnjg"]
 min_value = 1.0
 max_value = 8.0
-_data = [Vector2(0, 0), inf_neg, 0.0, 1, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.190476, 5.4), 0.0, 0.0, 0, 0, Vector2(0.48718, 6.97368), 0.0, 0.0, 0, 0, Vector2(0.787546, 5.74211), 0.0, 0.0, 0, 0, Vector2(0.967033, 1.56842), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), inf_neg, 0.0, 1, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.252747, 5), 0.0, 0.0, 0, 0, Vector2(0.48718, 6.97368), 0.0, 0.0, 0, 0, Vector2(0.750916, 4.92308), 0.0, 0.0, 0, 0, Vector2(0.967033, 1.56842), 0.0, 0.0, 0, 0]
 point_count = 6
 
 [sub_resource type="Curve" id="Curve_lkg0v"]
@@ -104,6 +104,14 @@ offset_right = 262.0
 offset_bottom = 138.0
 text = "DISCARD CARDS"
 
+[node name="SortButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 279.0
+offset_right = 262.0
+offset_bottom = 327.0
+text = "SORT HAND"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 699.0
 offset_top = 8.0
@@ -120,9 +128,9 @@ layout_mode = 3
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -20.0
+offset_top = -500.0
 offset_right = 40.0
-offset_bottom = 20.0
+offset_bottom = -460.0
 grow_vertical = 2
 script = ExtResource("4_43p60")
 json_card_database_path = "res://Chapters/Chapter 2/chap2_card_database.json"
@@ -135,7 +143,6 @@ stack_display_gap = 10
 max_stack_display = 10
 card_return_speed = 0.3
 draw_pile_layout = 2
-max_hand_size = 8
 max_hand_spread = 900
 card_ui_hover_distance = 20
 hand_rotation_curve = SubResource("Curve_rfnjg")
@@ -206,8 +213,7 @@ offset_bottom = 373.0
 script = ExtResource("8_uukvw")
 accept_type = "state"
 card_pile_ui = NodePath("../CardPileUI")
-stack_display_gap = 1
-max_stack_display = 3
+stack_display_gap = 30
 
 [node name="ColorRect" type="ColorRect" parent="StateCardDropzone"]
 visible = false
@@ -648,3 +654,4 @@ default_color = Color(0.87451, 0.666667, 0.223529, 1)
 [connection signal="pressed" from="Control/DrawTransitionORANDButton" to="." method="_on_draw_transition_orand_button_pressed"]
 [connection signal="pressed" from="Control/DrawEffectButton" to="." method="_on_draw_effect_button_pressed"]
 [connection signal="pressed" from="Control/DiscardButton" to="." method="_on_discard_button_pressed"]
+[connection signal="pressed" from="Control/SortButton" to="." method="_on_sort_button_pressed"]

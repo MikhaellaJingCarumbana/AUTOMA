@@ -8,3 +8,15 @@ class_name Chap2TransitionUIData extends CardUIData
 
 func format_description():
     return description
+
+func get_from_state() -> String:
+     return from_state
+        
+func set_from_state(new_state: String) -> void:
+    from_state = new_state
+
+func get_to_state() -> String:
+    return to_state
+
+func set_to_state(new_state: String) -> void:
+    to_state = new_state
