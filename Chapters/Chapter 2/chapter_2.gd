@@ -7,8 +7,11 @@ extends Node2D
 @onready var reset_button := $ResetButton
 @onready var option_button := $CanvasLayer/TransitionPrompt/OptionButton
 @onready var transition_prompt := $CanvasLayer/TransitionPrompt
-
+@onready var from_card := $CanvasLayer/TransitionPrompt/FromCardUI
+@onready var to_card :=$CanvasLayer/TransitionPrompt/ToCardUI
 var current_hovered_card : CardUI
+var selected_transition_card: CardUI
+
 
 func _ready() -> void:
     card_pile_ui.connect("card_hovered", func(card_ui):
@@ -20,6 +23,12 @@ func _ready() -> void:
         panel_container.visible = false
         current_hovered_card = null
     )
+    
+    # Connect to all dropzones
+    var dropzones = []
+    _collect_dropzones(get_tree().root, dropzones)
+    for dropzone in dropzones:
+        dropzone.connect("transition_card_dropped", _on_transition_card_dropped)
         
 func _process(delta):
     if current_hovered_card:
@@ -65,8 +74,15 @@ func _on_transition_button_pressed(): #change pani nato
     transition_prompt.show()
 
 #
-func _on_confirm_button_pressed(): #change pani nato
-    #add other functions
+
+func _on_transition_card_dropped(card_ui: CardUI):
+    selected_transition_card = card_ui
+    transition_prompt.show()
+
+func _on_confirm_button_pressed():
+    if selected_transition_card:
+        card_pile_ui.set_card_pile(selected_transition_card, CardPileUI.Piles.discard_pile)
+        selected_transition_card = null
     transition_prompt.hide()
 
 #OptionButton Functions
