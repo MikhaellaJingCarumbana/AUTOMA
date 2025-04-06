@@ -1077,7 +1077,7 @@ layer_4/name = "infront of decor"
 layer_4/tile_data = PackedInt32Array(655408, 589825, 10, 655409, 655361, 10, 655410, 655361, 10, 655411, 655361, 10, 655412, 720897, 10, 720954, 589825, 10, 720955, 655361, 10, 720956, 655361, 10, 720957, 655361, 10, 720958, 720897, 10, 65536, 327681, 3, 65537, 393217, 3, 131072, 327681, 4, 131073, 393217, 4, 196608, 327681, 4, 196609, 393217, 4, 262144, 327681, 4, 262145, 393217, 4, 327680, 327681, 4, 327681, 393217, 4, 393216, 327681, 4, 393217, 393217, 4, 458752, 327681, 5, 458753, 393217, 5, 393237, 327681, 2, 393238, 393217, 2, 983100, 917505, 1, 1048636, 917505, 2, 1114172, 917505, 3, 983101, 327681, 24, 1048637, 327681, 25, 1114173, 983041, 3, 1114171, 524289, 0, 1048634, 589825, 3, 1114170, 589825, 4, 655421, 327681, 2, 655422, 393217, 2, 786480, 327681, 23, 852016, 327681, 24, 917552, 327681, 25, 786481, 393217, 23, 852017, 393217, 24, 917553, 393217, 25, 196656, 327681, 23, 262192, 327681, 24, 327728, 327681, 25, 196657, 393217, 23, 262193, 393217, 24, 327729, 393217, 25, 393277, 327681, 23, 458813, 327681, 24, 524349, 327681, 25, 393278, 393217, 23, 458814, 393217, 24, 524350, 393217, 25, 917565, 327681, 23, 917566, 393217, 23, 983102, 393217, 24, 1048638, 393217, 25, 589872, 327681, 2, 589873, 393217, 2)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(624, 236)
+position = Vector2(502, 236)
 script = ExtResource("3_rx7wh")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -1156,7 +1156,7 @@ position = Vector2(586, 267)
 script = ExtResource("15_ipr0x")
 
 [node name="Player" parent="." instance=ExtResource("3_2xu5n")]
-position = Vector2(624, 279)
+position = Vector2(502, 273)
 
 [node name="Camera limits" type="Area2D" parent="."]
 
@@ -1250,17 +1250,27 @@ position = Vector2(38, 1)
 [node name="Summon" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Summon"]
-position = Vector2(376.5, 245)
+position = Vector2(362, 246)
 shape = SubResource("RectangleShape2D_s105e")
 
 [node name="Summoner" parent="." instance=ExtResource("18_kndd2")]
 position = Vector2(185, 253)
 
+[node name="PointLight2D" parent="Summoner" index="0"]
+position = Vector2(54, 4)
+
+[node name="AnimatedSprite2D" parent="Summoner" index="1"]
+position = Vector2(44, 0)
+animation = &"Summon"
+frame = 0
+frame_progress = 0.0
+
 [node name="CollisionShape2D" parent="Summoner" index="2"]
 visible = true
-position = Vector2(191, 0)
+position = Vector2(181, 3)
 
 [connection signal="body_exited" from="Book" to="Book" method="_on_body_exited"]
+[connection signal="body_exited" from="Summoner" to="Summoner" method="_on_body_exited"]
 
 [editable path="CanvasLayer/Panel"]
 [editable path="Door/Advance"]
