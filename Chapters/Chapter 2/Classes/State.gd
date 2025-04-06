@@ -7,7 +7,7 @@ extends Node
 #var isEnd: bool
 
 func _init(name):
-	label = name
+    label = name
 
 #HelperMethods
 #func check_isStart():

@@ -140,7 +140,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_transition_data.gd",
         "description": "[center]'Cast a spell of choice! This transition lets your DFA journey upon either path A or B. Perfect for crafting versatile connections or loops.'[/center]",
-        "type": "transition_or ",
+        "type": "transition",
+        "transition_type": "or",
         "from_state": "",
         "to_state": ""
     },
@@ -150,7 +151,8 @@
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
         "resource_script_path": "res://Chapters/Chapter 2/chap2_transition_data.gd",
         "description": "[center]'Invoke a dual path of power! This transition requires both A and B to activate, binding states with a pact of duality.'[/center]",
-        "type": "transition_and",
+        "type": "transition",
+        "transition_type": "and",
         "from_state": "",
         "to_state": ""
     },

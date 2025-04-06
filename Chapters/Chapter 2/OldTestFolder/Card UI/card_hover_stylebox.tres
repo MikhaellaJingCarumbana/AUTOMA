@@ -3,5 +3,9 @@
 [resource]
 bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
 border_color = Color(0.996445, 0.915667, 0.773336, 1)
-shadow_color = Color(0.921718, 0.696278, 0.208163, 0.462745)
-shadow_size = 6
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color(0.376471, 0.27451, 0.0392157, 0.443137)
+shadow_size = 9
