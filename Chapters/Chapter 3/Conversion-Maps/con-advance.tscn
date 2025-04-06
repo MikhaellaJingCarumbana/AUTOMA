@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b3a7rx4g1rtmd"]
+[gd_scene load_steps=26 format=3 uid="uid://b3a7rx4g1rtmd"]
 
 [ext_resource type="Texture2D" uid="uid://buc606cwbpckb" path="res://Art/Dungeon Vibes Tilesets/dungeonItems.png" id="1_nf2es"]
 [ext_resource type="Texture2D" uid="uid://cubt3vxsk5gc4" path="res://Art/Dungeon Vibes Tilesets/Tilesetv3.png" id="2_767qg"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cfewttqapqm6k" path="res://Chapters/Chapter 3/UI/Lever.tscn" id="14_hijwg"]
 [ext_resource type="Script" path="res://Chapters/Chapter 3/Conversion-Maps/puzzle_manager.gd" id="15_ipr0x"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="16_ivj7p"]
+[ext_resource type="PackedScene" uid="uid://cwye0c5duiays" path="res://Chapters/Chapter 3/UI/Summoner.tscn" id="18_kndd2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8irgn"]
 texture = ExtResource("1_nf2es")
@@ -1056,6 +1057,9 @@ shader_parameter/contrast = 1.0
 shader_parameter/spin_amount = 0.2
 shader_parameter/pixel_filter = 700.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s105e"]
+size = Vector2(25, 84)
+
 [node name="Con-advance" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1073,7 +1077,7 @@ layer_4/name = "infront of decor"
 layer_4/tile_data = PackedInt32Array(655408, 589825, 10, 655409, 655361, 10, 655410, 655361, 10, 655411, 655361, 10, 655412, 720897, 10, 720954, 589825, 10, 720955, 655361, 10, 720956, 655361, 10, 720957, 655361, 10, 720958, 720897, 10, 65536, 327681, 3, 65537, 393217, 3, 131072, 327681, 4, 131073, 393217, 4, 196608, 327681, 4, 196609, 393217, 4, 262144, 327681, 4, 262145, 393217, 4, 327680, 327681, 4, 327681, 393217, 4, 393216, 327681, 4, 393217, 393217, 4, 458752, 327681, 5, 458753, 393217, 5, 393237, 327681, 2, 393238, 393217, 2, 983100, 917505, 1, 1048636, 917505, 2, 1114172, 917505, 3, 983101, 327681, 24, 1048637, 327681, 25, 1114173, 983041, 3, 1114171, 524289, 0, 1048634, 589825, 3, 1114170, 589825, 4, 655421, 327681, 2, 655422, 393217, 2, 786480, 327681, 23, 852016, 327681, 24, 917552, 327681, 25, 786481, 393217, 23, 852017, 393217, 24, 917553, 393217, 25, 196656, 327681, 23, 262192, 327681, 24, 327728, 327681, 25, 196657, 393217, 23, 262193, 393217, 24, 327729, 393217, 25, 393277, 327681, 23, 458813, 327681, 24, 524349, 327681, 25, 393278, 393217, 23, 458814, 393217, 24, 524350, 393217, 25, 917565, 327681, 23, 917566, 393217, 23, 983102, 393217, 24, 1048638, 393217, 25, 589872, 327681, 2, 589873, 393217, 2)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(383, 236)
+position = Vector2(624, 236)
 script = ExtResource("3_rx7wh")
 follow_mode = 1
 follow_target = NodePath("../Player")
@@ -1086,10 +1090,23 @@ limit_target = NodePath("../Camera limits/CollisionShape2D")
 position = Vector2(345, 98)
 canvas_layer = NodePath("../CanvasLayer/Clue1")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 455.0
+offset_top = 204.0
+offset_right = 3875.0
+offset_bottom = 739.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/font = ExtResource("16_ivj7p")
+theme_override_font_sizes/font_size = 280
+text = "The first and last must mirror, but the middle wavers."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Label2" type="Label" parent="."]
-offset_left = 250.0
+offset_left = 497.0
 offset_top = 239.0
-offset_right = 390.0
+offset_right = 637.0
 offset_bottom = 434.0
 scale = Vector2(0.05, 0.05)
 theme_override_fonts/font = ExtResource("6_vxi8y")
@@ -1100,9 +1117,9 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 293.0
+offset_left = 540.0
 offset_top = 239.0
-offset_right = 433.0
+offset_right = 680.0
 offset_bottom = 434.0
 scale = Vector2(0.05, 0.05)
 theme_override_fonts/font = ExtResource("6_vxi8y")
@@ -1113,9 +1130,9 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 336.0
+offset_left = 583.0
 offset_top = 239.0
-offset_right = 476.0
+offset_right = 723.0
 offset_bottom = 434.0
 scale = Vector2(0.05, 0.05)
 theme_override_fonts/font = ExtResource("6_vxi8y")
@@ -1126,20 +1143,20 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Lever" parent="." instance=ExtResource("14_hijwg")]
-position = Vector2(254, 268)
+position = Vector2(501, 268)
 
 [node name="Lever2" parent="." instance=ExtResource("14_hijwg")]
-position = Vector2(296, 267)
+position = Vector2(543, 267)
 symbol = "b"
 
 [node name="Lever3" parent="." instance=ExtResource("14_hijwg")]
-position = Vector2(339, 267)
+position = Vector2(586, 267)
 
 [node name="PuzzleManager" type="Node" parent="."]
 script = ExtResource("15_ipr0x")
 
 [node name="Player" parent="." instance=ExtResource("3_2xu5n")]
-position = Vector2(383, 279)
+position = Vector2(624, 279)
 
 [node name="Camera limits" type="Area2D" parent="."]
 
@@ -1213,9 +1230,6 @@ position = Vector2(646, 245)
 [node name="Torch7" parent="." instance=ExtResource("8_c3t8w")]
 position = Vector2(412, 244)
 
-[node name="Torch5" parent="." instance=ExtResource("8_c3t8w")]
-position = Vector2(203, 249)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.176419, 0.176419, 0.176419, 1)
 
@@ -1233,20 +1247,21 @@ spawn_direction = "right"
 [node name="Spawn" parent="Door/Advance" index="1"]
 position = Vector2(38, 1)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 214.0
-offset_top = 204.0
-offset_right = 3634.0
-offset_bottom = 739.0
-scale = Vector2(0.05, 0.05)
-theme_override_fonts/font = ExtResource("16_ivj7p")
-theme_override_font_sizes/font_size = 280
-text = "The first and last must mirror, but the middle wavers."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+[node name="Summon" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Summon"]
+position = Vector2(376.5, 245)
+shape = SubResource("RectangleShape2D_s105e")
+
+[node name="Summoner" parent="." instance=ExtResource("18_kndd2")]
+position = Vector2(185, 253)
+
+[node name="CollisionShape2D" parent="Summoner" index="2"]
+visible = true
+position = Vector2(191, 0)
 
 [connection signal="body_exited" from="Book" to="Book" method="_on_body_exited"]
 
 [editable path="CanvasLayer/Panel"]
 [editable path="Door/Advance"]
+[editable path="Summoner"]

@@ -30,11 +30,11 @@ func submit_input(symbol: String, lever: Node):
 	if input_sequence.size() == 3:
 		if input_sequence == correct_sequences[stage]:
 			print("Stage %d Solved!" % stage)
-			label.text = "Correct! 🎉"
+			label.text = ""
 			stage += 1
 
 			if stage >= correct_sequences.size():
-				label.text = "All puzzles complete! The way is open."
+				label.text = "The ancient seals have been broken. The path is revealed."
 				if gate_node:
 					get_node(gate_node).open_gate()
 			else:
@@ -44,7 +44,7 @@ func submit_input(symbol: String, lever: Node):
 			reset_puzzle()
 		else:
 			print("Wrong sequence. Try again.")
-			label.text = "Incorrect. Try again."
+			label.text = get_incorrect_message()
 			await get_tree().create_timer(1.5).timeout
 			update_clue()
 			reset_puzzle()
@@ -57,6 +57,15 @@ func reset_puzzle():
 
 func update_clue():
 	if stage < stage_clues.size():
-		label.text = "Clue: " + stage_clues[stage]
+		label.text = stage_clues[stage]
 	else:
-		label.text = ""
+		label.text = "The final riddle lies ahead..."
+
+# This function will generate a thematic incorrect message
+func get_incorrect_message() -> String:
+	var messages = [
+		"A shudder echoes from the walls... your choice was wrong.",
+		"The shadows laugh at your failure, the path remains hidden.",
+		"The puzzle mocks you, the gate will not open yet."
+	]
+	return messages[randi() % messages.size()]
