@@ -260,7 +260,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvey0"]
-radius = 7.0
+radius = 29.1548
 
 [node name="Book" type="Area2D"]
 script = ExtResource("1_1unxc")
