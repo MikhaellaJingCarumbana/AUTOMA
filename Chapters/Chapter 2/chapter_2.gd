@@ -5,6 +5,8 @@ extends Node2D
 @onready var panel_container = $PanelContainer
 @onready var rich_text_label = $PanelContainer/RichTextLabel
 @onready var reset_button := $ResetButton
+@onready var option_button := $CanvasLayer/TransitionPrompt/OptionButton
+@onready var transition_prompt := $CanvasLayer/TransitionPrompt
 
 var current_hovered_card : CardUI
 
@@ -25,6 +27,8 @@ func _process(delta):
         target_pos.y += 30
         target_pos.x += 100
         panel_container.position = target_pos
+
+#Buttons Functions
 
 func _on_reset_button_pressed():
     card_pile_ui.reset()
@@ -55,3 +59,38 @@ func _on_draw_effect_button_pressed():
 func _on_discard_button_pressed():
     for card_ui in card_pile_ui.get_cards_in_pile(CardPileUI.Piles.hand_pile):
         card_pile_ui.set_card_pile(card_ui, CardPileUI.Piles.discard_pile)
+
+func _on_transition_button_pressed(): #change pani nato
+    populate_option_button_with_top_cards()
+    transition_prompt.show()
+
+#
+func _on_confirm_button_pressed(): #change pani nato
+    #add other functions
+    transition_prompt.hide()
+
+#OptionButton Functions
+
+func populate_option_button_with_top_cards():
+    option_button.clear()
+    var top_cards = get_top_cards_from_all_dropzones(get_tree().root)
+    for card_ui in top_cards:
+        option_button.add_item(card_ui.card_data.nice_name)
+
+func get_top_cards_from_all_dropzones(root: Node) -> Array:
+    var top_cards := []
+    var dropzones := []
+    _collect_dropzones(root, dropzones)
+    print("Dropzones found: ", dropzones.size())
+    for dropzone in dropzones:
+        var top_card = dropzone.get_top_card()
+        if top_card:
+            print("Top card in dropzone:", top_card.card_data.nice_name)
+            top_cards.append(top_card)
+    return top_cards
+
+func _collect_dropzones(node: Node, result: Array) -> void:
+    if node is CardDropzone:
+        result.append(node)
+    for child in node.get_children():
+        _collect_dropzones(child, result)

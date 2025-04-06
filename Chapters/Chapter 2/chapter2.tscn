@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=22 format=3 uid="uid://bh0d1tsgec7pn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" path="res://Chapters/Chapter 2/dropzone_state.gd" id="8_uukvw"]
 [ext_resource type="Texture2D" uid="uid://b7bhgwwh1717b" path="res://Art/Custom UI/drop_state.png" id="9_h46ya"]
 [ext_resource type="PackedScene" uid="uid://dp3widlhymt1d" path="res://Chapters/Chapter 1/UI Components/Pause Game.tscn" id="10_2ikyo"]
+[ext_resource type="Texture2D" uid="uid://d0a3u58k1g4ls" path="res://Art/Custom UI/trans_prompt.png" id="11_rulsv"]
+[ext_resource type="Script" path="res://Chapters/Chapter 2/transition_prompt.gd" id="11_uco0u"]
+[ext_resource type="StyleBox" uid="uid://bp62w16vf3e28" path="res://Chapters/Chapter 2/OldTestFolder/Card UI/card_hover_stylebox.tres" id="11_ywmpc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o86ny"]
 resource_local_to_scene = true
@@ -55,6 +58,39 @@ corner_radius_bottom_left = 5
 [sub_resource type="Curve" id="Curve_hcp64"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6t1d6"]
+shader = ExtResource("2_uerw4")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 3.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.446135, 0, 0.0680891, 0.388235)
+shader_parameter/colour_2 = Color(0.943853, 0.574756, 0.181398, 0.431373)
+shader_parameter/colour_3 = Color(0.941176, 0.0941176, 0.184314, 0.286275)
+shader_parameter/contrast = 1.0
+shader_parameter/spin_amount = 0.2
+shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ks4kx"]
+bg_color = Color(0.607843, 0.376471, 0.172549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1ai4"]
+bg_color = Color(0.760784, 0.505882, 0.152941, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.301961)
+shadow_size = 5
+shadow_offset = Vector2(1, 1)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_nl1si")
@@ -113,15 +149,23 @@ offset_right = 262.0
 offset_bottom = 327.0
 text = "SORT HAND"
 
+[node name="TestTransition" type="Button" parent="Control"]
+offset_left = 18.0
+offset_top = 345.0
+offset_right = 262.0
+offset_bottom = 393.0
+text = "TRANSITION TEST"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 699.0
-offset_top = 8.0
-offset_right = 1232.0
-offset_bottom = 114.0
+visible = false
+offset_left = 595.0
+offset_top = 14.0
+offset_right = 1456.0
+offset_bottom = 120.0
 theme_override_fonts/normal_font = ExtResource("3_g2cp2")
 theme_override_font_sizes/normal_font_size = 110
 bbcode_enabled = true
-text = "[center][wave amp=25.0 freq=9.0 connected=1]automa demo[/wave][/center]
+text = "[center][wave amp=25.0 freq=9.0 connected=1]Solve the Puzzle[/wave][/center]
 "
 
 [node name="CardPileUI" type="Control" parent="."]
@@ -658,10 +702,181 @@ default_color = Color(0.87451, 0.666667, 0.223529, 1)
 [node name="PauseMenu" parent="CanvasLayer/PauseGame" index="0"]
 visible = false
 
+[node name="TransitionPrompt" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_uco0u")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TransitionPrompt"]
+material = SubResource("ShaderMaterial_6t1d6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/TransitionPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34
+anchor_top = 0.279
+anchor_right = 0.662
+anchor_bottom = 0.721
+offset_left = -2.79999
+offset_top = -1.32001
+offset_right = -2.04016
+offset_bottom = -0.679993
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("11_ywmpc")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TransitionPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34
+anchor_top = 0.279
+anchor_right = 0.661
+anchor_bottom = 0.721
+offset_left = -0.799988
+offset_top = -0.320007
+offset_right = -0.119995
+offset_bottom = 0.320007
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_rulsv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TransitionPrompt"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -188.0
+offset_right = 234.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.93189, 0.596749, 0.220235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.203922)
+theme_override_fonts/normal_font = ExtResource("3_g2cp2")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center][wave amp=30.0 freq=5.0 connected=1]choose your path[/wave][/center]
+"
+
+[node name="Label" type="Label" parent="CanvasLayer/TransitionPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.379
+anchor_top = 0.605
+anchor_right = 0.453
+anchor_bottom = 0.642
+offset_left = 4.32001
+offset_top = 18.6
+offset_right = -0.76001
+offset_bottom = 18.64
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.933333, 0.596078, 0.219608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.215686)
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 40
+text = "From"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/TransitionPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.545
+anchor_top = 0.606
+anchor_right = 0.615
+anchor_bottom = 0.643
+offset_left = -0.400024
+offset_top = 18.52
+offset_right = 2.19995
+offset_bottom = 18.56
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.933333, 0.596078, 0.219608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.215686)
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 40
+text = "To"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/TransitionPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.465
+anchor_top = 0.418
+anchor_right = 0.536
+anchor_bottom = 0.567
+offset_left = -0.800049
+offset_top = 18.56
+offset_right = -0.119995
+offset_bottom = 18.64
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.933333, 0.596078, 0.219608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.215686)
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 120
+text = "➢"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/TransitionPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.546
+anchor_top = 0.399
+anchor_right = 0.612
+anchor_bottom = 0.418
+offset_left = -0.320068
+offset_top = -12.92
+offset_right = 0.959961
+offset_bottom = -13.44
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 1
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/TransitionPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47
+anchor_top = 0.671
+anchor_right = 0.528
+anchor_bottom = 0.697
+offset_left = -0.400024
+offset_top = 1.32001
+offset_right = -0.76001
+offset_bottom = 0.23999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.458824, 0.219608, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.366109, 0.164622, 0.202354, 1)
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxFlat_ks4kx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d1ai4")
+text = "confirm"
+
 [connection signal="pressed" from="Control/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Control/DrawTransitionORANDButton" to="." method="_on_draw_transition_orand_button_pressed"]
 [connection signal="pressed" from="Control/DrawEffectButton" to="." method="_on_draw_effect_button_pressed"]
 [connection signal="pressed" from="Control/DiscardButton" to="." method="_on_discard_button_pressed"]
 [connection signal="pressed" from="Control/SortButton" to="." method="_on_sort_button_pressed"]
+[connection signal="pressed" from="Control/TestTransition" to="." method="_on_transition_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TransitionPrompt/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 
 [editable path="CanvasLayer/PauseGame"]
