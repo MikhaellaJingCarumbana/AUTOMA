@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=25 format=3 uid="uid://bh0d1tsgec7pn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
@@ -74,6 +74,17 @@ shader_parameter/colour_3 = Color(0.941176, 0.0941176, 0.184314, 0.286275)
 shader_parameter/contrast = 1.0
 shader_parameter/spin_amount = 0.2
 shader_parameter/pixel_filter = 700.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7prst"]
+bg_color = Color(0.759392, 0.560662, 0.20746, 1)
+corner_radius_top_left = 15
+corner_radius_bottom_right = 15
+shadow_color = Color(0, 0, 0, 0.14902)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02lbx"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nccda"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ks4kx"]
 bg_color = Color(0.607843, 0.376471, 0.172549, 1)
@@ -706,6 +717,7 @@ default_color = Color(0.87451, 0.666667, 0.223529, 1)
 visible = false
 
 [node name="TransitionPrompt" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -818,14 +830,14 @@ vertical_alignment = 1
 [node name="Label3" type="Label" parent="CanvasLayer/TransitionPrompt"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.463
+anchor_left = 0.472
 anchor_top = 0.435
-anchor_right = 0.521
-anchor_bottom = 0.569
-offset_left = 6.03992
+anchor_right = 0.53
+anchor_bottom = 0.559
+offset_left = 0.759949
 offset_top = 0.199951
-offset_right = 5.67999
-offset_bottom = -10.52
+offset_right = 0.400024
+offset_bottom = 0.279968
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.933333, 0.596078, 0.219608, 1)
@@ -839,16 +851,28 @@ vertical_alignment = 1
 [node name="OptionButton" type="OptionButton" parent="CanvasLayer/TransitionPrompt"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.534
-anchor_top = 0.411
-anchor_right = 0.601
-anchor_bottom = 0.411
-offset_left = 0.719971
-offset_top = -22.88
-offset_right = 0.079834
-offset_bottom = -2.88
+anchor_left = 0.541
+anchor_top = 0.396
+anchor_right = 0.57
+anchor_bottom = 0.425
+offset_left = -0.719971
+offset_top = 0.319977
+offset_right = 0.599854
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_7prst")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_7prst")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_02lbx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_7prst")
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_nccda")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_7prst")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7prst")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_7prst")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7prst")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_7prst")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7prst")
 item_count = 1
 
 [node name="ConfirmButton" type="Button" parent="CanvasLayer/TransitionPrompt"]
@@ -885,7 +909,7 @@ offset_right = -70.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.516568, 0.37878, 0.0696579, 1)
+theme_override_colors/font_shadow_color = Color(0.0361393, 0.0186784, 0.000980876, 1)
 theme_override_fonts/font = ExtResource("3_g2cp2")
 theme_override_font_sizes/font_size = 150
 text = "Q"
@@ -903,7 +927,7 @@ offset_right = -1.16016
 offset_bottom = -15.88
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.516568, 0.37878, 0.0696579, 1)
+theme_override_colors/font_shadow_color = Color(0.151192, 0.102124, 0.00763, 0.878431)
 theme_override_fonts/font = ExtResource("3_g2cp2")
 theme_override_font_sizes/font_size = 150
 text = "Q

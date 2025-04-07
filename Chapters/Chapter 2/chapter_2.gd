@@ -27,8 +27,6 @@ func _ready() -> void:
     )
     
     # Connect to all dropzones
-    var dropzones = []
-    _collect_dropzones(get_tree().root, dropzones)
     for dropzone in dropzones:
         dropzone.connect("transition_card_dropped", _on_transition_card_dropped)
         
@@ -75,6 +73,10 @@ func _on_transition_button_pressed(): #change pani nato
     populate_option_button_with_top_cards()
     transition_prompt.show()
 
+#To Label
+func _on_option_button_item_selected(index: int):
+    var selected_card_name = option_button.get_item_text(index)
+    to_label.text = selected_card_name
 
 func _on_transition_card_dropped(card_ui: CardUI):
     selected_transition_card = card_ui
@@ -96,9 +98,6 @@ func _on_confirm_button_pressed():
     transition_prompt.hide()
 
 #OptionButton Functions
-func _on_option_button_item_selected(index: int):
-    var selected_card_name = option_button.get_item_text(index)
-    to_label.text = selected_card_name
 
 func populate_option_button_with_top_cards():
     option_button.clear()
@@ -111,5 +110,6 @@ func get_top_cards_from_all_dropzones(root: Node) -> Array:
     for dropzone in dropzones:
         var top_card = dropzone.get_top_card()
         if top_card:
+            print("Top card in dropzone:", top_card.card_data.nice_name)
             top_cards.append(top_card)
     return top_cards
