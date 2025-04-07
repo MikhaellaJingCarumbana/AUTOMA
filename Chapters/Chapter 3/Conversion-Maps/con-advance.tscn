@@ -1058,7 +1058,7 @@ shader_parameter/spin_amount = 0.2
 shader_parameter/pixel_filter = 700.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s105e"]
-size = Vector2(25, 84)
+size = Vector2(114, 118)
 
 [node name="Con-advance" type="Node2D"]
 
@@ -1250,7 +1250,7 @@ position = Vector2(38, 1)
 [node name="Summon" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Summon"]
-position = Vector2(362, 246)
+position = Vector2(339, 229)
 shape = SubResource("RectangleShape2D_s105e")
 
 [node name="Summoner" parent="." instance=ExtResource("18_kndd2")]
@@ -1267,7 +1267,7 @@ frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="Summoner" index="2"]
 visible = true
-position = Vector2(181, 3)
+position = Vector2(149, -1)
 
 [connection signal="body_exited" from="Book" to="Book" method="_on_body_exited"]
 [connection signal="body_exited" from="Summoner" to="Summoner" method="_on_body_exited"]
