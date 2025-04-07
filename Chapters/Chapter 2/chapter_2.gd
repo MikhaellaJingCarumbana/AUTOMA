@@ -9,6 +9,7 @@ extends Node2D
 @onready var transition_prompt := $CanvasLayer/TransitionPrompt
 @onready var from_label := $CanvasLayer/TransitionPrompt/FromLabel
 @onready var to_label := $CanvasLayer/TransitionPrompt/ToLabel
+@onready var dropzones := [$StateCardDropzone, $StateCardDropzone2, $StateCardDropzone3, $StateCardDropzone4, $StateCardDropzone5, $StateCardDropzone6, $StateCardDropzone7, $StateCardDropzone8, $StateCardDropzone9, $StateCardDropzone10, $StateCardDropzone11]
 var current_hovered_card : CardUI
 var selected_transition_card: CardUI
 
@@ -74,22 +75,30 @@ func _on_transition_button_pressed(): #change pani nato
     populate_option_button_with_top_cards()
     transition_prompt.show()
 
-# To Label
-func _on_option_button_item_selected(index: int):
-    var selected_card_name = option_button.get_item_text(index)
-    to_label.text = selected_card_name
 
 func _on_transition_card_dropped(card_ui: CardUI):
     selected_transition_card = card_ui
+    var droppedzone
+    for dropzone in dropzones:
+        var top_card = dropzone.get_top_card()
+        if top_card == selected_transition_card:
+            droppedzone = dropzone
+    card_pile_ui.set_card_pile(selected_transition_card, CardPileUI.Piles.discard_pile)
+    var dropzone_card = droppedzone.get_top_card()
+    from_label.text = dropzone_card.card_data.nice_name
+    populate_option_button_with_top_cards()
+    
     transition_prompt.show()
 
 func _on_confirm_button_pressed():
     if selected_transition_card:
-        card_pile_ui.set_card_pile(selected_transition_card, CardPileUI.Piles.discard_pile)
         selected_transition_card = null
     transition_prompt.hide()
 
 #OptionButton Functions
+func _on_option_button_item_selected(index: int):
+    var selected_card_name = option_button.get_item_text(index)
+    to_label.text = selected_card_name
 
 func populate_option_button_with_top_cards():
     option_button.clear()
@@ -99,18 +108,8 @@ func populate_option_button_with_top_cards():
 
 func get_top_cards_from_all_dropzones(root: Node) -> Array:
     var top_cards := []
-    var dropzones := []
-    _collect_dropzones(root, dropzones)
-    print("Dropzones found: ", dropzones.size())
     for dropzone in dropzones:
         var top_card = dropzone.get_top_card()
         if top_card:
-            print("Top card in dropzone:", top_card.card_data.nice_name)
             top_cards.append(top_card)
     return top_cards
-
-func _collect_dropzones(node: Node, result: Array) -> void:
-    if node is CardDropzone:
-        result.append(node)
-    for child in node.get_children():
-        _collect_dropzones(child, result)

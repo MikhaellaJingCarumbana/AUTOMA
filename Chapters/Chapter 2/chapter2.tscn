@@ -150,6 +150,7 @@ offset_bottom = 327.0
 text = "SORT HAND"
 
 [node name="TestTransition" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 345.0
 offset_right = 262.0
@@ -705,7 +706,6 @@ default_color = Color(0.87451, 0.666667, 0.223529, 1)
 visible = false
 
 [node name="TransitionPrompt" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -818,20 +818,20 @@ vertical_alignment = 1
 [node name="Label3" type="Label" parent="CanvasLayer/TransitionPrompt"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.474
-anchor_top = 0.441
-anchor_right = 0.532
-anchor_bottom = 0.565
-offset_left = 0.919922
-offset_top = -0.280029
-offset_right = 0.559998
-offset_bottom = -0.200012
+anchor_left = 0.463
+anchor_top = 0.435
+anchor_right = 0.521
+anchor_bottom = 0.569
+offset_left = 6.03992
+offset_top = 0.199951
+offset_right = 5.67999
+offset_bottom = -10.52
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.933333, 0.596078, 0.219608, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.215686)
 theme_override_fonts/font = ExtResource("3_g2cp2")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 70
 text = "➢"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -842,11 +842,11 @@ anchors_preset = -1
 anchor_left = 0.534
 anchor_top = 0.411
 anchor_right = 0.601
-anchor_bottom = 0.43
+anchor_bottom = 0.411
 offset_left = 0.719971
-offset_top = -2.88
-offset_right = 0.0799561
-offset_bottom = -3.39999
+offset_top = -22.88
+offset_right = 0.079834
+offset_bottom = -2.88
 grow_horizontal = 2
 grow_vertical = 2
 item_count = 1
@@ -879,16 +879,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -185.0
-offset_top = -67.0
-offset_right = -56.0
-offset_bottom = 82.0
+offset_left = -199.0
+offset_top = -74.0
+offset_right = -70.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0.516568, 0.37878, 0.0696579, 1)
 theme_override_fonts/font = ExtResource("3_g2cp2")
 theme_override_font_sizes/font_size = 150
-text = "Q1"
+text = "Q"
 
 [node name="ToLabel" type="Label" parent="CanvasLayer/TransitionPrompt"]
 layout_mode = 1
@@ -897,16 +897,17 @@ anchor_left = 0.531
 anchor_top = 0.448
 anchor_right = 0.598
 anchor_bottom = 0.586
-offset_left = 4.47998
-offset_top = -7.84003
-offset_right = 4.83984
-offset_bottom = -7.88
+offset_left = -1.52002
+offset_top = -15.84
+offset_right = -1.16016
+offset_bottom = -15.88
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0.516568, 0.37878, 0.0696579, 1)
 theme_override_fonts/font = ExtResource("3_g2cp2")
 theme_override_font_sizes/font_size = 150
-text = "Q1"
+text = "Q
+"
 
 [connection signal="pressed" from="Control/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Control/DrawTransitionORANDButton" to="." method="_on_draw_transition_orand_button_pressed"]
