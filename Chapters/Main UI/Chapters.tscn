@@ -2,9 +2,9 @@
 
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="1_ffb46"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="2_x6bey"]
-[ext_resource type="PackedScene" uid="uid://c28gnfhsitl7x" path="res://Chapters/Main UI/Scripts/Chapter 1.tscn" id="3_u3726"]
-[ext_resource type="PackedScene" uid="uid://gw46pwfwa0px" path="res://Chapters/Main UI/Scripts/Chapter 2.tscn" id="4_460ri"]
-[ext_resource type="PackedScene" uid="uid://pgyekjut1n5j" path="res://Chapters/Main UI/Scripts/Chapter 3.tscn" id="5_ecow0"]
+[ext_resource type="PackedScene" path="res://Chapters/Main UI/Scripts/Chapter 1.tscn" id="3_u3726"]
+[ext_resource type="PackedScene" path="res://Chapters/Main UI/Scripts/Chapter 2.tscn" id="4_460ri"]
+[ext_resource type="PackedScene" path="res://Chapters/Main UI/Scripts/Chapter 3.tscn" id="5_ecow0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hlxob"]
 shader = ExtResource("1_ffb46")

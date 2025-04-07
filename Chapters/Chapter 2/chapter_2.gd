@@ -12,6 +12,8 @@ extends Node2D
 @onready var dropzones := [$StateCardDropzone, $StateCardDropzone2, $StateCardDropzone3, $StateCardDropzone4, $StateCardDropzone5, $StateCardDropzone6, $StateCardDropzone7, $StateCardDropzone8, $StateCardDropzone9, $StateCardDropzone10, $StateCardDropzone11]
 var current_hovered_card : CardUI
 var selected_transition_card: CardUI
+var from_dropzone : CardDropzone
+var to_dropzone : CardDropzone
 
 
 func _ready() -> void:
@@ -69,14 +71,16 @@ func _on_discard_button_pressed():
     for card_ui in card_pile_ui.get_cards_in_pile(CardPileUI.Piles.hand_pile):
         card_pile_ui.set_card_pile(card_ui, CardPileUI.Piles.discard_pile)
 
-func _on_transition_button_pressed(): #change pani nato
-    populate_option_button_with_top_cards()
-    transition_prompt.show()
-
 #To Label
 func _on_option_button_item_selected(index: int):
     var selected_card_name = option_button.get_item_text(index)
     to_label.text = selected_card_name
+    # Now find the dropzone that corresponds to the ToLabel's selected card
+    for dropzone in dropzones:
+        var top_card = dropzone.get_top_card()
+        if top_card and top_card.card_data.nice_name == selected_card_name:
+            to_dropzone = dropzone  # Store the dropzone
+            break
 
 func _on_transition_card_dropped(card_ui: CardUI):
     selected_transition_card = card_ui
@@ -88,14 +92,25 @@ func _on_transition_card_dropped(card_ui: CardUI):
     card_pile_ui.set_card_pile(selected_transition_card, CardPileUI.Piles.discard_pile)
     var dropzone_card = droppedzone.get_top_card()
     from_label.text = dropzone_card.card_data.nice_name
+    from_dropzone = droppedzone
     populate_option_button_with_top_cards()
-    
     transition_prompt.show()
 
 func _on_confirm_button_pressed():
     if selected_transition_card:
         selected_transition_card = null
     transition_prompt.hide()
+    _draw()
+
+# Drawing the line between the dropzones
+func _draw():
+    if from_dropzone and to_dropzone:
+        # Get the positions of the two dropzones
+        var from_pos = from_dropzone.position
+        var to_pos = to_dropzone.position
+        
+        # Draw a line between the two dropzones
+        draw_line(from_pos, to_pos, Color(1, 0, 0), 2)  # Red line with width of 2
 
 #OptionButton Functions
 
