@@ -15,67 +15,67 @@ signal filled_changed
 
 
 func _set_filled(value: bool) -> void:
-    if filled != value:
-        filled = value
-        emit_signal("filled_changed")
+	if filled != value:
+		filled = value
+		emit_signal("filled_changed")
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-    set_drag_preview(get_preview())
-    
-    return texture_rect
-    
+	set_drag_preview(get_preview())
+	
+	return texture_rect
+	
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-    return data is TextureRect
-    
+	return data is TextureRect
+	
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-    var temp = texture_rect.property
-    texture_rect.property = data.property
-    data.property = temp
-    
-    if texture_rect.property and texture_rect.property.has("STS"):
-        sts = texture_rect.property["STS"]
-    else:
-        sts = 0
-        
-        
-    _set_filled((sts > 0))
+	var temp = texture_rect.property
+	texture_rect.property = data.property
+	data.property = temp
+	
+	if texture_rect.property and texture_rect.property.has("STS"):
+		sts = texture_rect.property["STS"]
+	else:
+		sts = 0
+		
+		
+	_set_filled((sts > 0))
 
 func get_preview():
-    var preview_texture = TextureRect.new()
-    
-    preview_texture.texture = texture_rect.texture
-    preview_texture.expand_mode = 1
-    preview_texture.size = Vector2(30, 30)
-    
-    var preview = Control.new()
-    preview.add_child(preview_texture)
-    
-    return preview
+	var preview_texture = TextureRect.new()
+	
+	preview_texture.texture = texture_rect.texture
+	preview_texture.expand_mode = 1
+	preview_texture.size = Vector2(30, 30)
+	
+	var preview = Control.new()
+	preview.add_child(preview_texture)
+	
+	return preview
 
 func get_STS() -> int:
-    return sts
-    
-    
+	return sts
+	
+	
 func set_property(data):
-    texture_rect.property = data
-    
-    if "TEXTURE" in data and data["TEXTURE"] != null:
-        filled = true
-    else:
-        filled = false
+	texture_rect.property = data
+	
+	if "TEXTURE" in data and data["TEXTURE"] != null:
+		filled = true
+	else:
+		filled = false
 
 func set_animated_sprite(animated_sprite: Node):
-    container.add_child(animated_sprite)
-    filled = true
-    
+	container.add_child(animated_sprite)
+	filled = true
+	
 func clear_slot():
-    texture_rect.texture = null
-    texture_rect.property = {}
-    sts = 0
-    _set_filled(false)
-    
-    container.queue_free()
-    
-    container = Container.new()
-    add_child(container)
-    
+	texture_rect.texture = null
+	texture_rect.property = {}
+	sts = 0
+	_set_filled(false)
+	
+	container.queue_free()
+	
+	container = Container.new()
+	add_child(container)
+	

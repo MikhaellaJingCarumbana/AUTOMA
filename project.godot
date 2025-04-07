@@ -33,12 +33,14 @@ directories/dch_directory={
 "Adventurer": "res://Tests/Adventurer.dch",
 "Eleanor_NPC": "res://Characters/Eleanor_NPC.dch",
 "No One": "res://Tests/No One.dch",
-"Sprite": "res://Characters/Sprite.dch"
+"Sprite": "res://Characters/Sprite.dch",
+"Summoner": "res://Summoner.dch"
 }
 directories/dtl_directory={
 "Chap3": "res://Chapters/Chapter 3/Timelines/Chap3.dtl",
 "Door": "res://Chapters/Chapter 1/Dialogic Timelines/Door.dtl",
 "Door not accessible": "res://Chapters/Chapter 3/Timelines/Door not accessible.dtl",
+"Final dialogue": "res://Chapters/Chapter 3/Final dialogue.dtl",
 "Intro": "res://Chapters/Chapter 1/Dialogic Timelines/Intro.dtl",
 "Intro_Timeline": "res://Chapters/Chapter 1/Dialogic Timelines/Intro_Timeline.dtl",
 "Level3": "res://Chapters/Chapter 1/Dialogic Timelines/Level3.dtl",

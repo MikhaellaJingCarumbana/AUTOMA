@@ -1,0 +1,131 @@
+[gd_scene load_steps=18 format=3 uid="uid://cfewttqapqm6k"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 3/UI/lever.gd" id="1_vg6vn"]
+[ext_resource type="Texture2D" uid="uid://boc7kgwlb6wrx" path="res://Chapters/Chapter 3/UI/Assets/Lever.png" id="2_jmcsa"]
+[ext_resource type="AudioStream" uid="uid://cavn4ysypr5a3" path="res://Chapters/Chapter 1/audios/sounds/coin.wav" id="3_6hbvx"]
+
+[sub_resource type="Gradient" id="Gradient_us8p1"]
+colors = PackedColorArray(1, 1, 0.870588, 0.85098, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0n3np"]
+gradient = SubResource("Gradient_us8p1")
+fill = 1
+fill_from = Vector2(0.491453, 0.487179)
+fill_to = Vector2(0.876068, 0.132479)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txukn"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38p6r"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkmqe"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqaox"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy6c5"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_453hj"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0er4h"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kneov"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmdhx"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iiaj"]
+atlas = ExtResource("2_jmcsa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b0uil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txukn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38p6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkmqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqaox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy6c5")
+}],
+"loop": false,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_453hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0er4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kneov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmdhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iiaj")
+}],
+"loop": false,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_63ipp"]
+radius = 7.0
+height = 36.0
+
+[node name="Lever" type="Area2D"]
+script = ExtResource("1_vg6vn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.8
+texture = SubResource("GradientTexture2D_0n3np")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(0.648081, 0.648081)
+sprite_frames = SubResource("SpriteFrames_b0uil")
+animation = &"Up"
+frame = 4
+frame_progress = 1.0
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_63ipp")
+
+[node name="PowerupTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6hbvx")
+volume_db = -15.0
+max_distance = 200.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
