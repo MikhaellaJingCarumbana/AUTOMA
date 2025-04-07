@@ -1,4 +1,4 @@
-extends CardDropzone
+class_name DropzoneState extends CardDropzone
 
 @export var accept_type : String
 

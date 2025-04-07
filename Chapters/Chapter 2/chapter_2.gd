@@ -7,13 +7,14 @@ extends Node2D
 @onready var reset_button := $ResetButton
 @onready var option_button := $CanvasLayer/TransitionPrompt/OptionButton
 @onready var transition_prompt := $CanvasLayer/TransitionPrompt
-@onready var from_card := $CanvasLayer/TransitionPrompt/FromCardUI
-@onready var to_card :=$CanvasLayer/TransitionPrompt/ToCardUI
+@onready var from_label := $CanvasLayer/TransitionPrompt/FromLabel
+@onready var to_label := $CanvasLayer/TransitionPrompt/ToLabel
 var current_hovered_card : CardUI
 var selected_transition_card: CardUI
 
 
 func _ready() -> void:
+    
     card_pile_ui.connect("card_hovered", func(card_ui):
         rich_text_label.text = card_ui.card_data.format_description()
         panel_container.visible = true
@@ -73,7 +74,10 @@ func _on_transition_button_pressed(): #change pani nato
     populate_option_button_with_top_cards()
     transition_prompt.show()
 
-#
+# To Label
+func _on_option_button_item_selected(index: int):
+    var selected_card_name = option_button.get_item_text(index)
+    to_label.text = selected_card_name
 
 func _on_transition_card_dropped(card_ui: CardUI):
     selected_transition_card = card_ui

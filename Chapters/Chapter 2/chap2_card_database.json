@@ -1,5 +1,14 @@
 [
     {
+        "nice_name": "Blank",
+        "texture_path": "res://Art/Custom UI/Card Blank.png",
+        "backface_texture_path": "res://Art/Custom UI/card_back.png",
+        "resource_script_path": "res://Chapters/Chapter 2/chap2_card_data.gd",
+        "description": "",
+        "type": "state",
+        "value": 0
+    },
+    {
         "nice_name": "Q1",
         "texture_path": "res://Art/Custom UI/Q1.png",
         "backface_texture_path": "res://Art/Custom UI/card_back.png",
