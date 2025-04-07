@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bh0d1tsgec7pn"]
+[gd_scene load_steps=39 format=3 uid="uid://bh0d1tsgec7pn"]
 
 [ext_resource type="Script" path="res://Chapters/Chapter 2/chapter_2.gd" id="1_nl1si"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_uerw4"]
@@ -30,6 +30,74 @@ shader_parameter/colour_3 = Color(0.0588235, 0.313726, 0.305882, 1)
 shader_parameter/contrast = 2.0
 shader_parameter/spin_amount = 0.1
 shader_parameter/pixel_filter = 1000.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyx5m"]
+bg_color = Color(0.926819, 0.717804, 0.287735, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myn2s"]
+bg_color = Color(0.752941, 0.568627, 0.160784, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn006"]
+bg_color = Color(0.752941, 0.568627, 0.160784, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqm1n"]
+bg_color = Color(0.926819, 0.717804, 0.287735, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1wls"]
+bg_color = Color(0.752941, 0.568627, 0.160784, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwjfj"]
+bg_color = Color(0.926819, 0.717804, 0.287735, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jyd0"]
+bg_color = Color(0.752941, 0.568627, 0.160784, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqjo2"]
+bg_color = Color(0.752941, 0.568627, 0.160784, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3uka"]
+bg_color = Color(0.926819, 0.717804, 0.287735, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwqnf"]
+bg_color = Color(0.752941, 0.568627, 0.160784, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t6sa"]
+bg_color = Color(0.752941, 0.568627, 0.160784, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edwr3"]
+bg_color = Color(0.926819, 0.717804, 0.287735, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mu3e0"]
+bg_color = Color(0.753395, 0.567755, 0.161494, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oveix"]
+bg_color = Color(0.753395, 0.567755, 0.161494, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="Curve" id="Curve_rfnjg"]
 min_value = 1.0
@@ -116,57 +184,72 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 49.0
 offset_top = 133.0
-offset_right = 506.0
-offset_bottom = 377.0
+offset_right = 311.0
+offset_bottom = 434.0
 
 [node name="ResetButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 29.0
-offset_right = 262.0
-offset_bottom = 78.0
-text = "RESET CARDS"
+offset_left = 13.0
+offset_top = 114.0
+offset_right = 196.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_tyx5m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_myn2s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gn006")
+text = "reset"
 
 [node name="DrawTransitionORANDButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 212.0
-offset_right = 262.0
-offset_bottom = 262.0
-text = "DRAW TRANSITION CARD
-"
+offset_left = 13.0
+offset_top = 217.0
+offset_right = 194.0
+offset_bottom = 267.0
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqm1n")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o1wls")
+text = "draw transition"
 
 [node name="DrawEffectButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 151.0
-offset_right = 262.0
-offset_bottom = 200.0
-text = "DRAW EFFECT CARD"
+offset_left = 14.0
+offset_top = 166.0
+offset_right = 193.0
+offset_bottom = 215.0
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_vwjfj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5jyd0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wqjo2")
+text = "draw effect"
 
 [node name="DiscardButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 90.0
-offset_right = 262.0
-offset_bottom = 138.0
-text = "DISCARD CARDS"
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 197.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_b3uka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jwqnf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5t6sa")
+text = "discard hand"
 
 [node name="SortButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 279.0
-offset_right = 262.0
-offset_bottom = 327.0
-text = "SORT HAND"
-
-[node name="TestTransition" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 345.0
-offset_right = 262.0
-offset_bottom = 393.0
-text = "TRANSITION TEST"
+offset_left = 10.0
+offset_top = 63.0
+offset_right = 197.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("3_g2cp2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_edwr3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mu3e0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oveix")
+text = "sort hand"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
@@ -938,7 +1021,6 @@ text = "Q
 [connection signal="pressed" from="Control/DrawEffectButton" to="." method="_on_draw_effect_button_pressed"]
 [connection signal="pressed" from="Control/DiscardButton" to="." method="_on_discard_button_pressed"]
 [connection signal="pressed" from="Control/SortButton" to="." method="_on_sort_button_pressed"]
-[connection signal="pressed" from="Control/TestTransition" to="." method="_on_transition_button_pressed"]
 [connection signal="item_selected" from="CanvasLayer/TransitionPrompt/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="CanvasLayer/TransitionPrompt/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 
