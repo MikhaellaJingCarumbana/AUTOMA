@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfkgjewglxqf6"]
+[gd_scene load_steps=16 format=3 uid="uid://cfkgjewglxqf6"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_gic3k"]
 [ext_resource type="Shader" path="res://shaders/Baltro.gdshader" id="2_1ekgh"]
 [ext_resource type="Texture2D" uid="uid://bxdcqdb5af370" path="res://Art/logo change/Automa logo 4.svg" id="3_gf06c"]
 [ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="4_xdowu"]
+[ext_resource type="AudioStream" uid="uid://bnlmsd2aq2yh1" path="res://Music/Inspiring Fantasy Background Music For Videos_Enchanting Music_Medieval Fantasy_Atmospheric Ambience-yt.savetube.me.mp3" id="5_3eadm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ysaap"]
 shader = ExtResource("2_1ekgh")
@@ -135,6 +136,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_n6fh5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qw0h5")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ebtjc")
 text = "Exit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3eadm")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]

@@ -13,7 +13,6 @@ extends Control
 func _ready():
 	pass
 
-
 func _on_exit_pressed():
 		SilentWolf.Auth.logout_player()
 		get_tree().quit()

@@ -26,6 +26,7 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 ItemData="*res://Autoload/database.gd"
 InventoryManager="*res://Chapters/Chapter 1/Inventory System/inventory_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+MusicPlayer="*res://Music/music_player.gd"
 
 [dialogic]
 
