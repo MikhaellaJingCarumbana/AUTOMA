@@ -1327,3 +1327,8 @@ func is_class(value) -> bool:
 	return value == "PhantomCamera2D"
 
 #endregion
+
+
+func _on_cutscene_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://Chapters/Chapter 3/UI/chapter 3 ending.tscn")
