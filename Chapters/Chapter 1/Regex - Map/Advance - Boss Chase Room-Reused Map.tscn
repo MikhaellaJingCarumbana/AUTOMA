@@ -6397,10 +6397,10 @@ interact_label = ""
 interact_type = "open_chest"
 
 [node name="Player" parent="." instance=ExtResource("6_yx4og")]
-position = Vector2(55, 527)
+position = Vector2(48, 166)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(200, 527)
+position = Vector2(200, 166)
 script = ExtResource("6_eksja")
 follow_mode = 1
 follow_target = NodePath("../Player")
