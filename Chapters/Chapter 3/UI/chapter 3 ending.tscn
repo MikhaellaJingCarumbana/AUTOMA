@@ -1,0 +1,531 @@
+[gd_scene load_steps=29 format=3 uid="uid://cyansp46yq1l5"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/cutscene_ending.gd" id="1_eoxt8"]
+[ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="2_bfa2c"]
+[ext_resource type="AudioStream" uid="uid://b2mx0bdbj8b8b" path="res://Chapters/Chapter 1/audios/sounds/footsteps-boots-101657.mp3" id="3_ome7l"]
+[ext_resource type="AudioStream" uid="uid://cim2njy0ng6m6" path="res://Chapters/Chapter 1/audios/sounds/magical-glowing-37417.mp3" id="4_ep4tw"]
+[ext_resource type="Texture2D" uid="uid://c06xlidwkx715" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle1.png" id="5_15bih"]
+[ext_resource type="Texture2D" uid="uid://pw3m8r16bxm0" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle2.png" id="6_he7by"]
+[ext_resource type="Texture2D" uid="uid://cdshs2ig4gysb" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle3.png" id="7_mnrj6"]
+[ext_resource type="Texture2D" uid="uid://nvneopx0dew5" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle4.png" id="8_cfsqs"]
+[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="9_2p26v"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="10_augd2"]
+
+[sub_resource type="Animation" id="Animation_p0tcu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer2/red:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer2/red:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer2/Label:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer2/ColorRect2:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer2/Label5:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.466667, 0.0235294, 0.0235294, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer2/Button:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer2/red2:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.466667, 0.0235294, 0.0235294, 0.0306773)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer2/red3:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.466667, 0.0235294, 0.0235294, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bw0in"]
+resource_name = "ending cutscene"
+length = 26.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer2/Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer2/red:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8.13333, 9.7, 10.9333, 14.9, 16.0667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.466667, 0.0235294, 0.0235294, 1), Color(0.466667, 0.0235294, 0.0235294, 1), Color(0.466667, 0.0235294, 0.0235294, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer2/red:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(11.9333, 12.5333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.93333),
+"transitions": PackedFloat32Array(1.36604),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer2/ColorRect2:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 9.56667, 11.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(9.23333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer2/Label5:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(18.0294, 19.6333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.466667, 0.0235294, 0.0235294, 0), Color(0.466667, 0.0235294, 0.0235294, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer2/Button:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(16, 20.0333, 20.4333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer2/red2:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(16.5333, 17.4667, 19.7, 20.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.466667, 0.0235294, 0.0235294, 0), Color(0.466667, 0.0235294, 0.0235294, 1), Color(0.466667, 0.0235294, 0.0235294, 1), Color(0.466667, 0.0235294, 0.0235294, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer2/red3:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(20.5, 22.0333, 24.0667, 25.1333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.466667, 0.0235294, 0.0235294, 0), Color(0.466667, 0.0235294, 0.0235294, 1), Color(0.466667, 0.0235294, 0.0235294, 1), Color(0.466667, 0.0235294, 0.0235294, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vrag"]
+_data = {
+"RESET": SubResource("Animation_p0tcu"),
+"ending cutscene": SubResource("Animation_bw0in")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6of1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_15bih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_he7by")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mnrj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cfsqs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_8hxwt"]
+colors = PackedColorArray(1, 0.780392, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cavo2"]
+gradient = SubResource("Gradient_8hxwt")
+fill = 1
+fill_from = Vector2(0.435897, 0.431624)
+fill_to = Vector2(0.773504, 0.17094)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sl2gf"]
+shader = ExtResource("9_2p26v")
+shader_parameter/height = 6.0
+shader_parameter/frequency = 25.0
+shader_parameter/speed = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pundh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovqar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2lmp8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uedxt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ling"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqgwg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kotlf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydk8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5jrm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pf44x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqruv"]
+bg_color = Color(0.325441, 0.325441, 0.325441, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Beginner-f" type="Node2D"]
+script = ExtResource("1_eoxt8")
+metadata/_edit_vertical_guides_ = [419.0]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.40717, 0.542611, 0.589864, 0.933333)
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_bfa2c")]
+stream = ExtResource("3_ome7l")
+volume_db = 0.919
+
+[node name="AudioStreamPlayer2D2" parent="." instance=ExtResource("2_bfa2c")]
+stream = ExtResource("4_ep4tw")
+volume_db = 5.474
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2vrag")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(206, 118)
+scale = Vector2(1.46875, 1.46875)
+sprite_frames = SubResource("SpriteFrames_j6of1")
+autoplay = "default"
+frame_progress = 0.688003
+speed_scale = 1.5
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+color = Color(0.592157, 0.67451, 0.196078, 1)
+texture = SubResource("GradientTexture2D_cavo2")
+texture_scale = 0.8
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_sl2gf")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -128.0
+offset_right = 20.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_augd2")
+theme_override_font_sizes/font_size = 70
+text = "Finally..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="red" type="Label" parent="CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_sl2gf")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -128.0
+offset_right = 20.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_augd2")
+theme_override_font_sizes/font_size = 70
+text = "Freedom"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="red2" type="Label" parent="CanvasLayer2"]
+self_modulate = Color(0.466667, 0.0235294, 0.0235294, 0.0306773)
+material = SubResource("ShaderMaterial_sl2gf")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -128.0
+offset_right = 20.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_augd2")
+theme_override_font_sizes/font_size = 70
+text = "it's quiet..."
+
+[node name="red3" type="Label" parent="CanvasLayer2"]
+self_modulate = Color(0.466667, 0.0235294, 0.0235294, 0)
+material = SubResource("ShaderMaterial_sl2gf")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -128.0
+offset_right = 20.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_augd2")
+theme_override_font_sizes/font_size = 70
+text = "too quiet..."
+
+[node name="Label5" type="Label" parent="CanvasLayer2"]
+self_modulate = Color(0.466667, 0.0235294, 0.0235294, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -33.5
+offset_right = 92.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_augd2")
+theme_override_font_sizes/font_size = 250
+text = "End"
+
+[node name="Button" type="Button" parent="CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -157.5
+offset_top = -379.0
+offset_right = 157.5
+offset_bottom = -285.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0.560784, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_augd2")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pundh")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ovqar")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2lmp8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uedxt")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3ling")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hqgwg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kotlf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ydk8e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v5jrm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_pf44x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqruv")
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer2/Button" to="." method="_on_button_pressed"]

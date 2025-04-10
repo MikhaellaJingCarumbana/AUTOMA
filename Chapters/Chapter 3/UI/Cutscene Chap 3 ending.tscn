@@ -1,0 +1,272 @@
+[gd_scene load_steps=18 format=3 uid="uid://dvwwovxqqjd1s"]
+
+[ext_resource type="Script" path="res://Chapters/Chapter 1/Cutscene/cutscene_for_chapter_1.gd" id="1_0f84k"]
+[ext_resource type="PackedScene" uid="uid://bn7dgj86a3s78" path="res://Level 1 Music.tscn" id="2_qd3vm"]
+[ext_resource type="AudioStream" uid="uid://c60y7aefy1pw6" path="res://Chapters/Chapter 1/audios/sounds/horror-body-fall-hitting-dirt-02-152097.mp3" id="3_uxkl8"]
+[ext_resource type="Texture2D" uid="uid://c06xlidwkx715" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle1.png" id="4_53v7k"]
+[ext_resource type="Texture2D" uid="uid://pw3m8r16bxm0" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle2.png" id="5_jwd1a"]
+[ext_resource type="Texture2D" uid="uid://cdshs2ig4gysb" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle3.png" id="6_a3ucq"]
+[ext_resource type="Texture2D" uid="uid://nvneopx0dew5" path="res://Chapters/Chapter 1/Sprite/Hobbit/Hobbit - Idle4.png" id="7_c5fwm"]
+[ext_resource type="Shader" path="res://shaders/DoorCode.gdshader" id="8_oqaof"]
+[ext_resource type="FontFile" uid="uid://b4lue4d84htb2" path="res://Fonts/child-witch-font/ChildWitch-z8ABL.ttf" id="9_va4wl"]
+
+[sub_resource type="Animation" id="Animation_p0tcu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer2/Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer2/Label2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer2/Label2:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8ilw2"]
+resource_name = "intro"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.2, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer2/Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer2/Label2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.39657, 5.53333, 5.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer2/Label2:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.39657, 4.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_xc8b2"]
+resource_name = "sprite"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vrag"]
+_data = {
+"RESET": SubResource("Animation_p0tcu"),
+"intro": SubResource("Animation_8ilw2"),
+"sprite": SubResource("Animation_xc8b2")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6of1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_53v7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jwd1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a3ucq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c5fwm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_8hxwt"]
+colors = PackedColorArray(1, 0.780392, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cavo2"]
+gradient = SubResource("Gradient_8hxwt")
+fill = 1
+fill_from = Vector2(0.435897, 0.431624)
+fill_to = Vector2(0.773504, 0.17094)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sl2gf"]
+shader = ExtResource("8_oqaof")
+shader_parameter/height = 6.0
+shader_parameter/frequency = 25.0
+shader_parameter/speed = 5.0
+
+[node name="Beginner-f" type="Node2D"]
+script = ExtResource("1_0f84k")
+metadata/_edit_vertical_guides_ = [419.0]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.40717, 0.542611, 0.589864, 0.933333)
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("2_qd3vm")]
+stream = ExtResource("3_uxkl8")
+volume_db = 5.474
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2vrag")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2vrag")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(206, 118)
+scale = Vector2(1.46875, 1.46875)
+sprite_frames = SubResource("SpriteFrames_j6of1")
+autoplay = "default"
+frame_progress = 0.688003
+speed_scale = 1.5
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+color = Color(0.592157, 0.67451, 0.196078, 1)
+texture = SubResource("GradientTexture2D_cavo2")
+texture_scale = 0.8
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_sl2gf")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -128.0
+offset_right = 20.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_va4wl")
+theme_override_font_sizes/font_size = 70
+text = "Ughhhh..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label2" type="Label" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_sl2gf")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -128.0
+offset_right = 20.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("9_va4wl")
+theme_override_font_sizes/font_size = 70
+text = "figures it would end like this..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_animation_finished"]
