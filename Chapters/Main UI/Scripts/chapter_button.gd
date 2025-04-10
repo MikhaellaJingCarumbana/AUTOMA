@@ -7,12 +7,12 @@ extends Button
 # Called when the node enters the scene tree for the first time.
 
 func _on_mouse_entered() -> void:
-	if chapters_animation.animation_finished:
-		animation_player.play("flip")
-		sfx.play()
+    if chapters_animation.animation_finished:
+        animation_player.play("flip")
+        sfx.play()
 
 
 
 func _on_mouse_exited() -> void:
-	animation_player.play("flip_2")
-	sfx.play()
+    animation_player.play("flip_2")
+    sfx.play()

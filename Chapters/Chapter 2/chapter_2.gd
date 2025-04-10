@@ -17,59 +17,59 @@ var to_dropzone : CardDropzone
 
 
 func _ready() -> void:
-	
-	card_pile_ui.connect("card_hovered", func(card_ui):
-		rich_text_label.text = card_ui.card_data.format_description()
-		panel_container.visible = true
-		current_hovered_card = card_ui
-	)
-	card_pile_ui.connect("card_unhovered", func(_card_ui):
-		panel_container.visible = false
-		current_hovered_card = null
-	)
-	
-	# Connect to all dropzones
-	for dropzone in dropzones:
-		dropzone.connect("transition_card_dropped", _on_transition_card_dropped)
-		
+    
+    card_pile_ui.connect("card_hovered", func(card_ui):
+        rich_text_label.text = card_ui.card_data.format_description()
+        panel_container.visible = true
+        current_hovered_card = card_ui
+    )
+    card_pile_ui.connect("card_unhovered", func(_card_ui):
+        panel_container.visible = false
+        current_hovered_card = null
+    )
+    
+    # Connect to all dropzones
+    for dropzone in dropzones:
+        dropzone.connect("transition_card_dropped", _on_transition_card_dropped)
+        
 func _process(delta):
-	if current_hovered_card:
-		var target_pos = current_hovered_card.position
-		target_pos.y += 30
-		target_pos.x += 100
-		panel_container.position = target_pos
+    if current_hovered_card:
+        var target_pos = current_hovered_card.position
+        target_pos.y += 30
+        target_pos.x += 100
+        panel_container.position = target_pos
 
 #Buttons Functions
 
 func _on_reset_button_pressed():
-	card_pile_ui.reset()
+    card_pile_ui.reset()
 
 func _get_transition_card():
-	return "Transition A or B" if randi_range(0,1) else "Transition A and B"
+    return "Transition A or B" if randi_range(0,1) else "Transition A and B"
 
 
 func _on_sort_button_pressed():
-	card_pile_ui.sort_hand(func(a, b): 
-		if a.card_data.type == b.card_data.type:
-			return a.card_data.value < b.card_data.value
-		else:
-			return a.card_data.type < b.card_data.type
-	)
+    card_pile_ui.sort_hand(func(a, b): 
+        if a.card_data.type == b.card_data.type:
+            return a.card_data.value < b.card_data.value
+        else:
+            return a.card_data.type < b.card_data.type
+    )
 
 func _on_draw_transition_orand_button_pressed():
-	if !card_pile_ui.hand_is_at_max_capacity():
-		card_pile_ui.create_card_in_pile(_get_transition_card(), CardPileUI.Piles.hand_pile)
+    if !card_pile_ui.hand_is_at_max_capacity():
+        card_pile_ui.create_card_in_pile(_get_transition_card(), CardPileUI.Piles.hand_pile)
 
 func _get_effect_card():
-	return "Start State" if randi_range(0,1) else "Final State"
-	
+    return "Start State" if randi_range(0,1) else "Final State"
+    
 func _on_draw_effect_button_pressed():
-	if !card_pile_ui.hand_is_at_max_capacity():
-		card_pile_ui.create_card_in_pile(_get_effect_card(), CardPileUI.Piles.hand_pile)
+    if !card_pile_ui.hand_is_at_max_capacity():
+        card_pile_ui.create_card_in_pile(_get_effect_card(), CardPileUI.Piles.hand_pile)
 
 func _on_discard_button_pressed():
-	for card_ui in card_pile_ui.get_cards_in_pile(CardPileUI.Piles.hand_pile):
-		card_pile_ui.set_card_pile(card_ui, CardPileUI.Piles.discard_pile)
+    for card_ui in card_pile_ui.get_cards_in_pile(CardPileUI.Piles.hand_pile):
+        card_pile_ui.set_card_pile(card_ui, CardPileUI.Piles.discard_pile)
 
 #To Label
 func _on_option_button_item_selected(index: int):
@@ -115,16 +115,16 @@ func _draw():
 #OptionButton Functions
 
 func populate_option_button_with_top_cards():
-	option_button.clear()
-	var top_cards = get_top_cards_from_all_dropzones(get_tree().root)
-	for card_ui in top_cards:
-		option_button.add_item(card_ui.card_data.nice_name)
+    option_button.clear()
+    var top_cards = get_top_cards_from_all_dropzones(get_tree().root)
+    for card_ui in top_cards:
+        option_button.add_item(card_ui.card_data.nice_name)
 
 func get_top_cards_from_all_dropzones(root: Node) -> Array:
-	var top_cards := []
-	for dropzone in dropzones:
-		var top_card = dropzone.get_top_card()
-		if top_card:
-			print("Top card in dropzone:", top_card.card_data.nice_name)
-			top_cards.append(top_card)
-	return top_cards
+    var top_cards := []
+    for dropzone in dropzones:
+        var top_card = dropzone.get_top_card()
+        if top_card:
+            print("Top card in dropzone:", top_card.card_data.nice_name)
+            top_cards.append(top_card)
+    return top_cards
